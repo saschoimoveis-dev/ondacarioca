@@ -18,6 +18,16 @@ const attributionKeys = [
 declare global {
   interface Window {
     dataLayer?: TrackingParams[];
+    fbq?: (
+      action: "track" | "trackCustom",
+      event: string,
+      params?: TrackingParams
+    ) => void;
+    gtag?: (
+      command: "event",
+      event: string,
+      params?: TrackingParams
+    ) => void;
   }
 }
 
@@ -50,10 +60,30 @@ export function pushTrackingEvent(event: string, params: TrackingParams = {}) {
     return;
   }
 
+  const eventParams = {
+    ...getAttributionParams(),
+    ...params
+  };
+
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event,
-    ...getAttributionParams(),
-    ...params
+    ...eventParams
   });
+
+  if (window.gtag) {
+    window.gtag(
+      "event",
+      event === "form_submit" ? "generate_lead" : event,
+      eventParams
+    );
+  }
+
+  if (window.fbq) {
+    if (event === "form_submit") {
+      window.fbq("track", "Lead", eventParams);
+    } else {
+      window.fbq("trackCustom", event, eventParams);
+    }
+  }
 }

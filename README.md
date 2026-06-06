@@ -8,6 +8,7 @@ Infraestrutura inicial de aquisicao e qualificacao de leads para lancamentos imo
 - TypeScript
 - Tailwind CSS
 - Google Tag Manager friendly `dataLayer`
+- GA4 e Meta Pixel diretos como fallback opcional
 - API route para Google Sheets como CRM inicial
 - Pronto para deploy via GitHub + Vercel
 
@@ -41,6 +42,8 @@ Variaveis privadas para Sheets:
 - `GOOGLE_SHEETS_SPREADSHEET_ID`
 
 Use `GOOGLE_SHEETS_PRIVATE_KEY_BASE64` quando o painel de ambiente interpretar quebras de linha. Ela tem prioridade sobre `GOOGLE_SHEETS_PRIVATE_KEY`. `GOOGLE_SHEETS_PRIVATE_KEY` tambem pode ser salva com `\n` escapado; o codigo normaliza esse valor antes de autenticar.
+
+Se usar `NEXT_PUBLIC_GA4_ID` ou `NEXT_PUBLIC_META_PIXEL_ID`, o site carrega GA4/Meta direto. Se usar GTM para os mesmos destinos, evite duplicar as tags diretas.
 
 ## Google Sheets
 

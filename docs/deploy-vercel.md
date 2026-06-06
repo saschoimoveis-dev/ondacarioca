@@ -73,6 +73,8 @@ Eventos especificos do WE Barra:
 
 No Google Tag Manager, crie triggers por esses nomes de evento e conecte GA4, Google Ads Conversion Tracking e Meta Pixel pelo GTM.
 
+Alternativamente, preencha `NEXT_PUBLIC_GA4_ID` e/ou `NEXT_PUBLIC_META_PIXEL_ID` para carregar GA4 e Meta Pixel direto no site. Nesse modo, `form_submit` tambem envia `generate_lead` para GA4 e `Lead` para Meta. Evite configurar o mesmo destino nos dois lugares ao mesmo tempo para nao duplicar conversoes.
+
 ## 5. Validacao pos-deploy
 
 Antes de enviar trafego pago:
