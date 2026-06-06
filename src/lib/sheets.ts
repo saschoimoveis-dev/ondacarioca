@@ -52,10 +52,27 @@ function getPrivateKey() {
 
 function hasSheetsEnv() {
   return Boolean(
-    process.env.GOOGLE_SHEETS_CLIENT_EMAIL &&
+    getClientEmail() &&
       getPrivateKey() &&
       process.env.GOOGLE_SHEETS_SPREADSHEET_ID
   );
+}
+
+function stripWrappingQuotes(value: string) {
+  return (value.startsWith('"') && value.endsWith('"')) ||
+    (value.startsWith("'") && value.endsWith("'"))
+    ? value.slice(1, -1)
+    : value;
+}
+
+function getClientEmail() {
+  const clientEmail = process.env.GOOGLE_SHEETS_CLIENT_EMAIL?.trim();
+
+  if (!clientEmail) {
+    return undefined;
+  }
+
+  return stripWrappingQuotes(clientEmail).trim();
 }
 
 export async function appendLeadToSheet(
@@ -66,7 +83,7 @@ export async function appendLeadToSheet(
   }
 
   const auth = new google.auth.JWT({
-    email: process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
+    email: getClientEmail(),
     key: getPrivateKey(),
     scopes: ["https://www.googleapis.com/auth/spreadsheets"]
   });
