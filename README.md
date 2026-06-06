@@ -45,9 +45,11 @@ Variaveis privadas para Sheets:
 
 Crie uma aba chamada `Leads` com as colunas:
 
-Data, Nome, WhatsApp, E-mail, Imovel, Slug, Objetivo, Tipologia, Entrada disponivel, Prazo de compra, Mensagem, UTM Source, UTM Medium, UTM Campaign, UTM Term, UTM Content, GCLID, FBCLID, Pagina, Status do atendimento, Qualidade do lead, Visita marcada?, Venda gerada?, Observacoes
+Data, Nome, WhatsApp, E-mail, Imovel, Slug, Objetivo, Tipologia, Entrada disponivel, Prazo de compra, Mensagem, UTM Source, UTM Medium, UTM Campaign, UTM Term, UTM Content, GCLID, FBCLID, Pagina, User Agent, Status do atendimento, Qualidade do lead, Visita marcada?, Venda gerada?, Observacoes
 
 Compartilhe a planilha com o `GOOGLE_SHEETS_CLIENT_EMAIL` da service account.
+
+Sem as variaveis privadas do Google Sheets, a API `/api/leads` retorna erro `missing_google_sheets_env` para evitar leads falsamente marcados como enviados.
 
 ## Desenvolvimento
 
@@ -61,3 +63,9 @@ npm run dev
 ```bash
 npm run build
 ```
+
+## CI e deploy
+
+O repositorio inclui GitHub Actions em `.github/workflows/ci.yml` para rodar lint e build em pushes para `main` e pull requests.
+
+O guia de deploy esta em `docs/deploy-vercel.md`.

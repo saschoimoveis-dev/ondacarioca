@@ -61,6 +61,13 @@ export async function POST(request: Request) {
   try {
     const result = await appendLeadToSheet(lead);
 
+    if (!result.stored) {
+      return NextResponse.json(
+        { ok: false, error: result.reason },
+        { status: 503 }
+      );
+    }
+
     return NextResponse.json(result);
   } catch (error) {
     console.error("lead_submission_failed", error);

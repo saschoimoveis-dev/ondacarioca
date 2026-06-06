@@ -55,7 +55,7 @@ export async function appendLeadToSheet(
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID,
-    range: "Leads!A:X",
+    range: "Leads!A:Y",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -79,6 +79,7 @@ export async function appendLeadToSheet(
           lead.gclid || "",
           lead.fbclid || "",
           lead.pagina,
+          lead.userAgent || "",
           "Novo",
           "",
           "",
