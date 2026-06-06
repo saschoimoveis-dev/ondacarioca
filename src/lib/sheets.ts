@@ -27,7 +27,19 @@ type AppendResult =
   | { ok: true; stored: false; reason: "missing_google_sheets_env" };
 
 function getPrivateKey() {
-  return process.env.GOOGLE_SHEETS_PRIVATE_KEY?.replace(/\\n/g, "\n");
+  const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.trim();
+
+  if (!privateKey) {
+    return undefined;
+  }
+
+  const unquoted =
+    (privateKey.startsWith('"') && privateKey.endsWith('"')) ||
+    (privateKey.startsWith("'") && privateKey.endsWith("'"))
+      ? privateKey.slice(1, -1)
+      : privateKey;
+
+  return unquoted.replace(/\\n/g, "\n").replace(/\\"/g, '"');
 }
 
 function hasSheetsEnv() {
