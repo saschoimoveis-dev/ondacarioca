@@ -11,12 +11,14 @@ function getGoogleErrorReason(error: unknown) {
   const maybeError = error as {
     code?: number;
     message?: string;
+    stack?: string;
     response?: { status?: number; data?: { error?: string; error_description?: string } };
   };
 
   const status = maybeError.code || maybeError.response?.status;
   const message = [
     maybeError.message,
+    maybeError.stack,
     maybeError.response?.data?.error,
     maybeError.response?.data?.error_description
   ]
@@ -32,7 +34,14 @@ function getGoogleErrorReason(error: unknown) {
     status === 401 ||
     message.includes("invalid_grant") ||
     message.includes("invalid jwt") ||
-    message.includes("private key")
+    message.includes("private key") ||
+    message.includes("secretorprivatekey") ||
+    message.includes("pem") ||
+    message.includes("decoder routines") ||
+    message.includes("unsupported") ||
+    message.includes("asn1") ||
+    message.includes("no start line") ||
+    message.includes("bad decrypt")
   ) {
     return "google_sheets_auth_failed";
   }
