@@ -30,3 +30,7 @@ yarn-error.log*
 # local npm cache used by Codex in this workspace
 /.npm-cache
 .vercel
+
+# local Codex artifacts
+/tmp
+/outputs
