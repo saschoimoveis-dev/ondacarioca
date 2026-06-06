@@ -34,9 +34,12 @@ Privadas:
 
 - `GOOGLE_SHEETS_CLIENT_EMAIL`
 - `GOOGLE_SHEETS_PRIVATE_KEY`
+- `GOOGLE_SHEETS_PRIVATE_KEY_BASE64`
 - `GOOGLE_SHEETS_SPREADSHEET_ID`
 
 Use as variaveis privadas em Production, Preview e Development se quiser testar captacao nos tres ambientes.
+
+Se o painel da Vercel quebrar a chave privada em varias linhas, prefira `GOOGLE_SHEETS_PRIVATE_KEY_BASE64`. Ela tem prioridade sobre `GOOGLE_SHEETS_PRIVATE_KEY`.
 
 ## 3. Google Sheets
 

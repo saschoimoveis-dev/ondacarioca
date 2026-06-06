@@ -37,9 +37,10 @@ Variaveis privadas para Sheets:
 
 - `GOOGLE_SHEETS_CLIENT_EMAIL`
 - `GOOGLE_SHEETS_PRIVATE_KEY`
+- `GOOGLE_SHEETS_PRIVATE_KEY_BASE64`
 - `GOOGLE_SHEETS_SPREADSHEET_ID`
 
-`GOOGLE_SHEETS_PRIVATE_KEY` pode ser salva com `\n` escapado. O codigo normaliza esse valor antes de autenticar.
+Use `GOOGLE_SHEETS_PRIVATE_KEY_BASE64` quando o painel de ambiente interpretar quebras de linha. Ela tem prioridade sobre `GOOGLE_SHEETS_PRIVATE_KEY`. `GOOGLE_SHEETS_PRIVATE_KEY` tambem pode ser salva com `\n` escapado; o codigo normaliza esse valor antes de autenticar.
 
 ## Google Sheets
 

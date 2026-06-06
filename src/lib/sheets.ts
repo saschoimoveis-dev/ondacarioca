@@ -27,6 +27,15 @@ type AppendResult =
   | { ok: true; stored: false; reason: "missing_google_sheets_env" };
 
 function getPrivateKey() {
+  const privateKeyBase64 =
+    process.env.GOOGLE_SHEETS_PRIVATE_KEY_BASE64?.trim();
+
+  if (privateKeyBase64) {
+    return Buffer.from(stripWrappingQuotes(privateKeyBase64), "base64").toString(
+      "utf8"
+    );
+  }
+
   const privateKey = process.env.GOOGLE_SHEETS_PRIVATE_KEY?.trim();
 
   if (!privateKey) {
