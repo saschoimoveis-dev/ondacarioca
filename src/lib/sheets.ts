@@ -39,7 +39,15 @@ function getPrivateKey() {
       ? privateKey.slice(1, -1)
       : privateKey;
 
-  return unquoted.replace(/\\n/g, "\n").replace(/\\"/g, '"');
+  const normalized = unquoted.replace(/\\n/g, "\n").replace(/\\"/g, '"');
+
+  if (normalized.includes("\n")) {
+    return normalized;
+  }
+
+  return normalized
+    .replace("-----BEGIN PRIVATE KEY-----", "-----BEGIN PRIVATE KEY-----\n")
+    .replace("-----END PRIVATE KEY-----", "\n-----END PRIVATE KEY-----\n");
 }
 
 function hasSheetsEnv() {
