@@ -7,6 +7,47 @@ function isRequiredString(value: unknown): value is string {
   return typeof value === "string" && value.trim().length > 1;
 }
 
+function getGoogleErrorReason(error: unknown) {
+  const maybeError = error as {
+    code?: number;
+    message?: string;
+    response?: { status?: number; data?: { error?: string; error_description?: string } };
+  };
+
+  const status = maybeError.code || maybeError.response?.status;
+  const message = [
+    maybeError.message,
+    maybeError.response?.data?.error,
+    maybeError.response?.data?.error_description
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toLowerCase();
+
+  if (status === 403 || message.includes("permission")) {
+    return "google_sheets_permission_denied";
+  }
+
+  if (
+    status === 401 ||
+    message.includes("invalid_grant") ||
+    message.includes("invalid jwt") ||
+    message.includes("private key")
+  ) {
+    return "google_sheets_auth_failed";
+  }
+
+  if (message.includes("api has not been used") || message.includes("disabled")) {
+    return "google_sheets_api_disabled";
+  }
+
+  if (status === 404 || message.includes("not found")) {
+    return "google_sheets_spreadsheet_not_found";
+  }
+
+  return "google_sheets_append_failed";
+}
+
 export async function POST(request: Request) {
   let body: LeadRequestBody;
 
@@ -70,10 +111,11 @@ export async function POST(request: Request) {
 
     return NextResponse.json(result);
   } catch (error) {
-    console.error("lead_submission_failed", error);
+    const reason = getGoogleErrorReason(error);
+    console.error("lead_submission_failed", { reason, error });
 
     return NextResponse.json(
-      { ok: false, error: "lead_submission_failed" },
+      { ok: false, error: "lead_submission_failed", reason },
       { status: 500 }
     );
   }
