@@ -7,7 +7,6 @@ import { BlocoTipologias } from "@/components/BlocoTipologias";
 import { FaqSection } from "@/components/FaqSection";
 import { GaleriaImovel } from "@/components/GaleriaImovel";
 import { HeroImovel } from "@/components/HeroImovel";
-import { LeadForm } from "@/components/LeadForm";
 import { PageViewTracker } from "@/components/PageViewTracker";
 import { SeoJsonLd } from "@/components/SeoJsonLd";
 import { StickyMobileCTA } from "@/components/StickyMobileCTA";
@@ -81,7 +80,6 @@ export default async function ImovelPage({ params }: PageProps) {
       <BlocoDiferenciais imovel={imovel} />
       <BlocoLocalizacao imovel={imovel} />
       <GaleriaImovel imovel={imovel} />
-      <LeadForm imovel={imovel} />
       <FaqSection imovel={imovel} />
       <StickyMobileCTA imovel={imovel} />
     </>

@@ -9,15 +9,18 @@ const iconByIndex = [BedDouble, Building2, Expand, TreePine];
 
 export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
   return (
-    <section className="bg-white py-14 sm:py-16">
+    <section className="bg-[#fbfaf7] py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <h2 className="text-3xl font-semibold text-slate-950">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+            Plantas e unidades
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950">
             Tipologias para comparar antes de decidir
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            A estrutura de dados da pagina permite que cada tipologia seja usada
-            em campanhas, FAQ, eventos e qualificacao do lead.
+            Veja as opcoes comunicadas e solicite as plantas para entender
+            metragem, coluna, fluxo de pagamento e disponibilidade atual.
           </p>
         </div>
 
@@ -28,15 +31,15 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             return (
               <div
                 key={tipologia}
-                className="rounded-sm border border-slate-200 bg-slate-50 p-5"
+                className="border border-stone-200 bg-white p-5"
               >
-                <Icon className="mb-4 size-6 text-emerald-700" aria-hidden="true" />
+                <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
                 <h3 className="text-lg font-semibold text-slate-950">
                   {tipologia}
                 </h3>
                 <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Consulte metragem, disponibilidade e fluxo de pagamento para
-                  esta opcao.
+                  Consulte plantas, metragem, unidade disponivel e fluxo de
+                  pagamento para esta opcao.
                 </p>
               </div>
             );

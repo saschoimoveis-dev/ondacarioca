@@ -37,14 +37,14 @@ export default function LancamentosPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={`/lancamentos/${imoveis[0].slug}`}
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-emerald-700 px-5 py-3 text-sm font-semibold text-white transition hover:bg-emerald-800"
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
               >
                 Ver WE Barra by Living
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <a
                 href="#lista"
-                className="inline-flex items-center justify-center gap-2 rounded-sm border border-emerald-800 px-5 py-3 text-sm font-semibold text-emerald-900 transition hover:bg-emerald-50"
+                className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-[#fbfaf7]"
               >
                 Ver lancamentos
               </a>
@@ -77,7 +77,7 @@ export default function LancamentosPage() {
                   className="rounded-sm border border-slate-200 bg-slate-50 p-5"
                 >
                   <Icon
-                    className="mb-4 size-6 text-emerald-700"
+                    className="mb-4 size-6 text-[#173f34]"
                     aria-hidden="true"
                   />
                   <h2 className="text-base font-semibold text-slate-950">

@@ -8,17 +8,17 @@ type BlocoCondicoesProps = {
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
   const condicoes = [
     {
-      label: "Preco inicial comunicado",
+      label: "Preco inicial",
       value: imovel.precoInicial || "Sob consulta",
       icon: Banknote
     },
     {
-      label: "Sinal inicial comunicado",
+      label: "Sinal comunicado",
       value: imovel.sinalInicial || "Sob consulta",
       icon: Landmark
     },
     {
-      label: "Mensais comunicadas",
+      label: "Mensais",
       value: imovel.parcelasIniciais || "Sob consulta",
       icon: CalendarClock
     },
@@ -30,8 +30,17 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
   ];
 
   return (
-    <section className="border-y border-slate-200 bg-slate-50" id="condicoes">
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+    <section className="border-y border-stone-200 bg-white" id="condicoes">
+      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
+        <div className="mb-7 max-w-3xl">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+            Condicoes comunicadas
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950">
+            Compare os principais pontos antes de falar com o corretor
+          </h2>
+        </div>
+
         <div className="grid gap-3 md:grid-cols-4">
           {condicoes.map((condicao) => {
             const Icon = condicao.icon;
@@ -39,10 +48,10 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             return (
               <div
                 key={condicao.label}
-                className="rounded-sm border border-slate-200 bg-white p-5 shadow-sm"
+                className="border border-stone-200 bg-[#fbfaf7] p-5"
               >
-                <Icon className="mb-4 size-6 text-emerald-700" aria-hidden="true" />
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
+                <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#9a6a20]">
                   {condicao.label}
                 </p>
                 <p className="mt-2 text-lg font-semibold text-slate-950">
@@ -52,7 +61,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             );
           })}
         </div>
-        <p className="mt-4 text-sm leading-6 text-slate-600">
+        <p className="mt-5 max-w-4xl text-sm leading-6 text-slate-600">
           {imovel.condicoesAviso}
         </p>
       </div>

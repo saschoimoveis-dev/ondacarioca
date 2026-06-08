@@ -86,16 +86,16 @@ export const imoveis: Imovel[] = [
       "Coberturas lineares e duplex"
     ],
     diferenciais: [
-      "Lancamento na Barra da Tijuca com plantas para morar ou investir",
-      "Opcoes de 2, 3 e 4 quartos, gardens e coberturas",
-      "Conds comerciais comunicadas com entrada e parcelas facilitadas",
+      "Lancamento na Barra da Tijuca com opcoes para morar ou investir",
+      "Plantas de 2, 3 e 4 quartos, gardens e coberturas",
+      "Condicoes comunicadas com sinal e mensais de referencia",
       "Atendimento direto para tabela, plantas e disponibilidade atualizada",
-      "Produto com potencial para campanhas de busca, remarketing e SEO local"
+      "Comparacao de tipologias para escolher unidade com mais seguranca"
     ],
     descricaoCurta:
       "Lancamento imobiliario na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens, coberturas lineares e duplex.",
     descricaoLonga:
-      "O WE Barra by Living e um lancamento imobiliario na Barra da Tijuca pensado para compradores que buscam um apartamento novo em uma das regioes mais desejadas do Rio de Janeiro. A pagina centraliza condicoes comerciais comunicadas, tipologias, diferenciais e um canal direto para receber tabela, plantas e disponibilidade com o corretor Alexandre Sascho.",
+      "Lancamento na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Fale com Alexandre Sascho para receber tabela atualizada, plantas, unidades disponiveis e condicoes de pagamento comunicadas.",
     publicoIdeal: [
       "Compradores que desejam morar na Barra da Tijuca",
       "Familias avaliando apartamentos novos de 2, 3 ou 4 quartos",
@@ -105,8 +105,8 @@ export const imoveis: Imovel[] = [
     argumentosComerciais: [
       "Entrada comunicada a partir de R$ 50 mil",
       "Mensais comunicadas a partir de R$ 2.000",
-      "Atendimento pelo WhatsApp com envio de tabela e plantas",
-      "Pagina otimizada para campanhas de Google Ads Search"
+      "Envio de tabela, plantas e disponibilidade pelo WhatsApp",
+      "Atendimento para comparar tipologia, fluxo e melhor unidade"
     ],
     objecoes: [
       "Valores e disponibilidade podem mudar sem aviso previo.",
@@ -209,9 +209,9 @@ export const imoveis: Imovel[] = [
       descricao:
         "Regiao de alta procura para apartamentos novos, com acesso a servicos, vias importantes, lazer, praia e polos comerciais do Rio de Janeiro.",
       pontos: [
-        "Busca recorrente por lancamentos na Barra da Tijuca",
+        "Regiao procurada por quem busca apartamento novo na Barra",
         "Perfil forte para morar, investir e comparar tipologias",
-        "Contexto favoravel para campanhas de Google Ads Search"
+        "Acesso a servicos, lazer, praia e polos comerciais do Rio"
       ],
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=Barra+da+Tijuca+Rio+de+Janeiro"

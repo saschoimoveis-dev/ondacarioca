@@ -22,10 +22,15 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <h2 className="text-3xl font-semibold text-slate-950">Galeria</h2>
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+              Ambientes
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold text-slate-950">
+              Galeria do empreendimento
+            </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Imagens ilustrativas usadas para validar a experiencia visual.
-              Substitua pelo material oficial quando disponivel.
+              Referencias visuais para entender fachada, interiores e lazer.
+              Confirme o material oficial e a disponibilidade no atendimento.
             </p>
           </div>
         </div>
@@ -36,7 +41,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
               key={imagem.src}
               type="button"
               onClick={() => handleView(index)}
-              className="group relative aspect-[16/11] overflow-hidden rounded-sm border border-slate-200 bg-slate-100 text-left"
+              className="group relative aspect-[16/11] overflow-hidden border border-stone-200 bg-slate-100 text-left"
             >
               <Image
                 src={imagem.src}
