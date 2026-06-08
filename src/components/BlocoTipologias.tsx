@@ -1,4 +1,6 @@
+import Image from "next/image";
 import { BedDouble, Building2, Expand, TreePine } from "lucide-react";
+import { CtaLink } from "@/components/CtaLink";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoTipologiasProps = {
@@ -8,6 +10,17 @@ type BlocoTipologiasProps = {
 const iconByIndex = [BedDouble, Building2, Expand, TreePine];
 
 export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
+  const plantas: NonNullable<Imovel["plantas"]> =
+    imovel.plantas?.length
+      ? imovel.plantas
+      : imovel.tipologias.map((tipologia) => ({
+          titulo: tipologia,
+          metragem: "Sob consulta",
+          imagem: undefined,
+          descricao:
+            "Consulte plantas, metragem, unidade disponivel e fluxo de pagamento para esta opcao."
+        }));
+
   return (
     <section className="bg-[#fbfaf7] py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -16,34 +29,59 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             Plantas e unidades
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Tipologias para comparar antes de decidir
+            Plantas para comparar antes de decidir
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Veja as opcoes comunicadas e solicite as plantas para entender
-            metragem, coluna, fluxo de pagamento e disponibilidade atual.
+            O PDF reune plantas previas e metragens por tipologia. Use esta
+            visao para decidir quais opcoes fazem sentido antes do atendimento.
           </p>
         </div>
 
-        <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-          {imovel.tipologias.map((tipologia, index) => {
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          {plantas.map((planta, index) => {
             const Icon = iconByIndex[index % iconByIndex.length];
 
             return (
               <div
-                key={tipologia}
-                className="border border-stone-200 bg-white p-5"
+                key={`${planta.titulo}-${planta.metragem}`}
+                className="overflow-hidden border border-stone-200 bg-white"
               >
-                <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
-                <h3 className="text-lg font-semibold text-slate-950">
-                  {tipologia}
-                </h3>
-                <p className="mt-2 text-sm leading-6 text-slate-600">
-                  Consulte plantas, metragem, unidade disponivel e fluxo de
-                  pagamento para esta opcao.
-                </p>
+                {planta.imagem ? (
+                  <div className="relative aspect-[16/9] bg-stone-100">
+                    <Image
+                      src={planta.imagem}
+                      alt={`Planta previa ${planta.titulo} ${planta.metragem} do ${imovel.nome}`}
+                      fill
+                      sizes="(min-width: 1024px) 50vw, 100vw"
+                      className="object-cover"
+                    />
+                  </div>
+                ) : null}
+                <div className="p-5">
+                  <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#9a6a20]">
+                    {planta.metragem}
+                  </p>
+                  <h3 className="mt-2 text-xl font-semibold text-slate-950">
+                    {planta.titulo}
+                  </h3>
+                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                    {planta.descricao}
+                  </p>
+                </div>
               </div>
             );
           })}
+        </div>
+
+        <div className="mt-8">
+          <CtaLink
+            href="#lead-form"
+            label="Receber PDF com todas as plantas"
+            imovel={imovel}
+            source="plantas_pdf_cta"
+            variant="primary"
+          />
         </div>
       </div>
     </section>

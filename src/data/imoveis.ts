@@ -13,8 +13,19 @@ export type Imovel = {
   precoInicialNumerico?: number;
   sinalInicial?: string;
   parcelasIniciais?: string;
+  materialPdfPath?: string;
   tipologias: string[];
   metragens?: string[];
+  fichaTecnica?: {
+    label: string;
+    value: string;
+  }[];
+  plantas?: {
+    titulo: string;
+    metragem: string;
+    descricao: string;
+    imagem?: string;
+  }[];
   diferenciais: string[];
   descricaoCurta: string;
   descricaoLonga: string;
@@ -66,11 +77,12 @@ export const imoveis: Imovel[] = [
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
     estado: "RJ",
-    enderecoResumo: "Barra da Tijuca, Rio de Janeiro - RJ",
+    enderecoResumo: "Av. das Americas 12800 - Barra da Tijuca, Rio de Janeiro - RJ",
     precoInicial: "2 quartos a partir de R$ 600 mil",
     precoInicialNumerico: 600000,
     sinalInicial: "a partir de R$ 50 mil",
     parcelasIniciais: "a partir de R$ 2.000",
+    materialPdfPath: "/materiais/we-barra-apresentacao.pdf",
     tipologias: [
       "Apartamentos de 2 quartos",
       "Apartamentos de 3 quartos",
@@ -80,17 +92,63 @@ export const imoveis: Imovel[] = [
       "Coberturas duplex"
     ],
     metragens: [
-      "Plantas de 2 quartos",
-      "Plantas de 3 e 4 quartos",
-      "Gardens com area externa",
-      "Coberturas lineares e duplex"
+      "2 quartos: 63m² e 70m²",
+      "3 quartos: 83m²",
+      "4 quartos: 100m² e 118m²",
+      "Gardens: 95m² a 184m²",
+      "Coberturas duplex: 125m² a 199m²",
+      "Coberturas lineares: 142m² a 232m²"
+    ],
+    fichaTecnica: [
+      {
+        label: "Endereco",
+        value: "Av. das Americas 12800 - Barra da Tijuca"
+      },
+      {
+        label: "Apartamentos",
+        value: "605 unidades"
+      },
+      {
+        label: "Tipologias",
+        value: "2, 3, 4 quartos, gardens e coberturas"
+      },
+      {
+        label: "Lazer",
+        value: "Mais de 5 mil m²"
+      }
+    ],
+    plantas: [
+      {
+        titulo: "2 quartos",
+        metragem: "63m² e 70m²",
+        descricao: "Opcoes compactas com suite, varanda e distribuicao pensada para rotina na Barra.",
+        imagem: "/images/we-barra-planta-70m-material.jpg"
+      },
+      {
+        titulo: "3 quartos",
+        metragem: "83m²",
+        descricao: "Planta intermediaria para familias que precisam comparar conforto, valor e fluxo.",
+        imagem: "/images/we-barra-planta-83m-material.jpg"
+      },
+      {
+        titulo: "4 quartos",
+        metragem: "100m² e 118m²",
+        descricao: "Unidades maiores para quem prioriza mais area privativa e configuracao familiar.",
+        imagem: "/images/we-barra-planta-100m-material.jpg"
+      },
+      {
+        titulo: "Gardens e coberturas",
+        metragem: "95m² a 232m²",
+        descricao: "Opcoes com areas externas, coberturas duplex e lineares para perfis mais exclusivos.",
+        imagem: "/images/we-barra-cobertura-142m-material.jpg"
+      }
     ],
     diferenciais: [
-      "Lancamento na Barra da Tijuca com opcoes para morar ou investir",
-      "Plantas de 2, 3 e 4 quartos, gardens e coberturas",
-      "Condicoes comunicadas com sinal e mensais de referencia",
-      "Atendimento direto para tabela, plantas e disponibilidade atualizada",
-      "Comparacao de tipologias para escolher unidade com mais seguranca"
+      "Mais de 5 mil m² de lazer",
+      "Piscina e areas externas com paisagismo",
+      "Pool house com vista para o lazer",
+      "Plantas de 2 a 4 quartos, gardens e coberturas",
+      "PDF completo com ficha tecnica e plantas para comparar antes do atendimento"
     ],
     descricaoCurta:
       "Lancamento imobiliario na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens, coberturas lineares e duplex.",
@@ -105,27 +163,31 @@ export const imoveis: Imovel[] = [
     argumentosComerciais: [
       "Entrada comunicada a partir de R$ 50 mil",
       "Mensais comunicadas a partir de R$ 2.000",
-      "Envio de tabela, plantas e disponibilidade pelo WhatsApp",
+      "PDF com ficha tecnica, imagens e plantas",
       "Atendimento para comparar tipologia, fluxo e melhor unidade"
     ],
     objecoes: [
       "Valores e disponibilidade podem mudar sem aviso previo.",
       "A condicao final depende da unidade, tipologia, fluxo de pagamento e aprovacao comercial.",
-      "Imagens desta primeira versao sao ilustrativas ate insercao do material oficial do empreendimento."
+      "Imagens e plantas sao previas, referenciais e podem ser alteradas a criterio da incorporadora."
     ],
     imagens: [
       {
-        src: "/images/we-barra-fachada.png",
-        alt: "Imagem ilustrativa da fachada do WE Barra by Living na Barra da Tijuca",
+        src: "/images/we-barra-pool-house-material.jpg",
+        alt: "Imagem previa da pool house do WE Barra by Living com vista para piscina",
         destaque: true
       },
       {
-        src: "/images/we-barra-sala-varanda.png",
-        alt: "Imagem ilustrativa de sala integrada a varanda em apartamento na Barra da Tijuca"
+        src: "/images/we-barra-piscina-material.jpg",
+        alt: "Imagem previa da piscina e area de lazer do WE Barra by Living"
       },
       {
-        src: "/images/we-barra-lazer.png",
-        alt: "Imagem ilustrativa da area de lazer com piscina de lancamento na Barra da Tijuca"
+        src: "/images/we-barra-ficha-tecnica-material.jpg",
+        alt: "Ficha tecnica visual do WE Barra by Living"
+      },
+      {
+        src: "/images/we-barra-planta-70m-material.jpg",
+        alt: "Planta previa de 2 quartos com 70m² do WE Barra by Living"
       }
     ],
     seo: {
@@ -159,8 +221,8 @@ export const imoveis: Imovel[] = [
       ogTitle:
         "WE Barra by Living: tabela, plantas e condicoes na Barra da Tijuca",
       ogDescription:
-        "Apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Fale com Alexandre Sascho e receba tabela atualizada pelo WhatsApp.",
-      ogImage: "/images/we-barra-fachada.png"
+        "Apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Receba PDF completo, tabela atualizada e disponibilidade pelo WhatsApp.",
+      ogImage: "/images/we-barra-pool-house-material.jpg"
     },
     faq: [
       {
@@ -176,7 +238,7 @@ export const imoveis: Imovel[] = [
       {
         pergunta: "Como recebo a tabela do WE Barra?",
         resposta:
-          "Voce pode preencher o formulario ou clicar no WhatsApp para receber tabela, plantas e condicoes atualizadas com o corretor Alexandre Sascho."
+          "Voce pode preencher o formulario no fim da pagina para receber o PDF de apresentacao, tabela, plantas e condicoes atualizadas com o corretor Alexandre Sascho."
       },
       {
         pergunta: "Os valores de R$ 600 mil e R$ 2.000 mensais sao finais?",
@@ -186,18 +248,18 @@ export const imoveis: Imovel[] = [
       {
         pergunta: "O WE Barra by Living serve para investimento?",
         resposta:
-          "Pode servir, dependendo do perfil, unidade escolhida, prazo de compra e estrategia. A pagina captura essas informacoes para qualificar o atendimento."
+          "Pode servir, dependendo do perfil, unidade escolhida, prazo de compra e estrategia. O atendimento ajuda a comparar tipologia, fluxo de pagamento e disponibilidade."
       },
       {
         pergunta: "A pagina usa imagens oficiais do empreendimento?",
         resposta:
-          "Nesta primeira versao, as imagens sao ilustrativas e devem ser substituidas pelo material oficial assim que ele estiver disponivel."
+          "As imagens e plantas foram extraidas do material de apresentacao do empreendimento, mas seguem como previas e referenciais, sujeitas a alteracoes pela incorporadora."
       }
     ],
     whatsapp: {
       numero: siteConfig.whatsapp,
       mensagem:
-        "Ola, vi a pagina do WE Barra by Living e gostaria de receber tabela, plantas e condicoes de pagamento."
+        "Ola, vi a pagina do WE Barra by Living e gostaria de receber o PDF, tabela, plantas e condicoes de pagamento."
     },
     tracking: {
       formEventName: "form_submit_we_barra",
@@ -207,14 +269,14 @@ export const imoveis: Imovel[] = [
     localizacao: {
       titulo: "Barra da Tijuca, Rio de Janeiro",
       descricao:
-        "Regiao de alta procura para apartamentos novos, com acesso a servicos, vias importantes, lazer, praia e polos comerciais do Rio de Janeiro.",
+        "O material de apresentacao informa endereco na Av. das Americas 12800, na Barra da Tijuca, regiao de alta procura para apartamentos novos no Rio de Janeiro.",
       pontos: [
         "Regiao procurada por quem busca apartamento novo na Barra",
         "Perfil forte para morar, investir e comparar tipologias",
         "Acesso a servicos, lazer, praia e polos comerciais do Rio"
       ],
       mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Barra+da+Tijuca+Rio+de+Janeiro"
+        "https://www.google.com/maps/search/?api=1&query=Av.+das+Americas+12800+Barra+da+Tijuca+Rio+de+Janeiro"
     },
     condicoesAviso:
       "Valores, metragem, disponibilidade, imagens e condicoes comerciais precisam ser confirmados com o corretor antes de qualquer decisao."

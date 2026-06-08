@@ -1,48 +1,71 @@
-import { BadgeCheck, BarChart3, MapPinned, ShieldCheck, Sparkles } from "lucide-react";
+import Image from "next/image";
+import { CheckCircle2 } from "lucide-react";
+import { CtaLink } from "@/components/CtaLink";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoDiferenciaisProps = {
   imovel: Imovel;
 };
 
-const icons = [Sparkles, BadgeCheck, ShieldCheck, MapPinned, BarChart3];
-
 export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
+  const lazer =
+    imovel.imagens.find((imagem) => imagem.src.includes("piscina")) ||
+    imovel.imagens[0];
+
   return (
-    <section className="bg-[#173f34] py-14 text-white sm:py-16">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-10 lg:grid-cols-[0.78fr_1.22fr]">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d1b16a]">
-              Por que entrar em contato
+    <section className="bg-[#173f34] py-14 text-white sm:py-16" id="lazer">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[1.08fr_0.92fr] lg:px-8">
+        <div className="relative min-h-[360px] overflow-hidden border border-white/10 bg-slate-900 sm:min-h-[460px]">
+          <Image
+            src={lazer.src}
+            alt={lazer.alt}
+            fill
+            sizes="(min-width: 1024px) 58vw, 100vw"
+            className="object-cover"
+          />
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-5">
+            <p className="text-sm font-medium text-white/90">
+              Imagem previa do material de apresentacao. Consulte condicoes e
+              disponibilidade no atendimento.
             </p>
-            <h2 className="mt-3 text-3xl font-semibold">
-              Informacao objetiva para escolher melhor
-            </h2>
-            <p className="mt-4 text-base leading-7 text-white/70">
-              A pagina concentra o essencial para comparar o WE Barra antes do
-              atendimento: condicoes, tipologias, localizacao e proximos passos.
-            </p>
-          </div>
-
-          <div className="grid gap-3 sm:grid-cols-2">
-            {imovel.diferenciais.map((diferencial, index) => {
-              const Icon = icons[index % icons.length];
-
-              return (
-                <div
-                  key={diferencial}
-                  className="border border-white/10 bg-white/[0.06] p-5"
-                >
-                  <Icon className="mb-4 size-6 text-[#d1b16a]" aria-hidden="true" />
-                  <p className="text-sm leading-6 text-white/82">
-                    {diferencial}
-                  </p>
-                </div>
-              );
-            })}
           </div>
         </div>
+
+        <div className="flex flex-col justify-center">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d1b16a]">
+              Lazer
+            </p>
+            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+              Mais de 5 mil m² de lazer
+            </h2>
+            <p className="mt-4 text-base leading-7 text-white/70">
+              A area de lazer e o principal ativo visual do empreendimento.
+              Use o PDF para ver as imagens previas e comparar o produto com as
+              tipologias disponiveis.
+            </p>
+
+            <div className="mt-6 grid gap-3 text-sm leading-6 text-white/82">
+              {imovel.diferenciais.slice(0, 5).map((diferencial) => (
+                <span key={diferencial} className="flex items-start gap-3">
+                  <CheckCircle2
+                    className="mt-1 size-4 shrink-0 text-[#d1b16a]"
+                    aria-hidden="true"
+                  />
+                  {diferencial}
+                </span>
+              ))}
+            </div>
+
+            <div className="mt-8">
+              <CtaLink
+                href="#lead-form"
+                label="Receber PDF completo"
+                imovel={imovel}
+                source="lazer_pdf_cta"
+                variant="primary"
+              />
+            </div>
+          </div>
       </div>
     </section>
   );

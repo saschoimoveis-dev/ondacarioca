@@ -1,13 +1,13 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { Send, ShieldCheck } from "lucide-react";
+import { Download, FileText, Send, ShieldCheck } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { getAttributionParams, pushTrackingEvent } from "@/lib/tracking";
 
 type LeadFormProps = {
   imovel: Imovel;
-  variant?: "section" | "hero";
 };
 
 type FormState = {
@@ -37,7 +37,7 @@ const inputClassName =
 
 const labelClassName = "grid gap-2 text-sm font-medium text-slate-800";
 
-export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
+export function LeadForm({ imovel }: LeadFormProps) {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
     "idle"
@@ -114,6 +114,17 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
         tipologia_interesse: form.tipologia,
         objetivo: form.objetivo
       });
+      pushTrackingEvent("generate_lead", {
+        imovel_nome: imovel.nome,
+        imovel_slug: imovel.slug,
+        tipologia_interesse: form.tipologia,
+        lead_type: "material_pdf"
+      });
+      pushTrackingEvent("material_download_request", {
+        imovel_nome: imovel.nome,
+        imovel_slug: imovel.slug,
+        material: imovel.materialPdfPath
+      });
 
       setStatus("success");
       setForm(initialState);
@@ -122,11 +133,57 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
     }
   }
 
-  const isHero = variant === "hero";
+  function handleMaterialDownload() {
+    pushTrackingEvent("material_download_click", {
+      imovel_nome: imovel.nome,
+      imovel_slug: imovel.slug,
+      material: imovel.materialPdfPath
+    });
+  }
 
-  const formContent = (
-    <>
-      <div className={isHero ? "grid gap-3" : "grid gap-4 sm:grid-cols-2"}>
+  return (
+    <section className="bg-white py-14 sm:py-16" id="lead-form">
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+        <div>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+            Receba o material completo
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold text-slate-950">
+            Baixe o PDF do WE Barra e receba tabela atualizada
+          </h2>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            Preencha os dados para acessar a apresentacao com ficha tecnica,
+            plantas, imagens previas e seguir o atendimento com Alexandre
+            Sascho.
+          </p>
+          <div className="mt-8 border border-[#d1b16a]/50 bg-[#fbfaf7] p-5 text-sm leading-6 text-slate-700">
+            <div className="flex items-start gap-3">
+              <FileText className="mt-0.5 size-5 shrink-0 text-[#173f34]" />
+              <p>
+                <strong className="font-semibold">Inclui:</strong> ficha
+                tecnica, plantas de 2 a 4 quartos, gardens, coberturas e imagens
+                previas de lazer.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <form
+          onSubmit={handleSubmit}
+          onFocus={trackStart}
+          className="border border-stone-200 bg-[#fbfaf7] p-5 shadow-sm sm:p-6"
+        >
+          <div className="mb-5 border-b border-stone-200 pb-5">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+              <ShieldCheck className="size-4" aria-hidden="true" />
+              PDF + tabela + contato
+            </div>
+            <h3 className="text-2xl font-semibold leading-tight text-slate-950">
+              Para qual unidade voce quer informacoes?
+            </h3>
+          </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
         <label className={labelClassName}>
           Nome
           <input
@@ -149,42 +206,6 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
           />
         </label>
 
-        {!isHero ? (
-          <>
-            <label className={labelClassName}>
-              E-mail opcional
-              <input
-                type="email"
-                value={form.email}
-                onChange={(event) => updateField("email", event.target.value)}
-                className={inputClassName}
-                placeholder="voce@email.com"
-              />
-            </label>
-
-            <label className={labelClassName}>
-              Imovel de interesse
-              <input
-                value={imovel.nome}
-                disabled
-                className="rounded-sm border border-slate-200 bg-slate-100 px-3 py-3 text-sm text-slate-600"
-              />
-            </label>
-
-            <label className={labelClassName}>
-              Objetivo
-              <select
-                value={form.objetivo}
-                onChange={(event) => updateField("objetivo", event.target.value)}
-                className={inputClassName}
-              >
-                <option value="morar">Morar</option>
-                <option value="investir">Investir</option>
-              </select>
-            </label>
-          </>
-        ) : null}
-
         <label className={labelClassName}>
           Tipologia desejada
           <select
@@ -199,28 +220,6 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
             ))}
           </select>
         </label>
-
-        {!isHero ? (
-          <label className={labelClassName}>
-            Faixa de entrada disponivel
-            <select
-              value={form.entradaDisponivel}
-              onChange={(event) =>
-                updateField("entradaDisponivel", event.target.value)
-              }
-              className={inputClassName}
-            >
-              <option value="ate R$ 50 mil">Ate R$ 50 mil</option>
-              <option value="R$ 50 mil a R$ 100 mil">
-                R$ 50 mil a R$ 100 mil
-              </option>
-              <option value="R$ 100 mil a R$ 200 mil">
-                R$ 100 mil a R$ 200 mil
-              </option>
-              <option value="acima de R$ 200 mil">Acima de R$ 200 mil</option>
-            </select>
-          </label>
-        ) : null}
 
         <label className={labelClassName}>
           Prazo de compra
@@ -237,33 +236,41 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
         </label>
       </div>
 
-      {!isHero ? (
-        <label className="mt-4 grid gap-2 text-sm font-medium text-slate-800">
-          Mensagem opcional
-          <textarea
-            value={form.mensagem}
-            onChange={(event) => updateField("mensagem", event.target.value)}
-            rows={4}
-            className="resize-none rounded-sm border border-stone-300 bg-white px-3 py-3 text-sm outline-none transition focus:border-[#173f34] focus:ring-2 focus:ring-[#173f34]/15"
-            placeholder="Ex.: quero tabela atualizada e plantas de 2 quartos"
-          />
-        </label>
-      ) : null}
-
       <button
         type="submit"
         disabled={status === "sending"}
         className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
       >
         <Send className="size-4" aria-hidden="true" />
-        {status === "sending" ? "Enviando..." : "Receber tabela e plantas"}
+        {status === "sending" ? "Enviando..." : "Receber PDF e tabela"}
       </button>
 
       {status === "success" ? (
-        <p className="mt-4 rounded-sm border border-emerald-200 bg-emerald-50 p-3 text-sm text-emerald-950">
-          Dados enviados. O atendimento pode seguir pelo WhatsApp com tabela,
-          plantas e condicoes atualizadas.
-        </p>
+        <div className="mt-4 border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950">
+          <p>
+            Dados enviados. Agora voce pode baixar o PDF e seguir o atendimento
+            pelo WhatsApp.
+          </p>
+          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+            {imovel.materialPdfPath ? (
+              <a
+                href={imovel.materialPdfPath}
+                download
+                onClick={handleMaterialDownload}
+                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+              >
+                <Download className="size-4" aria-hidden="true" />
+                Baixar PDF
+              </a>
+            ) : null}
+            <WhatsAppCTA
+              imovel={imovel}
+              source="form_success"
+              label="Falar no WhatsApp"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-4 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-[#fbfaf7]"
+            />
+          </div>
+        </div>
       ) : null}
 
       {status === "error" ? (
@@ -272,64 +279,11 @@ export function LeadForm({ imovel, variant = "section" }: LeadFormProps) {
           WhatsApp.
         </p>
       ) : null}
-    </>
-  );
-
-  if (isHero) {
-    return (
-      <form
-        id="lead-form"
-        onSubmit={handleSubmit}
-        onFocus={trackStart}
-        className="border border-[#d1b16a]/50 bg-white p-5 shadow-xl shadow-slate-950/10 sm:p-6"
-      >
-        <div className="mb-5 border-b border-stone-200 pb-5">
-          <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
-            <ShieldCheck className="size-4" aria-hidden="true" />
-            Lista VIP de lancamento
-          </div>
-          <h2 className="text-2xl font-semibold leading-tight text-slate-950">
-            Receba tabela, plantas e disponibilidade
-          </h2>
-          <p className="mt-3 text-sm leading-6 text-slate-600">
-            Informe seus dados para atendimento direto com Alexandre Sascho pelo
-            WhatsApp.
-          </p>
-        </div>
-        {formContent}
         <p className="mt-4 text-xs leading-5 text-slate-500">
-          Valores, unidades e condicoes dependem da disponibilidade no momento
-          da consulta.
+          As imagens e plantas sao previas e referenciais. Valores, unidades e
+          condicoes dependem da disponibilidade no momento da consulta.
         </p>
       </form>
-    );
-  }
-
-  return (
-    <section className="bg-white py-14 sm:py-16" id="lead-form">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-        <div>
-          <h2 className="text-3xl font-semibold text-slate-950">
-            Receba tabela, plantas e condicoes
-          </h2>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            Preencha os dados para receber informacoes atualizadas sobre
-            unidades, plantas, valores comunicados e fluxo de pagamento.
-          </p>
-          <div className="mt-8 rounded-sm border border-[#d1b16a]/50 bg-[#fbfaf7] p-5 text-sm leading-6 text-slate-700">
-            <strong className="font-semibold">Importante:</strong> valores e
-            disponibilidade precisam ser confirmados com Alexandre Sascho antes
-            de qualquer decisao.
-          </div>
-        </div>
-
-        <form
-          onSubmit={handleSubmit}
-          onFocus={trackStart}
-          className="rounded-sm border border-slate-200 bg-slate-50 p-5 shadow-sm sm:p-6"
-        >
-          {formContent}
-        </form>
       </div>
     </section>
   );

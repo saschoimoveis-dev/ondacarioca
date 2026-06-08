@@ -1,4 +1,4 @@
-import { Banknote, CalendarClock, Home, Landmark } from "lucide-react";
+import { Banknote, CalendarClock, Home, Landmark, MapPin } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoCondicoesProps = {
@@ -28,19 +28,45 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
       icon: Home
     }
   ];
+  const ficha = imovel.fichaTecnica || [];
 
   return (
     <section className="border-y border-stone-200 bg-white" id="condicoes">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
-            Condicoes comunicadas
+            Ficha tecnica
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Compare os principais pontos antes de falar com o corretor
+            Dados do material de apresentacao do WE Barra
           </h2>
+          <p className="mt-4 text-base leading-7 text-slate-600">
+            Endereco, quantidade de unidades, mix de plantas e lazer para
+            orientar a comparacao antes do contato.
+          </p>
         </div>
 
+        {ficha.length ? (
+          <div className="mb-8 grid gap-3 md:grid-cols-4">
+            {ficha.map((item, index) => (
+              <div key={item.label} className="border-l-2 border-[#d1b16a] pl-4">
+                {index === 0 ? (
+                  <MapPin className="mb-3 size-5 text-[#173f34]" />
+                ) : null}
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
+                  {item.label}
+                </p>
+                <p className="mt-2 text-lg font-semibold leading-snug text-slate-950">
+                  {item.value}
+                </p>
+              </div>
+            ))}
+          </div>
+        ) : null}
+
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+          Condicoes comunicadas
+        </p>
         <div className="grid gap-3 md:grid-cols-4">
           {condicoes.map((condicao) => {
             const Icon = condicao.icon;
