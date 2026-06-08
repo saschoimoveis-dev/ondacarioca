@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { CtaLink } from "@/components/CtaLink";
 import type { Imovel } from "@/data/imoveis";
 import { pushTrackingEvent } from "@/lib/tracking";
 
@@ -62,27 +63,31 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
   }
 
   return (
-    <section className="bg-white py-14 sm:py-16" id="galeria">
+    <section className="bg-slate-50 py-14 sm:py-16" id="galeria">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
-              Veja antes de pedir a tabela
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-              Imagens que mostram o produto
+            <h2 className="text-3xl font-semibold text-slate-950">
+              Imagens do WE Barra
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Piscina, pool house, ficha tecnica e plantas extraidas do material
-              de apresentacao do WE Barra.
+              Fotos, plantas e ficha tecnica aparecem cedo para facilitar a
+              comparacao antes do contato.
             </p>
           </div>
+          <CtaLink
+            href="#lead-form"
+            label="Receber material"
+            imovel={imovel}
+            source="galeria_pdf_cta"
+            variant="secondary"
+          />
         </div>
 
         {activeImage ? (
-          <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
+          <div className="grid gap-5 border border-slate-200 bg-white p-3 shadow-sm sm:p-4 lg:grid-cols-[1fr_292px]">
             <div>
-              <div className="relative aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100">
+              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
@@ -95,10 +100,10 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
 
               <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-sm font-semibold text-slate-950">
+                  <p className="text-base font-semibold text-slate-950">
                     {activeLabel}
                   </p>
-                  <p className="mt-1 text-xs text-slate-500">
+                  <p className="mt-1 text-sm text-slate-500">
                     {activeIndex + 1} de {imagens.length}
                   </p>
                 </div>
@@ -107,7 +112,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   <button
                     type="button"
                     onClick={handlePrevious}
-                    className="grid size-10 place-items-center rounded-sm border border-stone-300 bg-white text-[#173f34] transition hover:bg-[#fbfaf7]"
+                    className="grid size-10 place-items-center rounded-sm border border-slate-300 bg-white text-[#173f34] transition hover:bg-slate-50"
                     aria-label="Imagem anterior"
                   >
                     <ChevronLeft className="size-5" aria-hidden="true" />
@@ -115,7 +120,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="grid size-10 place-items-center rounded-sm border border-stone-300 bg-white text-[#173f34] transition hover:bg-[#fbfaf7]"
+                    className="grid size-10 place-items-center rounded-sm border border-slate-300 bg-white text-[#173f34] transition hover:bg-slate-50"
                     aria-label="Proxima imagem"
                   >
                     <ChevronRight className="size-5" aria-hidden="true" />
@@ -137,7 +142,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                     className={
                       activeIndex === index
                         ? "relative block aspect-[16/10] overflow-hidden border-2 border-[#173f34] bg-slate-100"
-                        : "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100"
+                        : "relative block aspect-[16/10] overflow-hidden border border-slate-200 bg-slate-100"
                     }
                   >
                     <Image

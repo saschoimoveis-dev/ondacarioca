@@ -22,10 +22,10 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
         }));
 
   return (
-    <section className="bg-[#fbfaf7] py-14 sm:py-16">
+    <section className="bg-slate-50 py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
             Plantas e unidades
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -44,10 +44,10 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             return (
               <div
                 key={`${planta.titulo}-${planta.metragem}`}
-                className="overflow-hidden border border-stone-200 bg-white"
+                className="overflow-hidden border border-slate-200 bg-white shadow-sm"
               >
                 {planta.imagem ? (
-                  <div className="relative aspect-[16/9] bg-stone-100">
+                  <div className="relative aspect-[16/9] bg-slate-100">
                     <Image
                       src={planta.imagem}
                       alt={`Planta previa ${planta.titulo} ${planta.metragem} do ${imovel.nome}`}
@@ -59,7 +59,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                 ) : null}
                 <div className="p-5">
                   <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
-                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#9a6a20]">
+                  <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
                     {planta.metragem}
                   </p>
                   <h3 className="mt-2 text-xl font-semibold text-slate-950">

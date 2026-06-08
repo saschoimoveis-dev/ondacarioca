@@ -33,7 +33,7 @@ const initialState: FormState = {
 };
 
 const inputClassName =
-  "rounded-sm border border-stone-300 bg-white px-3 py-3 text-sm outline-none transition focus:border-[#173f34] focus:ring-2 focus:ring-[#173f34]/15";
+  "rounded-sm border border-slate-300 bg-white px-3 py-3 text-sm outline-none transition focus:border-[#173f34] focus:ring-2 focus:ring-[#173f34]/15";
 
 const labelClassName = "grid gap-2 text-sm font-medium text-slate-800";
 
@@ -142,10 +142,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="bg-white py-14 sm:py-16" id="lead-form">
+    <section className="bg-slate-50 py-14 sm:py-16" id="lead-form">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
             Receba o material completo
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -156,7 +156,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             plantas, imagens previas e seguir o atendimento com Alexandre
             Sascho.
           </p>
-          <div className="mt-8 border border-[#d1b16a]/50 bg-[#fbfaf7] p-5 text-sm leading-6 text-slate-700">
+          <div className="mt-8 border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-700 shadow-sm">
             <div className="flex items-start gap-3">
               <FileText className="mt-0.5 size-5 shrink-0 text-[#173f34]" />
               <p>
@@ -171,10 +171,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
         <form
           onSubmit={handleSubmit}
           onFocus={trackStart}
-          className="border border-stone-200 bg-[#fbfaf7] p-5 shadow-sm sm:p-6"
+          className="border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
         >
-          <div className="mb-5 border-b border-stone-200 pb-5">
-            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+          <div className="mb-5 border-b border-slate-200 pb-5">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
               <ShieldCheck className="size-4" aria-hidden="true" />
               PDF + tabela + contato
             </div>
@@ -267,7 +267,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               imovel={imovel}
               source="form_success"
               label="Falar no WhatsApp"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-4 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-[#fbfaf7]"
+              className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-4 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-slate-50"
             />
           </div>
         </div>

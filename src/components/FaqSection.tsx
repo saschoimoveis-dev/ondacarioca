@@ -22,9 +22,9 @@ export function FaqSection({ imovel }: FaqSectionProps) {
   }
 
   return (
-    <section className="bg-[#fbfaf7] py-14 sm:py-16" id="faq">
+    <section className="bg-slate-50 py-14 sm:py-16" id="faq">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
           Duvidas comuns
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -34,7 +34,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
           {imovel.faq.map((item) => (
             <details
               key={item.pergunta}
-              className="group border border-stone-200 bg-white p-5"
+              className="group border border-slate-200 bg-white p-5"
               onToggle={(event) =>
                 handleToggle(event.currentTarget.open, item.pergunta)
               }

@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { Download } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { pushTrackingEvent } from "@/lib/tracking";
@@ -9,6 +10,41 @@ type StickyMobileCTAProps = {
 };
 
 export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
+  const [isLeadFormVisible, setIsLeadFormVisible] = useState(false);
+
+  useEffect(() => {
+    const leadForm = document.getElementById("lead-form");
+
+    if (!leadForm) {
+      return;
+    }
+
+    const target = leadForm;
+
+    function syncVisibility() {
+      const rect = target.getBoundingClientRect();
+      setIsLeadFormVisible(rect.top < window.innerHeight && rect.bottom > 0);
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsLeadFormVisible(entry.isIntersecting);
+      },
+      { threshold: 0.08 }
+    );
+
+    observer.observe(target);
+    syncVisibility();
+    window.addEventListener("scroll", syncVisibility, { passive: true });
+    window.addEventListener("resize", syncVisibility);
+
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", syncVisibility);
+      window.removeEventListener("resize", syncVisibility);
+    };
+  }, []);
+
   function handleClick() {
     pushTrackingEvent("cta_click", {
       cta_label: "Receber PDF e tabela",
@@ -17,6 +53,10 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
       imovel_slug: imovel.slug,
       bairro: imovel.bairro
     });
+  }
+
+  if (isLeadFormVisible) {
+    return null;
   }
 
   return (

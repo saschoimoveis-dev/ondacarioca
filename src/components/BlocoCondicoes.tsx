@@ -31,10 +31,10 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
   const ficha = imovel.fichaTecnica || [];
 
   return (
-    <section className="border-y border-stone-200 bg-white" id="condicoes">
+    <section className="border-y border-slate-200 bg-white" id="condicoes">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
             Ficha tecnica
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -49,7 +49,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
         {ficha.length ? (
           <div className="mb-8 grid gap-3 md:grid-cols-4">
             {ficha.map((item, index) => (
-              <div key={item.label} className="border-l-2 border-[#d1b16a] pl-4">
+              <div key={item.label} className="border-l-2 border-[#173f34] pl-4">
                 {index === 0 ? (
                   <MapPin className="mb-3 size-5 text-[#173f34]" />
                 ) : null}
@@ -64,7 +64,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
           </div>
         ) : null}
 
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#9a6a20]">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
           Condicoes comunicadas
         </p>
         <div className="grid gap-3 md:grid-cols-4">
@@ -74,10 +74,10 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             return (
               <div
                 key={condicao.label}
-                className="border border-stone-200 bg-[#fbfaf7] p-5"
+                className="border border-slate-200 bg-slate-50 p-5"
               >
                 <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
-                <p className="text-xs font-medium uppercase tracking-[0.14em] text-[#9a6a20]">
+                <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
                   {condicao.label}
                 </p>
                 <p className="mt-2 text-lg font-semibold text-slate-950">
