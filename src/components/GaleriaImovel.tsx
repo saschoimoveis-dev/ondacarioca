@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useState } from "react";
 import type { Imovel } from "@/data/imoveis";
 import { pushTrackingEvent } from "@/lib/tracking";
 
@@ -9,6 +11,7 @@ type GaleriaImovelProps = {
 };
 
 export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
+  const [activeIndex, setActiveIndex] = useState(0);
   const imagens = [
     imovel.imagens.find((imagem) => imagem.src.includes("pool-house")) ||
       imovel.imagens[0],
@@ -19,6 +22,8 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
     imovel.imagens.find((imagem) => imagem.src.includes("ficha")) ||
       imovel.imagens[3]
   ].filter(Boolean);
+  const activeImage = imagens[activeIndex] || imagens[0];
+  const activeLabel = activeImage ? getLabel(activeImage.src, activeIndex) : "";
 
   function getLabel(src: string, index: number) {
     if (src.includes("piscina")) {
@@ -38,11 +43,22 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
   }
 
   function handleView(index: number) {
+    setActiveIndex(index);
     pushTrackingEvent("gallery_view", {
       imovel_nome: imovel.nome,
       imovel_slug: imovel.slug,
       gallery_index: index
     });
+  }
+
+  function handlePrevious() {
+    const nextIndex = activeIndex === 0 ? imagens.length - 1 : activeIndex - 1;
+    handleView(nextIndex);
+  }
+
+  function handleNext() {
+    const nextIndex = activeIndex === imagens.length - 1 ? 0 : activeIndex + 1;
+    handleView(nextIndex);
   }
 
   return (
@@ -63,43 +79,83 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
           </div>
         </div>
 
-        <div className="grid gap-5 lg:grid-cols-4">
-          {imagens.map((imagem, index) => (
-            <button
-              key={imagem.src}
-              type="button"
-              onClick={() => handleView(index)}
-              className={
-                index === 0
-                  ? "group text-left lg:col-span-2 lg:row-span-2"
-                  : "group text-left"
-              }
-            >
-              <span
-                className={
-                  index === 0
-                    ? "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100 lg:h-full lg:min-h-[460px]"
-                    : "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100"
-                }
-              >
+        {activeImage ? (
+          <div className="grid gap-5 lg:grid-cols-[1fr_280px]">
+            <div>
+              <div className="relative aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100">
                 <Image
-                  src={imagem.src}
-                  alt={imagem.alt}
+                  src={activeImage.src}
+                  alt={activeImage.alt}
                   fill
-                  sizes={
-                    index === 0
-                      ? "(min-width: 1024px) 50vw, 100vw"
-                      : "(min-width: 1024px) 25vw, 100vw"
-                  }
-                  className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                  sizes="(min-width: 1024px) 72vw, 100vw"
+                  className="object-cover"
+                  priority={activeIndex === 0}
                 />
-              </span>
-              <span className="mt-3 block text-sm font-semibold text-slate-950">
-                {getLabel(imagem.src, index)}
-              </span>
-            </button>
-          ))}
-        </div>
+              </div>
+
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div>
+                  <p className="text-sm font-semibold text-slate-950">
+                    {activeLabel}
+                  </p>
+                  <p className="mt-1 text-xs text-slate-500">
+                    {activeIndex + 1} de {imagens.length}
+                  </p>
+                </div>
+
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handlePrevious}
+                    className="grid size-10 place-items-center rounded-sm border border-stone-300 bg-white text-[#173f34] transition hover:bg-[#fbfaf7]"
+                    aria-label="Imagem anterior"
+                  >
+                    <ChevronLeft className="size-5" aria-hidden="true" />
+                  </button>
+                  <button
+                    type="button"
+                    onClick={handleNext}
+                    className="grid size-10 place-items-center rounded-sm border border-stone-300 bg-white text-[#173f34] transition hover:bg-[#fbfaf7]"
+                    aria-label="Proxima imagem"
+                  >
+                    <ChevronRight className="size-5" aria-hidden="true" />
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+              {imagens.map((imagem, index) => (
+                <button
+                  key={imagem.src}
+                  type="button"
+                  onClick={() => handleView(index)}
+                  className="group text-left"
+                  aria-current={activeIndex === index ? "true" : undefined}
+                >
+                  <span
+                    className={
+                      activeIndex === index
+                        ? "relative block aspect-[16/10] overflow-hidden border-2 border-[#173f34] bg-slate-100"
+                        : "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100"
+                    }
+                  >
+                    <Image
+                      src={imagem.src}
+                      alt={imagem.alt}
+                      fill
+                      sizes="(min-width: 1024px) 280px, 50vw"
+                      className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                    />
+                  </span>
+                  <span className="mt-2 block text-xs font-semibold text-slate-700">
+                    {getLabel(imagem.src, index)}
+                  </span>
+                </button>
+              ))}
+            </div>
+          </div>
+        ) : null}
 
         <p className="mt-6 max-w-3xl text-xs leading-5 text-slate-500">
           Imagens, plantas, valores e disponibilidade estao sujeitos a
