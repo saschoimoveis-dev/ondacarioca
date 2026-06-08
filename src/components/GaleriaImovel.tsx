@@ -9,7 +9,16 @@ type GaleriaImovelProps = {
 };
 
 export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
-  const imagens = [...imovel.imagens.slice(1), imovel.imagens[0]].filter(Boolean);
+  const imagens = [
+    imovel.imagens.find((imagem) => imagem.src.includes("pool-house")) ||
+      imovel.imagens[0],
+    imovel.imagens.find((imagem) => imagem.src.includes("piscina")) ||
+      imovel.imagens[1],
+    imovel.imagens.find((imagem) => imagem.src.includes("planta")) ||
+      imovel.imagens[2],
+    imovel.imagens.find((imagem) => imagem.src.includes("ficha")) ||
+      imovel.imagens[3]
+  ].filter(Boolean);
 
   function getLabel(src: string, index: number) {
     if (src.includes("piscina")) {
@@ -54,7 +63,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
           </div>
         </div>
 
-        <div className="grid gap-3 lg:grid-cols-4">
+        <div className="grid gap-5 lg:grid-cols-4">
           {imagens.map((imagem, index) => (
             <button
               key={imagem.src}
@@ -62,27 +71,40 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
               onClick={() => handleView(index)}
               className={
                 index === 0
-                  ? "group relative aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100 text-left lg:col-span-2 lg:row-span-2"
-                  : "group relative aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100 text-left"
+                  ? "group text-left lg:col-span-2 lg:row-span-2"
+                  : "group text-left"
               }
             >
-              <Image
-                src={imagem.src}
-                alt={imagem.alt}
-                fill
-                sizes={
+              <span
+                className={
                   index === 0
-                    ? "(min-width: 1024px) 50vw, 100vw"
-                    : "(min-width: 1024px) 25vw, 100vw"
+                    ? "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100 lg:h-full lg:min-h-[460px]"
+                    : "relative block aspect-[16/10] overflow-hidden border border-stone-200 bg-slate-100"
                 }
-                className="object-cover transition duration-300 group-hover:scale-[1.03]"
-              />
-              <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/78 to-transparent p-4 text-sm font-medium text-white">
+              >
+                <Image
+                  src={imagem.src}
+                  alt={imagem.alt}
+                  fill
+                  sizes={
+                    index === 0
+                      ? "(min-width: 1024px) 50vw, 100vw"
+                      : "(min-width: 1024px) 25vw, 100vw"
+                  }
+                  className="object-cover transition duration-300 group-hover:scale-[1.03]"
+                />
+              </span>
+              <span className="mt-3 block text-sm font-semibold text-slate-950">
                 {getLabel(imagem.src, index)}
               </span>
             </button>
           ))}
         </div>
+
+        <p className="mt-6 max-w-3xl text-xs leading-5 text-slate-500">
+          Imagens, plantas, valores e disponibilidade estao sujeitos a
+          confirmacao.
+        </p>
       </div>
     </section>
   );

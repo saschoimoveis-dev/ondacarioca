@@ -23,49 +23,48 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
             sizes="(min-width: 1024px) 58vw, 100vw"
             className="object-cover"
           />
-          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-slate-950/80 to-transparent p-5">
-            <p className="text-sm font-medium text-white/90">
-              Imagem previa do material de apresentacao. Consulte condicoes e
-              disponibilidade no atendimento.
-            </p>
-          </div>
         </div>
 
         <div className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d1b16a]">
-              Lazer
-            </p>
-            <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
-              Mais de 5 mil m² de lazer
-            </h2>
-            <p className="mt-4 text-base leading-7 text-white/70">
-              A area de lazer e o principal ativo visual do empreendimento.
-              Use o PDF para ver as imagens previas e comparar o produto com as
-              tipologias disponiveis.
-            </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#d1b16a]">
+            Lazer
+          </p>
+          <h2 className="mt-3 text-3xl font-semibold sm:text-4xl">
+            Mais de 5 mil m² de lazer
+          </h2>
+          <p className="mt-4 text-base leading-7 text-white/70">
+            A area de lazer e o principal ativo visual do empreendimento. Use o
+            PDF para ver as imagens previas e comparar o produto com as
+            tipologias disponiveis.
+          </p>
 
-            <div className="mt-6 grid gap-3 text-sm leading-6 text-white/82">
-              {imovel.diferenciais.slice(0, 5).map((diferencial) => (
-                <span key={diferencial} className="flex items-start gap-3">
-                  <CheckCircle2
-                    className="mt-1 size-4 shrink-0 text-[#d1b16a]"
-                    aria-hidden="true"
-                  />
-                  {diferencial}
-                </span>
-              ))}
-            </div>
-
-            <div className="mt-8">
-              <CtaLink
-                href="#lead-form"
-                label="Receber PDF completo"
-                imovel={imovel}
-                source="lazer_pdf_cta"
-                variant="primary"
-              />
-            </div>
+          <div className="mt-6 grid gap-3 text-sm leading-6 text-white/82">
+            {imovel.diferenciais.slice(0, 5).map((diferencial) => (
+              <span key={diferencial} className="flex items-start gap-3">
+                <CheckCircle2
+                  className="mt-1 size-4 shrink-0 text-[#d1b16a]"
+                  aria-hidden="true"
+                />
+                {diferencial}
+              </span>
+            ))}
           </div>
+
+          <p className="mt-6 text-xs leading-5 text-white/55">
+            Imagens, plantas, valores e disponibilidade estao sujeitos a
+            confirmacao.
+          </p>
+
+          <div className="mt-8">
+            <CtaLink
+              href="#lead-form"
+              label="Receber PDF completo"
+              imovel={imovel}
+              source="lazer_pdf_cta"
+              variant="primary"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -149,7 +149,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Receba o material completo
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Baixe o PDF do WE Barra e receba tabela atualizada
+            Receba o PDF do WE Barra e a tabela atualizada
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
             Preencha os dados para acessar a apresentacao com ficha tecnica,
@@ -280,8 +280,8 @@ export function LeadForm({ imovel }: LeadFormProps) {
         </p>
       ) : null}
         <p className="mt-4 text-xs leading-5 text-slate-500">
-          As imagens e plantas sao previas e referenciais. Valores, unidades e
-          condicoes dependem da disponibilidade no momento da consulta.
+          Imagens, plantas, valores e disponibilidade estao sujeitos a
+          confirmacao.
         </p>
       </form>
       </div>

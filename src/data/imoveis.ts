@@ -279,7 +279,7 @@ export const imoveis: Imovel[] = [
         "https://www.google.com/maps/search/?api=1&query=Av.+das+Americas+12800+Barra+da+Tijuca+Rio+de+Janeiro"
     },
     condicoesAviso:
-      "Valores, metragem, disponibilidade, imagens e condicoes comerciais precisam ser confirmados com o corretor antes de qualquer decisao."
+      "Imagens, plantas, valores e disponibilidade estao sujeitos a confirmacao."
   }
 ];
 
