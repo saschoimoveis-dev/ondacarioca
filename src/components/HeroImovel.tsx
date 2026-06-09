@@ -18,7 +18,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
   const provas = [
     {
       label: "Lazer de resort",
-      description: "Mais de 5 mil m² para transformar imagem em desejo real.",
+      description: "Piscinas, rooftop, areas gourmet e conveniencias para vender estilo de vida.",
       icon: Sparkles
     },
     {
@@ -28,7 +28,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
     },
     {
       label: "Escolha antecipada",
-      description: "Avalie coluna, andar, posicao e tipologia com orientacao.",
+      description: "Compare andar, coluna, orientacao e tipologia antes das melhores unidades serem absorvidas.",
       icon: KeyRound
     },
     {
@@ -52,15 +52,14 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Um lancamento com lazer de resort, plantas de 2 a 4 quartos,
-            gardens e coberturas para quem quer escolher bem antes da tabela
-            ficar mais disputada.
+            Lancamento Living Cyrela em um dos enderecos mais estrategicos da
+            Barra, com terreno amplo, lazer completo e plantas de 2 a 4 quartos,
+            gardens e coberturas.
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            Entre na lista VIP para receber tabela atualizada, plantas,
-            simulacao de fluxo e orientacao sobre as unidades mais alinhadas ao
-            seu perfil.
+            Entre na lista VIP para comparar tabela, plantas, posicoes e fluxo
+            de pagamento ainda na janela de maior poder de escolha.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -101,8 +100,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             <div className="flex items-start gap-3">
               <Building2 className="mt-1 size-5 shrink-0 text-[var(--brand)]" />
               <p className="text-sm leading-6 text-slate-700">
-                Apartamentos, gardens e coberturas com 605 unidades no total.
-                Valores e disponibilidade mudam conforme tabela vigente.
+                Av. das Americas 12800, esquina com Salvador Allende. Valores,
+                previsao de entrega e disponibilidade dependem da tabela vigente.
               </p>
             </div>
           </div>

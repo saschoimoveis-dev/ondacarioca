@@ -9,17 +9,17 @@ type BlocoFluxoPagamentoProps = {
 const etapas = [
   {
     title: "Sinal ou ato",
-    text: "Primeiro compromisso financeiro, que varia conforme unidade e condicao vigente.",
+    text: "Entrada inicial comunicada pela tabela, variando conforme unidade, campanha e aprovacao comercial.",
     icon: Banknote
   },
   {
     title: "Parcelas durante a obra",
-    text: "Mensais, intermediarias e prazo precisam conversar com sua entrada disponivel.",
+    text: "Mensais e possiveis intermediarias precisam caber no seu caixa enquanto a obra avanca.",
     icon: CalendarClock
   },
   {
-    title: "Correcao e condicoes",
-    text: "A simulacao deve considerar reajustes, tabela vigente e aprovacao comercial.",
+    title: "INCC e condicoes",
+    text: "A simulacao deve considerar reajustes, tabela vigente, prazo de obra e aprovacao comercial.",
     icon: TrendingUp
   },
   {
@@ -41,8 +41,9 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
             Entenda o fluxo antes de escolher a unidade
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            A melhor unidade nao depende so do preco. O fluxo precisa fazer
-            sentido para sua entrada, prazo de compra e objetivo.
+            Comprar na planta permite diluir parte do pagamento durante a obra,
+            mas a decisao so e boa quando entrada, mensais, correcao e saldo
+            final cabem no seu plano.
           </p>
         </div>
 

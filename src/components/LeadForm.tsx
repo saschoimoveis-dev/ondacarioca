@@ -170,8 +170,8 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Entre na lista VIP do WE Barra
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Preencha seus dados para receber tabela, plantas, simulacao de
-            fluxo e orientacao sobre as unidades mais adequadas ao seu perfil.
+            Preencha seus dados para receber tabela, plantas e uma leitura das
+            unidades mais coerentes com seu objetivo, entrada e prazo de compra.
           </p>
           <div className="premium-card mt-8 border p-5 text-sm leading-6 text-slate-700">
             <div className="flex items-start gap-3">
@@ -179,7 +179,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               <p>
                 <strong className="font-semibold">Inclui:</strong> ficha
                 tecnica, plantas de 2 a 4 quartos, gardens, coberturas,
-                simulacao de fluxo e contato com Alexandre.
+                analise de fluxo e contato com Alexandre.
               </p>
             </div>
           </div>
@@ -203,7 +203,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             <p className="mt-3 text-sm leading-6 text-slate-600">
               {step === 1
                 ? "Comece com nome e WhatsApp. Na proxima etapa, voce pode informar seu perfil para receber uma simulacao mais precisa."
-                : "Essas respostas ajudam Alexandre a comparar unidade, fluxo e objetivo antes do contato."}
+                : "Essas respostas ajudam Alexandre a comparar tipologia, unidade, fluxo e objetivo antes do contato."}
             </p>
           </div>
 

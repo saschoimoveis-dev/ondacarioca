@@ -9,20 +9,20 @@ type BlocoPerfilUnidadeProps = {
 const perfis = [
   {
     title: "Quero morar",
-    text: "Priorize planta, rotina, conforto, lazer e unidades que facam sentido para permanencia.",
-    detail: "3 e 4 quartos costumam entrar melhor nessa comparacao.",
+    text: "Priorize rotina, conforto, lazer, acesso pela Av. das Americas e planta adequada para permanencia.",
+    detail: "3 e 4 quartos tendem a entrar melhor para familias e uso de longo prazo.",
     icon: Home
   },
   {
     title: "Quero investir",
-    text: "Compare entrada, fluxo, liquidez, demanda futura e facilidade de revenda ou locacao.",
-    detail: "2 quartos podem ter procura mais ampla e ticket mais acessivel.",
+    text: "Compare entrada, fluxo durante a obra, liquidez, demanda de locacao e facilidade de revenda.",
+    detail: "2 e 3 quartos costumam ter procura mais ampla e ticket mais defensivo.",
     icon: TrendingUp
   },
   {
     title: "Quero algo escasso",
-    text: "Avalie gardens e coberturas pela diferenciacao, area externa e menor disponibilidade.",
-    detail: "A decisao depende muito de unidade, posicao e tabela vigente.",
+    text: "Avalie gardens e coberturas por area externa, diferenciacao e menor disponibilidade dentro do produto.",
+    detail: "A decisao depende de posicao, planta, vista, fluxo e tabela vigente.",
     icon: KeyRound
   },
   {
@@ -46,9 +46,9 @@ export function BlocoPerfilUnidade({ imovel }: BlocoPerfilUnidadeProps) {
               Qual unidade combina com seu momento?
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              A melhor unidade nao e necessariamente a mais barata ou a maior.
-              Ela precisa alinhar objetivo, entrada, prazo, liquidez e estilo
-              de vida.
+              A melhor unidade nao e necessariamente a menor, a maior ou a mais
+              barata. Ela precisa alinhar objetivo, vista, orientacao, entrada,
+              prazo, liquidez e estilo de vida.
             </p>
             <div className="mt-8">
               <CtaLink

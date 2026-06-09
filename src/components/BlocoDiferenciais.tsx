@@ -31,12 +31,12 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
 
           <div className="flex flex-col justify-center">
             <h2 className="text-3xl font-semibold text-slate-950 sm:text-4xl">
-              Mais de 5 mil m² de lazer
+              Lazer, escala e rotina de condominio completo
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              A area de lazer e o principal ativo visual do empreendimento. Use
-              o PDF para ver imagens previas e comparar com as tipologias
-              disponiveis.
+              O apelo do WE Barra nao esta apenas na planta. Terreno amplo,
+              lazer completo, rooftop e areas de convivencia ajudam a sustentar
+              desejo para moradia, locacao e revenda.
             </p>
 
             <div className="mt-7 grid gap-3 sm:grid-cols-2">

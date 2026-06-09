@@ -41,8 +41,8 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             Dados principais do WE Barra
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Endereco, unidades, tipologias e condicoes iniciais para comparar
-            antes da simulacao.
+            Endereco, escala do projeto, previsao comunicada e condicoes
+            iniciais para comparar antes da simulacao.
           </p>
         </div>
 

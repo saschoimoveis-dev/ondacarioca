@@ -9,7 +9,7 @@ type BlocoListaVipProps = {
 const motivos = [
   {
     title: "Escolha melhor",
-    text: "Compare plantas, andares, colunas e posicoes antes de decidir.",
+    text: "Analise andar, coluna, orientacao solar e vista antes de decidir.",
     icon: Columns3
   },
   {
@@ -19,12 +19,12 @@ const motivos = [
   },
   {
     title: "Unidades disputadas",
-    text: "Tipologias menores, gardens e coberturas tendem a exigir decisao mais rapida.",
+    text: "2 quartos, gardens e coberturas costumam concentrar mais disputa por perfil e escassez.",
     icon: KeyRound
   },
   {
     title: "Decisao com orientacao",
-    text: "Alexandre ajuda a comparar perfil de moradia, investimento e liquidez.",
+    text: "Alexandre ajuda a separar moradia, liquidez, valorizacao potencial e fluxo real.",
     icon: UserCheck
   }
 ];
@@ -39,12 +39,12 @@ export function BlocoListaVip({ imovel }: BlocoListaVipProps) {
               Lista VIP
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-              Por que entrar antes da abertura da tabela
+              Por que entrar na lista antes da tabela girar
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              O melhor atendimento no lancamento nao e so enviar uma tabela. E
-              ajudar voce a entender unidade, fluxo, perfil de compra e
-              prioridade antes de assumir uma decisao.
+              Em lancamento, preco nao e a unica variavel. O melhor momento
+              costuma reunir maior variedade de unidades, condicoes iniciais e
+              mais tempo para comparar o que realmente faz sentido para voce.
             </p>
             <div className="mt-8">
               <CtaLink

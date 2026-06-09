@@ -102,58 +102,58 @@ export const imoveis: Imovel[] = [
     fichaTecnica: [
       {
         label: "Endereco",
-        value: "Av. das Americas 12800 - Barra da Tijuca"
+        value: "Av. das Americas 12800, esquina com Salvador Allende"
       },
       {
         label: "Apartamentos",
         value: "605 unidades"
       },
       {
-        label: "Tipologias",
-        value: "2, 3, 4 quartos, gardens e coberturas"
+        label: "Terreno",
+        value: "Mais de 25 mil m² comunicados"
       },
       {
-        label: "Lazer",
-        value: "Mais de 5 mil m²"
+        label: "Entrega prevista",
+        value: "Maio/2029, sujeita a confirmacao"
       }
     ],
     plantas: [
       {
         titulo: "2 quartos",
         metragem: "63m² e 70m²",
-        descricao: "Boa opcao para entrada menor, liquidez e perfil de investimento com procura ampla na Barra.",
+        descricao: "Opcao de ticket mais acessivel, boa para liquidez, locacao e entrada em lancamento na Barra.",
         imagem: "/images/we-barra-planta-70m-material.jpg"
       },
       {
         titulo: "3 quartos",
         metragem: "83m²",
-        descricao: "Equilibrio entre moradia, metragem e procura familiar para quem quer morar ou manter liquidez.",
+        descricao: "Equilibrio entre metragem, procura familiar e potencial de revenda para quem quer morar ou investir.",
         imagem: "/images/we-barra-planta-83m-material.jpg"
       },
       {
         titulo: "4 quartos",
         metragem: "100m² e 118m²",
-        descricao: "Mais conforto para familias que buscam planta maior, rotina completa e permanencia na Barra.",
+        descricao: "Plantas maiores para familias, com mais conforto e maior valorizacao absoluta quando bem posicionadas.",
         imagem: "/images/we-barra-planta-100m-material.jpg"
       },
       {
         titulo: "Gardens e coberturas",
         metragem: "95m² a 232m²",
-        descricao: "Produtos mais escassos, com areas externas, maior diferenciacao e comparacao cuidadosa de unidade.",
+        descricao: "Produtos de maior escassez, com areas externas, terraços e comparacao cuidadosa de posicao.",
         imagem: "/images/we-barra-cobertura-142m-material.jpg"
       }
     ],
     diferenciais: [
-      "Mais de 5 mil m² de lazer",
-      "Piscina e areas externas com paisagismo",
-      "Pool house com vista para o lazer",
-      "Plantas de 2 a 4 quartos, gardens e coberturas",
-      "PDF completo com ficha tecnica e plantas para comparar antes do atendimento"
+      "Terreno amplo de mais de 25 mil m² comunicados",
+      "Lazer completo com piscinas, academia, gourmet, festas, coworking e brinquedoteca",
+      "Sky Lounge/rooftop e areas externas como diferenciais de desejo",
+      "Plantas de 2 a 4 quartos com suite, gardens e coberturas",
+      "Tabela, plantas e simulacao para comparar unidade antes da decisao"
     ],
     descricaoCurta:
-      "Lancamento imobiliario na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens, coberturas lineares e duplex.",
+      "Lancamento Living Cyrela na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens, coberturas lineares e duplex.",
     descricaoLonga:
-      "Lancamento na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Fale com Alexandre Sascho para receber tabela atualizada, plantas, unidades disponiveis e condicoes de pagamento comunicadas.",
+      "Lancamento Living Cyrela na Av. das Americas, na Barra da Tijuca, com apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Fale com Alexandre Sascho para receber tabela atualizada, plantas, unidades disponiveis e simulacao de fluxo.",
     publicoIdeal: [
       "Compradores que desejam morar na Barra da Tijuca",
       "Familias avaliando apartamentos novos de 2, 3 ou 4 quartos",
@@ -161,10 +161,10 @@ export const imoveis: Imovel[] = [
       "Clientes que precisam comparar entrada, parcelas e tipologias"
     ],
     argumentosComerciais: [
-      "Entrada comunicada a partir de R$ 50 mil",
-      "Mensais comunicadas a partir de R$ 2.000",
+      "Janela de lancamento com maior poder de escolha de unidade",
+      "Analise de tipologia, andar, coluna, vista e orientacao",
       "Lista VIP com tabela, ficha tecnica, imagens e plantas",
-      "Simulacao para comparar tipologia, fluxo e melhor unidade"
+      "Simulacao para comparar entrada, parcelas, INCC e saldo"
     ],
     objecoes: [
       "Valores e disponibilidade podem mudar sem aviso previo.",
@@ -194,7 +194,7 @@ export const imoveis: Imovel[] = [
       title:
         "WE Barra by Living | Preco, Tabela e Apartamentos na Barra da Tijuca",
       description:
-        "Entre na lista VIP do WE Barra by Living, lancamento na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, opcoes a partir de R$ 600 mil, sinal a partir de R$ 50 mil e mensais a partir de R$ 2.000. Receba tabela, plantas e simulacao.",
+        "Entre na lista VIP do WE Barra by Living, lancamento Living Cyrela na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Receba tabela, plantas e simulacao.",
       keywords: [
         "WE Barra",
         "WE Barra by Living",
@@ -219,31 +219,41 @@ export const imoveis: Imovel[] = [
       ],
       canonicalPath: "/lancamentos/we-barra-by-living-barra-da-tijuca",
       ogTitle:
-        "WE Barra by Living: lista VIP, tabela e simulacao na Barra da Tijuca",
+        "WE Barra by Living: lista VIP, plantas e tabela na Barra da Tijuca",
       ogDescription:
-        "Apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Receba tabela, plantas, simulacao de fluxo e orientacao sobre unidades.",
+        "Lancamento Living Cyrela na Av. das Americas. Compare plantas, tabela, tipologias, fluxo e unidades disponiveis com orientacao.",
       ogImage: "/images/we-barra-pool-house-material.jpg"
     },
     faq: [
       {
-        pergunta: "Vale comprar o WE Barra no lancamento?",
+        pergunta: "Por que avaliar o WE Barra ainda no lancamento?",
         resposta:
-          "Pode fazer sentido quando a unidade, o fluxo de pagamento e o objetivo do comprador estao bem alinhados. A analise deve comparar tipologia, posicao, preco de entrada, liquidez esperada e momento da tabela."
+          "Porque a fase de lancamento costuma concentrar maior variedade de unidades, mais poder de escolha e condicoes iniciais mais competitivas. A decisao deve comparar unidade, fluxo, posicao, tipologia e objetivo."
+      },
+      {
+        pergunta: "Onde fica o WE Barra by Living?",
+        resposta:
+          "O endereco comunicado e Av. das Americas 12800, na Barra da Tijuca, em ponto de forte visibilidade e conexao com a Av. Salvador Allende."
+      },
+      {
+        pergunta: "Quais tipologias estao previstas?",
+        resposta:
+          "O projeto comunica apartamentos de 2 quartos, 3 quartos e 4 quartos, alem de gardens, coberturas duplex e coberturas lineares. As metragens e disponibilidade precisam ser confirmadas na tabela vigente."
       },
       {
         pergunta: "Qual tipologia tende a ter mais liquidez?",
         resposta:
-          "Em geral, unidades menores podem ter procura mais ampla para investimento, enquanto gardens e coberturas se destacam pela escassez. A melhor escolha depende do valor da unidade, posicao, andar, fluxo e perfil de compra."
+          "Em geral, 2 e 3 quartos podem ter procura mais ampla para locacao e revenda, enquanto gardens e coberturas se destacam pela escassez. A melhor escolha depende de preco, andar, vista, orientacao e fluxo."
       },
       {
         pergunta: "Como funciona o fluxo durante a obra?",
         resposta:
-          "Normalmente o comprador avalia sinal ou ato, parcelas durante a obra, possiveis reforcos, correcao e saldo na entrega ou financiamento. A simulacao ajuda a entender se a unidade cabe no seu prazo e entrada disponivel."
+          "Normalmente o comprador avalia sinal ou ato, parcelas durante a obra, possiveis reforcos, correcao por indice de obra e saldo na entrega ou financiamento. A simulacao ajuda a entender se a unidade cabe no caixa."
       },
       {
         pergunta: "Consigo escolher andar, coluna e posicao?",
         resposta:
-          "A escolha depende da disponibilidade da tabela vigente. Entrar cedo na lista ajuda a comparar opcoes com mais clareza antes de decidir, mas nenhuma unidade e reservada sem confirmacao comercial."
+          "A escolha depende da disponibilidade da tabela vigente. Entrar cedo na lista ajuda a comparar andar, coluna, posicao, vista e orientacao, mas nenhuma unidade e reservada sem confirmacao comercial."
       },
       {
         pergunta: "Qual e o valor de entrada para o WE Barra by Living?",
@@ -253,7 +263,7 @@ export const imoveis: Imovel[] = [
       {
         pergunta: "O WE Barra e melhor para morar ou investir?",
         resposta:
-          "Pode atender os dois perfis. Para morar, entram conforto, planta e rotina na Barra. Para investir, entram liquidez, entrada, fluxo, tipologia e potencial de procura futura."
+          "Pode atender os dois perfis. Para morar, entram conforto, lazer, acesso e rotina na Barra. Para investir, entram marca, liquidez, entrada, fluxo, tipologia e potencial de procura futura."
       },
       {
         pergunta: "Como recebo tabela, plantas e simulacao?",
@@ -261,9 +271,14 @@ export const imoveis: Imovel[] = [
           "Preencha o formulario no fim da pagina para entrar na lista VIP e receber tabela, plantas, material do empreendimento e uma simulacao de fluxo com Alexandre Sascho."
       },
       {
-        pergunta: "Os valores de R$ 600 mil e R$ 2.000 mensais sao finais?",
+        pergunta: "Os valores comunicados sao finais?",
         resposta:
-          "Nao. Sao valores comunicados como referencia inicial. Precos, parcelas, disponibilidade e condicoes comerciais precisam ser confirmados antes de qualquer decisao."
+          "Nao. Sao referencias comerciais iniciais. Precos, entrada, parcelas, disponibilidade, previsao de entrega e condicoes precisam ser confirmados antes de qualquer decisao."
+      },
+      {
+        pergunta: "O terreno amplo faz diferenca?",
+        resposta:
+          "Sim. Um terreno amplo permite melhor distribuicao de torres, areas comuns e lazer. No caso do WE Barra, o material de mercado comunica mais de 25 mil m² de terreno, sujeito a confirmacao comercial."
       },
       {
         pergunta: "A pagina usa imagens oficiais do empreendimento?",
@@ -274,7 +289,7 @@ export const imoveis: Imovel[] = [
     whatsapp: {
       numero: siteConfig.whatsapp,
       mensagem:
-        "Ola, vi a pagina do WE Barra by Living e gostaria de entrar na lista VIP para receber tabela, plantas e simulacao de fluxo."
+        "Ola, vi a pagina do WE Barra by Living e gostaria de entrar na lista VIP para receber tabela, plantas, simulacao de fluxo e orientacao sobre as melhores unidades."
     },
     tracking: {
       formEventName: "form_submit_we_barra",
@@ -282,13 +297,13 @@ export const imoveis: Imovel[] = [
       pageViewEventName: "page_view_we_barra"
     },
     localizacao: {
-      titulo: "Barra da Tijuca com acesso, servicos e procura constante",
+      titulo: "Av. das Americas com conexao estrategica na Barra",
       descricao:
-        "O endereco informado no material e Av. das Americas 12800, em uma regiao da Barra com apelo para moradia, investimento, servicos, mobilidade e comparacao de apartamentos novos.",
+        "O endereco comunicado e Av. das Americas 12800, proximo ao eixo Salvador Allende, em uma regiao com mobilidade, servicos, centros comerciais e demanda constante por moradia e investimento.",
       pontos: [
-        "Endereco na Av. das Americas, eixo conhecido de acesso e servicos da Barra",
-        "Regiao com procura para moradia, locacao e revenda de apartamentos novos",
-        "Perfil forte para comparar liquidez, rotina, lazer, comercio e polos da Barra"
+        "Av. das Americas como eixo de acesso, servicos e visibilidade",
+        "Conexao com Salvador Allende, Recreio, Barra e principais polos da regiao",
+        "Zona de influencia de shopping, BRT, praia, comercio e demanda por apartamentos novos"
       ],
       mapsUrl:
         "https://www.google.com/maps/search/?api=1&query=Av.+das+Americas+12800+Barra+da+Tijuca+Rio+de+Janeiro"
