@@ -9,12 +9,12 @@ type BlocoListaVipProps = {
 const motivos = [
   {
     title: "Escolha melhor",
-    text: "Analise andar, coluna, orientacao solar e vista antes de decidir.",
+    text: "Compare andar, coluna, vista e orientacao enquanto ainda ha mais opcoes na tabela.",
     icon: Columns3
   },
   {
-    title: "Fluxo mais claro",
-    text: "Receba uma simulacao com sinal, parcelas durante a obra e saldo estimado.",
+    title: "Veja se cabe no bolso",
+    text: "Receba uma simulacao com sinal, mensais durante a obra e saldo estimado.",
     icon: Calculator
   },
   {
@@ -39,17 +39,17 @@ export function BlocoListaVip({ imovel }: BlocoListaVipProps) {
               Lista VIP
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-              Por que entrar na lista antes da tabela girar
+              Entre antes para simular o fluxo e comparar unidades
             </h2>
             <p className="mt-4 text-base leading-7 text-slate-600">
-              Em lancamento, preco nao e a unica variavel. O melhor momento
-              costuma reunir maior variedade de unidades, condicoes iniciais e
-              mais tempo para comparar o que realmente faz sentido para voce.
+              A oportunidade nao esta apenas no preco inicial. Ela esta em
+              descobrir se o sinal, as mensais e o saldo fazem sentido para o
+              seu caixa enquanto ainda ha boas opcoes de escolha.
             </p>
             <div className="mt-8">
               <CtaLink
                 href="#lead-form"
-                label="Entrar na lista VIP"
+                label="Simular meu fluxo"
                 imovel={imovel}
                 source="lista_vip_cta"
                 variant="primary"

@@ -167,11 +167,11 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Lista VIP do WE Barra
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Entre na lista VIP do WE Barra
+            Veja se o fluxo cabe para voce
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Preencha seus dados para receber tabela, plantas e uma leitura das
-            unidades mais coerentes com seu objetivo, entrada e prazo de compra.
+            Envie seus dados para receber tabela, plantas e uma simulacao com
+            sinal, mensais durante a obra e saldo estimado para o seu perfil.
           </p>
           <div className="premium-card mt-8 border p-5 text-sm leading-6 text-slate-700">
             <div className="flex items-start gap-3">
@@ -179,7 +179,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               <p>
                 <strong className="font-semibold">Inclui:</strong> ficha
                 tecnica, plantas de 2 a 4 quartos, gardens, coberturas,
-                analise de fluxo e contato com Alexandre.
+                analise de fluxo, disponibilidade e contato com Alexandre.
               </p>
             </div>
           </div>
@@ -197,12 +197,12 @@ export function LeadForm({ imovel }: LeadFormProps) {
             </div>
             <h3 className="text-2xl font-semibold leading-tight text-slate-950">
               {step === 1
-                ? "Receba a tabela no WhatsApp"
+                ? "Receba tabela e fluxo no WhatsApp"
                 : "Qual unidade faz sentido para voce?"}
             </h3>
             <p className="mt-3 text-sm leading-6 text-slate-600">
               {step === 1
-                ? "Comece com nome e WhatsApp. Na proxima etapa, voce pode informar seu perfil para receber uma simulacao mais precisa."
+                ? "Comece com nome e WhatsApp. Na proxima etapa, voce informa entrada e objetivo para receber uma simulacao mais precisa."
                 : "Essas respostas ajudam Alexandre a comparar tipologia, unidade, fluxo e objetivo antes do contato."}
             </p>
           </div>
@@ -241,7 +241,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 disabled={!form.nome.trim() || !form.whatsapp.trim()}
                 className="btn-primary-premium mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
               >
-                Continuar para simulacao
+                Continuar para simular fluxo
                 <ArrowRight className="size-4" aria-hidden="true" />
               </button>
 
@@ -355,7 +355,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   <Send className="size-4" aria-hidden="true" />
                   {status === "sending"
                     ? "Enviando..."
-                    : "Receber tabela e simulacao"}
+                    : "Receber tabela e fluxo"}
                 </button>
               </div>
             </>
@@ -365,7 +365,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
         <div className="mt-4 border border-[var(--border-warm)] bg-[var(--surface-green)] p-4 text-sm text-[var(--brand-dark)]">
           <p>
             Dados enviados. Agora voce pode baixar o PDF e seguir a simulacao
-            pelo WhatsApp.
+            do fluxo pelo WhatsApp.
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {imovel.materialPdfPath ? (

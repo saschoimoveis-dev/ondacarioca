@@ -38,11 +38,12 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             Ficha tecnica
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Dados principais do WE Barra
+            Chamariz financeiro do lancamento
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Endereco, escala do projeto, previsao comunicada e condicoes
-            iniciais para comparar antes da simulacao.
+            Preco inicial, sinal e mensais sao as primeiras perguntas de quem
+            quer comprar na planta. Use esses dados como ponto de partida para
+            pedir uma simulacao real.
           </p>
         </div>
 
@@ -65,7 +66,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
         ) : null}
 
         <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-          Condicoes comunicadas
+          Referencias comerciais
         </p>
         <div className="grid gap-3 md:grid-cols-4">
           {condicoes.map((condicao) => {

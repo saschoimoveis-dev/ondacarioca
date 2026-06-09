@@ -1,10 +1,10 @@
 import {
+  Banknote,
   Building2,
-  Calculator,
+  CalendarClock,
   FileText,
-  KeyRound,
+  Home,
   MapPin,
-  Sparkles
 } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
@@ -17,24 +17,24 @@ type HeroImovelProps = {
 export function HeroImovel({ imovel }: HeroImovelProps) {
   const provas = [
     {
-      label: "Lazer de resort",
-      description: "Piscinas, rooftop, areas gourmet e conveniencias para vender estilo de vida.",
-      icon: Sparkles
+      label: "A partir de R$ 600 mil",
+      description: "Referencia inicial para apartamentos de 2 quartos, sujeita a confirmacao.",
+      icon: Banknote
     },
     {
-      label: "Tabela e plantas",
-      description: "Compare preco, metragem e disponibilidade antes de decidir.",
+      label: "Sinal a partir de R$ 50 mil",
+      description: "Entenda a entrada comunicada e como ela varia por unidade e tabela.",
       icon: FileText
     },
     {
-      label: "Escolha antecipada",
-      description: "Compare andar, coluna, orientacao e tipologia antes das melhores unidades serem absorvidas.",
-      icon: KeyRound
+      label: "Mensais a partir de R$ 2.000",
+      description: "Veja se o fluxo durante a obra cabe no seu planejamento.",
+      icon: CalendarClock
     },
     {
-      label: "Fluxo simulado",
-      description: "Entenda sinal, parcelas durante a obra e saldo estimado.",
-      icon: Calculator
+      label: "2 a 4 quartos",
+      description: "Apartamentos, gardens e coberturas para morar ou investir.",
+      icon: Home
     }
   ];
 
@@ -52,14 +52,15 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Lancamento Living Cyrela em um dos enderecos mais estrategicos da
-            Barra, com terreno amplo, lazer completo e plantas de 2 a 4 quartos,
-            gardens e coberturas.
+            Apartamentos de 2 quartos a partir de R$ 600 mil, com sinal
+            comunicado a partir de R$ 50 mil e mensais a partir de R$ 2.000
+            durante a obra.
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
-            Entre na lista VIP para comparar tabela, plantas, posicoes e fluxo
-            de pagamento ainda na janela de maior poder de escolha.
+            Receba tabela, plantas e uma simulacao para entender quais unidades
+            ainda fazem sentido para seu perfil antes das melhores opcoes serem
+            absorvidas.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
@@ -100,8 +101,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             <div className="flex items-start gap-3">
               <Building2 className="mt-1 size-5 shrink-0 text-[var(--brand)]" />
               <p className="text-sm leading-6 text-slate-700">
-                Av. das Americas 12800, esquina com Salvador Allende. Valores,
-                previsao de entrega e disponibilidade dependem da tabela vigente.
+                Valores, entrada, parcelas, previsao de entrega e disponibilidade
+                dependem da unidade escolhida e da tabela vigente.
               </p>
             </div>
           </div>

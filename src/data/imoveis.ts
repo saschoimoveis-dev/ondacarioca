@@ -161,6 +161,9 @@ export const imoveis: Imovel[] = [
       "Clientes que precisam comparar entrada, parcelas e tipologias"
     ],
     argumentosComerciais: [
+      "2 quartos a partir de R$ 600 mil, sujeito a confirmacao",
+      "Sinal comunicado a partir de R$ 50 mil",
+      "Mensais comunicadas a partir de R$ 2.000 durante a obra",
       "Janela de lancamento com maior poder de escolha de unidade",
       "Analise de tipologia, andar, coluna, vista e orientacao",
       "Lista VIP com tabela, ficha tecnica, imagens e plantas",
@@ -194,7 +197,7 @@ export const imoveis: Imovel[] = [
       title:
         "WE Barra by Living | Preco, Tabela e Apartamentos na Barra da Tijuca",
       description:
-        "Entre na lista VIP do WE Barra by Living, lancamento Living Cyrela na Barra da Tijuca com apartamentos de 2, 3 e 4 quartos, gardens e coberturas. Receba tabela, plantas e simulacao.",
+        "Entre na lista VIP do WE Barra by Living, lancamento Living Cyrela na Barra da Tijuca com 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 50 mil e mensais a partir de R$ 2.000. Receba tabela, plantas e simulacao.",
       keywords: [
         "WE Barra",
         "WE Barra by Living",
@@ -221,10 +224,20 @@ export const imoveis: Imovel[] = [
       ogTitle:
         "WE Barra by Living: lista VIP, plantas e tabela na Barra da Tijuca",
       ogDescription:
-        "Lancamento Living Cyrela na Av. das Americas. Compare plantas, tabela, tipologias, fluxo e unidades disponiveis com orientacao.",
+        "Compare tabela, plantas e fluxo do WE Barra: referencia de 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 50 mil e mensais a partir de R$ 2.000.",
       ogImage: "/images/we-barra-pool-house-material.jpg"
     },
     faq: [
+      {
+        pergunta: "Consigo comprar com sinal a partir de R$ 50 mil?",
+        resposta:
+          "A condicao comunicada inicialmente fala em sinal a partir de R$ 50 mil, mas o valor final depende da unidade, tipologia, tabela vigente, campanha comercial e aprovacao. A simulacao mostra se essa entrada faz sentido para o seu perfil."
+      },
+      {
+        pergunta: "Como funcionam as mensais a partir de R$ 2.000?",
+        resposta:
+          "As mensais comunicadas a partir de R$ 2.000 sao referencia inicial de fluxo durante a obra. O valor pode mudar conforme unidade, prazo, intermediarias, correcao e saldo final. Por isso a simulacao e mais importante do que olhar apenas o preco."
+      },
       {
         pergunta: "Por que avaliar o WE Barra ainda no lancamento?",
         resposta:
@@ -258,7 +271,7 @@ export const imoveis: Imovel[] = [
       {
         pergunta: "Qual e o valor de entrada para o WE Barra by Living?",
         resposta:
-          "A condicao comunicada inicialmente e sinal a partir de R$ 50 mil. O valor final depende da unidade, tipologia, fluxo de pagamento e disponibilidade no momento da consulta."
+          "A referencia comunicada inicialmente e sinal a partir de R$ 50 mil. O valor final depende da unidade, tipologia, fluxo de pagamento e disponibilidade no momento da consulta."
       },
       {
         pergunta: "O WE Barra e melhor para morar ou investir?",
@@ -289,7 +302,7 @@ export const imoveis: Imovel[] = [
     whatsapp: {
       numero: siteConfig.whatsapp,
       mensagem:
-        "Ola, vi a pagina do WE Barra by Living e gostaria de entrar na lista VIP para receber tabela, plantas, simulacao de fluxo e orientacao sobre as melhores unidades."
+        "Ola, vi a pagina do WE Barra by Living e gostaria de receber tabela, plantas e simulacao para entender sinal, mensais e unidades disponiveis."
     },
     tracking: {
       formEventName: "form_submit_we_barra",

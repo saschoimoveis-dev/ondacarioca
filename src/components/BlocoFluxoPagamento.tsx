@@ -8,13 +8,13 @@ type BlocoFluxoPagamentoProps = {
 
 const etapas = [
   {
-    title: "Sinal ou ato",
-    text: "Entrada inicial comunicada pela tabela, variando conforme unidade, campanha e aprovacao comercial.",
+    title: "Sinal comunicado",
+    text: "Referencia a partir de R$ 50 mil, variando conforme unidade, campanha e aprovacao comercial.",
     icon: Banknote
   },
   {
-    title: "Parcelas durante a obra",
-    text: "Mensais e possiveis intermediarias precisam caber no seu caixa enquanto a obra avanca.",
+    title: "Mensais na obra",
+    text: "Referencia a partir de R$ 2.000, alem de possiveis intermediarias conforme tabela vigente.",
     icon: CalendarClock
   },
   {
@@ -38,12 +38,12 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
             Fluxo de pagamento
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Entenda o fluxo antes de escolher a unidade
+            Simule antes de escolher a unidade
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Comprar na planta permite diluir parte do pagamento durante a obra,
-            mas a decisao so e boa quando entrada, mensais, correcao e saldo
-            final cabem no seu plano.
+            O maior chamariz do lancamento e entender se voce consegue entrar
+            agora: sinal, mensais durante a obra, correcao e saldo precisam
+            conversar com sua entrada disponivel.
           </p>
         </div>
 

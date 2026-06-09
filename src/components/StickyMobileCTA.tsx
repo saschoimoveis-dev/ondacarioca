@@ -47,7 +47,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
 
   function handleClick() {
     pushTrackingEvent("cta_click", {
-      cta_label: "Receber tabela e simulacao",
+      cta_label: "Simular meu fluxo",
       cta_source: "sticky_mobile",
       imovel_nome: imovel.nome,
       imovel_slug: imovel.slug,
@@ -67,7 +67,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
         className="btn-primary-premium inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
       >
         <Download className="size-4" aria-hidden="true" />
-        Receber tabela e simulacao
+        Simular meu fluxo
       </a>
     </div>
   );
