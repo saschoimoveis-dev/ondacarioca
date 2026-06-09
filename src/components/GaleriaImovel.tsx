@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Eye, Maximize2 } from "lucide-react";
 import { useState } from "react";
 import { CtaLink } from "@/components/CtaLink";
 import type { Imovel } from "@/data/imoveis";
@@ -25,6 +25,9 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
   ].filter(Boolean);
   const activeImage = imagens[activeIndex] || imagens[0];
   const activeLabel = activeImage ? getLabel(activeImage.src, activeIndex) : "";
+  const activeInsight = activeImage
+    ? getInsight(activeImage.src, activeIndex)
+    : "";
 
   function getLabel(src: string, index: number) {
     if (src.includes("piscina")) {
@@ -41,6 +44,25 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
     }
 
     return index === 0 ? "Imagem principal" : "Ambiente";
+  }
+
+  function getInsight(src: string, index: number) {
+    if (src.includes("piscina")) {
+      return "Observe escala do lazer, insolacao, paisagismo e potencial de desejo para moradia ou revenda.";
+    }
+    if (src.includes("pool-house")) {
+      return "Use esta imagem para entender o clima do empreendimento e o apelo visual que costuma converter melhor.";
+    }
+    if (src.includes("ficha")) {
+      return "Confira os dados gerais antes de pedir a tabela e comparar unidades disponiveis.";
+    }
+    if (src.includes("planta")) {
+      return "Compare circulacao, distribuicao dos ambientes e encaixe da planta no seu objetivo.";
+    }
+
+    return index === 0
+      ? "Comece pela imagem que melhor comunica o produto."
+      : "Compare o detalhe visual com as tipologias disponiveis.";
   }
 
   function handleView(index: number) {
@@ -67,12 +89,15 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+              Vitrine do empreendimento
+            </p>
             <h2 className="text-3xl font-semibold text-slate-950">
-              Veja o produto antes de escolher a unidade
+              Veja as imagens que mais ajudam na decisao
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Imagens do lazer, plantas e ficha tecnica ajudam a comparar
-              tipologias antes da simulacao.
+              Primeiro desejo, depois comparacao. Comece pelo lazer e avance
+              para plantas e ficha tecnica antes de pedir a simulacao.
             </p>
           </div>
           <CtaLink
@@ -85,9 +110,27 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
         </div>
 
         {activeImage ? (
-          <div className="grid gap-5 border border-slate-200 bg-white p-3 shadow-sm sm:p-4 lg:grid-cols-[1fr_292px]">
-            <div>
-              <div className="relative aspect-[16/10] overflow-hidden bg-slate-100">
+          <div className="border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
+            <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
+              {imagens.map((imagem, index) => (
+                <button
+                  key={`tab-${imagem.src}`}
+                  type="button"
+                  onClick={() => handleView(index)}
+                  className={
+                    activeIndex === index
+                      ? "shrink-0 rounded-full bg-[#173f34] px-4 py-2 text-xs font-semibold text-white"
+                      : "shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                  }
+                >
+                  {getLabel(imagem.src, index)}
+                </button>
+              ))}
+            </div>
+
+            <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_268px]">
+              <div>
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 lg:aspect-[16/9]">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
@@ -98,13 +141,17 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                 />
               </div>
 
-              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                  <p className="text-base font-semibold text-slate-950">
+                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#007f5f]">
+                      <Eye className="size-4" aria-hidden="true" />
+                      O que observar
+                    </div>
+                    <p className="text-base font-semibold text-slate-950">
                     {activeLabel}
                   </p>
-                  <p className="mt-1 text-sm text-slate-500">
-                    {activeIndex + 1} de {imagens.length}
+                    <p className="mt-1 max-w-2xl text-sm leading-6 text-slate-600">
+                      {activeInsight}
                   </p>
                 </div>
 
@@ -129,7 +176,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
+              <div className="grid grid-cols-2 gap-3 lg:grid-cols-1">
               {imagens.map((imagem, index) => (
                 <button
                   key={imagem.src}
@@ -154,10 +201,20 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                     />
                   </span>
                   <span className="mt-2 block text-xs font-semibold text-slate-700">
-                    {getLabel(imagem.src, index)}
+                      {String(index + 1).padStart(2, "0")} /{" "}
+                      {getLabel(imagem.src, index)}
                   </span>
                 </button>
               ))}
+                <div className="hidden border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700 lg:block">
+                  <Maximize2
+                    className="mb-3 size-5 text-[#173f34]"
+                    aria-hidden="true"
+                  />
+                  As imagens ajudam a filtrar desejo. A simulacao ajuda a
+                  decidir se a unidade cabe no seu fluxo.
+                </div>
+              </div>
             </div>
           </div>
         ) : null}

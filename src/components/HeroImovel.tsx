@@ -2,9 +2,9 @@ import {
   Building2,
   Calculator,
   FileText,
-  Home,
   KeyRound,
-  MapPin
+  MapPin,
+  Sparkles
 } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
@@ -17,24 +17,24 @@ type HeroImovelProps = {
 export function HeroImovel({ imovel }: HeroImovelProps) {
   const provas = [
     {
+      label: "Lazer de resort",
+      description: "Mais de 5 mil m² para transformar imagem em desejo real.",
+      icon: Sparkles
+    },
+    {
       label: "Tabela e plantas",
-      description: "Receba material atualizado antes de comparar unidades.",
+      description: "Compare preco, metragem e disponibilidade antes de decidir.",
       icon: FileText
     },
     {
-      label: "Simulacao de fluxo",
-      description: "Entenda sinal, parcelas durante a obra e saldo estimado.",
-      icon: Calculator
-    },
-    {
-      label: "Prioridade de escolha",
-      description: "Compare tipologias, colunas e disponibilidade com orientacao.",
+      label: "Escolha antecipada",
+      description: "Avalie coluna, andar, posicao e tipologia com orientacao.",
       icon: KeyRound
     },
     {
-      label: "2 a 4 quartos",
-      description: "Apartamentos, gardens, coberturas lineares e duplex.",
-      icon: Home
+      label: "Fluxo simulado",
+      description: "Entenda sinal, parcelas durante a obra e saldo estimado.",
+      icon: Calculator
     }
   ];
 
@@ -52,15 +52,21 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
+            Um lancamento com lazer de resort, plantas de 2 a 4 quartos,
+            gardens e coberturas para quem quer escolher bem antes da tabela
+            ficar mais disputada.
+          </p>
+
+          <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
             Entre na lista VIP para receber tabela atualizada, plantas,
-            simulacao de fluxo e orientacao sobre as melhores unidades
-            disponiveis.
+            simulacao de fluxo e orientacao sobre as unidades mais alinhadas ao
+            seu perfil.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <CtaLink
               href="#lead-form"
-              label="Entrar na lista VIP"
+              label="Receber tabela e simulacao"
               imovel={imovel}
               source="hero_pdf_cta"
               variant="primary"
@@ -95,9 +101,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             <div className="flex items-start gap-3">
               <Building2 className="mt-1 size-5 shrink-0 text-[#173f34]" />
               <p className="text-sm leading-6 text-slate-700">
-                2 quartos a partir de R$ 600 mil, sinal comunicado a partir de
-                R$ 50 mil e mensais a partir de R$ 2.000, sujeitos a
-                confirmacao.
+                Apartamentos, gardens e coberturas com 605 unidades no total.
+                Valores e disponibilidade mudam conforme tabela vigente.
               </p>
             </div>
           </div>

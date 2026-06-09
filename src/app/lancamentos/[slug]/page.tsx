@@ -5,6 +5,7 @@ import { BlocoDiferenciais } from "@/components/BlocoDiferenciais";
 import { BlocoFluxoPagamento } from "@/components/BlocoFluxoPagamento";
 import { BlocoListaVip } from "@/components/BlocoListaVip";
 import { BlocoLocalizacao } from "@/components/BlocoLocalizacao";
+import { BlocoPerfilUnidade } from "@/components/BlocoPerfilUnidade";
 import { BlocoTipologias } from "@/components/BlocoTipologias";
 import { FaqSection } from "@/components/FaqSection";
 import { GaleriaImovel } from "@/components/GaleriaImovel";
@@ -80,6 +81,7 @@ export default async function ImovelPage({ params }: PageProps) {
       <HeroImovel imovel={imovel} />
       <GaleriaImovel imovel={imovel} />
       <BlocoListaVip imovel={imovel} />
+      <BlocoPerfilUnidade imovel={imovel} />
       <BlocoTipologias imovel={imovel} />
       <BlocoFluxoPagamento imovel={imovel} />
       <BlocoCondicoes imovel={imovel} />

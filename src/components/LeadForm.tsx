@@ -1,7 +1,14 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { Download, FileText, Send, ShieldCheck } from "lucide-react";
+import {
+  ArrowLeft,
+  ArrowRight,
+  Download,
+  FileText,
+  Send,
+  ShieldCheck
+} from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 import { getAttributionParams, pushTrackingEvent } from "@/lib/tracking";
@@ -43,6 +50,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
     "idle"
   );
   const [hasStarted, setHasStarted] = useState(false);
+  const [step, setStep] = useState<1 | 2>(1);
 
   const tipologias = useMemo(
     () => [
@@ -71,6 +79,15 @@ export function LeadForm({ imovel }: LeadFormProps) {
       imovel_nome: imovel.nome,
       imovel_slug: imovel.slug,
       bairro: imovel.bairro
+    });
+  }
+
+  function handleProfileStep() {
+    setStep(2);
+    pushTrackingEvent("form_step_continue", {
+      imovel_nome: imovel.nome,
+      imovel_slug: imovel.slug,
+      step: "profile"
     });
   }
 
@@ -128,6 +145,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
 
       setStatus("success");
       setForm(initialState);
+      setStep(1);
     } catch {
       setStatus("error");
     }
@@ -175,105 +193,173 @@ export function LeadForm({ imovel }: LeadFormProps) {
           <div className="mb-5 border-b border-slate-200 pb-5">
             <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
               <ShieldCheck className="size-4" aria-hidden="true" />
-              Lista VIP + tabela + simulacao
+              Etapa {step} de 2
             </div>
             <h3 className="text-2xl font-semibold leading-tight text-slate-950">
-              Qual unidade faz sentido para voce?
+              {step === 1
+                ? "Receba a tabela no WhatsApp"
+                : "Qual unidade faz sentido para voce?"}
             </h3>
+            <p className="mt-3 text-sm leading-6 text-slate-600">
+              {step === 1
+                ? "Comece com nome e WhatsApp. Na proxima etapa, voce pode informar seu perfil para receber uma simulacao mais precisa."
+                : "Essas respostas ajudam Alexandre a comparar unidade, fluxo e objetivo antes do contato."}
+            </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
-        <label className={labelClassName}>
-          Nome
-          <input
-            required
-            value={form.nome}
-            onChange={(event) => updateField("nome", event.target.value)}
-            className={inputClassName}
-            placeholder="Seu nome completo"
-          />
-        </label>
+          {step === 1 ? (
+            <>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className={labelClassName}>
+                  Nome
+                  <input
+                    required
+                    value={form.nome}
+                    onChange={(event) => updateField("nome", event.target.value)}
+                    className={inputClassName}
+                    placeholder="Seu nome completo"
+                  />
+                </label>
 
-        <label className={labelClassName}>
-          WhatsApp
-          <input
-            required
-            value={form.whatsapp}
-            onChange={(event) => updateField("whatsapp", event.target.value)}
-            className={inputClassName}
-            placeholder="(21) 99999-9999"
-          />
-        </label>
+                <label className={labelClassName}>
+                  WhatsApp
+                  <input
+                    required
+                    value={form.whatsapp}
+                    onChange={(event) =>
+                      updateField("whatsapp", event.target.value)
+                    }
+                    className={inputClassName}
+                    placeholder="(21) 99999-9999"
+                  />
+                </label>
+              </div>
 
-        <label className={labelClassName}>
-          Objetivo
-          <select
-            value={form.objetivo}
-            onChange={(event) => updateField("objetivo", event.target.value)}
-            className={inputClassName}
-          >
-            <option value="morar">Morar</option>
-            <option value="investir">Investir</option>
-            <option value="morar ou investir">Morar ou investir</option>
-            <option value="ainda avaliando">Ainda estou avaliando</option>
-          </select>
-        </label>
+              <button
+                type="button"
+                onClick={handleProfileStep}
+                disabled={!form.nome.trim() || !form.whatsapp.trim()}
+                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
+              >
+                Continuar para simulacao
+                <ArrowRight className="size-4" aria-hidden="true" />
+              </button>
 
-        <label className={labelClassName}>
-          Tipologia desejada
-          <select
-            value={form.tipologia}
-            onChange={(event) => updateField("tipologia", event.target.value)}
-            className={inputClassName}
-          >
-            {tipologias.map((tipologia) => (
-              <option key={tipologia} value={tipologia}>
-                {tipologia}
-              </option>
-            ))}
-          </select>
-        </label>
+              <button
+                type="submit"
+                disabled={
+                  status === "sending" ||
+                  !form.nome.trim() ||
+                  !form.whatsapp.trim()
+                }
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:border-slate-300 disabled:text-slate-400"
+              >
+                <Send className="size-4" aria-hidden="true" />
+                {status === "sending"
+                  ? "Enviando..."
+                  : "Enviar contato agora"}
+              </button>
+            </>
+          ) : (
+            <>
+              <div className="grid gap-4 sm:grid-cols-2">
+                <label className={labelClassName}>
+                  Objetivo
+                  <select
+                    value={form.objetivo}
+                    onChange={(event) =>
+                      updateField("objetivo", event.target.value)
+                    }
+                    className={inputClassName}
+                  >
+                    <option value="morar">Morar</option>
+                    <option value="investir">Investir</option>
+                    <option value="morar ou investir">Morar ou investir</option>
+                    <option value="ainda avaliando">
+                      Ainda estou avaliando
+                    </option>
+                  </select>
+                </label>
 
-        <label className={labelClassName}>
-          Entrada disponivel
-          <select
-            value={form.entradaDisponivel}
-            onChange={(event) =>
-              updateField("entradaDisponivel", event.target.value)
-            }
-            className={inputClassName}
-          >
-            <option value="ate R$ 50 mil">Ate R$ 50 mil</option>
-            <option value="R$ 50 mil a R$ 100 mil">R$ 50 mil a R$ 100 mil</option>
-            <option value="R$ 100 mil a R$ 200 mil">R$ 100 mil a R$ 200 mil</option>
-            <option value="acima de R$ 200 mil">Acima de R$ 200 mil</option>
-            <option value="prefiro conversar">Prefiro conversar</option>
-          </select>
-        </label>
+                <label className={labelClassName}>
+                  Tipologia desejada
+                  <select
+                    value={form.tipologia}
+                    onChange={(event) =>
+                      updateField("tipologia", event.target.value)
+                    }
+                    className={inputClassName}
+                  >
+                    {tipologias.map((tipologia) => (
+                      <option key={tipologia} value={tipologia}>
+                        {tipologia}
+                      </option>
+                    ))}
+                  </select>
+                </label>
 
-        <label className={labelClassName}>
-          Prazo de compra
-          <select
-            value={form.prazoCompra}
-            onChange={(event) => updateField("prazoCompra", event.target.value)}
-            className={inputClassName}
-          >
-            <option value="0 a 3 meses">0 a 3 meses</option>
-            <option value="3 a 6 meses">3 a 6 meses</option>
-            <option value="6 a 12 meses">6 a 12 meses</option>
-            <option value="mais de 12 meses">Mais de 12 meses</option>
-          </select>
-        </label>
-      </div>
+                <label className={labelClassName}>
+                  Entrada disponivel
+                  <select
+                    value={form.entradaDisponivel}
+                    onChange={(event) =>
+                      updateField("entradaDisponivel", event.target.value)
+                    }
+                    className={inputClassName}
+                  >
+                    <option value="ate R$ 50 mil">Ate R$ 50 mil</option>
+                    <option value="R$ 50 mil a R$ 100 mil">
+                      R$ 50 mil a R$ 100 mil
+                    </option>
+                    <option value="R$ 100 mil a R$ 200 mil">
+                      R$ 100 mil a R$ 200 mil
+                    </option>
+                    <option value="acima de R$ 200 mil">
+                      Acima de R$ 200 mil
+                    </option>
+                    <option value="prefiro conversar">Prefiro conversar</option>
+                  </select>
+                </label>
 
-      <button
-        type="submit"
-        disabled={status === "sending"}
-        className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
-      >
-        <Send className="size-4" aria-hidden="true" />
-        {status === "sending" ? "Enviando..." : "Receber tabela e simulacao"}
-      </button>
+                <label className={labelClassName}>
+                  Prazo de compra
+                  <select
+                    value={form.prazoCompra}
+                    onChange={(event) =>
+                      updateField("prazoCompra", event.target.value)
+                    }
+                    className={inputClassName}
+                  >
+                    <option value="0 a 3 meses">0 a 3 meses</option>
+                    <option value="3 a 6 meses">3 a 6 meses</option>
+                    <option value="6 a 12 meses">6 a 12 meses</option>
+                    <option value="mais de 12 meses">Mais de 12 meses</option>
+                  </select>
+                </label>
+              </div>
+
+              <div className="mt-5 grid gap-3 sm:grid-cols-[auto_1fr]">
+                <button
+                  type="button"
+                  onClick={() => setStep(1)}
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                >
+                  <ArrowLeft className="size-4" aria-hidden="true" />
+                  Voltar
+                </button>
+                <button
+                  type="submit"
+                  disabled={status === "sending"}
+                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
+                >
+                  <Send className="size-4" aria-hidden="true" />
+                  {status === "sending"
+                    ? "Enviando..."
+                    : "Receber tabela e simulacao"}
+                </button>
+              </div>
+            </>
+          )}
 
       {status === "success" ? (
         <div className="mt-4 border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950">
