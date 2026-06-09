@@ -12,7 +12,7 @@ export default function NotFound() {
         </p>
         <Link
           href="/lancamentos"
-          className="mt-8 inline-flex rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+          className="btn-primary-premium mt-8 inline-flex rounded-sm px-5 py-3 text-sm font-semibold transition"
         >
           Ver lancamentos
         </Link>

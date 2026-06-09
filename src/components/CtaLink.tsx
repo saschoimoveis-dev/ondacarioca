@@ -31,8 +31,8 @@ export function CtaLink({
 
   const className =
     variant === "primary"
-      ? "inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
-      : "inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white/70 px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-white";
+      ? "btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
+      : "btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition";
 
   return (
     <a href={href} onClick={handleClick} className={className}>

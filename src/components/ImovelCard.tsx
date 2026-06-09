@@ -38,14 +38,14 @@ export function ImovelCard({ imovel }: ImovelCardProps) {
             <p className="text-xs uppercase tracking-[0.14em] text-slate-500">
               Preco inicial comunicado
             </p>
-            <p className="mt-1 text-lg font-semibold text-[#173f34]">
+            <p className="mt-1 text-lg font-semibold text-[var(--brand)]">
               {imovel.precoInicial}
             </p>
             <p className="mt-2 text-sm text-slate-600">
               {imovel.tipologias.slice(0, 3).join(" | ")}
             </p>
           </div>
-          <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[#173f34]">
+          <span className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-[var(--brand)]">
             Ver detalhes
             <ArrowRight className="size-4" aria-hidden="true" />
           </span>

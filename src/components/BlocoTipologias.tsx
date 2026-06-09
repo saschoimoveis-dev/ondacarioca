@@ -25,7 +25,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
     <section className="bg-slate-50 py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
             Tipologias por perfil
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -44,7 +44,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             return (
               <div
                 key={`${planta.titulo}-${planta.metragem}`}
-                className="overflow-hidden border border-slate-200 bg-white shadow-sm"
+                className="premium-frame overflow-hidden border bg-white"
               >
                 {planta.imagem ? (
                   <div className="relative aspect-[16/9] bg-slate-100">
@@ -58,7 +58,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                   </div>
                 ) : null}
                 <div className="p-5">
-                  <Icon className="mb-4 size-6 text-[#173f34]" aria-hidden="true" />
+                  <Icon className="mb-4 size-6 text-[var(--brand)]" aria-hidden="true" />
                   <p className="text-xs font-medium uppercase tracking-[0.14em] text-slate-500">
                     {planta.metragem}
                   </p>

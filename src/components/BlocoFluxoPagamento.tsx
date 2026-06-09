@@ -34,7 +34,7 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
     <section className="bg-white py-14 sm:py-16" id="fluxo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
             Fluxo de pagamento
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -53,10 +53,10 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
             return (
               <div
                 key={etapa.title}
-                className="border border-slate-200 bg-slate-50 p-5"
+                className="premium-card border p-5"
               >
                 <div className="mb-5 flex items-center justify-between gap-4">
-                  <Icon className="size-6 text-[#173f34]" aria-hidden="true" />
+                  <Icon className="size-6 text-[var(--brand)]" aria-hidden="true" />
                   <span className="text-xs font-semibold text-slate-400">
                     {String(index + 1).padStart(2, "0")}
                   </span>

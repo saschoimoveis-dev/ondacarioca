@@ -39,7 +39,7 @@ export function BlocoPerfilUnidade({ imovel }: BlocoPerfilUnidadeProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Escolha guiada
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -61,7 +61,7 @@ export function BlocoPerfilUnidade({ imovel }: BlocoPerfilUnidadeProps) {
             </div>
           </div>
 
-          <div className="divide-y divide-slate-200 border-y border-slate-200">
+          <div className="divide-y divide-[var(--border-warm)] border-y border-[var(--border-warm)]">
             {perfis.map((perfil) => {
               const Icon = perfil.icon;
 
@@ -70,7 +70,7 @@ export function BlocoPerfilUnidade({ imovel }: BlocoPerfilUnidadeProps) {
                   key={perfil.title}
                   className="grid gap-4 py-5 sm:grid-cols-[44px_1fr]"
                 >
-                  <div className="grid size-11 place-items-center rounded-full bg-slate-50 text-[#173f34]">
+                  <div className="grid size-11 place-items-center rounded-full bg-[var(--surface-warm)] text-[var(--brand)] ring-1 ring-[var(--border-warm)]">
                     <Icon className="size-5" aria-hidden="true" />
                   </div>
                   <div>

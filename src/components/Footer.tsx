@@ -4,11 +4,11 @@ import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="bg-[#0f2f27] text-white" id="atendimento">
+    <footer className="bg-[var(--brand-dark)] text-white" id="atendimento">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-sm border border-white/25 bg-[#fbfaf7] text-sm font-semibold text-[#173f34]">
+            <span className="grid size-10 place-items-center rounded-sm border border-white/25 bg-[var(--surface-warm)] text-sm font-semibold text-[var(--brand)]">
               OC
             </span>
             <span>
@@ -27,27 +27,27 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-white/60">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-soft)]">
             Navegacao
           </h2>
           <div className="grid gap-3 text-sm text-white/75">
-            <Link href="/lancamentos" className="hover:text-white">
+            <Link href="/lancamentos" className="transition hover:text-[var(--champagne)]">
               Lancamentos
             </Link>
-            <a href="#condicoes" className="hover:text-white">
+            <a href="#condicoes" className="transition hover:text-[var(--champagne)]">
               Condicoes
             </a>
-            <a href="#lead-form" className="hover:text-white">
+            <a href="#lead-form" className="transition hover:text-[var(--champagne)]">
               Receber tabela
             </a>
-            <a href="#faq" className="hover:text-white">
+            <a href="#faq" className="transition hover:text-[var(--champagne)]">
               Perguntas frequentes
             </a>
           </div>
         </div>
 
         <div>
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-white/60">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-soft)]">
             Atendimento
           </h2>
           <div className="grid gap-3 text-sm text-white/75">
@@ -67,21 +67,21 @@ export function Footer() {
         </div>
 
         <div>
-          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-white/60">
+          <h2 className="mb-4 text-sm font-semibold uppercase tracking-[0.16em] text-[var(--accent-soft)]">
             Siga-nos
           </h2>
           <div className="flex gap-3 text-white/75">
             <a
               href="https://www.instagram.com/"
               aria-label="Instagram"
-              className="grid size-10 place-items-center rounded-sm border border-white/15 transition hover:border-white/40 hover:text-white"
+              className="grid size-10 place-items-center rounded-sm border border-white/15 transition hover:border-[var(--accent-soft)] hover:text-[var(--champagne)]"
             >
               <Share2 className="size-4" aria-hidden="true" />
             </a>
             <a
               href="https://www.linkedin.com/"
               aria-label="LinkedIn"
-              className="grid size-10 place-items-center rounded-sm border border-white/15 transition hover:border-white/40 hover:text-white"
+              className="grid size-10 place-items-center rounded-sm border border-white/15 transition hover:border-[var(--accent-soft)] hover:text-[var(--champagne)]"
             >
               <ExternalLink className="size-4" aria-hidden="true" />
             </a>

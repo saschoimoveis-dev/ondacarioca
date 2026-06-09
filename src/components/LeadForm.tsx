@@ -40,7 +40,7 @@ const initialState: FormState = {
 };
 
 const inputClassName =
-  "rounded-sm border border-slate-300 bg-white px-3 py-3 text-sm outline-none transition focus:border-[#173f34] focus:ring-2 focus:ring-[#173f34]/15";
+  "focus-premium rounded-sm border border-[var(--border-warm)] bg-white px-3 py-3 text-sm outline-none transition";
 
 const labelClassName = "grid gap-2 text-sm font-medium text-slate-800";
 
@@ -160,10 +160,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="bg-slate-50 py-14 sm:py-16" id="lead-form">
+    <section className="surface-premium py-14 sm:py-16" id="lead-form">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
             Lista VIP do WE Barra
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -173,9 +173,9 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Preencha seus dados para receber tabela, plantas, simulacao de
             fluxo e orientacao sobre as unidades mais adequadas ao seu perfil.
           </p>
-          <div className="mt-8 border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-700 shadow-sm">
+          <div className="premium-card mt-8 border p-5 text-sm leading-6 text-slate-700">
             <div className="flex items-start gap-3">
-              <FileText className="mt-0.5 size-5 shrink-0 text-[#173f34]" />
+              <FileText className="mt-0.5 size-5 shrink-0 text-[var(--brand)]" />
               <p>
                 <strong className="font-semibold">Inclui:</strong> ficha
                 tecnica, plantas de 2 a 4 quartos, gardens, coberturas,
@@ -188,10 +188,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
         <form
           onSubmit={handleSubmit}
           onFocus={trackStart}
-          className="border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
+          className="premium-frame border bg-white p-5 sm:p-6"
         >
           <div className="mb-5 border-b border-slate-200 pb-5">
-            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               <ShieldCheck className="size-4" aria-hidden="true" />
               Etapa {step} de 2
             </div>
@@ -239,7 +239,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 type="button"
                 onClick={handleProfileStep}
                 disabled={!form.nome.trim() || !form.whatsapp.trim()}
-                className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
+                className="btn-primary-premium mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
               >
                 Continuar para simulacao
                 <ArrowRight className="size-4" aria-hidden="true" />
@@ -252,7 +252,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   !form.nome.trim() ||
                   !form.whatsapp.trim()
                 }
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:border-slate-300 disabled:text-slate-400"
+                className="btn-secondary-premium mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:border-slate-300 disabled:text-slate-400"
               >
                 <Send className="size-4" aria-hidden="true" />
                 {status === "sending"
@@ -342,7 +342,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-slate-300 bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-slate-50"
+                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--border-warm)] bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[var(--surface-warm)]"
                 >
                   <ArrowLeft className="size-4" aria-hidden="true" />
                   Voltar
@@ -350,7 +350,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
+                  className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
                 >
                   <Send className="size-4" aria-hidden="true" />
                   {status === "sending"
@@ -362,7 +362,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
           )}
 
       {status === "success" ? (
-        <div className="mt-4 border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950">
+        <div className="mt-4 border border-[var(--border-warm)] bg-[var(--surface-green)] p-4 text-sm text-[var(--brand-dark)]">
           <p>
             Dados enviados. Agora voce pode baixar o PDF e seguir a simulacao
             pelo WhatsApp.
@@ -373,7 +373,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 href={imovel.materialPdfPath}
                 download
                 onClick={handleMaterialDownload}
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+                className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-4 py-3 text-sm font-semibold transition"
               >
                 <Download className="size-4" aria-hidden="true" />
                 Baixar PDF
@@ -383,7 +383,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               imovel={imovel}
               source="form_success"
               label="Falar no WhatsApp"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-4 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-slate-50"
+              className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-sm border px-4 py-3 text-sm font-semibold transition"
             />
           </div>
         </div>

@@ -39,11 +39,11 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
   ];
 
   return (
-    <section className="border-b border-slate-200 bg-white">
+    <section className="surface-hero border-b border-[var(--border-warm)]">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 lg:grid-cols-[0.92fr_1.08fr] lg:px-8 lg:py-20">
         <div className="flex flex-col justify-center">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
-            <MapPin className="size-4 text-[#173f34]" aria-hidden="true" />
+            <MapPin className="size-4 text-[var(--brand)]" aria-hidden="true" />
             {imovel.bairro}, {imovel.cidade}
           </div>
 
@@ -75,7 +75,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               imovel={imovel}
               source="hero_whatsapp"
               label="Falar com Alexandre"
-              className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] bg-white px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-slate-50"
+              className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition"
             />
           </div>
         </div>
@@ -85,8 +85,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             const Icon = prova.icon;
 
             return (
-              <div key={prova.label} className="border border-slate-200 bg-slate-50 p-5">
-                <Icon className="mb-5 size-6 text-[#A87932]" aria-hidden="true" />
+              <div key={prova.label} className="premium-card border p-5">
+                <Icon className="mb-5 size-6 text-[var(--accent)]" aria-hidden="true" />
                 <p className="text-xl font-semibold leading-tight text-slate-950">
                   {prova.label}
                 </p>
@@ -97,9 +97,9 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             );
           })}
 
-          <div className="border border-slate-200 bg-white p-5 sm:col-span-2">
+          <div className="premium-card border p-5 sm:col-span-2">
             <div className="flex items-start gap-3">
-              <Building2 className="mt-1 size-5 shrink-0 text-[#173f34]" />
+              <Building2 className="mt-1 size-5 shrink-0 text-[var(--brand)]" />
               <p className="text-sm leading-6 text-slate-700">
                 Apartamentos, gardens e coberturas com 605 unidades no total.
                 Valores e disponibilidade mudam conforme tabela vigente.

@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 export default function LancamentosPage() {
   return (
     <>
-      <section className="bg-white">
+      <section className="surface-hero">
         <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 lg:grid-cols-[0.84fr_1.16fr] lg:px-8 lg:py-16">
           <div>
             <h1 className="text-4xl font-semibold leading-tight text-slate-950 sm:text-6xl">
@@ -37,14 +37,14 @@ export default function LancamentosPage() {
             <div className="mt-8 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={`/lancamentos/${imoveis[0].slug}`}
-                className="inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+                className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
               >
                 Ver WE Barra by Living
                 <ArrowRight className="size-4" aria-hidden="true" />
               </Link>
               <a
                 href="#lista"
-                className="inline-flex items-center justify-center gap-2 rounded-sm border border-[#173f34] px-5 py-3 text-sm font-semibold text-[#173f34] transition hover:bg-[#fbfaf7]"
+                className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition"
               >
                 Ver lancamentos
               </a>
@@ -74,10 +74,10 @@ export default function LancamentosPage() {
               return (
                 <div
                   key={item.title}
-                  className="rounded-sm border border-slate-200 bg-slate-50 p-5"
+                  className="premium-card rounded-sm border p-5"
                 >
                   <Icon
-                    className="mb-4 size-6 text-[#173f34]"
+                    className="mb-4 size-6 text-[var(--brand)]"
                     aria-hidden="true"
                   />
                   <h2 className="text-base font-semibold text-slate-950">
@@ -93,7 +93,7 @@ export default function LancamentosPage() {
         </div>
       </section>
 
-      <section className="border-y border-slate-200 bg-slate-50 py-12" id="lista">
+      <section className="border-y border-[var(--border-warm)] bg-slate-50 py-12" id="lista">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
             <div>
@@ -117,7 +117,7 @@ export default function LancamentosPage() {
 
       <section className="bg-white py-14">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="rounded-sm border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+          <div className="premium-frame rounded-sm border bg-white p-6 md:p-8">
             <h2 className="text-2xl font-semibold text-slate-950">
               Por que organizar por paginas especificas?
             </h2>

@@ -64,7 +64,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
       <a
         href="#lead-form"
         onClick={handleClick}
-        className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+        className="btn-primary-premium inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
       >
         <Download className="size-4" aria-hidden="true" />
         Receber tabela e simulacao

@@ -89,7 +89,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
               Vitrine do empreendimento
             </p>
             <h2 className="text-3xl font-semibold text-slate-950">
@@ -110,7 +110,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
         </div>
 
         {activeImage ? (
-          <div className="border border-slate-200 bg-white p-3 shadow-sm sm:p-4">
+          <div className="premium-frame border bg-white p-3 sm:p-4">
             <div className="mb-4 flex gap-2 overflow-x-auto pb-1">
               {imagens.map((imagem, index) => (
                 <button
@@ -119,8 +119,8 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   onClick={() => handleView(index)}
                   className={
                     activeIndex === index
-                      ? "shrink-0 rounded-full bg-[#173f34] px-4 py-2 text-xs font-semibold text-white"
-                      : "shrink-0 rounded-full border border-slate-200 bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-slate-50"
+                      ? "shrink-0 rounded-full bg-[var(--brand)] px-4 py-2 text-xs font-semibold text-white shadow-sm"
+                      : "shrink-0 rounded-full border border-[var(--border-warm)] bg-white px-4 py-2 text-xs font-semibold text-slate-700 transition hover:bg-[var(--surface-warm)]"
                   }
                 >
                   {getLabel(imagem.src, index)}
@@ -130,7 +130,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
 
             <div className="grid gap-5 lg:grid-cols-[minmax(0,1fr)_268px]">
               <div>
-                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 lg:aspect-[16/9]">
+                <div className="relative aspect-[16/10] overflow-hidden bg-slate-100 ring-1 ring-[var(--border-warm)] lg:aspect-[16/9]">
                 <Image
                   src={activeImage.src}
                   alt={activeImage.alt}
@@ -141,9 +141,9 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                 />
               </div>
 
-                <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <div className="mt-4 flex flex-col gap-3 border border-[var(--border-warm)] bg-[var(--surface-warm)] p-4 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#A87932]">
+                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--accent)]">
                       <Eye className="size-4" aria-hidden="true" />
                       O que observar
                     </div>
@@ -159,7 +159,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   <button
                     type="button"
                     onClick={handlePrevious}
-                    className="grid size-10 place-items-center rounded-sm border border-slate-300 bg-white text-[#173f34] transition hover:bg-slate-50"
+                    className="grid size-10 place-items-center rounded-sm border border-[var(--border-warm)] bg-white text-[var(--brand)] transition hover:bg-[var(--surface-warm)]"
                     aria-label="Imagem anterior"
                   >
                     <ChevronLeft className="size-5" aria-hidden="true" />
@@ -167,7 +167,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   <button
                     type="button"
                     onClick={handleNext}
-                    className="grid size-10 place-items-center rounded-sm border border-slate-300 bg-white text-[#173f34] transition hover:bg-slate-50"
+                    className="grid size-10 place-items-center rounded-sm border border-[var(--border-warm)] bg-white text-[var(--brand)] transition hover:bg-[var(--surface-warm)]"
                     aria-label="Proxima imagem"
                   >
                     <ChevronRight className="size-5" aria-hidden="true" />
@@ -188,8 +188,8 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   <span
                     className={
                       activeIndex === index
-                        ? "relative block aspect-[16/10] overflow-hidden border-2 border-[#173f34] bg-slate-100"
-                        : "relative block aspect-[16/10] overflow-hidden border border-slate-200 bg-slate-100"
+                        ? "relative block aspect-[16/10] overflow-hidden border-2 border-[var(--brand)] bg-slate-100 shadow-sm"
+                        : "relative block aspect-[16/10] overflow-hidden border border-[var(--border-warm)] bg-slate-100"
                     }
                   >
                     <Image
@@ -206,9 +206,9 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
                   </span>
                 </button>
               ))}
-                <div className="hidden border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700 lg:block">
+                <div className="hidden border border-[var(--border-warm)] bg-[var(--surface-warm)] p-4 text-sm leading-6 text-slate-700 lg:block">
                   <Maximize2
-                    className="mb-3 size-5 text-[#173f34]"
+                    className="mb-3 size-5 text-[var(--brand)]"
                     aria-hidden="true"
                   />
                   As imagens ajudam a filtrar desejo. A simulacao ajuda a

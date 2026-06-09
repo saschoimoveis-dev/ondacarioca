@@ -9,7 +9,7 @@ export function Header() {
     <header className="sticky top-0 z-40 border-b border-slate-200/80 bg-white/92 backdrop-blur">
       <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link href="/lancamentos" className="flex items-center gap-3">
-          <span className="grid size-10 place-items-center rounded-sm border border-[#173f34] bg-[#173f34] text-sm font-semibold text-white">
+          <span className="grid size-10 place-items-center rounded-sm border border-[var(--brand)] bg-[var(--brand)] text-sm font-semibold text-white">
             OC
           </span>
           <span className="leading-tight">
@@ -23,20 +23,20 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-          <Link href="/lancamentos" className="transition hover:text-[#173f34]">
+          <Link href="/lancamentos" className="transition hover:text-[var(--brand)]">
             Lancamentos
           </Link>
-          <a href="#atendimento" className="transition hover:text-[#173f34]">
+          <a href="#atendimento" className="transition hover:text-[var(--brand)]">
             Atendimento
           </a>
-          <a href="#faq" className="transition hover:text-[#173f34]">
+          <a href="#faq" className="transition hover:text-[var(--brand)]">
             FAQ
           </a>
         </nav>
 
         <a
           href={whatsappHref}
-          className="inline-flex items-center gap-2 rounded-sm bg-[#173f34] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
+          className="inline-flex items-center gap-2 rounded-sm bg-[var(--brand)] px-3 py-2 text-sm font-semibold text-white transition hover:bg-[var(--brand-dark)]"
         >
           <MessageCircle className="size-4" aria-hidden="true" />
           <span className="hidden sm:inline">{siteConfig.phoneDisplay}</span>

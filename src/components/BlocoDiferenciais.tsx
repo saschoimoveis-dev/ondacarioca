@@ -14,7 +14,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
 
   return (
     <section
-      className="border-y border-slate-200 bg-white py-14 sm:py-16"
+      className="border-y border-[var(--border-warm)] bg-white py-14 sm:py-16"
       id="lazer"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -43,10 +43,10 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
               {imovel.diferenciais.slice(0, 4).map((diferencial) => (
                 <div
                   key={diferencial}
-                  className="border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700"
+                  className="premium-card border p-4 text-sm leading-6 text-slate-700"
                 >
                   <CheckCircle2
-                    className="mb-3 size-5 text-[#A87932]"
+                    className="mb-3 size-5 text-[var(--accent)]"
                     aria-hidden="true"
                   />
                   {diferencial}

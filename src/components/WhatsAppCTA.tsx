@@ -43,7 +43,7 @@ export function WhatsAppCTA({
       onClick={handleClick}
       className={
         className ||
-        "inline-flex items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27]"
+        "btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
       }
     >
       <MessageCircle className="size-4" aria-hidden="true" />
