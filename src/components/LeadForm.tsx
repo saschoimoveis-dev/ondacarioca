@@ -118,7 +118,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
         imovel_nome: imovel.nome,
         imovel_slug: imovel.slug,
         tipologia_interesse: form.tipologia,
-        lead_type: "material_pdf"
+        lead_type: "lista_vip_simulacao"
       });
       pushTrackingEvent("material_download_request", {
         imovel_nome: imovel.nome,
@@ -146,23 +146,22 @@ export function LeadForm({ imovel }: LeadFormProps) {
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
-            Receba o material completo
+            Lista VIP do WE Barra
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Receba o PDF do WE Barra e a tabela atualizada
+            Entre na lista VIP do WE Barra
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Preencha os dados para acessar a apresentacao com ficha tecnica,
-            plantas, imagens previas e seguir o atendimento com Alexandre
-            Sascho.
+            Preencha seus dados para receber tabela, plantas, simulacao de
+            fluxo e orientacao sobre as unidades mais adequadas ao seu perfil.
           </p>
           <div className="mt-8 border border-slate-200 bg-white p-5 text-sm leading-6 text-slate-700 shadow-sm">
             <div className="flex items-start gap-3">
               <FileText className="mt-0.5 size-5 shrink-0 text-[#173f34]" />
               <p>
                 <strong className="font-semibold">Inclui:</strong> ficha
-                tecnica, plantas de 2 a 4 quartos, gardens, coberturas e imagens
-                previas de lazer.
+                tecnica, plantas de 2 a 4 quartos, gardens, coberturas,
+                simulacao de fluxo e contato com Alexandre.
               </p>
             </div>
           </div>
@@ -176,10 +175,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
           <div className="mb-5 border-b border-slate-200 pb-5">
             <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
               <ShieldCheck className="size-4" aria-hidden="true" />
-              PDF + tabela + contato
+              Lista VIP + tabela + simulacao
             </div>
             <h3 className="text-2xl font-semibold leading-tight text-slate-950">
-              Para qual unidade voce quer informacoes?
+              Qual unidade faz sentido para voce?
             </h3>
           </div>
 
@@ -207,6 +206,20 @@ export function LeadForm({ imovel }: LeadFormProps) {
         </label>
 
         <label className={labelClassName}>
+          Objetivo
+          <select
+            value={form.objetivo}
+            onChange={(event) => updateField("objetivo", event.target.value)}
+            className={inputClassName}
+          >
+            <option value="morar">Morar</option>
+            <option value="investir">Investir</option>
+            <option value="morar ou investir">Morar ou investir</option>
+            <option value="ainda avaliando">Ainda estou avaliando</option>
+          </select>
+        </label>
+
+        <label className={labelClassName}>
           Tipologia desejada
           <select
             value={form.tipologia}
@@ -218,6 +231,23 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 {tipologia}
               </option>
             ))}
+          </select>
+        </label>
+
+        <label className={labelClassName}>
+          Entrada disponivel
+          <select
+            value={form.entradaDisponivel}
+            onChange={(event) =>
+              updateField("entradaDisponivel", event.target.value)
+            }
+            className={inputClassName}
+          >
+            <option value="ate R$ 50 mil">Ate R$ 50 mil</option>
+            <option value="R$ 50 mil a R$ 100 mil">R$ 50 mil a R$ 100 mil</option>
+            <option value="R$ 100 mil a R$ 200 mil">R$ 100 mil a R$ 200 mil</option>
+            <option value="acima de R$ 200 mil">Acima de R$ 200 mil</option>
+            <option value="prefiro conversar">Prefiro conversar</option>
           </select>
         </label>
 
@@ -242,13 +272,13 @@ export function LeadForm({ imovel }: LeadFormProps) {
         className="mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white shadow-sm shadow-slate-950/10 transition hover:bg-[#0f2f27] disabled:cursor-not-allowed disabled:bg-slate-400"
       >
         <Send className="size-4" aria-hidden="true" />
-        {status === "sending" ? "Enviando..." : "Receber PDF e tabela"}
+        {status === "sending" ? "Enviando..." : "Receber tabela e simulacao"}
       </button>
 
       {status === "success" ? (
         <div className="mt-4 border border-emerald-200 bg-emerald-50 p-4 text-sm text-emerald-950">
           <p>
-            Dados enviados. Agora voce pode baixar o PDF e seguir o atendimento
+            Dados enviados. Agora voce pode baixar o PDF e seguir a simulacao
             pelo WhatsApp.
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">

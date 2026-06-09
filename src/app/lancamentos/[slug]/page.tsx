@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlocoCondicoes } from "@/components/BlocoCondicoes";
 import { BlocoDiferenciais } from "@/components/BlocoDiferenciais";
+import { BlocoFluxoPagamento } from "@/components/BlocoFluxoPagamento";
+import { BlocoListaVip } from "@/components/BlocoListaVip";
 import { BlocoLocalizacao } from "@/components/BlocoLocalizacao";
 import { BlocoTipologias } from "@/components/BlocoTipologias";
 import { FaqSection } from "@/components/FaqSection";
@@ -77,8 +79,10 @@ export default async function ImovelPage({ params }: PageProps) {
       <PageViewTracker imovel={imovel} />
       <HeroImovel imovel={imovel} />
       <GaleriaImovel imovel={imovel} />
-      <BlocoCondicoes imovel={imovel} />
+      <BlocoListaVip imovel={imovel} />
       <BlocoTipologias imovel={imovel} />
+      <BlocoFluxoPagamento imovel={imovel} />
+      <BlocoCondicoes imovel={imovel} />
       <BlocoDiferenciais imovel={imovel} />
       <BlocoLocalizacao imovel={imovel} />
       <FaqSection imovel={imovel} />

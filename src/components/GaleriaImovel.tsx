@@ -68,16 +68,16 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
             <h2 className="text-3xl font-semibold text-slate-950">
-              Imagens do WE Barra
+              Veja o produto antes de escolher a unidade
             </h2>
             <p className="mt-3 max-w-2xl text-base leading-7 text-slate-600">
-              Fotos, plantas e ficha tecnica aparecem cedo para facilitar a
-              comparacao antes do contato.
+              Imagens do lazer, plantas e ficha tecnica ajudam a comparar
+              tipologias antes da simulacao.
             </p>
           </div>
           <CtaLink
             href="#lead-form"
-            label="Receber material"
+            label="Receber tabela e plantas"
             imovel={imovel}
             source="galeria_pdf_cta"
             variant="secondary"

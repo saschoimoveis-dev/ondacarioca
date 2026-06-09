@@ -38,11 +38,11 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             Ficha tecnica
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Dados do material de apresentacao do WE Barra
+            Dados principais do WE Barra
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Endereco, quantidade de unidades, mix de plantas e lazer para
-            orientar a comparacao antes do contato.
+            Endereco, unidades, tipologias e condicoes iniciais para comparar
+            antes da simulacao.
           </p>
         </div>
 

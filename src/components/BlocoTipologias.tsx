@@ -26,14 +26,14 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
-            Plantas e unidades
+            Tipologias por perfil
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Plantas para comparar antes de decidir
+            Qual tipologia faz mais sentido para voce?
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            O PDF reune plantas previas e metragens por tipologia. Use esta
-            visao para decidir quais opcoes fazem sentido antes do atendimento.
+            Cada planta atende um tipo de decisao. Compare moradia,
+            investimento, liquidez e escassez antes de pedir a simulacao.
           </p>
         </div>
 
@@ -77,7 +77,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
         <div className="mt-8">
           <CtaLink
             href="#lead-form"
-            label="Receber PDF com todas as plantas"
+            label="Receber simulacao por tipologia"
             imovel={imovel}
             source="plantas_pdf_cta"
             variant="primary"

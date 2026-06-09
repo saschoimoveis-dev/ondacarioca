@@ -47,7 +47,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
 
   function handleClick() {
     pushTrackingEvent("cta_click", {
-      cta_label: "Receber PDF e tabela",
+      cta_label: "Receber tabela e simulacao",
       cta_source: "sticky_mobile",
       imovel_nome: imovel.nome,
       imovel_slug: imovel.slug,
@@ -67,7 +67,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
         className="inline-flex w-full items-center justify-center gap-2 rounded-sm bg-[#173f34] px-5 py-3 text-sm font-semibold text-white transition hover:bg-[#0f2f27]"
       >
         <Download className="size-4" aria-hidden="true" />
-        Receber PDF e tabela
+        Receber tabela e simulacao
       </a>
     </div>
   );

@@ -1,4 +1,11 @@
-import { Building2, FileText, Home, MapPin, Waves } from "lucide-react";
+import {
+  Building2,
+  Calculator,
+  FileText,
+  Home,
+  KeyRound,
+  MapPin
+} from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
 import { WhatsAppCTA } from "@/components/WhatsAppCTA";
@@ -10,18 +17,23 @@ type HeroImovelProps = {
 export function HeroImovel({ imovel }: HeroImovelProps) {
   const provas = [
     {
-      label: "605 unidades",
-      description: "Empreendimento com escala e mix variado.",
-      icon: Building2
+      label: "Tabela e plantas",
+      description: "Receba material atualizado antes de comparar unidades.",
+      icon: FileText
     },
     {
-      label: "+5 mil m² de lazer",
-      description: "Piscina, pool house e areas de convivencia.",
-      icon: Waves
+      label: "Simulacao de fluxo",
+      description: "Entenda sinal, parcelas durante a obra e saldo estimado.",
+      icon: Calculator
+    },
+    {
+      label: "Prioridade de escolha",
+      description: "Compare tipologias, colunas e disponibilidade com orientacao.",
+      icon: KeyRound
     },
     {
       label: "2 a 4 quartos",
-      description: "Apartamentos, gardens e coberturas.",
+      description: "Apartamentos, gardens, coberturas lineares e duplex.",
       icon: Home
     }
   ];
@@ -40,14 +52,15 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </h1>
 
           <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-600">
-            Receba plantas, ficha tecnica, imagens do lazer, tabela atualizada e
-            disponibilidade com atendimento de Alexandre Sascho.
+            Entre na lista VIP para receber tabela atualizada, plantas,
+            simulacao de fluxo e orientacao sobre as melhores unidades
+            disponiveis.
           </p>
 
           <div className="mt-7 flex flex-col gap-3 sm:flex-row">
             <CtaLink
               href="#lead-form"
-              label="Receber PDF e tabela"
+              label="Entrar na lista VIP"
               imovel={imovel}
               source="hero_pdf_cta"
               variant="primary"
@@ -61,7 +74,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </div>
         </div>
 
-        <div className="grid gap-4 self-center sm:grid-cols-3 lg:grid-cols-2">
+        <div className="grid gap-4 self-center sm:grid-cols-2">
           {provas.map((prova) => {
             const Icon = prova.icon;
 
@@ -78,12 +91,13 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             );
           })}
 
-          <div className="border border-slate-200 bg-white p-5 sm:col-span-3 lg:col-span-2">
+          <div className="border border-slate-200 bg-white p-5 sm:col-span-2">
             <div className="flex items-start gap-3">
-              <FileText className="mt-1 size-5 shrink-0 text-[#173f34]" />
+              <Building2 className="mt-1 size-5 shrink-0 text-[#173f34]" />
               <p className="text-sm leading-6 text-slate-700">
-                O PDF inclui ficha tecnica, plantas, imagens do lazer e dados
-                sujeitos a confirmacao de valores e disponibilidade.
+                2 quartos a partir de R$ 600 mil, sinal comunicado a partir de
+                R$ 50 mil e mensais a partir de R$ 2.000, sujeitos a
+                confirmacao.
               </p>
             </div>
           </div>
