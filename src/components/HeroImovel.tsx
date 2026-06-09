@@ -86,7 +86,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
 
             return (
               <div key={prova.label} className="border border-slate-200 bg-slate-50 p-5">
-                <Icon className="mb-5 size-6 text-[#007f5f]" aria-hidden="true" />
+                <Icon className="mb-5 size-6 text-[#A87932]" aria-hidden="true" />
                 <p className="text-xl font-semibold leading-tight text-slate-950">
                   {prova.label}
                 </p>

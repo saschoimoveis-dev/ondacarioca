@@ -39,7 +39,7 @@ export function BlocoPerfilUnidade({ imovel }: BlocoPerfilUnidadeProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
               Escolha guiada
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">

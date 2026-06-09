@@ -25,7 +25,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
     <section className="bg-slate-50 py-14 sm:py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
             Tipologias por perfil
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">

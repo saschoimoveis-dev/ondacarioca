@@ -10,7 +10,7 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
     <section className="bg-white py-14 sm:py-16">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
             Localizacao
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -38,10 +38,10 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
           </a>
         </div>
 
-        <div className="relative min-h-[300px] overflow-hidden border border-slate-200 bg-slate-50 shadow-sm">
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(23,63,52,0.10)_1px,transparent_1px),linear-gradient(0deg,rgba(23,63,52,0.10)_1px,transparent_1px)] bg-[size:42px_42px]" />
-          <div className="absolute left-1/2 top-1/2 h-24 w-[120%] -translate-x-1/2 -translate-y-1/2 rotate-[-12deg] bg-sky-100" />
-          <div className="absolute left-1/2 top-1/2 h-12 w-[120%] -translate-x-1/2 -translate-y-1/2 rotate-[10deg] bg-emerald-100" />
+        <div className="relative min-h-[300px] overflow-hidden border border-slate-200 bg-[#fbfaf7] shadow-sm">
+          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(168,121,50,0.13)_1px,transparent_1px),linear-gradient(0deg,rgba(23,63,52,0.08)_1px,transparent_1px)] bg-[size:42px_42px]" />
+          <div className="absolute left-1/2 top-1/2 h-24 w-[120%] -translate-x-1/2 -translate-y-1/2 rotate-[-12deg] bg-[#efe4cf]" />
+          <div className="absolute left-1/2 top-1/2 h-12 w-[120%] -translate-x-1/2 -translate-y-1/2 rotate-[10deg] bg-[#d7c197]" />
           <div className="absolute left-[58%] top-[45%] grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[#173f34] text-white shadow-xl shadow-slate-950/20">
             <MapPin className="size-9" aria-hidden="true" />
           </div>

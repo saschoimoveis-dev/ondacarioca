@@ -34,7 +34,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
     <section className="border-y border-slate-200 bg-white" id="condicoes">
       <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
         <div className="mb-7 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
             Ficha tecnica
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -64,7 +64,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
           </div>
         ) : null}
 
-        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+        <p className="mb-4 text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
           Condicoes comunicadas
         </p>
         <div className="grid gap-3 md:grid-cols-4">

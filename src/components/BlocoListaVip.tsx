@@ -35,7 +35,7 @@ export function BlocoListaVip({ imovel }: BlocoListaVipProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-8 lg:grid-cols-[0.82fr_1.18fr]">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
               Lista VIP
             </p>
             <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -66,7 +66,7 @@ export function BlocoListaVip({ imovel }: BlocoListaVipProps) {
                   key={motivo.title}
                   className="border border-slate-200 bg-slate-50 p-5"
                 >
-                  <Icon className="mb-4 size-6 text-[#007f5f]" aria-hidden="true" />
+                  <Icon className="mb-4 size-6 text-[#A87932]" aria-hidden="true" />
                   <h3 className="text-lg font-semibold text-slate-950">
                     {motivo.title}
                   </h3>

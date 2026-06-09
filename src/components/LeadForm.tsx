@@ -163,7 +163,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
     <section className="bg-slate-50 py-14 sm:py-16" id="lead-form">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
             Lista VIP do WE Barra
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
@@ -191,7 +191,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
           className="border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
         >
           <div className="mb-5 border-b border-slate-200 pb-5">
-            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
               <ShieldCheck className="size-4" aria-hidden="true" />
               Etapa {step} de 2
             </div>

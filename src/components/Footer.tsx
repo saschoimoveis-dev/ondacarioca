@@ -4,11 +4,11 @@ import { siteConfig } from "@/lib/site";
 
 export function Footer() {
   return (
-    <footer className="bg-slate-950 text-white" id="atendimento">
+    <footer className="bg-[#0f2f27] text-white" id="atendimento">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr_1fr] lg:px-8">
         <div>
           <div className="mb-4 flex items-center gap-3">
-            <span className="grid size-10 place-items-center rounded-sm border border-white/30 bg-white text-sm font-semibold text-slate-950">
+            <span className="grid size-10 place-items-center rounded-sm border border-white/25 bg-[#fbfaf7] text-sm font-semibold text-[#173f34]">
               OC
             </span>
             <span>

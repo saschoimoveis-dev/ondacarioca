@@ -24,7 +24,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
   return (
     <section className="bg-slate-50 py-14 sm:py-16" id="faq">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
           Duvidas comuns
         </p>
         <h2 className="mt-3 text-3xl font-semibold text-slate-950">

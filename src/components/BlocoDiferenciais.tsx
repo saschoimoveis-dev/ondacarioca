@@ -46,7 +46,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
                   className="border border-slate-200 bg-slate-50 p-4 text-sm leading-6 text-slate-700"
                 >
                   <CheckCircle2
-                    className="mb-3 size-5 text-[#007f5f]"
+                    className="mb-3 size-5 text-[#A87932]"
                     aria-hidden="true"
                   />
                   {diferencial}

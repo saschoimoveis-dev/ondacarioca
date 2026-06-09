@@ -89,7 +89,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mb-8 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
           <div>
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#007f5f]">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#A87932]">
               Vitrine do empreendimento
             </p>
             <h2 className="text-3xl font-semibold text-slate-950">
@@ -143,7 +143,7 @@ export function GaleriaImovel({ imovel }: GaleriaImovelProps) {
 
                 <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                 <div>
-                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#007f5f]">
+                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#A87932]">
                       <Eye className="size-4" aria-hidden="true" />
                       O que observar
                     </div>
