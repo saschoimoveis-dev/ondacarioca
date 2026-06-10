@@ -82,7 +82,31 @@ export function LeadForm({ imovel }: LeadFormProps) {
     });
   }
 
-  function handleProfileStep() {
+  function readFormValues(formElement?: HTMLFormElement | null) {
+    if (!formElement) {
+      return {};
+    }
+
+    const formData = new FormData(formElement);
+    const values: Partial<FormState> = {};
+
+    (Object.keys(initialState) as Array<keyof FormState>).forEach((key) => {
+      const value = formData.get(key);
+      if (typeof value === "string") {
+        values[key] = value;
+      }
+    });
+
+    return values;
+  }
+
+  function handleProfileStep(formElement?: HTMLFormElement | null) {
+    if (formElement && !formElement.reportValidity()) {
+      return;
+    }
+
+    const values = readFormValues(formElement);
+    setForm((current) => ({ ...current, ...values }));
     setStep(2);
     pushTrackingEvent("form_step_continue", {
       imovel_nome: imovel.nome,
@@ -95,8 +119,9 @@ export function LeadForm({ imovel }: LeadFormProps) {
     event.preventDefault();
     setStatus("sending");
 
+    const values = { ...form, ...readFormValues(event.currentTarget) };
     const payload = {
-      ...form,
+      ...values,
       imovel: imovel.nome,
       slug: imovel.slug,
       pagina: window.location.href,
@@ -135,7 +160,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
         imovel_nome: imovel.nome,
         imovel_slug: imovel.slug,
         tipologia_interesse: form.tipologia,
-        lead_type: "lista_vip_simulacao"
+        lead_type: "tabela_simulacao"
       });
       pushTrackingEvent("material_download_request", {
         imovel_nome: imovel.nome,
@@ -160,26 +185,26 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="surface-premium py-14 sm:py-16" id="lead-form">
+    <section className="surface-premium pb-20 pt-14 sm:pb-24 sm:pt-16" id="lead-form">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-            Lista VIP do WE Barra
+            Atendimento e simulacao
           </p>
           <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Veja se o fluxo cabe para voce
+            Receba tabela, plantas e simulacao no WhatsApp
           </h2>
           <p className="mt-4 text-base leading-7 text-slate-600">
-            Envie seus dados para receber tabela, plantas e uma simulacao com
-            sinal, mensais durante a obra e saldo estimado para o seu perfil.
+            Informe seus dados para consultar disponibilidade e entender se o
+            fluxo cabe no seu perfil.
           </p>
           <div className="premium-card mt-8 border p-5 text-sm leading-6 text-slate-700">
             <div className="flex items-start gap-3">
               <FileText className="mt-0.5 size-5 shrink-0 text-[var(--brand)]" />
               <p>
                 <strong className="font-semibold">Inclui:</strong> ficha
-                tecnica, plantas de 2 a 4 quartos, gardens, coberturas,
-                analise de fluxo, disponibilidade e contato com Alexandre.
+                tecnica, plantas, disponibilidade, estimativa de fluxo e contato
+                com Alexandre.
               </p>
             </div>
           </div>
@@ -197,13 +222,13 @@ export function LeadForm({ imovel }: LeadFormProps) {
             </div>
             <h3 className="text-2xl font-semibold leading-tight text-slate-950">
               {step === 1
-                ? "Receba tabela e fluxo no WhatsApp"
+                ? "Informe seu contato"
                 : "Qual unidade faz sentido para voce?"}
             </h3>
             <p className="mt-3 text-sm leading-6 text-slate-600">
               {step === 1
-                ? "Comece com nome e WhatsApp. Na proxima etapa, voce informa entrada e objetivo para receber uma simulacao mais precisa."
-                : "Essas respostas ajudam Alexandre a comparar tipologia, unidade, fluxo e objetivo antes do contato."}
+                ? "Nome e WhatsApp bastam para iniciar. O perfil vem na proxima etapa."
+                : "Essas respostas ajudam a filtrar tipologia, fluxo e prioridade antes do contato."}
             </p>
           </div>
 
@@ -214,8 +239,12 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   Nome
                   <input
                     required
+                    name="nome"
                     value={form.nome}
                     onChange={(event) => updateField("nome", event.target.value)}
+                    onInput={(event) =>
+                      updateField("nome", event.currentTarget.value)
+                    }
                     className={inputClassName}
                     placeholder="Seu nome completo"
                   />
@@ -225,9 +254,13 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   WhatsApp
                   <input
                     required
+                    name="whatsapp"
                     value={form.whatsapp}
                     onChange={(event) =>
                       updateField("whatsapp", event.target.value)
+                    }
+                    onInput={(event) =>
+                      updateField("whatsapp", event.currentTarget.value)
                     }
                     className={inputClassName}
                     placeholder="(21) 99999-9999"
@@ -237,27 +270,22 @@ export function LeadForm({ imovel }: LeadFormProps) {
 
               <button
                 type="button"
-                onClick={handleProfileStep}
-                disabled={!form.nome.trim() || !form.whatsapp.trim()}
+                onClick={(event) => handleProfileStep(event.currentTarget.form)}
                 className="btn-primary-premium mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
               >
-                Continuar para simular fluxo
+                Continuar
                 <ArrowRight className="size-4" aria-hidden="true" />
               </button>
 
               <button
                 type="submit"
-                disabled={
-                  status === "sending" ||
-                  !form.nome.trim() ||
-                  !form.whatsapp.trim()
-                }
-                className="btn-secondary-premium mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:border-slate-300 disabled:text-slate-400"
+                disabled={status === "sending"}
+                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-2 text-sm font-semibold text-slate-500 transition hover:text-[var(--brand)] disabled:cursor-not-allowed disabled:text-slate-300"
               >
                 <Send className="size-4" aria-hidden="true" />
                 {status === "sending"
                   ? "Enviando..."
-                  : "Enviar contato agora"}
+                  : "Enviar contato sem perfil"}
               </button>
             </>
           ) : (
@@ -266,6 +294,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <label className={labelClassName}>
                   Objetivo
                   <select
+                    name="objetivo"
                     value={form.objetivo}
                     onChange={(event) =>
                       updateField("objetivo", event.target.value)
@@ -284,6 +313,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <label className={labelClassName}>
                   Tipologia desejada
                   <select
+                    name="tipologia"
                     value={form.tipologia}
                     onChange={(event) =>
                       updateField("tipologia", event.target.value)
@@ -301,6 +331,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <label className={labelClassName}>
                   Entrada disponivel
                   <select
+                    name="entradaDisponivel"
                     value={form.entradaDisponivel}
                     onChange={(event) =>
                       updateField("entradaDisponivel", event.target.value)
@@ -324,6 +355,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 <label className={labelClassName}>
                   Prazo de compra
                   <select
+                    name="prazoCompra"
                     value={form.prazoCompra}
                     onChange={(event) =>
                       updateField("prazoCompra", event.target.value)
@@ -355,7 +387,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   <Send className="size-4" aria-hidden="true" />
                   {status === "sending"
                     ? "Enviando..."
-                    : "Receber tabela e fluxo"}
+                    : "Receber tabela e simulacao"}
                 </button>
               </div>
             </>
@@ -364,8 +396,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
       {status === "success" ? (
         <div className="mt-4 border border-[var(--border-warm)] bg-[var(--surface-green)] p-4 text-sm text-[var(--brand-dark)]">
           <p>
-            Dados enviados. Agora voce pode baixar o PDF e seguir a simulacao
-            do fluxo pelo WhatsApp.
+            Dados enviados. Baixe o PDF ou continue a conversa pelo WhatsApp.
           </p>
           <div className="mt-4 grid gap-3 sm:grid-cols-2">
             {imovel.materialPdfPath ? (

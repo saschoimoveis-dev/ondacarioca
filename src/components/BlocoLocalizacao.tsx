@@ -1,4 +1,4 @@
-import { ExternalLink, MapPin } from "lucide-react";
+import { ExternalLink, MapPin, Navigation } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoLocalizacaoProps = {
@@ -6,8 +6,15 @@ type BlocoLocalizacaoProps = {
 };
 
 export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
+  const mapQuery = imovel.enderecoResumo
+    ? `${imovel.enderecoResumo}`
+    : `${imovel.nome}, ${imovel.bairro}, ${imovel.cidade}`;
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+    mapQuery
+  )}&output=embed`;
+
   return (
-    <section className="bg-white py-14 sm:py-16">
+    <section className="bg-white py-14 sm:py-16" id="localizacao">
       <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">
         <div>
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
@@ -33,26 +40,36 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
             rel="noreferrer"
             className="btn-secondary-premium mt-7 inline-flex items-center gap-2 rounded-sm border px-5 py-3 text-sm font-semibold transition"
           >
-            Ver regiao no Google Maps
+            Abrir rota no Google Maps
             <ExternalLink className="size-4" aria-hidden="true" />
           </a>
         </div>
 
-        <div className="premium-frame relative min-h-[300px] overflow-hidden border bg-[var(--surface-warm)]">
-          <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(168,121,50,0.10)_1px,transparent_1px),linear-gradient(0deg,rgba(23,63,52,0.06)_1px,transparent_1px)] bg-[size:44px_44px]" />
-          <div className="absolute left-1/2 top-1/2 h-20 w-[124%] -translate-x-1/2 -translate-y-1/2 rotate-[-11deg] bg-[var(--champagne)] opacity-80" />
-          <div className="absolute left-1/2 top-1/2 h-8 w-[124%] -translate-x-1/2 -translate-y-1/2 rotate-[9deg] bg-[var(--accent-soft)] opacity-70" />
-          <div className="absolute left-[58%] top-[45%] grid size-20 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-full bg-[var(--brand)] text-white shadow-xl shadow-slate-950/20 ring-8 ring-white/50">
-            <MapPin className="size-9" aria-hidden="true" />
-          </div>
-          <div className="absolute bottom-5 left-5 right-5 rounded-sm border border-[var(--border-warm)] bg-white/92 p-4 backdrop-blur">
-            <p className="text-sm font-semibold text-slate-950">
-              Barra da Tijuca
-            </p>
-            <p className="mt-1 text-sm text-slate-600">
-              Ponto de referencia para consulta de unidades, acesso e rotina na
-              regiao.
-            </p>
+        <div className="premium-frame overflow-hidden border bg-[var(--surface-warm)]">
+          <iframe
+            src={mapEmbedUrl}
+            title={`Mapa da localizacao de ${imovel.nome}`}
+            className="h-[360px] w-full border-0 sm:h-[430px]"
+            loading="lazy"
+            allowFullScreen
+            referrerPolicy="no-referrer-when-downgrade"
+          />
+          <div className="border-t border-[var(--border-warm)] bg-white p-4">
+            <div className="flex items-start gap-3">
+              <Navigation
+                className="mt-0.5 size-5 shrink-0 text-[var(--brand)]"
+                aria-hidden="true"
+              />
+              <div>
+                <p className="text-sm font-semibold text-slate-950">
+                  {imovel.enderecoResumo || imovel.bairro}
+                </p>
+                <p className="mt-1 text-sm leading-6 text-slate-600">
+                  Use o mapa para aproximar, mover e abrir rotas em uma nova
+                  aba.
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </div>

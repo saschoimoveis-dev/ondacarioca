@@ -23,11 +23,14 @@ export function Header() {
         </Link>
 
         <nav className="hidden items-center gap-8 text-sm font-medium text-slate-700 md:flex">
-          <Link href="/lancamentos" className="transition hover:text-[var(--brand)]">
-            Lancamentos
-          </Link>
-          <a href="#atendimento" className="transition hover:text-[var(--brand)]">
-            Atendimento
+          <a href="#plantas" className="transition hover:text-[var(--brand)]">
+            Plantas
+          </a>
+          <a href="#condicoes" className="transition hover:text-[var(--brand)]">
+            Condicoes
+          </a>
+          <a href="#localizacao" className="transition hover:text-[var(--brand)]">
+            Localizacao
           </a>
           <a href="#faq" className="transition hover:text-[var(--brand)]">
             FAQ
