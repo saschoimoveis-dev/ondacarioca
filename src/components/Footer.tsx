@@ -34,6 +34,9 @@ export function Footer() {
             <Link href="/lancamentos" className="transition hover:text-[var(--champagne)]">
               Lancamentos
             </Link>
+            <a href="#localizacao" className="transition hover:text-[var(--champagne)]">
+              Localizacao
+            </a>
             <a href="#condicoes" className="transition hover:text-[var(--champagne)]">
               Condicoes
             </a>

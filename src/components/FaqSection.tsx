@@ -30,7 +30,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
         <h2 className="mt-3 text-3xl font-semibold text-slate-950">
           Perguntas frequentes
         </h2>
-        <div className="mt-8 grid gap-3">
+        <div className="mt-8 grid gap-3 lg:grid-cols-2">
           {imovel.faq.map((item) => (
             <details
               key={item.pergunta}

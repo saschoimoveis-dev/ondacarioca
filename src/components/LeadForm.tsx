@@ -5,7 +5,6 @@ import {
   ArrowLeft,
   ArrowRight,
   Download,
-  FileText,
   Send,
   ShieldCheck
 } from "lucide-react";
@@ -198,16 +197,10 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Informe seus dados para consultar disponibilidade e entender se o
             fluxo cabe no seu perfil.
           </p>
-          <div className="premium-card mt-8 border p-5 text-sm leading-6 text-slate-700">
-            <div className="flex items-start gap-3">
-              <FileText className="mt-0.5 size-5 shrink-0 text-[var(--brand)]" />
-              <p>
-                <strong className="font-semibold">Inclui:</strong> ficha
-                tecnica, plantas, disponibilidade, estimativa de fluxo e contato
-                com Alexandre.
-              </p>
-            </div>
-          </div>
+          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-sm font-semibold leading-6 text-slate-800">
+            Voce recebe tabela, plantas, disponibilidade e simulacao pelo
+            WhatsApp.
+          </p>
         </div>
 
         <form

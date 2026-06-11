@@ -10,32 +10,39 @@ type StickyMobileCTAProps = {
 };
 
 export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
-  const [isLeadFormVisible, setIsLeadFormVisible] = useState(false);
+  const [isSuppressed, setIsSuppressed] = useState(false);
 
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
 
     function syncVisibility() {
-      const target = document.getElementById("lead-form");
-      if (!target) {
-        setIsLeadFormVisible(false);
-        return;
-      }
+      const leadForm = document.getElementById("lead-form");
+      const heroLocation = document.getElementById("localizacao");
+      const isVisible = (target: HTMLElement | null) => {
+        if (!target) {
+          return false;
+        }
 
-      const rect = target.getBoundingClientRect();
-      setIsLeadFormVisible(rect.top < window.innerHeight && rect.bottom > 0);
+        const rect = target.getBoundingClientRect();
+        return rect.top < window.innerHeight && rect.bottom > 0;
+      };
+
+      setIsSuppressed(isVisible(leadForm) || isVisible(heroLocation));
     }
 
-    const leadForm = document.getElementById("lead-form");
+    const observedTargets = [
+      document.getElementById("lead-form"),
+      document.getElementById("localizacao")
+    ].filter((target): target is HTMLElement => Boolean(target));
 
-    if (leadForm) {
+    if (observedTargets.length) {
       observer = new IntersectionObserver(
-        ([entry]) => {
-          setIsLeadFormVisible(entry.isIntersecting);
+        () => {
+          syncVisibility();
         },
         { threshold: 0.08 }
       );
-      observer.observe(leadForm);
+      observedTargets.forEach((target) => observer?.observe(target));
     }
 
     syncVisibility();
@@ -61,7 +68,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
     });
   }
 
-  if (isLeadFormVisible) {
+  if (isSuppressed) {
     return null;
   }
 

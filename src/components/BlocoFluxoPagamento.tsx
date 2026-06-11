@@ -47,20 +47,23 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
             </p>
           </div>
 
-          <ol className="grid gap-0 divide-y divide-[var(--border-warm)] border-y border-[var(--border-warm)] md:grid-cols-4 md:divide-x md:divide-y-0">
+          <ol className="grid gap-4 md:grid-cols-4">
             {etapas.map((etapa, index) => {
               const Icon = etapa.icon;
 
               return (
-                <li key={etapa.title} className="p-4">
-                  <div className="mb-4 flex items-center justify-between gap-4">
+                <li
+                  key={etapa.title}
+                  className="border-t border-[var(--border-warm)] pt-4"
+                >
+                  <div className="mb-3 flex items-center gap-3">
+                    <span className="grid size-8 shrink-0 place-items-center bg-[var(--surface-green)] text-xs font-semibold text-[var(--brand)]">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
                     <Icon
                       className="size-5 text-[var(--brand)]"
                       aria-hidden="true"
                     />
-                    <span className="text-xs font-semibold text-slate-400">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
                   </div>
                   <h3 className="text-base font-semibold text-slate-950">
                     {etapa.title}

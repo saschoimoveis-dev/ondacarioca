@@ -1,5 +1,12 @@
-import Image from "next/image";
-import { Banknote, CalendarClock, FileText, Home, MapPin } from "lucide-react";
+import {
+  Banknote,
+  CalendarClock,
+  ExternalLink,
+  FileText,
+  Home,
+  MapPin,
+  Navigation
+} from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
 
@@ -8,26 +15,26 @@ type HeroImovelProps = {
 };
 
 export function HeroImovel({ imovel }: HeroImovelProps) {
-  const heroImage =
-    imovel.imagens.find((imagem) =>
-      imagem.src.includes("pool-house-bar")
-    ) ||
-    imovel.imagens.find((imagem) => imagem.src.includes("pool-house")) ||
-    imovel.imagens[0];
+  const mapQuery = imovel.enderecoResumo
+    ? imovel.enderecoResumo
+    : `${imovel.nome}, ${imovel.bairro}, ${imovel.cidade}`;
+  const mapEmbedUrl = `https://www.google.com/maps?q=${encodeURIComponent(
+    mapQuery
+  )}&output=embed`;
   const provas = [
     {
-      label: "A partir de R$ 600 mil",
+      label: "R$ 600 mil",
       description: "2 quartos",
       icon: Banknote
     },
     {
-      label: "Sinal a partir de R$ 50 mil",
-      description: "referencia inicial",
+      label: "R$ 50 mil",
+      description: "sinal",
       icon: FileText
     },
     {
-      label: "Mensais a partir de R$ 2.000",
-      description: "durante a obra",
+      label: "R$ 2.000",
+      description: "mensais",
       icon: CalendarClock
     },
     {
@@ -38,7 +45,10 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
   ];
 
   return (
-    <section className="surface-hero border-b border-[var(--border-warm)]">
+    <section
+      className="surface-hero scroll-mt-16 border-b border-[var(--border-warm)]"
+      id="localizacao"
+    >
       <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[0.86fr_1.14fr] lg:px-8 lg:py-12">
         <div className="flex flex-col justify-center">
           <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
@@ -47,12 +57,12 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </div>
 
           <h1 className="mt-5 max-w-3xl text-4xl font-semibold leading-[1.04] text-slate-950 sm:text-5xl lg:text-6xl">
-            WE Barra by Living na Barra da Tijuca
+            WE Barra by Living na Av. das Americas
           </h1>
 
           <p className="mt-5 max-w-2xl text-lg leading-8 text-slate-600">
-            Lancamento Living Cyrela na Av. das Americas, com apartamentos,
-            gardens e coberturas para morar ou investir.
+            Lancamento Living Cyrela na Barra da Tijuca, na altura da Salvador
+            Allende, com apartamentos, gardens e coberturas.
           </p>
 
           <p className="mt-4 max-w-2xl text-base leading-7 text-slate-600">
@@ -72,40 +82,64 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
         </div>
 
         <div className="self-center">
-          {heroImage ? (
-            <div className="premium-frame relative min-h-[300px] overflow-hidden border bg-slate-100 sm:min-h-[390px]">
-              <Image
-                src={heroImage.src}
-                alt={heroImage.alt}
-                fill
-                sizes="(min-width: 1024px) 54vw, 100vw"
-                className="object-cover"
-                loading="eager"
-                priority
-              />
+          <div className="premium-frame overflow-hidden border bg-[var(--surface-warm)]">
+            <iframe
+              src={mapEmbedUrl}
+              title={`Mapa da localizacao de ${imovel.nome}`}
+              className="h-[300px] w-full border-0 sm:h-[360px]"
+              loading="eager"
+              allowFullScreen
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+            <div className="border-t border-[var(--border-warm)] bg-white p-4">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+                <div className="flex items-start gap-3">
+                  <Navigation
+                    className="mt-0.5 size-5 shrink-0 text-[var(--brand)]"
+                    aria-hidden="true"
+                  />
+                  <div>
+                    <p className="text-sm font-semibold text-slate-950">
+                      {imovel.enderecoResumo || imovel.bairro}
+                    </p>
+                    <p className="mt-1 text-sm leading-6 text-slate-600">
+                      Mova o mapa, aproxime e abra rotas em uma nova aba.
+                    </p>
+                  </div>
+                </div>
+                <a
+                  href={imovel.localizacao.mapsUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="inline-flex shrink-0 items-center justify-center gap-2 rounded-sm border border-[var(--border-warm)] px-4 py-2 text-sm font-semibold text-slate-900 transition hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                >
+                  Abrir rota
+                  <ExternalLink className="size-4" aria-hidden="true" />
+                </a>
+              </div>
             </div>
-          ) : null}
+          </div>
 
-          <div className="mt-4 grid overflow-hidden border border-[var(--border-warm)] bg-white/88 sm:grid-cols-2 lg:grid-cols-4 lg:divide-x lg:divide-[var(--border-warm)]">
+          <div className="mt-4 grid overflow-hidden border border-[var(--border-warm)] bg-[var(--surface-green)]/80 sm:grid-cols-4 sm:divide-x sm:divide-[var(--border-warm)]">
             {provas.map((prova, index) => {
               const Icon = prova.icon;
 
               return (
                 <div
                   key={prova.label}
-                  className={`flex items-start gap-3 border-b border-[var(--border-warm)] p-3 lg:border-b-0 ${
-                    index >= 2 ? "sm:border-b-0" : ""
-                  } ${index === provas.length - 1 ? "border-b-0" : ""}`}
+                  className={`flex items-center gap-2 border-b border-[var(--border-warm)] px-3 py-2.5 sm:border-b-0 ${
+                    index === provas.length - 1 ? "border-b-0" : ""
+                  }`}
                 >
                   <Icon
-                    className="mt-0.5 size-4 shrink-0 text-[var(--accent)]"
+                    className="size-4 shrink-0 text-[var(--brand)]"
                     aria-hidden="true"
                   />
                   <div>
-                    <p className="text-sm font-semibold leading-tight text-slate-950">
+                    <p className="text-sm font-semibold leading-tight text-slate-950 sm:text-[13px]">
                       {prova.label}
                     </p>
-                    <p className="mt-1 text-xs leading-5 text-slate-600">
+                    <p className="text-xs leading-5 text-slate-600">
                       {prova.description}
                     </p>
                   </div>
