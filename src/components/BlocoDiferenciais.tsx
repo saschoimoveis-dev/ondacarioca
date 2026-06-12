@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircle2, Sparkles, MoveRight } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoDiferenciaisProps = {
@@ -8,10 +8,11 @@ type BlocoDiferenciaisProps = {
 
 export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
   const destaques = [
-    "Mais de 5 mil m² de lazer comunicados",
-    "Terreno amplo de mais de 25 mil m² comunicados",
-    "Piscinas, academia, gourmet, festas, coworking e rooftop"
+    "Uso próprio: lazer completo aumenta conforto no dia a dia.",
+    "Locação: piscina, academia, coworking e festas ampliam apelo para demanda da Barra.",
+    "Revenda: terreno amplo, rooftop e áreas externas ajudam a diferenciar o produto."
   ];
+  
   const imagensLazer = [
     {
       title: "Pool house",
@@ -23,7 +24,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
         imovel.imagens[0]
     },
     {
-      title: "Salao de festas",
+      title: "Salão de festas",
       image:
         imovel.imagens.find((imagem) =>
           imagem.src.includes("salao-festas")
@@ -39,60 +40,57 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
 
   return (
     <section
-      className="border-y border-[var(--border-warm)] bg-white py-12 sm:py-14"
+      className="border-y border-[var(--border-warm)] bg-white py-16 sm:py-24 overflow-hidden"
       id="lazer"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.64fr_1.36fr]">
-          <div className="flex flex-col justify-center">
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-              Lazer e convivencia
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          
+          <div className="flex flex-col justify-center animate-fade-in-up">
+            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+              <Sparkles className="size-4" />
+              Lazer e conveniência
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950 sm:text-4xl">
-              Lazer e escala que sustentam desejo
+            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+              Mais de 5 mil m² de lazer para morar bem e valorizar
             </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              O WE Barra combina terreno amplo, lazer completo e areas de
-              convivencia. Isso pesa para morar, locar e revender.
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Lazer amplo melhora o uso próprio, atrai bons inquilinos e facilita a revenda futura. No WE Barra, o nível de entrega é um dos maiores diferenciais comparado a outros da mesma faixa de preço.
             </p>
 
-            <ul className="mt-7 divide-y divide-[var(--border-warm)] border-y border-[var(--border-warm)] text-sm leading-6 text-slate-700">
+            <ul className="mt-8 space-y-4 text-sm sm:text-base leading-relaxed text-slate-700">
               {destaques.map((diferencial) => (
                 <li
                   key={diferencial}
-                  className="flex gap-3 py-3"
+                  className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 border border-slate-100 transition-colors hover:border-[var(--border-warm)] hover:bg-[var(--surface-warm)]"
                 >
                   <CheckCircle2
                     className="mt-0.5 size-5 shrink-0 text-[var(--accent)]"
                     aria-hidden="true"
                   />
-                  <span>{diferencial}</span>
+                  <span className="font-medium text-slate-800">{diferencial}</span>
                 </li>
               ))}
             </ul>
 
-            <p className="mt-6 text-xs leading-5 text-slate-500">
-              Imagens, plantas, valores e disponibilidade estao sujeitos a
-              confirmacao.
-            </p>
-
             <a
               href="#lead-form"
-              className="mt-8 inline-flex text-sm font-semibold text-[var(--brand)] transition hover:text-[var(--brand-dark)]"
+              className="mt-8 group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand)] transition hover:text-[var(--brand-dark)]"
             >
-              Receber tabela e simulacao
+              Receber apresentação completa
+              <MoveRight className="size-4 transition-transform group-hover:translate-x-1" />
             </a>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2">
+          <div className="grid gap-4 sm:grid-cols-2 animate-fade-in-up delay-200">
             {imagensLazer.map((item, index) => (
               <div
                 key={item.title}
-                className={
+                className={`group relative overflow-hidden rounded-2xl shadow-sm ${
                   index === 0
-                    ? "relative min-h-[320px] overflow-hidden bg-slate-100 sm:col-span-2 sm:min-h-[420px]"
-                    : "relative min-h-[180px] overflow-hidden bg-slate-100"
-                }
+                    ? "min-h-[320px] sm:col-span-2 sm:min-h-[460px]"
+                    : "min-h-[220px]"
+                }`}
               >
                 <Image
                   src={item.image.src}
@@ -103,11 +101,16 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
                       ? "(min-width: 1024px) 58vw, 100vw"
                       : "(min-width: 1024px) 28vw, 50vw"
                   }
-                  className="object-cover"
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
                 />
-                <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-950/70 to-transparent p-4">
-                  <p className="text-sm font-semibold text-white">
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                
+                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <p className="text-lg font-bold text-white drop-shadow-md">
                     {item.title}
+                  </p>
+                  <p className="text-xs text-slate-300 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                     Perspectiva ilustrativa
                   </p>
                 </div>
               </div>

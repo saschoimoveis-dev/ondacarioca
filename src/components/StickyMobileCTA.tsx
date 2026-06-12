@@ -10,29 +10,28 @@ type StickyMobileCTAProps = {
 };
 
 export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
-  const [isSuppressed, setIsSuppressed] = useState(false);
+  const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
     let observer: IntersectionObserver | null = null;
 
     function syncVisibility() {
+      const hero = document.getElementById("hero");
       const leadForm = document.getElementById("lead-form");
-      const heroLocation = document.getElementById("localizacao");
-      const isVisible = (target: HTMLElement | null) => {
-        if (!target) {
-          return false;
-        }
-
+      
+      const isElementVisible = (target: HTMLElement | null) => {
+        if (!target) return false;
         const rect = target.getBoundingClientRect();
         return rect.top < window.innerHeight && rect.bottom > 0;
       };
 
-      setIsSuppressed(isVisible(leadForm) || isVisible(heroLocation));
+      // Mostra o CTA se NÃO estivermos no Hero nem no formulário principal
+      setIsVisible(!isElementVisible(hero) && !isElementVisible(leadForm));
     }
 
     const observedTargets = [
-      document.getElementById("lead-form"),
-      document.getElementById("localizacao")
+      document.getElementById("hero"),
+      document.getElementById("lead-form")
     ].filter((target): target is HTMLElement => Boolean(target));
 
     if (observedTargets.length) {
@@ -40,7 +39,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
         () => {
           syncVisibility();
         },
-        { threshold: 0.08 }
+        { threshold: 0.1 }
       );
       observedTargets.forEach((target) => observer?.observe(target));
     }
@@ -68,19 +67,19 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
     });
   }
 
-  if (isSuppressed) {
-    return null;
-  }
-
   return (
-    <div className="fixed inset-x-3 bottom-3 z-50 rounded-sm border border-slate-200 bg-white/94 p-2 shadow-[0_-12px_30px_rgba(15,23,42,0.12)] backdrop-blur md:hidden">
+    <div 
+      className={`fixed inset-x-4 bottom-4 z-50 transition-all duration-500 ease-out md:hidden ${
+        isVisible ? "translate-y-0 opacity-100" : "translate-y-[150%] opacity-0 pointer-events-none"
+      }`}
+    >
       <a
         href="#lead-form"
         onClick={handleClick}
-        className="btn-primary-premium inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-4 text-sm font-bold text-white shadow-[0_12px_24px_rgba(23,63,52,0.4)] transition-transform active:scale-95"
       >
-        <Download className="size-4" aria-hidden="true" />
-        Receber tabela e simulacao
+        <Download className="size-5" aria-hidden="true" />
+        Tabela e Simulação
       </a>
     </div>
   );

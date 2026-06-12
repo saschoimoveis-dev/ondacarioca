@@ -31,23 +31,43 @@ const initialState: FormState = {
   nome: "",
   whatsapp: "",
   email: "",
-  objetivo: "morar",
+  objetivo: "Morar",
   tipologia: "2 quartos",
-  entradaDisponivel: "ate R$ 50 mil",
+  entradaDisponivel: "Ate R$ 50 mil",
   prazoCompra: "0 a 3 meses",
   mensagem: ""
 };
 
 const inputClassName =
-  "focus-premium rounded-sm border border-[var(--border-warm)] bg-white px-3 py-3 text-sm outline-none transition";
+  "focus-premium w-full rounded-md border border-[var(--border-warm)] bg-slate-50/50 px-4 py-3.5 text-sm outline-none transition placeholder:text-slate-400 focus:bg-white";
 
-const labelClassName = "grid gap-2 text-sm font-medium text-slate-800";
+const labelClassName = "grid gap-2 text-sm font-semibold text-slate-900";
+
+function RadioChips({ options, value, onChange, name }: { options: string[], value: string, onChange: (val: string) => void, name: string }) {
+  return (
+    <div className="flex flex-wrap gap-2 mt-1">
+      {options.map((opt) => (
+        <button
+          key={opt}
+          type="button"
+          onClick={() => onChange(opt)}
+          className={`px-4 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${
+            value === opt
+              ? "border-[var(--brand)] bg-[var(--surface-green)] text-[var(--brand-dark)] shadow-[0_2px_10px_rgba(23,63,52,0.1)] scale-[1.02]"
+              : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
+          }`}
+        >
+          {opt}
+        </button>
+      ))}
+      <input type="hidden" name={name} value={value} />
+    </div>
+  );
+}
 
 export function LeadForm({ imovel }: LeadFormProps) {
   const [form, setForm] = useState<FormState>(initialState);
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [hasStarted, setHasStarted] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
 
@@ -184,52 +204,60 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="surface-premium pb-20 pt-14 sm:pb-24 sm:pt-16" id="lead-form">
-      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-            Atendimento e simulacao
+    <section className="surface-premium pb-20 pt-14 sm:pb-24 sm:pt-16 relative overflow-hidden" id="lead-form">
+      {/* Decorative bg circles */}
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 size-64 rounded-full bg-[var(--surface-green)] opacity-50 blur-3xl"></div>
+      
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 relative z-10">
+        <div className="animate-fade-in-up">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
+            Atendimento e simulação
           </p>
-          <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-            Receba tabela, plantas e simulacao no WhatsApp
+          <h2 className="mt-4 text-3xl sm:text-4xl font-bold text-slate-900 leading-tight">
+            Descubra qual unidade cabe no seu perfil
           </h2>
-          <p className="mt-4 text-base leading-7 text-slate-600">
-            Informe seus dados para consultar disponibilidade e entender se o
-            fluxo cabe no seu perfil.
+          <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            A tabela muda rápido. Deixe seus dados para consultar a disponibilidade real, comparar o fluxo de pagamento e receber tudo pelo WhatsApp.
           </p>
-          <p className="mt-6 border-l border-[var(--accent)] pl-4 text-sm font-semibold leading-6 text-slate-800">
-            Voce recebe tabela, plantas, disponibilidade e simulacao pelo
-            WhatsApp.
-          </p>
+          
+          <div className="mt-8 rounded-lg bg-white p-5 border border-[var(--border-warm)] shadow-sm flex items-start gap-4">
+            <div className="rounded-full bg-[var(--surface-green)] p-2 text-[var(--brand)] shrink-0 mt-1">
+               <ShieldCheck className="size-5" />
+            </div>
+            <div>
+              <p className="text-sm font-semibold text-slate-900">Zero Spam, Apenas Informação</p>
+              <p className="mt-1 text-sm text-slate-600">Você recebe a tabela atualizada, disponibilidade e indicação das unidades diretamente no seu WhatsApp, de forma discreta e objetiva.</p>
+            </div>
+          </div>
         </div>
 
         <form
           onSubmit={handleSubmit}
           onFocus={trackStart}
-          className="premium-frame border bg-white p-5 sm:p-6"
+          className="premium-frame border bg-white p-6 sm:p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.06)] animate-fade-in-up delay-200"
         >
-          <div className="mb-5 border-b border-slate-200 pb-5">
-            <div className="mb-3 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-              <ShieldCheck className="size-4" aria-hidden="true" />
+          <div className="mb-8 border-b border-slate-100 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+            <div>
+              <h3 className="text-2xl font-bold leading-tight text-slate-900">
+                {step === 1 ? "Para onde enviamos a tabela?" : "Qual é o seu perfil?"}
+              </h3>
+              <p className="mt-2 text-sm leading-6 text-slate-500">
+                {step === 1
+                  ? "Seus dados básicos para iniciar."
+                  : "Apenas 4 perguntas rápidas para filtrarmos o que faz sentido."}
+              </p>
+            </div>
+            <div className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand)] shrink-0">
               Etapa {step} de 2
             </div>
-            <h3 className="text-2xl font-semibold leading-tight text-slate-950">
-              {step === 1
-                ? "Informe seu contato"
-                : "Qual unidade faz sentido para voce?"}
-            </h3>
-            <p className="mt-3 text-sm leading-6 text-slate-600">
-              {step === 1
-                ? "Nome e WhatsApp bastam para iniciar. O perfil vem na proxima etapa."
-                : "Essas respostas ajudam a filtrar tipologia, fluxo e prioridade antes do contato."}
-            </p>
           </div>
 
+          <div className="min-h-[220px]">
           {step === 1 ? (
-            <>
-              <div className="grid gap-4 sm:grid-cols-2">
+            <div className="animate-fade-in-up">
+              <div className="grid gap-5">
                 <label className={labelClassName}>
-                  Nome
+                  Seu nome completo
                   <input
                     required
                     name="nome"
@@ -239,12 +267,12 @@ export function LeadForm({ imovel }: LeadFormProps) {
                       updateField("nome", event.currentTarget.value)
                     }
                     className={inputClassName}
-                    placeholder="Seu nome completo"
+                    placeholder="Ex: João da Silva"
                   />
                 </label>
 
                 <label className={labelClassName}>
-                  WhatsApp
+                  Seu melhor WhatsApp
                   <input
                     required
                     name="whatsapp"
@@ -264,142 +292,105 @@ export function LeadForm({ imovel }: LeadFormProps) {
               <button
                 type="button"
                 onClick={(event) => handleProfileStep(event.currentTarget.form)}
-                className="btn-primary-premium mt-5 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
+                className="btn-primary-premium mt-8 inline-flex w-full items-center justify-center gap-2 rounded-md px-6 py-4 text-base font-bold transition hover:scale-[1.01] active:scale-[0.98]"
               >
-                Continuar
-                <ArrowRight className="size-4" aria-hidden="true" />
+                Continuar para Simulação
+                <ArrowRight className="size-5" aria-hidden="true" />
               </button>
 
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="mt-3 inline-flex w-full items-center justify-center gap-2 rounded-sm px-5 py-2 text-sm font-semibold text-slate-500 transition hover:text-[var(--brand)] disabled:cursor-not-allowed disabled:text-slate-300"
+                className="mt-4 inline-flex w-full items-center justify-center text-sm font-semibold text-slate-400 transition hover:text-[var(--brand)] disabled:cursor-not-allowed"
               >
-                <Send className="size-4" aria-hidden="true" />
                 {status === "sending"
                   ? "Enviando..."
-                  : "Enviar contato sem perfil"}
+                  : "Pular simulação e enviar apenas contato"}
               </button>
-            </>
+            </div>
           ) : (
-            <>
-              <div className="grid gap-4 sm:grid-cols-2">
+            <div className="animate-fade-in-up">
+              <div className="grid gap-6">
                 <label className={labelClassName}>
                   Objetivo
-                  <select
+                  <RadioChips 
                     name="objetivo"
-                    value={form.objetivo}
-                    onChange={(event) =>
-                      updateField("objetivo", event.target.value)
-                    }
-                    className={inputClassName}
-                  >
-                    <option value="morar">Morar</option>
-                    <option value="investir">Investir</option>
-                    <option value="morar ou investir">Morar ou investir</option>
-                    <option value="ainda avaliando">
-                      Ainda estou avaliando
-                    </option>
-                  </select>
+                    value={form.objetivo} 
+                    onChange={(val) => updateField('objetivo', val)}
+                    options={["Morar", "Investir", "Morar ou investir", "Ainda avaliando"]} 
+                  />
                 </label>
 
                 <label className={labelClassName}>
                   Tipologia desejada
-                  <select
+                  <RadioChips 
                     name="tipologia"
-                    value={form.tipologia}
-                    onChange={(event) =>
-                      updateField("tipologia", event.target.value)
-                    }
-                    className={inputClassName}
-                  >
-                    {tipologias.map((tipologia) => (
-                      <option key={tipologia} value={tipologia}>
-                        {tipologia}
-                      </option>
-                    ))}
-                  </select>
+                    value={form.tipologia} 
+                    onChange={(val) => updateField('tipologia', val)}
+                    options={tipologias} 
+                  />
                 </label>
 
                 <label className={labelClassName}>
-                  Entrada disponivel
-                  <select
+                  Entrada disponível
+                  <RadioChips 
                     name="entradaDisponivel"
-                    value={form.entradaDisponivel}
-                    onChange={(event) =>
-                      updateField("entradaDisponivel", event.target.value)
-                    }
-                    className={inputClassName}
-                  >
-                    <option value="ate R$ 50 mil">Ate R$ 50 mil</option>
-                    <option value="R$ 50 mil a R$ 100 mil">
-                      R$ 50 mil a R$ 100 mil
-                    </option>
-                    <option value="R$ 100 mil a R$ 200 mil">
-                      R$ 100 mil a R$ 200 mil
-                    </option>
-                    <option value="acima de R$ 200 mil">
-                      Acima de R$ 200 mil
-                    </option>
-                    <option value="prefiro conversar">Prefiro conversar</option>
-                  </select>
+                    value={form.entradaDisponivel} 
+                    onChange={(val) => updateField('entradaDisponivel', val)}
+                    options={["Ate R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 200 mil", "Acima de R$ 200 mil", "Prefiro conversar"]} 
+                  />
                 </label>
 
                 <label className={labelClassName}>
                   Prazo de compra
-                  <select
+                  <RadioChips 
                     name="prazoCompra"
-                    value={form.prazoCompra}
-                    onChange={(event) =>
-                      updateField("prazoCompra", event.target.value)
-                    }
-                    className={inputClassName}
-                  >
-                    <option value="0 a 3 meses">0 a 3 meses</option>
-                    <option value="3 a 6 meses">3 a 6 meses</option>
-                    <option value="6 a 12 meses">6 a 12 meses</option>
-                    <option value="mais de 12 meses">Mais de 12 meses</option>
-                  </select>
+                    value={form.prazoCompra} 
+                    onChange={(val) => updateField('prazoCompra', val)}
+                    options={["0 a 3 meses", "3 a 6 meses", "6 a 12 meses", "Mais de 12 meses"]} 
+                  />
                 </label>
               </div>
 
-              <div className="mt-5 grid gap-3 sm:grid-cols-[auto_1fr]">
+              <div className="mt-8 flex flex-col-reverse sm:flex-row gap-3">
                 <button
                   type="button"
                   onClick={() => setStep(1)}
-                  className="inline-flex items-center justify-center gap-2 rounded-sm border border-[var(--border-warm)] bg-white px-5 py-3 text-sm font-semibold text-slate-700 transition hover:bg-[var(--surface-warm)]"
+                  className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-[var(--border-warm)] bg-white px-5 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50 active:bg-slate-100"
                 >
-                  <ArrowLeft className="size-4" aria-hidden="true" />
+                  <ArrowLeft className="size-5" aria-hidden="true" />
                   Voltar
                 </button>
                 <button
                   type="submit"
                   disabled={status === "sending"}
-                  className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-5 py-3 text-sm font-semibold transition disabled:cursor-not-allowed disabled:bg-slate-400"
+                  className="btn-primary-premium inline-flex flex-[2] items-center justify-center gap-2 rounded-md px-5 py-4 text-sm font-bold transition disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.98]"
                 >
-                  <Send className="size-4" aria-hidden="true" />
+                  <Send className="size-5" aria-hidden="true" />
                   {status === "sending"
-                    ? "Enviando..."
-                    : "Receber tabela e simulacao"}
+                    ? "Enviando seus dados..."
+                    : "Receber tabela no WhatsApp"}
                 </button>
               </div>
-            </>
+            </div>
           )}
+          </div>
 
       {status === "success" ? (
-        <div className="mt-4 border border-[var(--border-warm)] bg-[var(--surface-green)] p-4 text-sm text-[var(--brand-dark)]">
+        <div className="mt-6 rounded-lg border border-[var(--brand)] bg-[var(--surface-green)] p-5 text-sm text-[var(--brand-dark)] animate-fade-in-up">
+          <p className="font-semibold text-base mb-1">Tudo certo! Recebemos seus dados.</p>
           <p>
-            Dados enviados. Baixe o PDF ou continue a conversa pelo WhatsApp.
+            Você pode baixar a apresentação agora mesmo ou continuar nosso papo pelo WhatsApp.
           </p>
-          <div className="mt-4 grid gap-3 sm:grid-cols-2">
+          <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {imovel.materialPdfPath ? (
               <a
                 href={imovel.materialPdfPath}
                 download
                 onClick={handleMaterialDownload}
-                className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-sm px-4 py-3 text-sm font-semibold transition"
+                className="btn-primary-premium inline-flex items-center justify-center gap-2 rounded-md px-4 py-3 text-sm font-bold transition hover:scale-[1.02]"
               >
-                <Download className="size-4" aria-hidden="true" />
+                <Download className="size-5" aria-hidden="true" />
                 Baixar PDF
               </a>
             ) : null}
@@ -407,21 +398,20 @@ export function LeadForm({ imovel }: LeadFormProps) {
               imovel={imovel}
               source="form_success"
               label="Falar no WhatsApp"
-              className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-sm border px-4 py-3 text-sm font-semibold transition"
+              className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-md border px-4 py-3 text-sm font-bold transition hover:scale-[1.02]"
             />
           </div>
         </div>
       ) : null}
 
       {status === "error" ? (
-        <p className="mt-4 rounded-sm border border-red-200 bg-red-50 p-3 text-sm text-red-900">
-          Nao foi possivel enviar agora. Tente novamente ou chame pelo
-          WhatsApp.
+        <p className="mt-6 rounded-md border border-red-200 bg-red-50 p-4 text-sm text-red-900 font-medium">
+          Ocorreu um erro na comunicação. Por favor, tente novamente ou nos chame diretamente no WhatsApp.
         </p>
       ) : null}
-        <p className="mt-4 text-xs leading-5 text-slate-500">
-          Imagens, plantas, valores e disponibilidade estao sujeitos a
-          confirmacao.
+        <p className="mt-6 text-center text-xs leading-relaxed text-slate-400">
+          Imagens, plantas, valores e disponibilidade estão sujeitos a
+          confirmação.<br/> Seus dados estão seguros.
         </p>
       </form>
       </div>

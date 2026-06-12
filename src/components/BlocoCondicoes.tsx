@@ -1,4 +1,5 @@
 import type { Imovel } from "@/data/imoveis";
+import { Info, BarChart3, Clock, LayoutGrid, CheckCircle } from "lucide-react";
 
 type BlocoCondicoesProps = {
   imovel: Imovel;
@@ -6,11 +7,12 @@ type BlocoCondicoesProps = {
 
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
   const resumo = [
-    "605 unidades",
-    "2Q, 3Q e 4Q",
-    "Gardens e coberturas",
-    "Entrega maio/2029"
+    { label: "Unidades", value: "605", icon: LayoutGrid },
+    { label: "Tipologia", value: "2Q a 4Q", icon: BarChart3 },
+    { label: "Destaque", value: "Gardens e Coberturas", icon: CheckCircle },
+    { label: "Entrega", value: "Maio/2029", icon: Clock },
   ];
+  
   const mixUnidades = [
     "102 un. 2Q 63m²",
     "76 un. 2Q 70m²",
@@ -25,51 +27,51 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
 
   return (
     <section
-      className="border-y border-[var(--border-warm)] bg-white"
+      className="bg-[var(--surface-warm)] py-16 sm:py-24 border-y border-[var(--border-warm)] overflow-hidden"
       id="condicoes"
     >
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 sm:py-12 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.72fr_1.28fr] lg:items-start">
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-              Resumo decisivo
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[1fr_1.5fr] lg:items-start animate-fade-in-up">
+          
+          <div className="flex flex-col">
+            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+               <Info className="size-4" />
+               Ficha Técnica
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-              O essencial antes de avançar
+            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+              Os detalhes que importam
             </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              Endereco, escala, prazo e mix de unidades reunidos para entender
-              rapidamente se o produto merece simulacao.
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              Conheça os dados estruturais do empreendimento para entender sua dimensão e potencial de valorização na região.
             </p>
-            <p className="mt-5 text-sm leading-6 text-slate-600">
-              Preco, sinal e mensais aparecem no topo como referencia inicial.
-              A condicao final precisa ser confirmada por unidade.
-            </p>
+            
+            <div className="mt-8 grid grid-cols-2 gap-4">
+               {resumo.map((item) => {
+                 const Icon = item.icon;
+                 return (
+                   <div key={item.label} className="bg-white p-4 rounded-xl border border-[var(--border-warm)] shadow-sm">
+                     <Icon className="size-5 text-[var(--brand)] mb-3" />
+                     <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{item.label}</p>
+                     <p className="text-base font-bold text-slate-900">{item.value}</p>
+                   </div>
+                 )
+               })}
+            </div>
           </div>
 
-          <div>
-            <div className="mb-5 grid gap-2 sm:grid-cols-4">
-              {resumo.map((item) => (
-                <div
-                  key={item}
-                  className="bg-[var(--surface-green)] px-3 py-3 text-sm font-semibold leading-snug text-[var(--brand)]"
-                >
-                  {item}
-                </div>
-              ))}
-            </div>
-
+          <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-md border border-[var(--border-warm)] animate-fade-in-up delay-100">
+            {/* Grid de detalhes técnicos */}
             {ficha.length ? (
-              <div className="divide-y divide-[var(--border-warm)] border-y border-[var(--border-warm)]">
+              <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
                 {ficha.map((item) => (
                   <div
                     key={item.label}
-                    className="grid gap-2 py-3 sm:grid-cols-[160px_1fr] sm:items-center"
+                    className="flex flex-col border-b border-slate-100 pb-3"
                   >
-                    <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[var(--accent)]">
+                    <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1">
                       {item.label}
                     </p>
-                    <p className="text-base font-semibold leading-snug text-slate-950">
+                    <p className="text-sm font-semibold leading-relaxed text-slate-900">
                       {item.value}
                     </p>
                   </div>
@@ -77,32 +79,33 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
               </div>
             ) : null}
 
-            <details className="mt-5 border-y border-[var(--border-warm)] py-3">
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-sm font-semibold text-slate-950">
-                <span className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-                  Mix de unidades
+            {/* Mix de Unidades sempre visível como Tags */}
+            <div className="mt-8 pt-8 border-t border-slate-100">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-sm font-bold text-slate-900">
+                  Mix de Unidades Detalhado
                 </span>
-                <span className="text-xs font-medium text-slate-500">
-                  Ver detalhes
-                </span>
-              </summary>
-              <p className="mt-3 text-xs leading-5 text-slate-500">
-                  Quantitativo do material, sujeito a disponibilidade.
-              </p>
-              <div className="mt-3 grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
+              </div>
+              
+              <div className="flex flex-wrap gap-2">
                 {mixUnidades.map((item) => (
                   <span
                     key={item}
-                    className="border-l border-[var(--border-warm)] pl-3 text-xs font-semibold leading-5 text-slate-700"
+                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[var(--surface-green)]/40 border border-[var(--surface-green)] text-xs font-semibold text-[var(--brand-dark)] transition-colors hover:bg-[var(--surface-green)]"
                   >
                     {item}
                   </span>
                 ))}
               </div>
-            </details>
+              
+              <p className="mt-4 text-[11px] leading-5 text-slate-400 italic">
+                  * Quantitativo exato sujeito à disponibilidade da tabela vigente no ato da reserva.
+              </p>
+            </div>
           </div>
         </div>
-        <p className="mt-6 max-w-4xl border-t border-[var(--border-warm)] pt-5 text-sm leading-6 text-slate-600">
+        
+        <p className="mt-12 text-center border-t border-[var(--border-warm)] pt-6 text-xs leading-relaxed text-slate-500">
           {imovel.condicoesAviso}
         </p>
       </div>

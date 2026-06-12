@@ -1,6 +1,6 @@
 "use client";
 
-import { ChevronDown } from "lucide-react";
+import { ChevronDown, MessageCircleQuestion } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { pushTrackingEvent } from "@/lib/tracking";
 
@@ -22,33 +22,44 @@ export function FaqSection({ imovel }: FaqSectionProps) {
   }
 
   return (
-    <section className="bg-slate-50 py-14 sm:py-16" id="faq">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-          Duvidas comuns
-        </p>
-        <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-          Perguntas frequentes
-        </h2>
-        <div className="mt-8 grid gap-3 lg:grid-cols-2">
-          {imovel.faq.map((item) => (
+    <section className="bg-white py-16 sm:py-24 border-b border-slate-100" id="faq">
+      <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-12 animate-fade-in-up">
+          <p className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+            <MessageCircleQuestion className="size-4" />
+            Dúvidas Comuns
+          </p>
+          <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+            Perguntas Frequentes
+          </h2>
+          <p className="mt-4 text-slate-600 text-lg">
+             Ainda tem dúvidas? Respondemos as principais perguntas sobre o {imovel.nome}.
+          </p>
+        </div>
+
+        <div className="grid gap-4 lg:gap-6 animate-fade-in-up delay-100">
+          {imovel.faq.map((item, index) => (
             <details
               key={item.pergunta}
-              className="group border border-slate-200 bg-white p-5"
+              className="group rounded-2xl border border-slate-200 bg-white shadow-sm hover:shadow-md transition-shadow"
               onToggle={(event) =>
                 handleToggle(event.currentTarget.open, item.pergunta)
               }
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left text-base font-semibold text-slate-950">
-                {item.pergunta}
-                <ChevronDown
-                  className="size-5 shrink-0 text-[var(--brand)] transition group-open:rotate-180"
-                  aria-hidden="true"
-                />
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left p-6 outline-none">
+                <span className="text-base font-bold text-slate-900 pr-4">
+                   {item.pergunta}
+                </span>
+                <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-slate-50 text-[var(--brand)] transition-colors group-open:bg-[var(--surface-green)] group-hover:bg-slate-100">
+                  <ChevronDown
+                    className="size-5 transition-transform duration-300 group-open:rotate-180"
+                    aria-hidden="true"
+                  />
+                </span>
               </summary>
-              <p className="mt-4 text-sm leading-6 text-slate-600">
-                {item.resposta}
-              </p>
+              <div className="px-6 pb-6 pt-2 text-slate-600 leading-relaxed border-t border-slate-50 mt-2 mx-2">
+                <p>{item.resposta}</p>
+              </div>
             </details>
           ))}
         </div>

@@ -1,4 +1,4 @@
-import { Banknote, CalendarClock, Landmark, TrendingUp } from "lucide-react";
+import { Banknote, CalendarClock, Landmark, TrendingUp, Calculator } from "lucide-react";
 import { CtaLink } from "@/components/CtaLink";
 import type { Imovel } from "@/data/imoveis";
 
@@ -9,7 +9,7 @@ type BlocoFluxoPagamentoProps = {
 const etapas = [
   {
     title: "Entrada real",
-    text: "Confirme quanto entra no ato e se ha reforcos ou intermediarias.",
+    text: "Confirme quanto entra no ato e se há reforços ou intermediárias.",
     icon: Banknote
   },
   {
@@ -18,73 +18,81 @@ const etapas = [
     icon: CalendarClock
   },
   {
-    title: "Correcao e prazo",
-    text: "Inclua INCC, tempo de obra e condicoes comerciais vigentes.",
+    title: "Correção e prazo",
+    text: "Inclua INCC, tempo de obra e condições comerciais vigentes.",
     icon: TrendingUp
   },
   {
     title: "Saldo na entrega",
-    text: "Planeje financiamento ou recursos proprios antes da assinatura.",
+    text: "Planeje financiamento ou recursos próprios antes da assinatura.",
     icon: Landmark
   }
 ];
 
 export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
   return (
-    <section className="bg-white py-12 sm:py-14" id="fluxo">
+    <section className="bg-slate-50 py-16 sm:py-24" id="fluxo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid gap-8 lg:grid-cols-[0.62fr_1.38fr] lg:items-start">
+        <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center animate-fade-in-up">
           <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.18em] text-[var(--accent)]">
-              Fluxo de pagamento
+            <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
+              <Calculator className="size-4" />
+              Fluxo de Pagamento
             </p>
-            <h2 className="mt-3 text-3xl font-semibold text-slate-950">
-              O que precisa entrar na simulacao
+            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+              A matemática a favor da sua decisão
             </h2>
-            <p className="mt-4 text-base leading-7 text-slate-600">
-              A decisao nao depende so do preco. O fluxo precisa caber na
-              entrada disponivel, no caixa mensal e no saldo final.
+            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+              A melhor unidade não é só a mais barata. Montamos um fluxo personalizado comparando entrada, parcelas, correção e saldo para encontrar o cenário ideal para o seu bolso.
+            </p>
+            
+            <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:items-center">
+              <CtaLink
+                href="#lead-form"
+                label="Solicitar Simulação Personalizada"
+                imovel={imovel}
+                source="fluxo_pagamento_cta"
+                variant="primary"
+              />
+            </div>
+            <p className="mt-4 text-xs text-slate-500">
+              Sem compromisso. Entenda os números antes de visitar.
             </p>
           </div>
 
-          <ol className="grid gap-4 md:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 relative">
+            {/* Linha conectora desktop */}
+            <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-[var(--surface-green)] via-[var(--brand)]/20 to-[var(--surface-green)] -translate-y-1/2 z-0" />
+            <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--surface-green)] via-[var(--brand)]/20 to-[var(--surface-green)] -translate-x-1/2 z-0" />
+
             {etapas.map((etapa, index) => {
               const Icon = etapa.icon;
 
               return (
-                <li
+                <div
                   key={etapa.title}
-                  className="border-t border-[var(--border-warm)] pt-4"
+                  className="relative z-10 bg-white p-6 rounded-2xl border border-[var(--border-warm)] shadow-sm hover:shadow-md transition-shadow group animate-fade-in-up"
+                  style={{ animationDelay: `${index * 100}ms` }}
                 >
-                  <div className="mb-3 flex items-center gap-3">
-                    <span className="grid size-8 shrink-0 place-items-center bg-[var(--surface-green)] text-xs font-semibold text-[var(--brand)]">
-                      {String(index + 1).padStart(2, "0")}
+                  <div className="flex items-start justify-between mb-4">
+                    <div className="flex size-12 items-center justify-center rounded-full bg-[var(--surface-green)] text-[var(--brand)] transition-transform group-hover:scale-110">
+                      <Icon className="size-5" aria-hidden="true" />
+                    </div>
+                    <span className="text-[40px] font-black text-slate-100 leading-none">
+                      {index + 1}
                     </span>
-                    <Icon
-                      className="size-5 text-[var(--brand)]"
-                      aria-hidden="true"
-                    />
                   </div>
-                  <h3 className="text-base font-semibold text-slate-950">
+                  
+                  <h3 className="text-lg font-bold text-slate-900">
                     {etapa.title}
                   </h3>
-                  <p className="mt-2 text-sm leading-6 text-slate-600">
+                  <p className="mt-2 text-sm leading-relaxed text-slate-600">
                     {etapa.text}
                   </p>
-                </li>
+                </div>
               );
             })}
-          </ol>
-        </div>
-
-        <div className="mt-7">
-          <CtaLink
-            href="#lead-form"
-            label="Receber tabela e simulacao"
-            imovel={imovel}
-            source="fluxo_pagamento_cta"
-            variant="primary"
-          />
+          </div>
         </div>
       </div>
     </section>
