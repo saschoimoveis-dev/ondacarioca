@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useMemo, useState } from "react";
+import { FormEvent, useState } from "react";
 import {
   ArrowLeft,
   ArrowRight,
@@ -51,7 +51,7 @@ function RadioChips({ options, value, onChange, name }: { options: string[], val
           key={opt}
           type="button"
           onClick={() => onChange(opt)}
-          className={`px-4 py-2.5 text-[13px] font-semibold rounded-full border transition-all duration-200 ${
+          className={`px-3 py-2 text-[12px] sm:text-[13px] font-semibold rounded-full border transition-all duration-200 ${
             value === opt
               ? "border-[var(--brand)] bg-[var(--surface-green)] text-[var(--brand-dark)] shadow-[0_2px_10px_rgba(23,63,52,0.1)] scale-[1.02]"
               : "border-slate-200 bg-white text-slate-600 hover:border-slate-300 hover:bg-slate-50"
@@ -65,24 +65,31 @@ function RadioChips({ options, value, onChange, name }: { options: string[], val
   );
 }
 
+const tipologias = [
+  "2 quartos",
+  "3 quartos",
+  "4 quartos",
+  "Garden",
+  "Cobertura linear",
+  "Cobertura duplex",
+  "Ainda nao sei"
+];
+
+type QuestionConfig = { label: string; field: keyof FormState; options: string[] };
+
+const questions: QuestionConfig[] = [
+  { label: "Objetivo", field: "objetivo", options: ["Morar", "Investir", "Morar ou investir", "Ainda avaliando"] },
+  { label: "Tipologia desejada", field: "tipologia", options: tipologias },
+  { label: "Entrada disponível", field: "entradaDisponivel", options: ["Ate R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 200 mil", "Acima de R$ 200 mil", "Prefiro conversar"] },
+  { label: "Prazo de compra", field: "prazoCompra", options: ["0 a 3 meses", "3 a 6 meses", "6 a 12 meses", "Mais de 12 meses"] },
+];
+
 export function LeadForm({ imovel }: LeadFormProps) {
   const [form, setForm] = useState<FormState>(initialState);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [hasStarted, setHasStarted] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
-
-  const tipologias = useMemo(
-    () => [
-      "2 quartos",
-      "3 quartos",
-      "4 quartos",
-      "Garden",
-      "Cobertura linear",
-      "Cobertura duplex",
-      "Ainda nao sei"
-    ],
-    []
-  );
+  const [subStep, setSubStep] = useState(0);
 
   function updateField(field: keyof FormState, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -127,6 +134,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
     const values = readFormValues(formElement);
     setForm((current) => ({ ...current, ...values }));
     setStep(2);
+    setSubStep(0);
     pushTrackingEvent("form_step_continue", {
       imovel_nome: imovel.nome,
       imovel_slug: imovel.slug,
@@ -190,6 +198,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
       setStatus("success");
       setForm(initialState);
       setStep(1);
+      setSubStep(0);
     } catch {
       setStatus("error");
     }
@@ -204,12 +213,13 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="surface-premium pb-20 pt-14 sm:pb-24 sm:pt-16 relative overflow-hidden" id="lead-form">
+    <section className="surface-premium pb-16 pt-12 sm:pb-24 sm:pt-16 relative overflow-hidden" id="lead-form">
       {/* Decorative bg circles */}
-      <div className="absolute top-0 right-0 -mr-20 -mt-20 size-64 rounded-full bg-[var(--surface-green)] opacity-50 blur-3xl"></div>
-      
-      <div className="mx-auto grid max-w-7xl gap-10 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:px-8 relative z-10">
-        <div className="animate-fade-in-up">
+      <div className="absolute top-0 right-0 -mr-20 -mt-20 size-64 rounded-full bg-[var(--surface-green)] opacity-50 blur-3xl" />
+
+      <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-[0.8fr_1.2fr] lg:gap-10 lg:px-8 relative z-10">
+        {/* Bloco introdutório — oculto no mobile para o form aparecer imediatamente */}
+        <div className="hidden sm:block animate-fade-in-up">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-[var(--accent)]">
             Atendimento e simulação
           </p>
@@ -219,7 +229,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
             A tabela muda rápido. Deixe seus dados para consultar a disponibilidade real, comparar o fluxo de pagamento e receber tudo pelo WhatsApp.
           </p>
-          
+
           <div className="mt-8 rounded-lg bg-white p-5 border border-[var(--border-warm)] shadow-sm flex items-start gap-4">
             <div className="rounded-full bg-[var(--surface-green)] p-2 text-[var(--brand)] shrink-0 mt-1">
                <ShieldCheck className="size-5" />
@@ -236,6 +246,14 @@ export function LeadForm({ imovel }: LeadFormProps) {
           onFocus={trackStart}
           className="premium-frame border bg-white p-6 sm:p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.06)] animate-fade-in-up delay-200"
         >
+          {/* Trust line — mobile only */}
+          <div className="mb-4 flex items-center gap-2 rounded-lg bg-[var(--surface-green)] px-3 py-2.5 sm:hidden">
+            <ShieldCheck className="size-4 shrink-0 text-[var(--brand)]" aria-hidden="true" />
+            <p className="text-xs font-semibold text-[var(--brand-dark)]">
+              Zero spam. Você recebe a tabela direto no WhatsApp.
+            </p>
+          </div>
+
           <div className="mb-8 border-b border-slate-100 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
             <div>
               <h3 className="text-2xl font-bold leading-tight text-slate-900">
@@ -301,7 +319,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="mt-4 inline-flex w-full items-center justify-center text-sm font-semibold text-slate-400 transition hover:text-[var(--brand)] disabled:cursor-not-allowed"
+                className="mt-4 inline-flex w-full min-h-[44px] items-center justify-center py-2 text-sm font-semibold text-slate-400 transition hover:text-[var(--brand)] disabled:cursor-not-allowed"
               >
                 {status === "sending"
                   ? "Enviando..."
@@ -310,52 +328,87 @@ export function LeadForm({ imovel }: LeadFormProps) {
             </div>
           ) : (
             <div className="animate-fade-in-up">
-              <div className="grid gap-6">
-                <label className={labelClassName}>
-                  Objetivo
-                  <RadioChips 
-                    name="objetivo"
-                    value={form.objetivo} 
-                    onChange={(val) => updateField('objetivo', val)}
-                    options={["Morar", "Investir", "Morar ou investir", "Ainda avaliando"]} 
-                  />
-                </label>
-
-                <label className={labelClassName}>
-                  Tipologia desejada
-                  <RadioChips 
-                    name="tipologia"
-                    value={form.tipologia} 
-                    onChange={(val) => updateField('tipologia', val)}
-                    options={tipologias} 
-                  />
-                </label>
-
-                <label className={labelClassName}>
-                  Entrada disponível
-                  <RadioChips 
-                    name="entradaDisponivel"
-                    value={form.entradaDisponivel} 
-                    onChange={(val) => updateField('entradaDisponivel', val)}
-                    options={["Ate R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 200 mil", "Acima de R$ 200 mil", "Prefiro conversar"]} 
-                  />
-                </label>
-
-                <label className={labelClassName}>
-                  Prazo de compra
-                  <RadioChips 
-                    name="prazoCompra"
-                    value={form.prazoCompra} 
-                    onChange={(val) => updateField('prazoCompra', val)}
-                    options={["0 a 3 meses", "3 a 6 meses", "6 a 12 meses", "Mais de 12 meses"]} 
-                  />
-                </label>
+              {/* Desktop: todas as perguntas de uma vez */}
+              <div className="hidden sm:grid gap-6">
+                {questions.map((q) => (
+                  <label key={q.field} className={labelClassName}>
+                    {q.label}
+                    <RadioChips
+                      name={q.field}
+                      value={form[q.field]}
+                      onChange={(val) => updateField(q.field, val)}
+                      options={q.options}
+                    />
+                  </label>
+                ))}
               </div>
 
-              <div className="mt-8 flex flex-col-reverse sm:flex-row gap-3">
+              {/* Mobile: uma pergunta por vez */}
+              <div className="sm:hidden">
+                <div className="flex gap-1.5 mb-5">
+                  {questions.map((_, i) => (
+                    <div
+                      key={i}
+                      className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
+                        i <= subStep ? "bg-[var(--brand)]" : "bg-slate-200"
+                      }`}
+                    />
+                  ))}
+                </div>
+
+                <label className={labelClassName}>
+                  {questions[subStep].label}
+                  <RadioChips
+                    name={questions[subStep].field}
+                    value={form[questions[subStep].field]}
+                    onChange={(val) => updateField(questions[subStep].field, val)}
+                    options={questions[subStep].options}
+                  />
+                </label>
+
+                <div className="mt-6 flex gap-3">
+                  <button
+                    type="button"
+                    onClick={() => {
+                      if (subStep === 0) {
+                        setStep(1);
+                        setSubStep(0);
+                      } else {
+                        setSubStep((s) => s - 1);
+                      }
+                    }}
+                    className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-[var(--border-warm)] bg-white px-5 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50 active:bg-slate-100 min-h-[52px]"
+                  >
+                    <ArrowLeft className="size-5" aria-hidden="true" />
+                    Voltar
+                  </button>
+                  {subStep < questions.length - 1 ? (
+                    <button
+                      type="button"
+                      onClick={() => setSubStep((s) => s + 1)}
+                      className="btn-primary-premium inline-flex flex-[2] items-center justify-center gap-2 rounded-md px-5 py-4 text-sm font-bold transition hover:scale-[1.01] active:scale-[0.98] min-h-[52px]"
+                    >
+                      Próxima
+                      <ArrowRight className="size-5" aria-hidden="true" />
+                    </button>
+                  ) : (
+                    <button
+                      type="submit"
+                      disabled={status === "sending"}
+                      className="btn-primary-premium inline-flex flex-[2] items-center justify-center gap-2 rounded-md px-5 py-4 text-sm font-bold transition disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.98] min-h-[52px]"
+                    >
+                      <Send className="size-5" aria-hidden="true" />
+                      {status === "sending" ? "Enviando..." : "Receber tabela"}
+                    </button>
+                  )}
+                </div>
+              </div>
+
+              {/* Desktop: botões de navegação */}
+              <div className="mt-8 hidden sm:flex flex-col-reverse sm:flex-row gap-3">
                 <button
                   type="button"
-                  onClick={() => setStep(1)}
+                  onClick={() => { setStep(1); setSubStep(0); }}
                   className="inline-flex flex-1 items-center justify-center gap-2 rounded-md border border-[var(--border-warm)] bg-white px-5 py-4 text-sm font-bold text-slate-700 transition hover:bg-slate-50 active:bg-slate-100"
                 >
                   <ArrowLeft className="size-5" aria-hidden="true" />
