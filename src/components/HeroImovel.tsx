@@ -35,7 +35,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
       <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 size-[800px] rounded-full bg-[var(--surface-green)] blur-3xl" aria-hidden="true" />
       <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 size-[600px] rounded-full bg-[var(--champagne)]/30 blur-3xl" aria-hidden="true" />
 
-      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-12 px-4 py-16 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24 lg:px-8">
+      <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 py-10 sm:px-6 sm:py-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:py-24 lg:px-8">
         
         {/* Left Column: Copy & CTAs */}
         <div className="flex flex-col justify-center animate-fade-in-up">
@@ -82,19 +82,20 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             })}
           </div>
 
-          <div className="mt-10 flex flex-col sm:flex-row items-center gap-4">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <CtaLink
               href="#lead-form"
               label="Receber Tabela e Simulação"
               imovel={imovel}
               source="hero_cta"
               variant="primary"
+              className="w-full sm:w-auto justify-center"
             />
           </div>
         </div>
 
         {/* Right Column: Interactive Map Container */}
-        <div className="relative h-[400px] w-full lg:h-[600px] animate-fade-in-up delay-200">
+        <div className="relative order-last h-[260px] w-full sm:h-[400px] lg:order-none lg:h-[600px] animate-fade-in-up delay-200">
            <div className="absolute inset-0 rounded-2xl overflow-hidden border border-[var(--border-warm)] shadow-[0_24px_48px_rgba(15,47,39,0.1)]">
               {/* Overlay leve */}
               <div className="absolute inset-0 pointer-events-none mix-blend-multiply z-10 bg-[var(--surface-green)]/20"></div>

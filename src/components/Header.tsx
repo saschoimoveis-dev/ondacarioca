@@ -61,13 +61,15 @@ export function Header() {
 
         <a
           href={whatsappHref}
-          className={`inline-flex items-center gap-2 rounded-full px-4 py-2 text-sm font-bold transition-all hover:scale-[1.02] active:scale-[0.98] ${
+          target="_blank"
+          rel="noreferrer"
+          className={`inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-bold transition-all hover:scale-[1.02] active:scale-[0.98] min-h-[44px] ${
             isScrolled
               ? "bg-[var(--brand)] text-white hover:bg-[var(--brand-dark)] shadow-[0_4px_14px_rgba(23,63,52,0.2)]"
               : "bg-[var(--brand)] text-white hover:bg-[var(--brand-dark)] shadow-md"
           }`}
         >
-          <MessageCircle className="size-4" aria-hidden="true" />
+          <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
           <span className="hidden sm:inline">{siteConfig.phoneDisplay}</span>
           <span className="sm:hidden">WhatsApp</span>
         </a>

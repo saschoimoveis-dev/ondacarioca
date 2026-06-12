@@ -71,7 +71,7 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
               return (
                 <div
                   key={etapa.title}
-                  className="relative z-10 bg-white p-6 rounded-2xl border border-[var(--border-warm)] shadow-sm hover:shadow-md transition-shadow group animate-fade-in-up"
+                  className="relative z-10 bg-white p-4 sm:p-6 rounded-2xl border border-[var(--border-warm)] shadow-sm hover:shadow-md transition-shadow group animate-fade-in-up"
                   style={{ animationDelay: `${index * 100}ms` }}
                 >
                   <div className="flex items-start justify-between mb-4">

@@ -10,6 +10,7 @@ type CtaLinkProps = {
   imovel?: Imovel;
   source: string;
   variant?: "primary" | "secondary";
+  className?: string;
 };
 
 export function CtaLink({
@@ -17,7 +18,8 @@ export function CtaLink({
   label,
   imovel,
   source,
-  variant = "secondary"
+  variant = "secondary",
+  className: extraClassName
 }: CtaLinkProps) {
   function handleClick() {
     pushTrackingEvent("cta_click", {
@@ -29,10 +31,12 @@ export function CtaLink({
     });
   }
 
-  const className =
+  const baseClassName =
     variant === "primary"
       ? "btn-primary-premium group inline-flex items-center justify-center gap-2 rounded-full px-8 py-4 text-[15px] font-bold shadow-[0_8px_24px_rgba(23,63,52,0.3)] transition-all duration-300 hover:scale-[1.02] hover:shadow-[0_12px_32px_rgba(23,63,52,0.4)] active:scale-[0.98]"
       : "btn-secondary-premium group inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white/90 backdrop-blur px-8 py-4 text-[15px] font-bold transition-all duration-300 hover:scale-[1.02] hover:border-[var(--brand)] active:scale-[0.98] shadow-sm";
+
+  const className = extraClassName ? `${baseClassName} ${extraClassName}` : baseClassName;
 
   return (
     <a href={href} onClick={handleClick} className={className}>

@@ -75,7 +75,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
 
             <a
               href="#lead-form"
-              className="mt-8 group inline-flex items-center gap-2 text-sm font-bold uppercase tracking-wider text-[var(--brand)] transition hover:text-[var(--brand-dark)]"
+              className="mt-8 group inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/30 bg-[var(--surface-green)] px-5 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand)] transition hover:bg-[var(--border-warm)] hover:border-[var(--brand)] min-h-[44px]"
             >
               Receber apresentação completa
               <MoveRight className="size-4 transition-transform group-hover:translate-x-1" />
@@ -88,8 +88,8 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
                 key={item.title}
                 className={`group relative overflow-hidden rounded-2xl shadow-sm ${
                   index === 0
-                    ? "min-h-[320px] sm:col-span-2 sm:min-h-[460px]"
-                    : "min-h-[220px]"
+                    ? "min-h-[260px] sm:col-span-2 sm:min-h-[460px]"
+                    : "min-h-[180px] sm:min-h-[220px]"
                 }`}
               >
                 <Image
@@ -105,11 +105,12 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 via-slate-900/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity"></div>
                 
-                <div className="absolute bottom-0 left-0 right-0 p-6 translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <p className="text-lg font-bold text-white drop-shadow-md">
+                {/* Título sempre visível, sem depender de hover */}
+                <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6">
+                  <p className="text-base sm:text-lg font-bold text-white drop-shadow-md">
                     {item.title}
                   </p>
-                  <p className="text-xs text-slate-300 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                  <p className="text-xs text-slate-300 mt-1 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 hidden sm:block">
                      Perspectiva ilustrativa
                   </p>
                 </div>

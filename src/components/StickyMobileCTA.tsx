@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Download } from "lucide-react";
+import { FileText } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
 import { pushTrackingEvent } from "@/lib/tracking";
 
@@ -69,16 +69,17 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
 
   return (
     <div 
-      className={`fixed inset-x-4 bottom-4 z-50 transition-all duration-500 ease-out md:hidden ${
+      className={`fixed inset-x-4 z-50 transition-all duration-500 ease-out md:hidden pb-safe ${
         isVisible ? "translate-y-0 opacity-100" : "translate-y-[150%] opacity-0 pointer-events-none"
       }`}
+      style={{ bottom: 'max(1rem, env(safe-area-inset-bottom, 1rem))' }}
     >
       <a
         href="#lead-form"
         onClick={handleClick}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-4 text-sm font-bold text-white shadow-[0_12px_24px_rgba(23,63,52,0.4)] transition-transform active:scale-95"
+        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-4 text-sm font-bold text-white shadow-[0_12px_24px_rgba(23,63,52,0.4)] transition-transform active:scale-95 min-h-[52px]"
       >
-        <Download className="size-5" aria-hidden="true" />
+        <FileText className="size-5" aria-hidden="true" />
         Tabela e Simulação
       </a>
     </div>

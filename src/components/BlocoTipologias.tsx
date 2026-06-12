@@ -88,9 +88,9 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             </h2>
           </div>
 
-          {/* Quadro de metragens compacto */}
+          {/* Quadro de metragens compacto — escondido no mobile para não poluir */}
           {gruposMetragem.length > 0 && (
-            <div className="flex flex-wrap gap-3">
+            <div className="hidden sm:flex flex-wrap gap-3">
               {gruposMetragem.map((grupo) => (
                 <div key={grupo.title} className="bg-[var(--surface-warm)] border border-[var(--border-warm)] rounded-xl px-4 py-3 min-w-[120px]">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1">{grupo.title}</p>
@@ -108,26 +108,28 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
           )}
         </div>
 
-        {/* Tabs de seleção */}
-        <div className="flex gap-3 overflow-x-auto pb-2 mb-8 hide-scrollbar animate-fade-in-up">
-          {plantas.map((planta, i) => {
-            const Icon = iconByIndex[i % iconByIndex.length];
-            const isActive = i === activeIndex;
-            return (
-              <button
-                key={`tab-${i}`}
-                onClick={() => setActiveIndex(i)}
-                className={`shrink-0 flex items-center gap-2 px-5 py-3 rounded-full border text-sm font-bold transition-all duration-200 ${
-                  isActive
-                    ? "bg-[var(--brand)] text-white border-[var(--brand)] shadow-md"
-                    : "bg-white text-slate-600 border-slate-200 hover:border-[var(--brand)] hover:text-[var(--brand)]"
-                }`}
-              >
-                <Icon className="size-4 shrink-0" />
-                {planta.titulo}
-              </button>
-            );
-          })}
+        {/* Tabs de seleção com fade lateral indicando scroll */}
+        <div className="relative mb-8 animate-fade-in-up">
+          <div className="flex gap-3 overflow-x-auto pb-2 hide-scrollbar scroll-fade-x">
+            {plantas.map((planta, i) => {
+              const Icon = iconByIndex[i % iconByIndex.length];
+              const isActive = i === activeIndex;
+              return (
+                <button
+                  key={`tab-${i}`}
+                  onClick={() => setActiveIndex(i)}
+                  className={`shrink-0 flex items-center gap-2 px-5 py-3 rounded-full border text-sm font-bold transition-all duration-200 min-h-[44px] ${
+                    isActive
+                      ? "bg-[var(--brand)] text-white border-[var(--brand)] shadow-md"
+                      : "bg-white text-slate-600 border-slate-200 hover:border-[var(--brand)] hover:text-[var(--brand)]"
+                  }`}
+                >
+                  <Icon className="size-4 shrink-0" />
+                  {planta.titulo}
+                </button>
+              );
+            })}
+          </div>
         </div>
 
         {/* Layout principal: imagem grande + detalhes */}
@@ -150,10 +152,10 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                   <div className="absolute inset-0 bg-slate-900/0 group-hover:bg-slate-900/20 transition-colors duration-300" />
                 </div>
 
-                {/* Botão de zoom */}
+                {/* Botão de zoom — sempre visível no mobile, hover no desktop */}
                 <button
                   onClick={() => setLightboxOpen(true)}
-                  className="absolute top-4 right-4 flex items-center gap-2 bg-white/95 backdrop-blur rounded-full px-4 py-2 text-sm font-bold text-slate-800 shadow-lg border border-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-[var(--surface-green)] hover:text-[var(--brand)]"
+                  className="absolute top-4 right-4 flex items-center gap-2 bg-white/95 backdrop-blur rounded-full px-4 py-2 text-sm font-bold text-slate-800 shadow-lg border border-white opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity duration-300 hover:bg-[var(--surface-green)] hover:text-[var(--brand)] min-h-[44px]"
                 >
                   <ZoomIn className="size-4" />
                   Ampliar planta

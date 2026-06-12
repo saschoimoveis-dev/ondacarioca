@@ -1,11 +1,15 @@
+"use client";
+
+import { useState } from "react";
 import type { Imovel } from "@/data/imoveis";
-import { Info, BarChart3, Clock, LayoutGrid, CheckCircle } from "lucide-react";
+import { Info, BarChart3, Clock, LayoutGrid, CheckCircle, ChevronDown } from "lucide-react";
 
 type BlocoCondicoesProps = {
   imovel: Imovel;
 };
 
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
+  const [mixOpen, setMixOpen] = useState(false);
   const resumo = [
     { label: "Unidades", value: "605", icon: LayoutGrid },
     { label: "Tipologia", value: "2Q a 4Q", icon: BarChart3 },
@@ -59,7 +63,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             </div>
           </div>
 
-          <div className="bg-white p-6 sm:p-10 rounded-2xl shadow-md border border-[var(--border-warm)] animate-fade-in-up delay-100">
+          <div className="bg-white p-5 sm:p-10 rounded-2xl shadow-md border border-[var(--border-warm)] animate-fade-in-up delay-100">
             {/* Grid de detalhes técnicos */}
             {ficha.length ? (
               <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -79,28 +83,41 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
               </div>
             ) : null}
 
-            {/* Mix de Unidades sempre visível como Tags */}
-            <div className="mt-8 pt-8 border-t border-slate-100">
-              <div className="flex items-center justify-between mb-4">
+            {/* Mix de Unidades — toggle no mobile, sempre aberto no desktop */}
+            <div className="mt-6 pt-6 border-t border-slate-100">
+              {/* Cabeçalho clícavel no mobile */}
+              <button
+                className="flex w-full items-center justify-between sm:cursor-default"
+                onClick={() => setMixOpen((v) => !v)}
+                aria-expanded={mixOpen}
+              >
                 <span className="text-sm font-bold text-slate-900">
                   Mix de Unidades Detalhado
                 </span>
-              </div>
-              
-              <div className="flex flex-wrap gap-2">
-                {mixUnidades.map((item) => (
-                  <span
-                    key={item}
-                    className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[var(--surface-green)]/40 border border-[var(--surface-green)] text-xs font-semibold text-[var(--brand-dark)] transition-colors hover:bg-[var(--surface-green)]"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-              
-              <p className="mt-4 text-[11px] leading-5 text-slate-400 italic">
+                <ChevronDown
+                  className={`size-4 text-slate-400 transition-transform duration-300 sm:hidden ${
+                    mixOpen ? "rotate-180" : ""
+                  }`}
+                  aria-hidden="true"
+                />
+              </button>
+
+              {/* Conteúdo: visível sempre no sm+, toggleável no mobile */}
+              <div className={`mt-3 sm:block ${mixOpen ? "block" : "hidden"}`}>
+                <div className="flex flex-wrap gap-2">
+                  {mixUnidades.map((item) => (
+                    <span
+                      key={item}
+                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[var(--surface-green)]/40 border border-[var(--surface-green)] text-xs font-semibold text-[var(--brand-dark)] transition-colors hover:bg-[var(--surface-green)]"
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
+                <p className="mt-4 text-[11px] leading-5 text-slate-400 italic">
                   * Quantitativo exato sujeito à disponibilidade da tabela vigente no ato da reserva.
-              </p>
+                </p>
+              </div>
             </div>
           </div>
         </div>
