@@ -82,14 +82,14 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
             </a>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 animate-fade-in-up delay-200">
+          <div className="grid grid-cols-2 gap-4 animate-fade-in-up delay-200">
             {imagensLazer.map((item, index) => (
               <div
                 key={item.title}
                 className={`group relative overflow-hidden rounded-2xl shadow-sm ${
                   index === 0
-                    ? "min-h-[260px] sm:col-span-2 sm:min-h-[460px]"
-                    : "min-h-[180px] sm:min-h-[220px]"
+                    ? "col-span-2 min-h-[220px] sm:min-h-[460px]"
+                    : "min-h-[140px] sm:min-h-[220px]"
                 }`}
               >
                 <Image

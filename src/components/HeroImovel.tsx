@@ -28,8 +28,16 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
         : imovel.precoInicial || "Consulte",
       icon: Banknote
     },
-    { label: "Sinal", description: imovel.sinalInicial || "Consulte", icon: FileText },
-    { label: "Mensais", description: imovel.parcelasIniciais || "Consulte", icon: CalendarClock }
+    {
+      label: "Sinal",
+      description: (imovel.sinalInicial || "Consulte").replace(/^a partir de\s+/i, ""),
+      icon: FileText
+    },
+    {
+      label: "Mensais",
+      description: (imovel.parcelasIniciais || "Consulte").replace(/^a partir de\s+/i, ""),
+      icon: CalendarClock
+    }
   ];
 
   return (
@@ -48,10 +56,9 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
         <div className="flex flex-col justify-center animate-fade-in-up">
 
           {/* Badge */}
-          <p className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            <span className="h-px w-6 bg-[var(--accent)]" />
+          <span className="inline-flex items-center rounded-full bg-[var(--surface-green)] border border-[var(--accent)]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
             {imovel.incorporadora ? `Lançamento ${imovel.incorporadora}` : "Lançamento Exclusivo"}
-          </p>
+          </span>
 
           {/* Título */}
           <h1 className="mt-3 text-[2rem] font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl text-balance">
@@ -107,25 +114,18 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           </div>
         </div>
 
-        {/* Mobile: bloco estático sem iframe */}
+        {/* Mobile: botão de localização secundário (endereço já aparece acima) */}
         <div className="order-last w-full sm:hidden animate-fade-in-up delay-200">
-          <div className="rounded-xl border border-[var(--border-warm)] bg-white p-4 shadow-md flex flex-col gap-3">
-            <div className="flex items-start gap-2">
-              <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--brand)]" aria-hidden="true" />
-              <p className="text-sm font-medium text-slate-700 leading-snug">
-                {imovel.enderecoResumo}
-              </p>
-            </div>
-            <a
-              href={imovel.localizacao.mapsUrl}
-              target="_blank"
-              rel="noreferrer"
-              className="flex w-full items-center justify-center gap-2 rounded-lg bg-[var(--brand)] px-4 py-3 text-sm font-bold text-white transition hover:bg-[var(--brand-dark)] active:scale-95 min-h-[44px]"
-            >
-              Abrir Rota no Aplicativo
-              <ExternalLink className="size-4" aria-hidden="true" />
-            </a>
-          </div>
+          <a
+            href={imovel.localizacao.mapsUrl}
+            target="_blank"
+            rel="noreferrer"
+            className="flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition hover:border-[var(--brand)] hover:text-[var(--brand)] hover:bg-[var(--surface-green)] active:scale-95 min-h-[44px]"
+          >
+            <MapPin className="size-4 text-[var(--brand)]" aria-hidden="true" />
+            Abrir Rota no Aplicativo
+            <ExternalLink className="size-4" aria-hidden="true" />
+          </a>
         </div>
 
         {/* Tablet+: mapa completo com iframe */}
