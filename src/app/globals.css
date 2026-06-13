@@ -1,5 +1,5 @@
-@import "tailwindcss";
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+@import "tailwindcss";
 
 @theme {
   /* Substituindo a escala Slate (cinza azulado) pela paleta Stone (cinza quente) para harmonizar com Verde e Dourado */
