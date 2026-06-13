@@ -47,8 +47,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
       id="hero"
     >
       {/* Elementos decorativos */}
-      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/3 size-[800px] rounded-full bg-[var(--surface-green)] blur-3xl" aria-hidden="true" />
-      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/3 size-[600px] rounded-full bg-[var(--champagne)]/30 blur-3xl" aria-hidden="true" />
+      <div className="absolute top-0 right-0 -translate-y-12 translate-x-1/4 size-[400px] sm:size-[800px] sm:translate-x-1/3 rounded-full bg-[var(--surface-green)] blur-3xl" aria-hidden="true" />
+      <div className="absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 size-[300px] sm:size-[600px] sm:-translate-x-1/3 rounded-full bg-[var(--champagne)]/30 blur-3xl" aria-hidden="true" />
 
       <div className="relative z-10 mx-auto grid w-full max-w-7xl gap-8 px-4 pt-[120px] pb-10 sm:px-6 sm:pt-20 sm:pb-16 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:pt-28 lg:pb-24 lg:px-8">
 

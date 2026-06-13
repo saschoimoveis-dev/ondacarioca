@@ -32,10 +32,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden; /* previne scroll horizontal em qualquer seção */
 }
 
 body {
   min-height: 100vh;
+  overflow-x: hidden; /* segunda camada de proteção contra blobs / transforms */
   background: var(--background);
   color: var(--foreground);
   font-family:
