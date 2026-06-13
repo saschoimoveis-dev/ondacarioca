@@ -42,7 +42,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
                <Info className="size-4" />
                Ficha Técnica
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+            <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               Os detalhes que importam
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">

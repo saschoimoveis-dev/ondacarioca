@@ -254,20 +254,18 @@ export function LeadForm({ imovel }: LeadFormProps) {
             </p>
           </div>
 
-          <div className="mb-8 border-b border-slate-100 pb-6 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div>
-              <h3 className="text-2xl font-bold leading-tight text-slate-900">
-                {step === 1 ? "Para onde enviamos a tabela?" : "Qual é o seu perfil?"}
-              </h3>
-              <p className="mt-2 text-sm leading-6 text-slate-500">
-                {step === 1
-                  ? "Seus dados básicos para iniciar."
-                  : "Apenas 4 perguntas rápidas para filtrarmos o que faz sentido."}
-              </p>
-            </div>
-            <div className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand)] shrink-0">
+          <div className="mb-8 border-b border-slate-100 pb-6">
+            <div className="inline-flex items-center gap-2 rounded-full bg-slate-50 px-3 py-1.5 text-xs font-bold uppercase tracking-wider text-[var(--brand)] mb-3">
               Etapa {step} de 2
             </div>
+            <h3 className="text-2xl font-bold leading-tight text-slate-900">
+              {step === 1 ? "Para onde enviamos a tabela?" : "Qual é o seu perfil?"}
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-slate-500">
+              {step === 1
+                ? "Seus dados básicos para iniciar."
+                : "Apenas 4 perguntas rápidas para filtrarmos o que faz sentido."}
+            </p>
           </div>
 
           <div className="min-h-[220px]">

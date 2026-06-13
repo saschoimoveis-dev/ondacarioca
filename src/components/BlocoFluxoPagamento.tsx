@@ -39,7 +39,7 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
               <Calculator className="size-4" />
               Fluxo de Pagamento
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+            <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               A matemática a favor da sua decisão
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">

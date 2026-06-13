@@ -51,7 +51,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
               <Sparkles className="size-4" />
               Lazer e conveniência
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+            <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               Mais de 5 mil m² de lazer para morar bem e valorizar
             </h2>
             <p className="mt-5 text-lg leading-relaxed text-slate-600">
@@ -62,7 +62,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
               {destaques.map((diferencial) => (
                 <li
                   key={diferencial}
-                  className="flex items-start gap-3 p-4 rounded-lg bg-slate-50 border border-slate-100 transition-colors hover:border-[var(--border-warm)] hover:bg-[var(--surface-warm)]"
+                  className="flex items-start gap-3 p-3 sm:p-4 rounded-lg bg-slate-50 border border-slate-100 transition-colors hover:border-[var(--border-warm)] hover:bg-[var(--surface-warm)]"
                 >
                   <CheckCircle2
                     className="mt-0.5 size-5 shrink-0 text-[var(--accent)]"
@@ -75,7 +75,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
 
             <a
               href="#lead-form"
-              className="mt-8 group inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/30 bg-[var(--surface-green)] px-5 py-3 text-sm font-bold uppercase tracking-wider text-[var(--brand)] transition hover:bg-[var(--border-warm)] hover:border-[var(--brand)] min-h-[44px]"
+              className="mt-8 group inline-flex items-center gap-2 rounded-full border border-[var(--brand)]/30 bg-[var(--surface-green)] px-5 py-3 text-sm font-bold text-[var(--brand)] transition hover:bg-[var(--border-warm)] hover:border-[var(--brand)] min-h-[44px]"
             >
               Receber apresentação completa
               <MoveRight className="size-4 transition-transform group-hover:translate-x-1" />

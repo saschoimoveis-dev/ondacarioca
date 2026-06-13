@@ -29,7 +29,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
             <MessageCircleQuestion className="size-4" />
             Dúvidas Comuns
           </p>
-          <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl">
+          <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl">
             Perguntas Frequentes
           </h2>
           <p className="mt-4 text-slate-600 text-lg">
@@ -46,7 +46,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
                 handleToggle(event.currentTarget.open, item.pergunta)
               }
             >
-              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left p-6 outline-none">
+              <summary className="flex cursor-pointer list-none items-center justify-between gap-4 text-left p-4 sm:p-6 outline-none">
                 <span className="text-base font-bold text-slate-900 pr-4">
                    {item.pergunta}
                 </span>
@@ -57,7 +57,7 @@ export function FaqSection({ imovel }: FaqSectionProps) {
                   />
                 </span>
               </summary>
-              <div className="px-6 pb-6 pt-2 text-slate-600 leading-relaxed border-t border-slate-50 mt-2 mx-2">
+              <div className="px-4 pb-4 pt-2 sm:px-6 sm:pb-6 text-slate-600 leading-relaxed border-t border-slate-50 mt-2 mx-2">
                 <p>{item.resposta}</p>
               </div>
             </details>

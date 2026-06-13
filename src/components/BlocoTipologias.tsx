@@ -83,7 +83,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
               <span className="h-px w-6 bg-[var(--accent)]" />
               Tipologias e Plantas
             </p>
-            <h2 className="mt-4 text-3xl font-bold text-slate-900 sm:text-4xl leading-tight">
+            <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               A unidade certa para o<br className="hidden sm:block" /> seu momento de vida
             </h2>
           </div>
