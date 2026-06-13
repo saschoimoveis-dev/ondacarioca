@@ -57,13 +57,24 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
 
           {/* Badge */}
           <span className="inline-flex items-center rounded-full bg-[var(--surface-green)] border border-[var(--accent)]/30 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
-            {imovel.incorporadora ? `Lançamento ${imovel.incorporadora}` : "Lançamento Exclusivo"}
+            {imovel.conceito?.tagline
+              ? `${imovel.conceito.tagline}${imovel.incorporadora ? ` · ${imovel.incorporadora} Cyrela` : ""}`
+              : imovel.incorporadora
+                ? `Lançamento ${imovel.incorporadora}`
+                : "Lançamento Exclusivo"}
           </span>
 
           {/* Título */}
           <h1 className="mt-3 text-[2rem] font-bold leading-[1.1] text-slate-900 sm:text-5xl lg:text-6xl text-balance">
             {imovel.nome}
           </h1>
+
+          {/* Conceito — assinatura hoteleira */}
+          {imovel.conceito ? (
+            <p className="mt-2 text-base font-semibold text-[var(--brand)] sm:text-lg">
+              {imovel.conceito.titulo}
+            </p>
+          ) : null}
 
           {/* Endereço */}
           <div className="mt-3 flex items-start gap-1.5 text-slate-600">
@@ -111,6 +122,10 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               variant="primary"
               className="w-full justify-center sm:w-auto"
             />
+            {/* Credibilidade — incorporadores */}
+            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+              Realização Cyrela · Living · Leblon Realty
+            </p>
           </div>
         </div>
 

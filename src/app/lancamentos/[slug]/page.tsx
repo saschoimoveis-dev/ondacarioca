@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { BlocoCondicoes } from "@/components/BlocoCondicoes";
-import { BlocoDiferenciais } from "@/components/BlocoDiferenciais";
+import { BlocoConceito } from "@/components/BlocoConceito";
+import { BlocoCredibilidade } from "@/components/BlocoCredibilidade";
 import { BlocoFluxoPagamento } from "@/components/BlocoFluxoPagamento";
+import { BlocoLazer } from "@/components/BlocoLazer";
+import { BlocoLocalizacao } from "@/components/BlocoLocalizacao";
+import { BlocoPreference } from "@/components/BlocoPreference";
+import { BlocoServicos } from "@/components/BlocoServicos";
 import { BlocoTipologias } from "@/components/BlocoTipologias";
 import { FaqSection } from "@/components/FaqSection";
 import { HeroImovel } from "@/components/HeroImovel";
@@ -75,10 +80,15 @@ export default async function ImovelPage({ params }: PageProps) {
       <SeoJsonLd imovel={imovel} />
       <PageViewTracker imovel={imovel} />
       <HeroImovel imovel={imovel} />
+      <BlocoConceito imovel={imovel} />
       <BlocoTipologias imovel={imovel} />
-      <BlocoDiferenciais imovel={imovel} />
+      <BlocoLazer imovel={imovel} />
+      <BlocoServicos imovel={imovel} />
+      <BlocoPreference imovel={imovel} />
+      <BlocoLocalizacao imovel={imovel} />
       <BlocoCondicoes imovel={imovel} />
       <BlocoFluxoPagamento imovel={imovel} />
+      <BlocoCredibilidade imovel={imovel} />
       <FaqSection imovel={imovel} />
       <LeadForm imovel={imovel} />
       <StickyMobileCTA imovel={imovel} />
