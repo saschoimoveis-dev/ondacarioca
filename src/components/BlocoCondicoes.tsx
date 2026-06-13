@@ -45,7 +45,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               Os detalhes que importam
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            <p className="mt-5 hidden sm:block text-lg leading-relaxed text-slate-600">
               Conheça os dados estruturais do empreendimento para entender sua dimensão e potencial de valorização na região.
             </p>
             
@@ -66,11 +66,11 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
           <div className="bg-white p-5 sm:p-10 rounded-2xl shadow-md border border-[var(--border-warm)] animate-fade-in-up delay-100">
             {/* Grid de detalhes técnicos */}
             {ficha.length ? (
-              <div className="grid gap-x-8 gap-y-6 sm:grid-cols-2">
+              <div className="grid grid-cols-2 gap-x-4 gap-y-5 sm:gap-x-8 sm:gap-y-6">
                 {ficha.map((item) => (
                   <div
                     key={item.label}
-                    className="flex flex-col border-b border-slate-100 pb-3"
+                    className={`flex flex-col border-b border-slate-100 pb-3 ${item.value.length > 40 ? "col-span-2" : ""}`}
                   >
                     <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--accent)] mb-1">
                       {item.label}

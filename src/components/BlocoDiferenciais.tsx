@@ -54,7 +54,7 @@ export function BlocoDiferenciais({ imovel }: BlocoDiferenciaisProps) {
             <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
               Mais de 5 mil m² de lazer para morar bem e valorizar
             </h2>
-            <p className="mt-5 text-lg leading-relaxed text-slate-600">
+            <p className="mt-5 hidden sm:block text-lg leading-relaxed text-slate-600">
               Lazer amplo melhora o uso próprio, atrai bons inquilinos e facilita a revenda futura. No WE Barra, o nível de entrega é um dos maiores diferenciais comparado a outros da mesma faixa de preço.
             </p>
 

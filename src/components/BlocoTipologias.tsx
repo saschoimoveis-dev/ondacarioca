@@ -194,7 +194,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
           </div>
 
           {/* Painel de detalhes */}
-          <div className="flex flex-col gap-5">
+          <div className="flex flex-col gap-5 order-first lg:order-none">
             {/* Card principal */}
             <div className="bg-[var(--surface-warm)] border border-[var(--border-warm)] rounded-2xl p-6 flex flex-col gap-4 grow">
               <div className="flex items-start justify-between">
@@ -218,7 +218,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                     {perfilPorPlanta[activeIndex] || activePlanta.descricao}
                   </p>
                 </div>
-                <div>
+                <div className="hidden sm:block">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Atenção ao simular</p>
                   <p className="text-slate-600 leading-relaxed">
                     {cuidadoPorPlanta[activeIndex] || activePlanta.descricao}

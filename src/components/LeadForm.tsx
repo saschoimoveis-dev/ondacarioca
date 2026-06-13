@@ -213,7 +213,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
   }
 
   return (
-    <section className="surface-premium pb-16 pt-12 sm:pb-24 sm:pt-16 relative overflow-hidden" id="lead-form">
+    <section className="surface-premium pb-16 pt-8 sm:pb-24 sm:pt-16 relative overflow-hidden" id="lead-form">
       {/* Decorative bg circles */}
       <div className="absolute top-0 right-0 -mr-20 -mt-20 size-64 rounded-full bg-[var(--surface-green)] opacity-50 blur-3xl" />
 
@@ -244,7 +244,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
         <form
           onSubmit={handleSubmit}
           onFocus={trackStart}
-          className="premium-frame border bg-white p-6 sm:p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.06)] animate-fade-in-up delay-200"
+          className="premium-frame border bg-white p-5 sm:p-8 rounded-xl shadow-[0_20px_40px_rgba(0,0,0,0.06)] animate-fade-in-up delay-200"
         >
           {/* Trust line — mobile only */}
           <div className="mb-4 flex items-center gap-2 rounded-lg bg-[var(--surface-green)] px-3 py-2.5 sm:hidden">
