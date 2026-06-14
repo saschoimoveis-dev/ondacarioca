@@ -35,6 +35,18 @@ html {
   overflow-x: hidden; /* previne scroll horizontal em qualquer seção */
 }
 
+/* Compensa o header fixo ao navegar por âncoras (pills/menu) */
+section[id],
+#localizacao {
+  scroll-margin-top: 7.5rem; /* header mobile (~118px) com folga */
+}
+@media (min-width: 768px) {
+  section[id],
+  #localizacao {
+    scroll-margin-top: 6rem; /* header desktop sem as pills */
+  }
+}
+
 body {
   min-height: 100vh;
   overflow-x: hidden; /* segunda camada de proteção contra blobs / transforms */

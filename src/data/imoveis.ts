@@ -62,6 +62,7 @@ export type Imovel = {
     selo: string;
   }[];
   descricaoCurta: string;
+  heroResumo?: string;
   descricaoLonga: string;
   publicoIdeal?: string[];
   argumentosComerciais?: string[];
@@ -253,7 +254,7 @@ export const imoveis: Imovel[] = [
           "Pool House",
           "Pool Bar com consumacao na taxa"
         ],
-        imagem: "/images/we-barra-piscina-material.jpg",
+        imagem: "/images/we-barra-piscina-resort.jpg",
         alt: "Piscina com raia de 25m e area de lazer do WE Barra by Living"
       },
       {
@@ -406,6 +407,8 @@ export const imoveis: Imovel[] = [
     ],
     descricaoCurta:
       "Lancamento Living Cyrela na Barra da Tijuca, inspirado nos hoteis W: 605 unidades em 6 torres, 2 a 4 quartos, gardens e coberturas, com mais de 5 mil m² de lazer de resort.",
+    heroResumo:
+      "Apartamentos de 2 a 4 quartos, gardens e coberturas na Av. das Americas, no coracao da Barra da Tijuca.",
     descricaoLonga:
       "Inspirado nos hoteis internacionais da rede W, o WE Barra by Living (Cyrela) fica na Av. das Americas 12.800, na Barra da Tijuca. Sao 605 unidades em 6 torres - Aspen, Ibiza, Miami, Roma, Maldivas e Dubai - com apartamentos de 2, 3 e 4 quartos, gardens e coberturas, alem de 5.254 m² de lazer com piscina de raia de 25m, SPA, Sky Lounge e servicos como shuttle ao metro e balsa para a praia. Fale com Alexandre Sascho para receber tabela atualizada, plantas, unidades disponiveis e simulacao de fluxo.",
     publicoIdeal: [

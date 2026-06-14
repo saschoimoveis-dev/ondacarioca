@@ -17,7 +17,7 @@ export function BlocoPreference({ imovel }: BlocoPreferenceProps) {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="preference">
+    <section className="bg-[var(--surface-warm)] py-16 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="preference">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
           {/* Imagem */}
@@ -57,7 +57,7 @@ export function BlocoPreference({ imovel }: BlocoPreferenceProps) {
               {preference.beneficios.map((beneficio, index) => {
                 const Icon = beneficioIcons[index % beneficioIcons.length];
                 return (
-                  <div key={beneficio.titulo} className="rounded-xl bg-[var(--surface-warm)] border border-[var(--border-warm)] p-4">
+                  <div key={beneficio.titulo} className="rounded-xl bg-white border border-[var(--border-warm)] p-4">
                     <Icon className="size-5 text-[var(--brand)]" />
                     <p className="mt-3 text-sm font-bold text-slate-900">{beneficio.titulo}</p>
                     <p className="mt-1 text-xs leading-relaxed text-slate-500">{beneficio.texto}</p>

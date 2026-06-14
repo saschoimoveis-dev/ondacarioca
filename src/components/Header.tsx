@@ -5,6 +5,14 @@ import Link from "next/link";
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
+const navItems = [
+  { href: "#plantas", label: "Plantas" },
+  { href: "#lazer", label: "Lazer" },
+  { href: "#servicos", label: "Serviços" },
+  { href: "#localizacao-detalhe", label: "Localização" },
+  { href: "#faq", label: "FAQ" }
+];
+
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const whatsappHref = `https://wa.me/${siteConfig.whatsapp}`;
@@ -44,19 +52,16 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-8 text-[13px] font-bold uppercase tracking-wider md:flex">
-          <a href="#plantas" className="text-slate-600 transition-colors hover:text-[var(--accent)]">
-            Plantas
-          </a>
-          <a href="#condicoes" className="text-slate-600 transition-colors hover:text-[var(--accent)]">
-            Condições
-          </a>
-          <a href="#lazer" className="text-slate-600 transition-colors hover:text-[var(--accent)]">
-            Lazer
-          </a>
-          <a href="#faq" className="text-slate-600 transition-colors hover:text-[var(--accent)]">
-            FAQ
-          </a>
+        <nav className="hidden items-center gap-7 text-[13px] font-bold uppercase tracking-wider md:flex">
+          {navItems.map(({ href, label }) => (
+            <a
+              key={href}
+              href={href}
+              className="text-slate-600 transition-colors hover:text-[var(--accent)]"
+            >
+              {label}
+            </a>
+          ))}
         </nav>
 
         <a
@@ -74,12 +79,7 @@ export function Header() {
       {/* Mobile: navegação rápida por seções */}
       <nav className="md:hidden overflow-x-auto border-t border-slate-100/80 hide-scrollbar" aria-label="Seções da página">
         <div className="flex gap-1 px-3 py-1">
-          {[
-            { href: "#plantas", label: "Plantas" },
-            { href: "#condicoes", label: "Condições" },
-            { href: "#lazer", label: "Lazer" },
-            { href: "#faq", label: "FAQ" },
-          ].map(({ href, label }) => (
+          {navItems.map(({ href, label }) => (
             <a
               key={href}
               href={href}

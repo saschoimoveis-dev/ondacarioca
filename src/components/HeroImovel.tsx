@@ -86,7 +86,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
 
           {/* Descrição — oculta no mobile para manter hero enxuto */}
           <p className="mt-3 hidden sm:block max-w-xl text-base leading-relaxed text-slate-600 text-balance">
-            {imovel.descricaoCurta}
+            {imovel.heroResumo || imovel.descricaoCurta}
           </p>
 
           {/* Cards de prova — 3 colunas em TODOS os tamanhos */}

@@ -18,7 +18,7 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
 
   return (
     <section
-      className="border-y border-[var(--border-warm)] bg-white py-16 sm:py-24 overflow-hidden"
+      className="border-y border-[var(--border-warm)] bg-[var(--surface-warm)] py-16 sm:py-24 overflow-hidden"
       id="lazer"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -46,7 +46,7 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
           ].map((m) => (
             <div
               key={m.label}
-              className="rounded-xl border border-[var(--border-warm)] bg-[var(--surface-warm)] p-3 text-center sm:p-4"
+              className="rounded-xl border border-[var(--border-warm)] bg-white p-3 text-center sm:p-4"
             >
               <p className="text-lg font-black text-[var(--brand)] sm:text-2xl">{m.valor}</p>
               <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 sm:text-xs">

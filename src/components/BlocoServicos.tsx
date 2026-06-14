@@ -32,7 +32,7 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
           <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl leading-tight">
             Conveniências que só o WE oferece
           </h2>
-          <p className="mt-5 hidden sm:block text-lg leading-relaxed text-white/70">
+          <p className="mt-5 hidden sm:block text-lg leading-relaxed text-white/80">
             Do shuttle até o metrô à balsa que cruza a lagoa rumo à praia, a rotina aqui
             foi pensada para resolver o dia a dia sem você sair de casa.
           </p>
@@ -50,7 +50,7 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
                   <Icon className="size-5" />
                 </span>
                 <h3 className="mt-4 text-base font-bold text-white">{servico.titulo}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-white/70">{servico.descricao}</p>
+                <p className="mt-2 text-sm leading-relaxed text-white/80">{servico.descricao}</p>
               </div>
             );
           })}
