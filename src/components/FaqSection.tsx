@@ -22,9 +22,9 @@ export function FaqSection({ imovel }: FaqSectionProps) {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-24 border-b border-slate-100" id="faq">
+    <section className="bg-white py-12 sm:py-24 border-b border-slate-100" id="faq">
       <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12 animate-fade-in-up">
+        <div className="text-center mb-8 sm:mb-12 animate-fade-in-up">
           <p className="inline-flex items-center justify-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
             <MessageCircleQuestion className="size-4" />
             Dúvidas Comuns

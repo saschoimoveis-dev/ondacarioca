@@ -72,7 +72,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           {/* Conceito — assinatura hoteleira */}
           {imovel.conceito ? (
             <p className="mt-2 text-base font-semibold text-[var(--brand)] sm:text-lg">
-              {imovel.conceito.titulo}
+              {imovel.conceito.frase}
             </p>
           ) : null}
 
@@ -127,20 +127,6 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               Realização Cyrela · Living · Leblon Realty
             </p>
           </div>
-        </div>
-
-        {/* Mobile: botão de localização secundário (endereço já aparece acima) */}
-        <div className="order-last w-full sm:hidden animate-fade-in-up delay-200">
-          <a
-            href={imovel.localizacao.mapsUrl}
-            target="_blank"
-            rel="noreferrer"
-            className="flex w-full items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-4 py-3 text-sm font-semibold text-slate-600 transition hover:border-[var(--brand)] hover:text-[var(--brand)] hover:bg-[var(--surface-green)] active:scale-95 min-h-[44px]"
-          >
-            <MapPin className="size-4 text-[var(--brand)]" aria-hidden="true" />
-            Abrir Rota no Aplicativo
-            <ExternalLink className="size-4" aria-hidden="true" />
-          </a>
         </div>
 
         {/* Tablet+: mapa completo com iframe */}

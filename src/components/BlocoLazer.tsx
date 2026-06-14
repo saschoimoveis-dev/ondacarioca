@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check, Sparkles, Waves, Dumbbell, Building, PartyPopper, Baby, Laptop } from "lucide-react";
 import { CtaLink } from "@/components/CtaLink";
+import { MobileRail } from "@/components/MobileRail";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoLazerProps = {
@@ -18,7 +19,7 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
 
   return (
     <section
-      className="border-y border-[var(--border-warm)] bg-[var(--surface-warm)] py-16 sm:py-24 overflow-hidden"
+      className="border-y border-[var(--border-warm)] bg-[var(--surface-warm)] py-12 sm:py-24 overflow-hidden"
       id="lazer"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -56,14 +57,15 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
           ))}
         </div>
 
-        {/* Grid de categorias */}
-        <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3 animate-fade-in-up delay-100">
+        {/* Grid de categorias — rail no mobile, grid no desktop */}
+        <div className="mt-8 sm:mt-10 animate-fade-in-up delay-100">
+          <MobileRail cols="sm:grid-cols-2 lg:grid-cols-3" basis="80%">
           {categorias.map((cat, index) => {
             const Icon = iconByIndex[index % iconByIndex.length];
             return (
               <div
                 key={cat.titulo}
-                className="group flex flex-col overflow-hidden rounded-2xl border border-[var(--border-warm)] bg-white shadow-sm transition-shadow hover:shadow-md"
+                className="group flex h-full flex-col overflow-hidden rounded-2xl border border-[var(--border-warm)] bg-white shadow-sm transition-shadow hover:shadow-md"
               >
                 {/* Imagem com título */}
                 <div className="relative h-48 w-full overflow-hidden sm:h-52">
@@ -104,10 +106,11 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
               </div>
             );
           })}
+          </MobileRail>
         </div>
 
         {/* CTA */}
-        <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
+        <div className="mt-8 sm:mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center">
           <CtaLink
             href="#lead-form"
             label="Receber tour completo do lazer"

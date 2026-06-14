@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { Globe, Hotel, Sparkles, Building2 } from "lucide-react";
+import { MobileRail } from "@/components/MobileRail";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoConceitoProps = {
@@ -16,7 +17,7 @@ export function BlocoConceito({ imovel }: BlocoConceitoProps) {
   }
 
   return (
-    <section className="bg-[var(--surface-warm)] py-16 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden">
+    <section className="bg-[var(--surface-warm)] py-12 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-2 lg:items-center lg:gap-16">
           {/* Texto */}
@@ -32,22 +33,24 @@ export function BlocoConceito({ imovel }: BlocoConceitoProps) {
               {conceito.texto}
             </p>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {conceito.pilares.map((pilar, index) => {
-                const Icon = pilarIcons[index % pilarIcons.length];
-                return (
-                  <div
-                    key={pilar.titulo}
-                    className="rounded-xl border border-[var(--border-warm)] bg-white p-4 shadow-sm"
-                  >
-                    <span className="flex size-9 items-center justify-center rounded-full bg-[var(--surface-green)] text-[var(--brand)]">
-                      <Icon className="size-4" />
-                    </span>
-                    <p className="mt-3 text-sm font-bold text-slate-900">{pilar.titulo}</p>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{pilar.texto}</p>
-                  </div>
-                );
-              })}
+            <div className="mt-8">
+              <MobileRail cols="sm:grid-cols-3" basis="70%">
+                {conceito.pilares.map((pilar, index) => {
+                  const Icon = pilarIcons[index % pilarIcons.length];
+                  return (
+                    <div
+                      key={pilar.titulo}
+                      className="h-full rounded-xl border border-[var(--border-warm)] bg-white p-4 shadow-sm"
+                    >
+                      <span className="flex size-9 items-center justify-center rounded-full bg-[var(--surface-green)] text-[var(--brand)]">
+                        <Icon className="size-4" />
+                      </span>
+                      <p className="mt-3 text-sm font-bold text-slate-900">{pilar.titulo}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-500">{pilar.texto}</p>
+                    </div>
+                  );
+                })}
+              </MobileRail>
             </div>
           </div>
 

@@ -1,4 +1,5 @@
 import { Bus, Ship, Waves, ConciergeBell, Package, Store } from "lucide-react";
+import { MobileRail } from "@/components/MobileRail";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoServicosProps = {
@@ -22,7 +23,7 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
   }
 
   return (
-    <section className="bg-[var(--brand)] py-16 sm:py-24 overflow-hidden" id="servicos">
+    <section className="bg-[var(--brand)] py-12 sm:py-24 overflow-hidden" id="servicos">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl animate-fade-in-up">
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent-soft)]">
@@ -38,13 +39,14 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
           </p>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3 animate-fade-in-up delay-100">
+        <div className="mt-8 sm:mt-10 animate-fade-in-up delay-100">
+          <MobileRail cols="sm:grid-cols-2 lg:grid-cols-3" basis="78%" tone="dark">
           {servicos.map((servico) => {
             const Icon = iconMap[servico.icon] || ConciergeBell;
             return (
               <div
                 key={servico.titulo}
-                className="rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:bg-white/10"
+                className="h-full rounded-2xl border border-white/10 bg-white/5 p-5 backdrop-blur-sm transition-colors hover:bg-white/10"
               >
                 <span className="flex size-11 items-center justify-center rounded-full bg-[var(--accent)] text-white">
                   <Icon className="size-5" />
@@ -54,6 +56,7 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
               </div>
             );
           })}
+          </MobileRail>
         </div>
       </div>
     </section>

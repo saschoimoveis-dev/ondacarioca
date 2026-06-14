@@ -32,7 +32,7 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="localizacao-detalhe">
+    <section className="bg-white py-12 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="localizacao-detalhe">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[0.85fr_1.15fr] lg:items-start lg:gap-12">
           {/* Coluna intro + imagem */}
@@ -70,20 +70,20 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
             </a>
           </div>
 
-          {/* Grid de distâncias */}
-          <div className="grid gap-4 sm:grid-cols-2 animate-fade-in-up delay-100">
+          {/* Grid de distâncias — 2-up já no mobile para escanear rápido */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 animate-fade-in-up delay-100">
             {categorias.map((categoria) => {
               const Icon = iconMap[categoria.icon] || Navigation;
               return (
                 <div
                   key={categoria.titulo}
-                  className="rounded-2xl border border-[var(--border-warm)] bg-[var(--surface-warm)] p-5"
+                  className="rounded-2xl border border-[var(--border-warm)] bg-[var(--surface-warm)] p-4 sm:p-5"
                 >
                   <div className="flex items-center gap-2">
-                    <span className="flex size-8 items-center justify-center rounded-full bg-[var(--surface-green)] text-[var(--brand)]">
+                    <span className="flex size-8 shrink-0 items-center justify-center rounded-full bg-[var(--surface-green)] text-[var(--brand)]">
                       <Icon className="size-4" />
                     </span>
-                    <h3 className="text-sm font-bold uppercase tracking-wider text-slate-900">
+                    <h3 className="text-xs font-bold uppercase tracking-wider text-slate-900 sm:text-sm">
                       {categoria.titulo}
                     </h3>
                   </div>
@@ -91,10 +91,10 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
                     {categoria.itens.map((item) => (
                       <li
                         key={item.nome}
-                        className="flex items-center justify-between gap-3 py-2 text-sm"
+                        className="flex items-center justify-between gap-2 py-2 text-sm"
                       >
-                        <span className="text-slate-600">{item.nome}</span>
-                        <span className="shrink-0 rounded-full bg-white px-2.5 py-1 text-xs font-bold text-[var(--brand)] border border-[var(--border-warm)]">
+                        <span className="text-slate-600 leading-tight">{item.nome}</span>
+                        <span className="shrink-0 rounded-full bg-white px-2 py-0.5 text-xs font-bold text-[var(--brand)] border border-[var(--border-warm)]">
                           {item.tempo}
                         </span>
                       </li>

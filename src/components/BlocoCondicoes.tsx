@@ -31,7 +31,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
 
   return (
     <section
-      className="bg-[var(--surface-warm)] py-16 sm:py-24 border-y border-[var(--border-warm)] overflow-hidden"
+      className="bg-[var(--surface-warm)] py-12 sm:py-24 border-y border-[var(--border-warm)] overflow-hidden"
       id="condicoes"
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

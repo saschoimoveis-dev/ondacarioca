@@ -31,7 +31,7 @@ const etapas = [
 
 export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
   return (
-    <section className="bg-slate-50 py-16 sm:py-24" id="fluxo">
+    <section className="bg-slate-50 py-12 sm:py-24" id="fluxo">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-center animate-fade-in-up">
           <div>
@@ -60,7 +60,7 @@ export function BlocoFluxoPagamento({ imovel }: BlocoFluxoPagamentoProps) {
             </p>
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 relative">
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 relative">
             {/* Linha conectora desktop */}
             <div className="hidden sm:block absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-[var(--surface-green)] via-[var(--brand)]/20 to-[var(--surface-green)] -translate-y-1/2 z-0" />
             <div className="hidden sm:block absolute left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-[var(--surface-green)] via-[var(--brand)]/20 to-[var(--surface-green)] -translate-x-1/2 z-0" />

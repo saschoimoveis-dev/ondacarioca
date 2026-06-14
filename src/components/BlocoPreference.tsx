@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Check, Pencil, ShieldCheck, CalendarClock, Sparkles } from "lucide-react";
 import { CtaLink } from "@/components/CtaLink";
+import { MobileRail } from "@/components/MobileRail";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoPreferenceProps = {
@@ -17,11 +18,11 @@ export function BlocoPreference({ imovel }: BlocoPreferenceProps) {
   }
 
   return (
-    <section className="bg-[var(--surface-warm)] py-16 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="preference">
+    <section className="bg-[var(--surface-warm)] py-12 sm:py-24 border-b border-[var(--border-warm)] overflow-hidden" id="preference">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:items-center lg:gap-16">
           {/* Imagem */}
-          <div className="relative order-last h-[300px] w-full overflow-hidden rounded-2xl border border-[var(--border-warm)] shadow-md lg:order-first lg:h-[480px] animate-fade-in-up">
+          <div className="relative order-last h-[220px] w-full overflow-hidden rounded-2xl border border-[var(--border-warm)] shadow-md sm:h-[300px] lg:order-first lg:h-[480px] animate-fade-in-up">
             <Image
               src="/images/we-barra-living-varanda.jpg"
               alt="Living integrado à varanda com vista no WE Barra by Living"
@@ -44,7 +45,7 @@ export function BlocoPreference({ imovel }: BlocoPreferenceProps) {
               {preference.texto}
             </p>
 
-            <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+            <ul className="mt-6 grid grid-cols-2 gap-x-3 gap-y-2">
               {preference.opcoes.map((opcao) => (
                 <li key={opcao} className="flex items-start gap-2 text-sm font-medium text-slate-700">
                   <Check className="mt-0.5 size-4 shrink-0 text-[var(--accent)]" aria-hidden="true" />
@@ -53,17 +54,19 @@ export function BlocoPreference({ imovel }: BlocoPreferenceProps) {
               ))}
             </ul>
 
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {preference.beneficios.map((beneficio, index) => {
-                const Icon = beneficioIcons[index % beneficioIcons.length];
-                return (
-                  <div key={beneficio.titulo} className="rounded-xl bg-white border border-[var(--border-warm)] p-4">
-                    <Icon className="size-5 text-[var(--brand)]" />
-                    <p className="mt-3 text-sm font-bold text-slate-900">{beneficio.titulo}</p>
-                    <p className="mt-1 text-xs leading-relaxed text-slate-500">{beneficio.texto}</p>
-                  </div>
-                );
-              })}
+            <div className="mt-8">
+              <MobileRail cols="sm:grid-cols-3" basis="62%">
+                {preference.beneficios.map((beneficio, index) => {
+                  const Icon = beneficioIcons[index % beneficioIcons.length];
+                  return (
+                    <div key={beneficio.titulo} className="h-full rounded-xl bg-white border border-[var(--border-warm)] p-4">
+                      <Icon className="size-5 text-[var(--brand)]" />
+                      <p className="mt-3 text-sm font-bold text-slate-900">{beneficio.titulo}</p>
+                      <p className="mt-1 text-xs leading-relaxed text-slate-500">{beneficio.texto}</p>
+                    </div>
+                  );
+                })}
+              </MobileRail>
             </div>
 
             <div className="mt-8">

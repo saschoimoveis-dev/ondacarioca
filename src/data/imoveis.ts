@@ -29,6 +29,7 @@ export type Imovel = {
   diferenciais: string[];
   conceito?: {
     tagline: string;
+    frase: string;
     titulo: string;
     texto: string;
     pilares: { titulo: string; texto: string }[];
@@ -216,7 +217,8 @@ export const imoveis: Imovel[] = [
     ],
     conceito: {
       tagline: "Inspirado nos hoteis W",
-      titulo: "Morar como quem viaja o mundo",
+      frase: "Morar como quem viaja o mundo",
+      titulo: "Design de hotel, conforto para morar",
       texto:
         "O WE nasce da inspiracao nos hoteis internacionais da rede W - de Austin a Dubai, de Melbourne ao Caribe. Design, conforto e bem-estar no padrao da hotelaria de luxo, em um dos enderecos mais desejados da Barra da Tijuca. Um lugar onde o mundo te pertence.",
       pilares: [

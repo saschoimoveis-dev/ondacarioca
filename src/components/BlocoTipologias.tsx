@@ -73,11 +73,11 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
   }
 
   return (
-    <section className="bg-white py-16 sm:py-24 overflow-hidden" id="plantas">
+    <section className="bg-white py-12 sm:py-24 overflow-hidden" id="plantas">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-12 animate-fade-in-up">
+        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-6 mb-8 sm:mb-12 animate-fade-in-up">
           <div>
             <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
               <span className="h-px w-6 bg-[var(--accent)]" />

@@ -1,4 +1,5 @@
 import { BadgeCheck } from "lucide-react";
+import { MobileRail } from "@/components/MobileRail";
 import type { Imovel } from "@/data/imoveis";
 
 type BlocoCredibilidadeProps = {
@@ -13,7 +14,7 @@ export function BlocoCredibilidade({ imovel }: BlocoCredibilidadeProps) {
   }
 
   return (
-    <section className="bg-[var(--surface-warm)] py-16 sm:py-20 border-y border-[var(--border-warm)]">
+    <section className="bg-[var(--surface-warm)] py-12 sm:py-20 border-y border-[var(--border-warm)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto animate-fade-in-up">
           <p className="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-[0.2em] text-[var(--accent)]">
@@ -25,11 +26,12 @@ export function BlocoCredibilidade({ imovel }: BlocoCredibilidadeProps) {
           </h2>
         </div>
 
-        <div className="mt-10 grid gap-4 sm:grid-cols-3 animate-fade-in-up delay-100">
+        <div className="mt-8 sm:mt-10 animate-fade-in-up delay-100">
+          <MobileRail cols="sm:grid-cols-3" basis="82%">
           {incorporadores.map((inc) => (
             <div
               key={inc.nome}
-              className="rounded-2xl border border-[var(--border-warm)] bg-white p-6 shadow-sm"
+              className="h-full rounded-2xl border border-[var(--border-warm)] bg-white p-6 shadow-sm"
             >
               <div className="flex items-baseline justify-between gap-2">
                 <p className="text-xl font-black text-[var(--brand)]">{inc.nome}</p>
@@ -40,6 +42,7 @@ export function BlocoCredibilidade({ imovel }: BlocoCredibilidadeProps) {
               <p className="mt-3 text-sm leading-relaxed text-slate-600">{inc.descricao}</p>
             </div>
           ))}
+          </MobileRail>
         </div>
       </div>
     </section>
