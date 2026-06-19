@@ -77,10 +77,10 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
       <a
         href="#lead-form"
         onClick={handleClick}
-        className="flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-4 text-sm font-bold text-white shadow-[0_12px_24px_rgba(23,63,52,0.4)] transition-transform active:scale-95 min-h-[52px]"
+        className="btn-pulse flex w-full items-center justify-center gap-2 rounded-full bg-[var(--brand)] px-6 py-4 text-sm font-bold text-white shadow-[0_12px_24px_rgba(23,63,52,0.4)] transition-transform active:scale-95 min-h-[52px]"
       >
         <FileText className="size-5" aria-hidden="true" />
-        Tabela e Simulação
+        Receber Tabela e Simulação
       </a>
     </div>
   );

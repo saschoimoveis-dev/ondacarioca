@@ -3,7 +3,8 @@ import {
   CalendarClock,
   ExternalLink,
   FileText,
-  MapPin
+  MapPin,
+  MessageCircle
 } from "lucide-react";
 import Image from "next/image";
 import type { Imovel } from "@/data/imoveis";
@@ -192,21 +193,29 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             })}
           </div>
 
-          {/* CTA */}
-          <div className="mt-8">
+          {/* CTAs */}
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <CtaLink
               href="#lead-form"
               label="Receber Tabela e Simulação"
               imovel={imovel}
               source="hero_cta"
               variant="primary"
-              className="w-auto"
+              pulse
             />
-            {/* Credibilidade — incorporadores */}
-            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
-              Realização Cyrela · Living · Leblon Realty
-            </p>
+            <a
+              href={`https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent("Ola, vi a pagina do " + imovel.nome + " e gostaria de conversar com o especialista.")}`}
+              target="_blank"
+              rel="noreferrer"
+              className="btn-whatsapp-specialist group inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-[15px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+            >
+              <MessageCircle className="size-5" aria-hidden="true" />
+              Conversar com o especialista
+            </a>
           </div>
+          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+            Realização Cyrela · Living · Leblon Realty
+          </p>
         </div>
 
         {/* Tablet+: mapa completo com iframe */}
