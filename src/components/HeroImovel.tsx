@@ -22,7 +22,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
   )}&output=embed`;
 
   const badgeLabel = imovel.conceito?.tagline
-    ? `${imovel.conceito.tagline}${imovel.incorporadora ? ` · ${imovel.incorporadora} Cyrela` : ""}`
+    ? `Cyrela · ${imovel.conceito.tagline}`
     : imovel.incorporadora
       ? `Lançamento ${imovel.incorporadora}`
       : "Lançamento Exclusivo";
@@ -89,9 +89,9 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
                   {imovel.conceito.frase}
                 </p>
               ) : null}
-              <div className="mt-3 flex items-start gap-1.5 text-white/85">
-                <MapPin className="mt-0.5 size-4 shrink-0" aria-hidden="true" />
-                <p className="text-sm font-medium leading-snug drop-shadow-[0_1px_6px_rgba(0,0,0,0.6)]">
+              <div className="mt-3 flex items-start gap-1 text-white/60">
+                <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+                <p className="text-xs leading-snug">
                   {imovel.enderecoResumo}
                 </p>
               </div>
@@ -157,9 +157,9 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           ) : null}
 
           {/* Endereço */}
-          <div className="mt-3 flex items-start gap-1.5 text-slate-600">
-            <MapPin className="mt-0.5 size-4 shrink-0 text-[var(--brand)]" aria-hidden="true" />
-            <p className="text-base font-medium leading-snug text-balance">
+          <div className="mt-3 flex items-start gap-1 text-slate-400">
+            <MapPin className="mt-0.5 size-3.5 shrink-0" aria-hidden="true" />
+            <p className="text-sm leading-snug">
               {imovel.enderecoResumo}
             </p>
           </div>

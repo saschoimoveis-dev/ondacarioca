@@ -1,15 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import type { Imovel } from "@/data/imoveis";
-import { Info, BarChart3, Clock, LayoutGrid, CheckCircle, ChevronDown } from "lucide-react";
+import { Info, BarChart3, Clock, LayoutGrid, CheckCircle } from "lucide-react";
 
 type BlocoCondicoesProps = {
   imovel: Imovel;
 };
 
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
-  const [mixOpen, setMixOpen] = useState(false);
   const resumo = [
     { label: "Unidades", value: "605", icon: LayoutGrid },
     { label: "Tipologia", value: "2Q a 4Q", icon: BarChart3 },
@@ -17,16 +13,6 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
     { label: "Entrega", value: "Maio/2029", icon: Clock },
   ];
   
-  const mixUnidades = [
-    "102 un. 2Q 63m²",
-    "76 un. 2Q 70m²",
-    "183 un. 3Q 83m²",
-    "102 un. 4Q 100m²",
-    "77 un. 4Q 118m²",
-    "20 gardens 95m² a 184m²",
-    "33 coberturas duplex",
-    "12 coberturas lineares"
-  ];
   const ficha = imovel.fichaTecnica || [];
 
   return (
@@ -83,42 +69,6 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
               </div>
             ) : null}
 
-            {/* Mix de Unidades — toggle no mobile, sempre aberto no desktop */}
-            <div className="mt-6 pt-6 border-t border-slate-100">
-              {/* Cabeçalho clícavel no mobile */}
-              <button
-                className="flex w-full items-center justify-between sm:cursor-default"
-                onClick={() => setMixOpen((v) => !v)}
-                aria-expanded={mixOpen}
-              >
-                <span className="text-sm font-bold text-slate-900">
-                  Mix de Unidades Detalhado
-                </span>
-                <ChevronDown
-                  className={`size-4 text-slate-400 transition-transform duration-300 sm:hidden ${
-                    mixOpen ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-
-              {/* Conteúdo: visível sempre no sm+, toggleável no mobile */}
-              <div className={`mt-3 sm:block ${mixOpen ? "block" : "hidden"}`}>
-                <div className="flex flex-wrap gap-2">
-                  {mixUnidades.map((item) => (
-                    <span
-                      key={item}
-                      className="inline-flex items-center px-3 py-1.5 rounded-lg bg-[var(--surface-green)]/40 border border-[var(--surface-green)] text-xs font-semibold text-[var(--brand-dark)] transition-colors hover:bg-[var(--surface-green)]"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-                <p className="mt-4 text-[11px] leading-5 text-slate-400 italic">
-                  * Quantitativo exato sujeito à disponibilidade da tabela vigente no ato da reserva.
-                </p>
-              </div>
-            </div>
           </div>
         </div>
         

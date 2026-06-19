@@ -32,6 +32,11 @@ export function BlocoConceito({ imovel }: BlocoConceitoProps) {
             <p className="mt-5 text-base leading-relaxed text-slate-600 sm:text-lg">
               {conceito.texto}
             </p>
+            {conceito.textoInvestidor && (
+              <p className="mt-4 text-sm leading-relaxed text-slate-500 border-l-2 border-[var(--accent)] pl-4">
+                {conceito.textoInvestidor}
+              </p>
+            )}
 
             <div className="mt-8">
               <MobileRail cols="sm:grid-cols-3" basis="70%">

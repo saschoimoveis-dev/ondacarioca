@@ -32,6 +32,7 @@ export type Imovel = {
     frase: string;
     titulo: string;
     texto: string;
+    textoInvestidor?: string;
     pilares: { titulo: string; texto: string }[];
   };
   torres?: {
@@ -118,7 +119,7 @@ export const imoveis: Imovel[] = [
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
     estado: "RJ",
-    enderecoResumo: "Av. das Americas 12800 - Barra da Tijuca, Rio de Janeiro - RJ",
+    enderecoResumo: "Av. das Americas com Salvador Allende",
     precoInicial: "2 quartos a partir de R$ 600 mil",
     precoInicialNumerico: 600000,
     sinalInicial: "a partir de R$ 50 mil",
@@ -150,12 +151,20 @@ export const imoveis: Imovel[] = [
         value: "605 unidades em 6 torres"
       },
       {
+        label: "Blocos",
+        value: "6 blocos"
+      },
+      {
+        label: "Tipologias",
+        value: "Coberturas, Garden e aptos tipo de 2, 3 e 4 quartos"
+      },
+      {
         label: "Terreno",
-        value: "25.405,75 m²"
+        value: "Mais de 25 mil m²"
       },
       {
         label: "Lazer",
-        value: "5.254,24 m²"
+        value: "Mais de 5 mil m²"
       },
       {
         label: "Vagas",
@@ -167,7 +176,7 @@ export const imoveis: Imovel[] = [
       },
       {
         label: "Entrega prevista",
-        value: "Maio/2029, sujeita a confirmacao"
+        value: "Maio/2029"
       },
       {
         label: "Arquitetura",
@@ -202,15 +211,27 @@ export const imoveis: Imovel[] = [
         imagem: "/images/we-barra-planta-100m-material.jpg"
       },
       {
-        titulo: "Gardens e coberturas",
-        metragem: "95m² a 232m²",
-        descricao: "Produtos de maior escassez, com areas externas, terraços e comparacao cuidadosa de posicao.",
+        titulo: "Garden",
+        metragem: "95m² a 184m²",
+        descricao: "Produto de maior escassez com area privativa no terreo, ideal para quem busca diferenciacao e espaco externo.",
+        imagem: "/images/we-barra-cobertura-142m-material.jpg"
+      },
+      {
+        titulo: "Cob. Duplex",
+        metragem: "125m² a 199m²",
+        descricao: "Cobertura em dois andares com terraço, privacidade e posicionamento de alto padrao na Barra da Tijuca.",
+        imagem: "/images/we-barra-cobertura-142m-material.jpg"
+      },
+      {
+        titulo: "Cob. Linear",
+        metragem: "142m² a 232m²",
+        descricao: "Maior metragem do empreendimento, com vista ampla, area externa e produto de altissima escassez.",
         imagem: "/images/we-barra-cobertura-142m-material.jpg"
       }
     ],
     diferenciais: [
-      "Mais de 5 mil m² de lazer comunicados",
-      "Terreno amplo de mais de 25 mil m² comunicados",
+      "Mais de 5 mil m² de lazer",
+      "Terreno amplo de mais de 25 mil m²",
       "Lazer completo com piscinas, academia, gourmet, festas, coworking e brinquedoteca",
       "Sky Lounge/rooftop e areas externas como diferenciais de desejo",
       "Plantas de 2 a 4 quartos com suite, gardens e coberturas"
@@ -220,7 +241,9 @@ export const imoveis: Imovel[] = [
       frase: "Morar como quem viaja o mundo",
       titulo: "Design de hotel, conforto para morar",
       texto:
-        "O WE nasce da inspiracao nos hoteis internacionais da rede W - de Austin a Dubai, de Melbourne ao Caribe. Design, conforto e bem-estar no padrao da hotelaria de luxo, em um dos enderecos mais desejados da Barra da Tijuca. Um lugar onde o mundo te pertence.",
+        "Inserido em um dos terrenos mais cobicados da Barra da Tijuca, com uma localizacao estrategica, surge o WE BARRA by Living da Cyrela, uma solucao definitiva para quem busca viver com conforto e praticidade ou para investir com inteligencia. No encontro da Avenida das Americas com a Salvador Allende, o projeto centraliza o essencial: mobilidade privilegiada, conveniencia absoluta com sua amplitude de servicos e itens de lazer, alem da proximidade com os grandes polos comerciais e a orla da Barra da Tijuca.",
+      textoInvestidor:
+        "Para quem escolhe investir: aposte em um ativo de alto desempenho. WE Barra by Living da Cyrela oferece localizacao estrategica e a disponibilidade de plantas com alta demanda.",
       pilares: [
         {
           titulo: "Design hoteleiro",

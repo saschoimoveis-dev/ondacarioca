@@ -7,6 +7,8 @@ import {
   Building2,
   Expand,
   TreePine,
+  Layers,
+  ArrowUpToLine,
   ZoomIn,
   X,
   ChevronLeft,
@@ -20,25 +22,31 @@ type BlocoTipologiasProps = {
   imovel: Imovel;
 };
 
-const iconByIndex = [BedDouble, Building2, Expand, TreePine];
-const decisaoPorPlanta = ["Menor ticket", "Equilíbrio", "Conforto", "Escassez"];
+const iconByIndex = [BedDouble, Building2, Expand, TreePine, Layers, ArrowUpToLine];
+const decisaoPorPlanta = ["Menor ticket", "Equilíbrio", "Conforto", "Escassez", "Duplex", "Linear"];
 const perfilPorPlanta = [
   "Menor ticket de entrada, boa liquidez e potencial para locação.",
   "Equilíbrio entre metragem, procura familiar e potencial de revenda.",
   "Mais área para permanência, conforto e valorização absoluta.",
-  "Produto de maior escassez, com área externa, vista e diferenciação."
+  "Produto com área externa privativa, maior escassez e diferenciação.",
+  "Cobertura em dois andares com terraço e privacidade total.",
+  "Maior metragem do empreendimento, vista ampla e altíssima escassez."
 ];
 const cuidadoPorPlanta = [
   "Comparar coluna, andar e fluxo final.",
   "Validar procura familiar e valor por m².",
   "Observar posição, vista e ticket total.",
-  "Comparar área externa, privacidade e vista."
+  "Comparar área externa, posição no terreo e vista.",
+  "Avaliar pé-direito, terraço e acabamento do segundo andar.",
+  "Comparar metragem, vista e posicionamento no bloco."
 ];
 const tagColorByIndex = [
   "bg-sky-50 text-sky-700 border-sky-200",
   "bg-emerald-50 text-emerald-700 border-emerald-200",
   "bg-violet-50 text-violet-700 border-violet-200",
-  "bg-amber-50 text-amber-700 border-amber-200"
+  "bg-amber-50 text-amber-700 border-amber-200",
+  "bg-rose-50 text-rose-700 border-rose-200",
+  "bg-teal-50 text-teal-700 border-teal-200"
 ];
 
 export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
@@ -108,9 +116,9 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
           )}
         </div>
 
-        {/* Tabs de seleção com fade lateral indicando scroll */}
-        <div className="relative mb-8 animate-fade-in-up">
-          <div className="flex gap-3 overflow-x-auto pb-2 hide-scrollbar scroll-fade-x">
+        {/* Tabs de seleção — grid 2 colunas */}
+        <div className="mb-8 animate-fade-in-up">
+          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3">
             {plantas.map((planta, i) => {
               const Icon = iconByIndex[i % iconByIndex.length];
               const isActive = i === activeIndex;
@@ -118,7 +126,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                 <button
                   key={`tab-${i}`}
                   onClick={() => setActiveIndex(i)}
-                  className={`shrink-0 flex items-center gap-2 px-5 py-3 rounded-full border text-sm font-bold transition-all duration-200 min-h-[44px] ${
+                  className={`flex items-center gap-2 px-4 py-3 rounded-xl border text-sm font-bold transition-all duration-200 min-h-[44px] ${
                     isActive
                       ? "bg-[var(--brand)] text-white border-[var(--brand)] shadow-md"
                       : "bg-white text-slate-600 border-slate-200 hover:border-[var(--brand)] hover:text-[var(--brand)]"
