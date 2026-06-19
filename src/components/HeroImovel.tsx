@@ -116,15 +116,25 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               ))}
             </div>
 
-            <div className="mt-4">
+            <div className="mt-4 flex flex-col gap-2">
               <CtaLink
                 href="#lead-form"
                 label="Receber Tabela e Simulação"
                 imovel={imovel}
-                source="hero_cta"
+                source="hero_cta_mobile"
                 variant="primary"
+                pulse
                 className="w-full justify-center"
               />
+              <a
+                href={`https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent("Ola, vi a pagina do " + imovel.nome + " e gostaria de conversar com o especialista.")}`}
+                target="_blank"
+                rel="noreferrer"
+                className="btn-whatsapp-specialist flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold transition-all duration-300 active:scale-95 min-h-[52px]"
+              >
+                <MessageCircle className="size-5" aria-hidden="true" />
+                Conversar com o especialista
+              </a>
             </div>
 
             <p className="mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
