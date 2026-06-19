@@ -253,7 +253,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
             {/* CTA */}
             <CtaLink
               href="#lead-form"
-              label="Receber tabela detalhada"
+              label="Falar com o especialista"
               imovel={imovel}
               source="plantas_cta"
               variant="primary"

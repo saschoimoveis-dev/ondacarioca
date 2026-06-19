@@ -144,7 +144,7 @@ export const imoveis: Imovel[] = [
     fichaTecnica: [
       {
         label: "Endereco",
-        value: "Av. das Americas, 12.800 - esquina com Salvador Allende"
+        value: "Av. das Americas com Salvador Allende, Barra da Tijuca"
       },
       {
         label: "Unidades",
@@ -435,7 +435,7 @@ export const imoveis: Imovel[] = [
     heroResumo:
       "Apartamentos de 2 a 4 quartos, gardens e coberturas na Av. das Americas, no coracao da Barra da Tijuca.",
     descricaoLonga:
-      "Inspirado nos hoteis internacionais da rede W, o WE Barra by Living (Cyrela) fica na Av. das Americas 12.800, na Barra da Tijuca. Sao 605 unidades em 6 torres - Aspen, Ibiza, Miami, Roma, Maldivas e Dubai - com apartamentos de 2, 3 e 4 quartos, gardens e coberturas, alem de 5.254 m² de lazer com piscina de raia de 25m, SPA, Sky Lounge e servicos como shuttle ao metro e balsa para a praia. Fale com Alexandre Sascho para receber tabela atualizada, plantas, unidades disponiveis e simulacao de fluxo.",
+      "Inspirado nos hoteis internacionais da rede W, o WE Barra by Living / Cyrela fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende. Sao 605 unidades em 6 torres - Aspen, Ibiza, Miami, Roma, Maldivas e Dubai - com apartamentos de 2, 3 e 4 quartos, gardens e coberturas, alem de 5.254 m² de lazer com piscina de raia de 25m, SPA, Sky Lounge e servicos como shuttle ao metro e balsa para a praia. Fale com a especialista para receber condicoes, plantas, unidades disponiveis e simulacao de fluxo.",
     publicoIdeal: [
       "Compradores que desejam morar na Barra da Tijuca",
       "Familias avaliando apartamentos novos de 2, 3 ou 4 quartos",
@@ -548,7 +548,7 @@ export const imoveis: Imovel[] = [
       {
         pergunta: "Onde fica o WE Barra by Living?",
         resposta:
-          "O endereco comunicado e Av. das Americas 12800, na Barra da Tijuca, proximo ao eixo Salvador Allende."
+          "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende."
       },
       {
         pergunta: "Consigo escolher andar, coluna e posicao?",
@@ -584,7 +584,7 @@ export const imoveis: Imovel[] = [
     localizacao: {
       titulo: "Av. das Americas com conexao estrategica na Barra",
       descricao:
-        "O endereco comunicado e Av. das Americas 12800, proximo ao eixo Salvador Allende, em uma regiao com acesso, servicos e demanda por apartamentos novos.",
+        "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende, em uma regiao com acesso privilegiado, servicos e alta demanda por apartamentos novos.",
       pontos: [
         "Av. das Americas como eixo de acesso e visibilidade",
         "Conexao com Salvador Allende, Recreio e Barra",

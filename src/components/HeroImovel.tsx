@@ -119,7 +119,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
             <div className="mt-4 flex flex-col gap-2">
               <CtaLink
                 href="#lead-form"
-                label="Receber Tabela e Simulação"
+                label="Receber Simulação"
                 imovel={imovel}
                 source="hero_cta_mobile"
                 variant="primary"
@@ -207,7 +207,7 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
           <div className="mt-8 flex flex-col gap-3 sm:flex-row sm:items-center">
             <CtaLink
               href="#lead-form"
-              label="Receber Tabela e Simulação"
+              label="Receber Simulação"
               imovel={imovel}
               source="hero_cta"
               variant="primary"

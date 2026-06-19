@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ExternalLink, Mail, MapPin, MessageCircle, Share2 } from "lucide-react";
+import { ExternalLink, MapPin, MessageCircle, Share2 } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
 export function Footer() {
@@ -41,7 +41,7 @@ export function Footer() {
               Condicoes
             </a>
             <a href="#lead-form" className="transition hover:text-[var(--champagne)]">
-              Receber tabela
+              Falar com especialista
             </a>
             <a href="#faq" className="transition hover:text-[var(--champagne)]">
               Perguntas frequentes
@@ -57,10 +57,6 @@ export function Footer() {
             <span className="inline-flex items-center gap-2">
               <MessageCircle className="size-4" aria-hidden="true" />
               {siteConfig.phoneDisplay}
-            </span>
-            <span className="inline-flex items-center gap-2">
-              <Mail className="size-4" aria-hidden="true" />
-              {siteConfig.email}
             </span>
             <span className="inline-flex items-center gap-2">
               <MapPin className="size-4" aria-hidden="true" />

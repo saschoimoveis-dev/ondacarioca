@@ -227,7 +227,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             Descubra qual unidade cabe no seu perfil
           </h2>
           <p className="mt-5 text-lg leading-relaxed text-slate-600">
-            A tabela muda rápido. Deixe seus dados para consultar a disponibilidade real, comparar o fluxo de pagamento e receber tudo pelo WhatsApp.
+            Deixe seus dados para consultar disponibilidade, condições e receber uma simulação personalizada pelo WhatsApp.
           </p>
 
           <div className="mt-8 rounded-lg bg-white p-5 border border-[var(--border-warm)] shadow-sm flex items-start gap-4">
@@ -236,7 +236,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             </div>
             <div>
               <p className="text-sm font-semibold text-slate-900">Zero Spam, Apenas Informação</p>
-              <p className="mt-1 text-sm text-slate-600">Você recebe a tabela atualizada, disponibilidade e indicação das unidades diretamente no seu WhatsApp, de forma discreta e objetiva.</p>
+              <p className="mt-1 text-sm text-slate-600">Você recebe disponibilidade, condições e indicação das melhores unidades diretamente no seu WhatsApp, de forma discreta e objetiva.</p>
             </div>
           </div>
         </div>
@@ -250,7 +250,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
           <div className="mb-4 flex items-center gap-2 rounded-lg bg-[var(--surface-green)] px-3 py-2.5 sm:hidden">
             <ShieldCheck className="size-4 shrink-0 text-[var(--brand)]" aria-hidden="true" />
             <p className="text-xs font-semibold text-[var(--brand-dark)]">
-              Zero spam. Você recebe a tabela direto no WhatsApp.
+              Zero spam. Você recebe as condições direto no WhatsApp.
             </p>
           </div>
 
@@ -259,7 +259,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               Etapa {step} de 2
             </div>
             <h3 className="text-2xl font-bold leading-tight text-slate-900">
-              {step === 1 ? "Para onde enviamos a tabela?" : "Qual é o seu perfil?"}
+              {step === 1 ? "Para onde enviamos as condições?" : "Qual é o seu perfil?"}
             </h3>
             <p className="mt-2 text-sm leading-6 text-slate-500">
               {step === 1
@@ -396,7 +396,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                       className="btn-primary-premium inline-flex flex-[2] items-center justify-center gap-2 rounded-md px-5 py-4 text-sm font-bold transition disabled:cursor-not-allowed hover:scale-[1.01] active:scale-[0.98] min-h-[52px]"
                     >
                       <Send className="size-5" aria-hidden="true" />
-                      {status === "sending" ? "Enviando..." : "Receber tabela"}
+                      {status === "sending" ? "Enviando..." : "Receber condições"}
                     </button>
                   )}
                 </div>
@@ -420,7 +420,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                   <Send className="size-5" aria-hidden="true" />
                   {status === "sending"
                     ? "Enviando seus dados..."
-                    : "Receber tabela no WhatsApp"}
+                    : "Receber condições no WhatsApp"}
                 </button>
               </div>
             </div>
