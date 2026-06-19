@@ -114,7 +114,7 @@ export const imoveis: Imovel[] = [
   {
     id: "we-barra",
     slug: "we-barra-by-living-barra-da-tijuca",
-    nome: "WE Barra by Living",
+    nome: "WE Barra by Living / Cyrela",
     incorporadora: "Living",
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
@@ -122,7 +122,7 @@ export const imoveis: Imovel[] = [
     enderecoResumo: "Av. das Americas com Salvador Allende",
     precoInicial: "2 quartos a partir de R$ 600 mil",
     precoInicialNumerico: 600000,
-    sinalInicial: "a partir de R$ 50 mil",
+    sinalInicial: "a partir de R$ 40 mil",
     parcelasIniciais: "a partir de R$ 2.000",
     materialPdfPath: "/materiais/we-barra-apresentacao.pdf",
     tipologias: [
@@ -444,7 +444,7 @@ export const imoveis: Imovel[] = [
     ],
     argumentosComerciais: [
       "2 quartos a partir de R$ 600 mil, sujeito a confirmacao",
-      "Sinal comunicado a partir de R$ 50 mil",
+      "Sinal comunicado a partir de R$ 40 mil",
       "Mensais comunicadas a partir de R$ 2.000 durante a obra",
       "Janela de lancamento com maior poder de escolha de unidade",
       "Analise de tipologia, andar, coluna, vista e orientacao",
@@ -526,12 +526,12 @@ export const imoveis: Imovel[] = [
       ogTitle:
         "WE Barra by Living: tabela, plantas e simulacao na Barra",
       ogDescription:
-        "Compare tabela, plantas e fluxo do WE Barra: referencia de 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 50 mil e mensais a partir de R$ 2.000.",
+        "Compare tabela, plantas e fluxo do WE Barra: referencia de 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 40 mil e mensais a partir de R$ 2.000.",
       ogImage: "/images/we-barra-pool-house-material.jpg"
     },
     faq: [
       {
-        pergunta: "Consigo comprar com sinal a partir de R$ 50 mil?",
+        pergunta: "Consigo comprar com sinal a partir de R$ 40 mil?",
         resposta:
           "Esse sinal e uma referencia comunicada inicialmente. O valor final depende da unidade, tipologia, campanha, tabela vigente e aprovacao comercial."
       },
