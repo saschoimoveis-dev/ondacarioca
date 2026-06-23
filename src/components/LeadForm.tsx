@@ -19,23 +19,23 @@ type LeadFormProps = {
 type FormState = {
   nome: string;
   whatsapp: string;
-  email: string;
   objetivo: string;
   tipologia: string;
   entradaDisponivel: string;
   prazoCompra: string;
-  mensagem: string;
+  situacaoCredito: string;
+  situacaoAtual: string;
 };
 
 const initialState: FormState = {
   nome: "",
   whatsapp: "",
-  email: "",
   objetivo: "Morar",
   tipologia: "2 quartos",
-  entradaDisponivel: "Ate R$ 50 mil",
+  entradaDisponivel: "Até R$ 100 mil",
   prazoCompra: "0 a 3 meses",
-  mensagem: ""
+  situacaoCredito: "Preciso fazer simulação",
+  situacaoAtual: "Estou alugando",
 };
 
 const inputClassName =
@@ -72,7 +72,7 @@ const tipologias = [
   "Garden",
   "Cobertura linear",
   "Cobertura duplex",
-  "Ainda nao sei"
+  "A definir"
 ];
 
 type QuestionConfig = { label: string; field: keyof FormState; options: string[] };
@@ -80,8 +80,10 @@ type QuestionConfig = { label: string; field: keyof FormState; options: string[]
 const questions: QuestionConfig[] = [
   { label: "Objetivo", field: "objetivo", options: ["Morar", "Investir", "Morar ou investir", "Ainda avaliando"] },
   { label: "Tipologia desejada", field: "tipologia", options: tipologias },
-  { label: "Entrada disponível", field: "entradaDisponivel", options: ["Ate R$ 50 mil", "R$ 50 mil a R$ 100 mil", "R$ 100 mil a R$ 200 mil", "Acima de R$ 200 mil", "Prefiro conversar"] },
+  { label: "Entrada disponível", field: "entradaDisponivel", options: ["Até R$ 100 mil", "R$ 100 mil a R$ 200 mil", "R$ 200 mil a R$ 400 mil", "Acima de R$ 400 mil", "Prefiro conversar"] },
   { label: "Prazo de compra", field: "prazoCompra", options: ["0 a 3 meses", "3 a 6 meses", "6 a 12 meses", "Mais de 12 meses"] },
+  { label: "Situação de crédito", field: "situacaoCredito", options: ["Compra à vista", "Tenho aprovação bancária", "Preciso fazer simulação", "Vou usar FGTS também"] },
+  { label: "Sua situação atual", field: "situacaoAtual", options: ["Estou alugando", "Tenho imóvel para vender", "Morando com família", "Já tenho imóvel (investidor)"] },
 ];
 
 export function LeadForm({ imovel }: LeadFormProps) {
@@ -264,7 +266,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             <p className="mt-2 text-sm leading-6 text-slate-500">
               {step === 1
                 ? "Seus dados básicos para iniciar."
-                : "Apenas 4 perguntas rápidas para filtrarmos o que faz sentido."}
+                : "Apenas 6 perguntas rápidas para filtrarmos o que faz sentido."}
             </p>
           </div>
 

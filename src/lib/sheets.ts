@@ -7,11 +7,12 @@ export type LeadPayload = {
   email?: string;
   imovel: string;
   slug: string;
-  objetivo: string;
-  tipologia: string;
-  entradaDisponivel: string;
-  prazoCompra: string;
-  mensagem?: string;
+  objetivo?: string;
+  tipologia?: string;
+  entradaDisponivel?: string;
+  prazoCompra?: string;
+  situacaoCredito?: string;
+  situacaoAtual?: string;
   utm_source?: string;
   utm_medium?: string;
   utm_campaign?: string;
@@ -103,38 +104,39 @@ export async function appendLeadToSheet(
 
   await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID,
-    range: "Leads!A:Y",
+    range: "Leads!A:AB",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
         [
-          new Date().toISOString(),
-          lead.tipo || "formulario",
-          lead.nome,
-          lead.whatsapp,
-          lead.email || "",
-          lead.imovel,
-          lead.slug,
-          lead.objetivo,
-          lead.tipologia,
-          lead.entradaDisponivel,
-          lead.prazoCompra,
-          lead.mensagem || "",
-          lead.cta_source || "",
-          lead.utm_source || "",
-          lead.utm_medium || "",
-          lead.utm_campaign || "",
-          lead.utm_term || "",
-          lead.utm_content || "",
-          lead.gclid || "",
-          lead.fbclid || "",
-          lead.pagina,
-          lead.userAgent || "",
-          "Novo",
-          "",
-          "",
-          "",
-          ""
+          new Date().toISOString(),   // A: Timestamp
+          lead.tipo || "formulario",  // B: Tipo
+          lead.nome,                  // C: Nome
+          lead.whatsapp,              // D: WhatsApp
+          lead.email || "",           // E: Email
+          lead.imovel,                // F: Imóvel
+          lead.slug,                  // G: Slug
+          lead.objetivo || "",        // H: Objetivo
+          lead.tipologia || "",       // I: Tipologia
+          lead.entradaDisponivel || "", // J: Entrada
+          lead.prazoCompra || "",     // K: Prazo de compra
+          lead.situacaoCredito || "", // L: Situação de crédito
+          lead.situacaoAtual || "",   // M: Situação atual
+          lead.cta_source || "",      // N: CTA source
+          lead.utm_source || "",      // O: utm_source
+          lead.utm_medium || "",      // P: utm_medium
+          lead.utm_campaign || "",    // Q: utm_campaign
+          lead.utm_term || "",        // R: utm_term
+          lead.utm_content || "",     // S: utm_content
+          lead.gclid || "",           // T: gclid
+          lead.fbclid || "",          // U: fbclid
+          lead.pagina,                // V: Página
+          lead.userAgent || "",       // W: userAgent
+          "Novo",                     // X: Status
+          "",                         // Y: Anotações (corretor)
+          "",                         // Z: Próxima ação
+          "",                         // AA: Data próximo contato
+          ""                          // AB: Resultado final
         ]
       ]
     }
