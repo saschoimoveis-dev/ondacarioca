@@ -3,12 +3,12 @@ import {
   CalendarClock,
   ExternalLink,
   FileText,
-  MapPin,
-  MessageCircle
+  MapPin
 } from "lucide-react";
 import Image from "next/image";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
+import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 
 type HeroImovelProps = {
   imovel: Imovel;
@@ -126,15 +126,12 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
                 pulse
                 className="w-full justify-center"
               />
-              <a
-                href={`https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent("Ola, vi a pagina do " + imovel.nome + " e gostaria de conversar com o especialista.")}`}
-                target="_blank"
-                rel="noreferrer"
+              <WhatsAppCTA
+                imovel={imovel}
+                source="hero_mobile"
+                label="Conversar com o especialista"
                 className="btn-whatsapp-specialist flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold transition-all duration-300 active:scale-95 min-h-[52px]"
-              >
-                <MessageCircle className="size-5" aria-hidden="true" />
-                Conversar com o especialista
-              </a>
+              />
             </div>
 
             <p className="mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
@@ -213,15 +210,12 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               variant="primary"
               pulse
             />
-            <a
-              href={`https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent("Ola, vi a pagina do " + imovel.nome + " e gostaria de conversar com o especialista.")}`}
-              target="_blank"
-              rel="noreferrer"
+            <WhatsAppCTA
+              imovel={imovel}
+              source="hero_desktop"
+              label="Conversar com o especialista"
               className="btn-whatsapp-specialist group inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-[15px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
-            >
-              <MessageCircle className="size-5" aria-hidden="true" />
-              Conversar com o especialista
-            </a>
+            />
           </div>
           <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
             Realização Cyrela · Living · Leblon Realty

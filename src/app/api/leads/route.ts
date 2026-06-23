@@ -69,26 +69,32 @@ export async function POST(request: Request) {
     );
   }
 
-  const nome = body.nome;
-  const whatsapp = body.whatsapp;
+  const tipo = body.tipo || "formulario";
   const imovel = body.imovel;
   const slug = body.slug;
 
-  if (
-    !isRequiredString(nome) ||
-    !isRequiredString(whatsapp) ||
-    !isRequiredString(imovel) ||
-    !isRequiredString(slug)
-  ) {
+  if (!isRequiredString(imovel) || !isRequiredString(slug)) {
     return NextResponse.json(
       { ok: false, error: "missing_required_fields" },
       { status: 400 }
     );
   }
 
+  if (tipo !== "whatsapp_clique") {
+    const nome = body.nome;
+    const whatsapp = body.whatsapp;
+    if (!isRequiredString(nome) || !isRequiredString(whatsapp)) {
+      return NextResponse.json(
+        { ok: false, error: "missing_required_fields" },
+        { status: 400 }
+      );
+    }
+  }
+
   const lead: LeadPayload = {
-    nome: nome.trim(),
-    whatsapp: whatsapp.trim(),
+    tipo: tipo === "whatsapp_clique" ? "whatsapp_clique" : "formulario",
+    nome: body.nome?.trim() || "(clique direto WhatsApp)",
+    whatsapp: body.whatsapp?.trim() || "",
     email: body.email?.trim(),
     imovel: imovel.trim(),
     slug: slug.trim(),
@@ -97,6 +103,7 @@ export async function POST(request: Request) {
     entradaDisponivel: body.entradaDisponivel || "",
     prazoCompra: body.prazoCompra || "",
     mensagem: body.mensagem?.trim(),
+    cta_source: body.cta_source,
     utm_source: body.utm_source,
     utm_medium: body.utm_medium,
     utm_campaign: body.utm_campaign,

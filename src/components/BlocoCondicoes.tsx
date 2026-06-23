@@ -8,7 +8,7 @@ type BlocoCondicoesProps = {
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
   const resumo = [
     { label: "Unidades", value: "605", icon: LayoutGrid },
-    { label: "Tipologia", value: "2Q a 4Q", icon: BarChart3 },
+    { label: "Tipologias", value: "Aptos, Gardens e Coberturas", subtitle: "2, 3 e 4 quartos", icon: BarChart3 },
     { label: "Destaque", value: "Gardens e Coberturas", icon: CheckCircle },
     { label: "Entrega", value: "Maio/2029", icon: Clock },
   ];
@@ -43,6 +43,9 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
                      <Icon className="size-5 text-[var(--brand)] mb-3" />
                      <p className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-1">{item.label}</p>
                      <p className="text-base font-bold text-slate-900">{item.value}</p>
+                     {"subtitle" in item && item.subtitle && (
+                       <p className="text-xs text-slate-500 mt-0.5">{item.subtitle}</p>
+                     )}
                    </div>
                  )
                })}

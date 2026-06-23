@@ -1,6 +1,7 @@
 import { google } from "googleapis";
 
 export type LeadPayload = {
+  tipo?: "formulario" | "whatsapp_clique";
   nome: string;
   whatsapp: string;
   email?: string;
@@ -18,6 +19,7 @@ export type LeadPayload = {
   utm_content?: string;
   gclid?: string;
   fbclid?: string;
+  cta_source?: string;
   pagina: string;
   userAgent?: string;
 };
@@ -107,6 +109,7 @@ export async function appendLeadToSheet(
       values: [
         [
           new Date().toISOString(),
+          lead.tipo || "formulario",
           lead.nome,
           lead.whatsapp,
           lead.email || "",
@@ -117,6 +120,7 @@ export async function appendLeadToSheet(
           lead.entradaDisponivel,
           lead.prazoCompra,
           lead.mensagem || "",
+          lead.cta_source || "",
           lead.utm_source || "",
           lead.utm_medium || "",
           lead.utm_campaign || "",

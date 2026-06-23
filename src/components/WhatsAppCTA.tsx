@@ -2,7 +2,7 @@
 
 import { MessageCircle } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
-import { pushTrackingEvent } from "@/lib/tracking";
+import { getAttributionParams, pushTrackingEvent } from "@/lib/tracking";
 
 type WhatsAppCTAProps = {
   imovel: Imovel;
@@ -33,6 +33,21 @@ export function WhatsAppCTA({
 
     pushTrackingEvent("whatsapp_click", params);
     pushTrackingEvent(imovel.tracking.whatsappEventName, params);
+
+    const attribution = getAttributionParams();
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tipo: "whatsapp_clique",
+        imovel: imovel.nome,
+        slug: imovel.slug,
+        cta_source: source,
+        pagina: typeof window !== "undefined" ? window.location.href : "",
+        userAgent: typeof navigator !== "undefined" ? navigator.userAgent : "",
+        ...attribution
+      })
+    }).catch(() => {});
   }
 
   return (

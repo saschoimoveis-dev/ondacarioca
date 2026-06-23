@@ -119,7 +119,7 @@ export const imoveis: Imovel[] = [
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
     estado: "RJ",
-    enderecoResumo: "Av. das Americas com Salvador Allende",
+    enderecoResumo: "Av. das Américas com Salvador Allende",
     precoInicial: "2 quartos a partir de R$ 600 mil",
     precoInicialNumerico: 600000,
     sinalInicial: "a partir de R$ 40 mil",
@@ -143,8 +143,8 @@ export const imoveis: Imovel[] = [
     ],
     fichaTecnica: [
       {
-        label: "Endereco",
-        value: "Av. das Americas com Salvador Allende, Barra da Tijuca"
+        label: "Endereço",
+        value: "Av. das Américas com Salvador Allende, Barra da Tijuca"
       },
       {
         label: "Unidades",
@@ -187,7 +187,7 @@ export const imoveis: Imovel[] = [
         value: "Takeda Design"
       },
       {
-        label: "Incorporacao",
+        label: "Incorporação",
         value: "Living Residencial (Cyrela) e Leblon Realty"
       }
     ],
@@ -195,37 +195,37 @@ export const imoveis: Imovel[] = [
       {
         titulo: "2 quartos",
         metragem: "63m² e 70m²",
-        descricao: "Opcao de ticket mais acessivel, boa para liquidez, locacao e entrada em lancamento na Barra.",
+        descricao: "Opção de ticket mais acessível, boa para liquidez, locação e entrada em lançamento na Barra.",
         imagem: "/images/we-barra-planta-70m-material.jpg"
       },
       {
         titulo: "3 quartos",
         metragem: "83m²",
-        descricao: "Equilibrio entre metragem, procura familiar e potencial de revenda para quem quer morar ou investir.",
+        descricao: "Equilíbrio entre metragem, procura familiar e potencial de revenda para quem quer morar ou investir.",
         imagem: "/images/we-barra-planta-83m-material.jpg"
       },
       {
         titulo: "4 quartos",
         metragem: "100m² e 118m²",
-        descricao: "Plantas maiores para familias, com mais conforto e maior valorizacao absoluta quando bem posicionadas.",
+        descricao: "Plantas maiores para famílias, com mais conforto e maior valorização absoluta quando bem posicionadas.",
         imagem: "/images/we-barra-planta-100m-material.jpg"
       },
       {
         titulo: "Garden",
         metragem: "95m² a 184m²",
-        descricao: "Produto de maior escassez com area privativa no terreo, ideal para quem busca diferenciacao e espaco externo.",
+        descricao: "Produto de maior escassez com área privativa no térreo, ideal para quem busca diferenciação e espaço externo.",
         imagem: "/images/we-barra-cobertura-142m-material.jpg"
       },
       {
         titulo: "Cob. Duplex",
         metragem: "125m² a 199m²",
-        descricao: "Cobertura em dois andares com terraço, privacidade e posicionamento de alto padrao na Barra da Tijuca.",
+        descricao: "Cobertura em dois andares com terraço, privacidade e posicionamento de alto padrão na Barra da Tijuca.",
         imagem: "/images/we-barra-cobertura-142m-material.jpg"
       },
       {
         titulo: "Cob. Linear",
         metragem: "142m² a 232m²",
-        descricao: "Maior metragem do empreendimento, com vista ampla, area externa e produto de altissima escassez.",
+        descricao: "Maior metragem do empreendimento, com vista ampla, área externa e produto de altíssima escassez.",
         imagem: "/images/we-barra-cobertura-142m-material.jpg"
       }
     ],
@@ -233,22 +233,22 @@ export const imoveis: Imovel[] = [
       "Mais de 5 mil m² de lazer",
       "Terreno amplo de mais de 25 mil m²",
       "Lazer completo com piscinas, academia, gourmet, festas, coworking e brinquedoteca",
-      "Sky Lounge/rooftop e areas externas como diferenciais de desejo",
-      "Plantas de 2 a 4 quartos com suite, gardens e coberturas"
+      "Sky Lounge/rooftop e áreas externas como diferenciais de desejo",
+      "Plantas de 2 a 4 quartos com suíte, gardens e coberturas"
     ],
     conceito: {
-      tagline: "Inspirado nos hoteis W",
+      tagline: "Inspirado nos hotéis W",
       frase: "Morar como quem viaja o mundo",
       titulo: "Design de hotel, conforto para morar",
       texto:
-        "Inserido em um dos terrenos mais cobicados da Barra da Tijuca, com uma localizacao estrategica, surge o WE BARRA by Living da Cyrela, uma solucao definitiva para quem busca viver com conforto e praticidade ou para investir com inteligencia. No encontro da Avenida das Americas com a Salvador Allende, o projeto centraliza o essencial: mobilidade privilegiada, conveniencia absoluta com sua amplitude de servicos e itens de lazer, alem da proximidade com os grandes polos comerciais e a orla da Barra da Tijuca.",
+        "Inserido em um dos terrenos mais cobiçados da Barra da Tijuca, com uma localização estratégica, surge o WE BARRA by Living da Cyrela, uma solução definitiva para quem busca viver com conforto e praticidade ou para investir com inteligência. No encontro da Avenida das Américas com a Salvador Allende, o projeto centraliza o essencial: mobilidade privilegiada, conveniência absoluta com sua amplitude de serviços e itens de lazer, além da proximidade com os grandes polos comerciais e a orla da Barra da Tijuca.",
       textoInvestidor:
-        "Para quem escolhe investir: aposte em um ativo de alto desempenho. WE Barra by Living da Cyrela oferece localizacao estrategica e a disponibilidade de plantas com alta demanda.",
+        "Para quem escolhe investir: aposte em um ativo de alto desempenho. WE Barra by Living da Cyrela oferece localização estratégica e a disponibilidade de plantas com alta demanda.",
       pilares: [
         {
           titulo: "Design hoteleiro",
           texto:
-            "Ambientes assinados, inspirados na sofisticacao dos grandes hoteis do mundo."
+            "Ambientes assinados, inspirados na sofisticação dos grandes hotéis do mundo."
         },
         {
           titulo: "Bem-estar como destino",
@@ -258,7 +258,7 @@ export const imoveis: Imovel[] = [
         {
           titulo: "Assinatura Cyrela",
           texto:
-            "A engenharia de alto padrao de quem constroi ha mais de 60 anos."
+            "A engenharia de alto padrão de quem constrói há mais de 60 anos."
         }
       ]
     },
@@ -348,7 +348,7 @@ export const imoveis: Imovel[] = [
       {
         titulo: "Shuttle exclusivo",
         descricao:
-          "Transporte exclusivo dos moradores ate a estacao de metro do Jardim Oceanico, com paradas intermediarias.",
+          "Transporte exclusivo dos moradores até a estação de metrô do Jardim Oceânico, com paradas intermediárias.",
         icon: "bus"
       },
       {
@@ -360,25 +360,25 @@ export const imoveis: Imovel[] = [
       {
         titulo: "Prancharia & lava-pes",
         descricao:
-          "Espaco para guarda de pranchas e higienizacao dos pes - feito para quem vive o mar.",
+          "Espaço para guarda de pranchas e higienização dos pés - feito para quem vive o mar.",
         icon: "waves"
       },
       {
         titulo: "Central de Facilidades",
         descricao:
-          "Concierge que auxilia na contratacao de servicos: arrumacao, passadeira, assistencia tecnica e mais.",
+          "Concierge que auxilia na contratação de serviços: arrumação, passadeira, assistência técnica e mais.",
         icon: "concierge"
       },
       {
         titulo: "Central de Encomendas",
         descricao:
-          "Recebimento e guarda temporaria de encomendas dos moradores com seguranca.",
+          "Recebimento e guarda temporária de encomendas dos moradores com segurança.",
         icon: "package"
       },
       {
         titulo: "Pet Care, Minimarket & Oficina",
         descricao:
-          "Conveniencias no subsolo para resolver o dia a dia sem precisar sair de casa.",
+          "Conveniências no subsolo para resolver o dia a dia sem precisar sair de casa.",
         icon: "store"
       }
     ],
@@ -389,24 +389,24 @@ export const imoveis: Imovel[] = [
       opcoes: [
         "Sala ampliada + cozinha integrada",
         "Closet e despensa",
-        "Modificacoes de planta e acabamentos",
+        "Modificações de planta e acabamentos",
         "Infra para ar-condicionado, smart home e Wi-Fi"
       ],
       beneficios: [
         {
           titulo: "Exclusividade",
           texto:
-            "Escolha a melhor configuracao do seu apartamento direto com a construtora."
+            "Escolha a melhor configuração do seu apartamento direto com a construtora."
         },
         {
           titulo: "Sem obras depois",
           texto:
-            "Evite reformas apos a mudanca. Mais tranquilidade e rapidez para morar."
+            "Evite reformas após a mudança. Mais tranquilidade e rapidez para morar."
         },
         {
           titulo: "Pague parcelado",
           texto:
-            "Parcele a personalizacao conforme seu planejamento, com garantia Living."
+            "Parcele a personalização conforme seu planejamento, com garantia Living."
         }
       ]
     },
@@ -414,84 +414,84 @@ export const imoveis: Imovel[] = [
       {
         nome: "Cyrela",
         descricao:
-          "Ha mais de 60 anos construindo com engenharia de alto padrao, etica e transparencia. Centenas de milhares de familias em lares Cyrela.",
+          "Há mais de 60 anos construindo com engenharia de alto padrão, ética e transparência. Centenas de milhares de famílias em lares Cyrela.",
         selo: "60+ anos"
       },
       {
         nome: "Living",
         descricao:
-          "A marca do Grupo Cyrela especialista em construir bem-estar, onde cada solucao tem o viver bem como essencia.",
+          "A marca do Grupo Cyrela especialista em construir bem-estar, onde cada solução tem o viver bem como essência.",
         selo: "Grupo Cyrela"
       },
       {
         nome: "Leblon Realty",
         descricao:
-          "Gestora especializada no setor imobiliario, com socios que somam mais de 30 anos a frente de grandes projetos.",
+          "Gestora especializada no setor imobiliário, com sócios que somam mais de 30 anos à frente de grandes projetos.",
         selo: "30+ anos"
       }
     ],
     descricaoCurta:
-      "Lancamento Living Cyrela na Barra da Tijuca, inspirado nos hoteis W: 605 unidades em 6 torres, 2 a 4 quartos, gardens e coberturas, com mais de 5 mil m² de lazer de resort.",
+      "Lançamento Living Cyrela na Barra da Tijuca, inspirado nos hotéis W: 605 unidades em 6 torres, 2 a 4 quartos, gardens e coberturas, com mais de 5 mil m² de lazer de resort.",
     heroResumo:
-      "Apartamentos de 2 a 4 quartos, gardens e coberturas na Av. das Americas, no coracao da Barra da Tijuca.",
+      "Apartamentos de 2 a 4 quartos, gardens e coberturas na Av. das Américas, no coração da Barra da Tijuca.",
     descricaoLonga:
-      "Inspirado nos hoteis internacionais da rede W, o WE Barra by Living / Cyrela fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende. Sao 605 unidades em 6 torres - Aspen, Ibiza, Miami, Roma, Maldivas e Dubai - com apartamentos de 2, 3 e 4 quartos, gardens e coberturas, alem de 5.254 m² de lazer com piscina de raia de 25m, SPA, Sky Lounge e servicos como shuttle ao metro e balsa para a praia. Fale com a especialista para receber condicoes, plantas, unidades disponiveis e simulacao de fluxo.",
+      "Inspirado nos hotéis internacionais da rede W, o WE Barra by Living / Cyrela fica na Barra da Tijuca, no encontro da Av. das Américas com Salvador Allende. São 605 unidades em 6 torres - Aspen, Ibiza, Miami, Roma, Maldivas e Dubai - com apartamentos de 2, 3 e 4 quartos, gardens e coberturas, além de 5.254 m² de lazer com piscina de raia de 25m, SPA, Sky Lounge e serviços como shuttle ao metrô e balsa para a praia. Fale com a especialista para receber condições, plantas, unidades disponíveis e simulação de fluxo.",
     publicoIdeal: [
       "Compradores que desejam morar na Barra da Tijuca",
-      "Familias avaliando apartamentos novos de 2, 3 ou 4 quartos",
-      "Investidores buscando lancamentos com apelo de liquidez",
+      "Famílias avaliando apartamentos novos de 2, 3 ou 4 quartos",
+      "Investidores buscando lançamentos com apelo de liquidez",
       "Clientes que precisam comparar entrada, parcelas e tipologias"
     ],
     argumentosComerciais: [
-      "2 quartos a partir de R$ 600 mil, sujeito a confirmacao",
+      "2 quartos a partir de R$ 600 mil, sujeito a confirmação",
       "Sinal comunicado a partir de R$ 40 mil",
       "Mensais comunicadas a partir de R$ 2.000 durante a obra",
-      "Janela de lancamento com maior poder de escolha de unidade",
-      "Analise de tipologia, andar, coluna, vista e orientacao",
-      "Tabela, ficha tecnica, imagens e plantas para comparacao",
-      "Simulacao para comparar entrada, parcelas, INCC e saldo"
+      "Janela de lançamento com maior poder de escolha de unidade",
+      "Análise de tipologia, andar, coluna, vista e orientação",
+      "Tabela, ficha técnica, imagens e plantas para comparação",
+      "Simulação para comparar entrada, parcelas, INCC e saldo"
     ],
     objecoes: [
-      "Valores e disponibilidade podem mudar sem aviso previo.",
-      "A condicao final depende da unidade, tipologia, fluxo de pagamento e aprovacao comercial.",
-      "Imagens e plantas sao previas, referenciais e podem ser alteradas a criterio da incorporadora."
+      "Valores e disponibilidade podem mudar sem aviso prévio.",
+      "A condição final depende da unidade, tipologia, fluxo de pagamento e aprovação comercial.",
+      "Imagens e plantas são prévias, referenciais e podem ser alteradas a critério da incorporadora."
     ],
     imagens: [
       {
         src: "/images/we-barra-pool-house-material.jpg",
-        alt: "Imagem previa da pool house do WE Barra by Living com vista para piscina",
+        alt: "Imagem prévia da pool house do WE Barra by Living com vista para piscina",
         destaque: true
       },
       {
         src: "/images/we-barra-pool-house-bar-material.jpg",
-        alt: "Imagem previa da pool house com bar e vista para o lazer do WE Barra by Living"
+        alt: "Imagem prévia da pool house com bar e vista para o lazer do WE Barra by Living"
       },
       {
         src: "/images/we-barra-salao-festas-material.jpg",
-        alt: "Imagem previa do salao de festas do WE Barra by Living"
+        alt: "Imagem prévia do salão de festas do WE Barra by Living"
       },
       {
         src: "/images/we-barra-sky-lounge-material.jpg",
-        alt: "Imagem previa do sky lounge do WE Barra by Living"
+        alt: "Imagem prévia do sky lounge do WE Barra by Living"
       },
       {
         src: "/images/we-barra-piscina-material.jpg",
-        alt: "Imagem previa da piscina e area de lazer do WE Barra by Living"
+        alt: "Imagem prévia da piscina e área de lazer do WE Barra by Living"
       },
       {
         src: "/images/we-barra-ficha-tecnica-material.jpg",
-        alt: "Ficha tecnica visual do WE Barra by Living"
+        alt: "Ficha técnica visual do WE Barra by Living"
       },
       {
         src: "/images/we-barra-planta-70m-material.jpg",
-        alt: "Planta previa de 2 quartos com 70m² do WE Barra by Living"
+        alt: "Planta prévia de 2 quartos com 70m² do WE Barra by Living"
       }
     ],
     seo: {
       title:
-        "WE Barra by Living | Lancamento Cyrela inspirado nos hoteis W na Barra",
+        "WE Barra by Living | Lançamento Cyrela inspirado nos hotéis W na Barra",
       description:
-        "WE Barra by Living, lancamento Cyrela inspirado nos hoteis W: 605 unidades em 6 torres, 2 a 4 quartos, gardens e coberturas, com lazer de resort de 5 mil m², SPA e Sky Lounge. 2 quartos a partir de R$ 600 mil. Receba tabela, plantas e simulacao.",
+        "WE Barra by Living, lançamento Cyrela inspirado nos hotéis W: 605 unidades em 6 torres, 2 a 4 quartos, gardens e coberturas, com lazer de resort de 5 mil m², SPA e Sky Lounge. 2 quartos a partir de R$ 600 mil. Receba tabela, plantas e simulação.",
       keywords: [
         "WE Barra",
         "WE Barra by Living",
@@ -524,57 +524,57 @@ export const imoveis: Imovel[] = [
       ],
       canonicalPath: "/lancamentos/we-barra-by-living-barra-da-tijuca",
       ogTitle:
-        "WE Barra by Living: tabela, plantas e simulacao na Barra",
+        "WE Barra by Living: tabela, plantas e simulação na Barra",
       ogDescription:
-        "Compare tabela, plantas e fluxo do WE Barra: referencia de 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 40 mil e mensais a partir de R$ 2.000.",
+        "Compare tabela, plantas e fluxo do WE Barra: referência de 2 quartos a partir de R$ 600 mil, sinal a partir de R$ 40 mil e mensais a partir de R$ 2.000.",
       ogImage: "/images/we-barra-pool-house-material.jpg"
     },
     faq: [
       {
         pergunta: "Consigo comprar com sinal a partir de R$ 40 mil?",
         resposta:
-          "Esse sinal e uma referencia comunicada inicialmente. O valor final depende da unidade, tipologia, campanha, tabela vigente e aprovacao comercial."
+          "Esse sinal é uma referência comunicada inicialmente. O valor final depende da unidade, tipologia, campanha, tabela vigente e aprovação comercial."
       },
       {
         pergunta: "Como funciona o fluxo durante a obra?",
         resposta:
-          "A simulacao considera entrada, mensais, possiveis reforcos, correcao por indice de obra e saldo na entrega ou financiamento."
+          "A simulação considera entrada, mensais, possíveis reforços, correção por índice de obra e saldo na entrega ou financiamento."
       },
       {
-        pergunta: "Quais tipologias estao previstas?",
+        pergunta: "Quais tipologias estão previstas?",
         resposta:
-          "O projeto comunica apartamentos de 2, 3 e 4 quartos, alem de gardens, coberturas duplex e coberturas lineares. Metragens e disponibilidade precisam ser confirmadas."
+          "O projeto comunica apartamentos de 2, 3 e 4 quartos, além de gardens, coberturas duplex e coberturas lineares. Metragens e disponibilidade precisam ser confirmadas."
       },
       {
         pergunta: "Onde fica o WE Barra by Living?",
         resposta:
-          "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende."
+          "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Américas com Salvador Allende."
       },
       {
-        pergunta: "Consigo escolher andar, coluna e posicao?",
+        pergunta: "Consigo escolher andar, coluna e posição?",
         resposta:
-          "A escolha depende da disponibilidade da tabela vigente. O atendimento compara andar, coluna, vista, orientacao e fluxo antes da reserva."
+          "A escolha depende da disponibilidade da tabela vigente. O atendimento compara andar, coluna, vista, orientação e fluxo antes da reserva."
       },
       {
-        pergunta: "O WE Barra e melhor para morar ou investir?",
+        pergunta: "O WE Barra é melhor para morar ou investir?",
         resposta:
           "Pode atender os dois perfis. Para morar, pesam lazer, acesso e planta. Para investir, entram liquidez, demanda, ticket e facilidade de revenda."
       },
       {
         pergunta: "Os valores comunicados sao finais?",
         resposta:
-          "Nao. Precos, entrada, parcelas, disponibilidade, previsao de entrega e condicoes precisam ser confirmados antes de qualquer decisao."
+          "Não. Preços, entrada, parcelas, disponibilidade, previsão de entrega e condições precisam ser confirmados antes de qualquer decisão."
       },
       {
-        pergunta: "Como recebo tabela, plantas e simulacao?",
+        pergunta: "Como recebo tabela, plantas e simulação?",
         resposta:
-          "Preencha o formulario para receber material do empreendimento e uma simulacao de fluxo pelo WhatsApp."
+          "Preencha o formulário para receber material do empreendimento e uma simulação de fluxo pelo WhatsApp."
       }
     ],
     whatsapp: {
       numero: siteConfig.whatsapp,
       mensagem:
-        "Ola, vi a pagina do WE Barra by Living e gostaria de receber tabela, plantas e simulacao para entender sinal, mensais e unidades disponiveis."
+        "Olá, vi a página do WE Barra by Living e gostaria de receber tabela, plantas e simulação para entender sinal, mensais e unidades disponíveis."
     },
     tracking: {
       formEventName: "form_submit_we_barra",
@@ -582,23 +582,23 @@ export const imoveis: Imovel[] = [
       pageViewEventName: "page_view_we_barra"
     },
     localizacao: {
-      titulo: "Av. das Americas com conexao estrategica na Barra",
+      titulo: "Av. das Américas com conexão estratégica na Barra",
       descricao:
-        "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Americas com Salvador Allende, em uma regiao com acesso privilegiado, servicos e alta demanda por apartamentos novos.",
+        "O empreendimento fica na Barra da Tijuca, no encontro da Av. das Américas com Salvador Allende, localização privilegiada, a 5 minutos da praia da Reserva e próximo a shoppings como Rio Design Barra e Vogue Square. A região tem alta demanda por apartamentos novos e plantas versáteis, o qual o WE Barra by Living tem exclusividade em oferecer.",
       pontos: [
-        "Av. das Americas como eixo de acesso e visibilidade",
-        "Conexao com Salvador Allende, Recreio e Barra",
-        "Entorno com comercio, servicos, BRT e polos de conveniencia"
+        "Av. das Américas como eixo de acesso e visibilidade",
+        "Conexão com Salvador Allende, Recreio e Barra",
+        "Entorno com comércio, serviços, BRT e polos de conveniência"
       ],
       categorias: [
         {
           titulo: "Mobilidade",
           icon: "navigation",
           itens: [
-            { nome: "Av. das Americas", tempo: "1 min" },
-            { nome: "Estacao BRT", tempo: "1 min" },
-            { nome: "Av. Lucio Costa", tempo: "8 min" },
-            { nome: "Metro Jardim Oceanico", tempo: "16 min" }
+            { nome: "Av. das Américas", tempo: "1 min" },
+            { nome: "Estação BRT", tempo: "1 min" },
+            { nome: "Av. Lúcio Costa", tempo: "8 min" },
+            { nome: "Metrô Jardim Oceânico", tempo: "16 min" }
           ]
         },
         {
@@ -622,13 +622,13 @@ export const imoveis: Imovel[] = [
           ]
         },
         {
-          titulo: "Educacao",
+          titulo: "Educação",
           icon: "school",
           itens: [
             { nome: "Pensi", tempo: "5 min" },
             { nome: "Escola Parque", tempo: "5 min" },
             { nome: "Maple Bear", tempo: "6 min" },
-            { nome: "Colegio Santo Agostinho", tempo: "10 min" }
+            { nome: "Colégio Santo Agostinho", tempo: "10 min" }
           ]
         },
         {
@@ -637,7 +637,7 @@ export const imoveis: Imovel[] = [
           itens: [
             { nome: "Hospital Rio Barra", tempo: "9 min" },
             { nome: "Barra D'Or", tempo: "12 min" },
-            { nome: "Hospital Vitoria", tempo: "12 min" }
+            { nome: "Hospital Vitória", tempo: "12 min" }
           ]
         },
         {
@@ -654,7 +654,7 @@ export const imoveis: Imovel[] = [
         "https://www.google.com/maps/search/?api=1&query=Av.+das+Americas+12800+Barra+da+Tijuca+Rio+de+Janeiro"
     },
     condicoesAviso:
-      "Imagens, plantas, valores e disponibilidade estao sujeitos a confirmacao."
+      "Imagens, plantas, valores e disponibilidade estão sujeitos a confirmação."
   }
 ];
 

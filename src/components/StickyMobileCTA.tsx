@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { MessageCircle } from "lucide-react";
 import type { Imovel } from "@/data/imoveis";
-import { pushTrackingEvent } from "@/lib/tracking";
+import { getAttributionParams, pushTrackingEvent } from "@/lib/tracking";
 
 type StickyMobileCTAProps = {
   imovel: Imovel;
@@ -57,7 +57,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
     };
   }, []);
 
-  const waUrl = `https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent("Ola, vi a pagina do " + imovel.nome + " e gostaria de conversar com o especialista.")}`;
+  const waUrl = `https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent(imovel.whatsapp.mensagem)}`;
 
   function handleClick() {
     pushTrackingEvent("cta_click", {
@@ -67,6 +67,21 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
       imovel_slug: imovel.slug,
       bairro: imovel.bairro
     });
+
+    const attribution = getAttributionParams();
+    fetch("/api/leads", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tipo: "whatsapp_clique",
+        imovel: imovel.nome,
+        slug: imovel.slug,
+        cta_source: "sticky_mobile",
+        pagina: window.location.href,
+        userAgent: navigator.userAgent,
+        ...attribution
+      })
+    }).catch(() => {});
   }
 
   return (
