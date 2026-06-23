@@ -4,8 +4,9 @@ export function TrackingScripts() {
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
   const ga4Id = process.env.NEXT_PUBLIC_GA4_ID;
   const metaPixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
+  const gadsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID;
 
-  if (!gtmId && !ga4Id && !metaPixelId) {
+  if (!gtmId && !ga4Id && !metaPixelId && !gadsId) {
     return null;
   }
 
@@ -39,6 +40,24 @@ export function TrackingScripts() {
             src={`https://www.googletagmanager.com/gtag/js?id=${ga4Id}`}
             strategy="afterInteractive"
           />
+        </>
+      ) : null}
+
+      {gadsId ? (
+        <>
+          <Script
+            src={`https://www.googletagmanager.com/gtag/js?id=${gadsId}`}
+            strategy="afterInteractive"
+          />
+          <Script id="google-ads-base" strategy="afterInteractive">
+            {`
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              window.gtag = window.gtag || gtag;
+              gtag('js', new Date());
+              gtag('config', '${gadsId}');
+            `}
+          </Script>
         </>
       ) : null}
 
