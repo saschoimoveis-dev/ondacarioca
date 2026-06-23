@@ -122,8 +122,8 @@ export const imoveis: Imovel[] = [
     enderecoResumo: "Av. das Américas com Salvador Allende",
     precoInicial: "2 quartos a partir de R$ 600 mil",
     precoInicialNumerico: 600000,
-    sinalInicial: "a partir de R$ 40 mil",
-    parcelasIniciais: "a partir de R$ 2.000",
+    sinalInicial: "a partir de R$ 45 mil",
+    parcelasIniciais: "a partir de R$ 2.500",
     materialPdfPath: "/materiais/we-barra-apresentacao.pdf",
     tipologias: [
       "Apartamentos de 2 quartos",
