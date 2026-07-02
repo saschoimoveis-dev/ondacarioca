@@ -148,6 +148,11 @@ export function LeadForm({ imovel }: LeadFormProps) {
     event.preventDefault();
     setStatus("sending");
 
+    // Precisa abrir a aba de forma síncrona (antes do await) para o navegador
+    // não bloquear o popup — depois de um await ele deixa de contar como
+    // resultado direto do clique do usuário.
+    const waWindow = window.open("", "_blank");
+
     const values = { ...form, ...readFormValues(event.currentTarget) };
     const payload = {
       ...values,
@@ -197,11 +202,31 @@ export function LeadForm({ imovel }: LeadFormProps) {
         material: imovel.materialPdfPath
       });
 
+      const waMessage = `Olá! Sou ${values.nome} e acabei de preencher o formulário do ${imovel.nome}. Meu interesse: ${values.tipologia} — ${values.objetivo}. Gostaria de receber a tabela e simulação.`;
+      const waUrl = `https://wa.me/${imovel.whatsapp.numero.replace(/\D/g, "")}?text=${encodeURIComponent(waMessage)}`;
+
+      if (waWindow) {
+        waWindow.location.href = waUrl;
+      }
+
+      pushTrackingEvent("whatsapp_click", {
+        imovel_nome: imovel.nome,
+        imovel_slug: imovel.slug,
+        bairro: imovel.bairro,
+        cta_source: "form_submit_auto"
+      });
+      pushTrackingEvent(imovel.tracking.whatsappEventName, {
+        imovel_nome: imovel.nome,
+        imovel_slug: imovel.slug,
+        cta_source: "form_submit_auto"
+      });
+
       setStatus("success");
       setForm(initialState);
       setStep(1);
       setSubStep(0);
     } catch {
+      waWindow?.close();
       setStatus("error");
     }
   }
@@ -433,7 +458,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
         <div className="mt-6 rounded-lg border border-[var(--brand)] bg-[var(--surface-green)] p-5 text-sm text-[var(--brand-dark)] animate-fade-in-up">
           <p className="font-semibold text-base mb-1">Tudo certo! Recebemos seus dados.</p>
           <p>
-            Você pode baixar a apresentação agora mesmo ou continuar nosso papo pelo WhatsApp.
+            Abrimos o WhatsApp em uma nova aba para você continuar a conversa. Se não abriu, use o botão abaixo — você também pode baixar a apresentação agora mesmo.
           </p>
           <div className="mt-5 grid gap-3 sm:grid-cols-2">
             {imovel.materialPdfPath ? (
