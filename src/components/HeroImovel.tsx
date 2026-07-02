@@ -8,7 +8,6 @@ import {
 import Image from "next/image";
 import type { Imovel } from "@/data/imoveis";
 import { CtaLink } from "@/components/CtaLink";
-import { WhatsAppCTA } from "@/components/WhatsAppCTA";
 
 type HeroImovelProps = {
   imovel: Imovel;
@@ -126,10 +125,12 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
                 pulse
                 className="w-full justify-center"
               />
-              <WhatsAppCTA
+              <CtaLink
+                href="#lead-form"
+                label="Conversar com o especialista"
                 imovel={imovel}
                 source="hero_mobile"
-                label="Conversar com o especialista"
+                variant="secondary"
                 className="btn-whatsapp-specialist flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold transition-all duration-300 active:scale-95 min-h-[52px]"
               />
             </div>
@@ -210,10 +211,12 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               variant="primary"
               pulse
             />
-            <WhatsAppCTA
+            <CtaLink
+              href="#lead-form"
+              label="Conversar com o especialista"
               imovel={imovel}
               source="hero_desktop"
-              label="Conversar com o especialista"
+              variant="secondary"
               className="btn-whatsapp-specialist group inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-[15px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             />
           </div>

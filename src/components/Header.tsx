@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
 
@@ -15,7 +16,10 @@ const navItems = [
 
 export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const pathname = usePathname();
+  const isImovelDetail = /^\/lancamentos\/[^/]+$/.test(pathname || "");
   const whatsappHref = `https://wa.me/${siteConfig.whatsapp}`;
+  const contactHref = isImovelDetail ? "#lead-form" : whatsappHref;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -65,14 +69,15 @@ export function Header() {
         </nav>
 
         <a
-          href={whatsappHref}
-          target="_blank"
-          rel="noreferrer"
+          href={contactHref}
+          {...(isImovelDetail ? {} : { target: "_blank", rel: "noreferrer" })}
           className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-4 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[var(--brand-dark)] hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
         >
           <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
-          <span className="hidden sm:inline">{siteConfig.phoneDisplay}</span>
-          <span className="sm:hidden">WhatsApp</span>
+          <span className="hidden sm:inline">
+            {isImovelDetail ? "Fale com um Especialista" : siteConfig.phoneDisplay}
+          </span>
+          <span className="sm:hidden">{isImovelDetail ? "Contato" : "WhatsApp"}</span>
         </a>
       </div>
 
