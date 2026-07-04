@@ -26,7 +26,7 @@ export type LeadPayload = {
 };
 
 type AppendResult =
-  | { ok: true; stored: true }
+  | { ok: true; stored: true; rowNumber?: number }
   | { ok: true; stored: false; reason: "missing_google_sheets_env" };
 
 function getPrivateKey() {
@@ -102,9 +102,9 @@ export async function appendLeadToSheet(
 
   const sheets = google.sheets({ version: "v4", auth });
 
-  await sheets.spreadsheets.values.append({
+  const response = await sheets.spreadsheets.values.append({
     spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID,
-    range: "Leads!A:AB",
+    range: "Leads!A:AC",
     valueInputOption: "USER_ENTERED",
     requestBody: {
       values: [
@@ -136,9 +136,41 @@ export async function appendLeadToSheet(
           "",                         // Y: Anotações (corretor)
           "",                         // Z: Próxima ação
           "",                         // AA: Data próximo contato
-          ""                          // AB: Resultado final
+          "",                         // AB: Resultado final
+          ""                          // AC: Confirmou WhatsApp
         ]
       ]
+    }
+  });
+
+  const updatedRange = response.data.updates?.updatedRange;
+  const rowMatch = updatedRange?.match(/(\d+)(?::|$)/);
+  const rowNumber = rowMatch ? Number(rowMatch[1]) : undefined;
+
+  return { ok: true, stored: true, rowNumber };
+}
+
+export async function markWhatsappConfirmedOnRow(
+  rowNumber: number
+): Promise<{ ok: boolean; stored: boolean }> {
+  if (!hasSheetsEnv()) {
+    return { ok: true, stored: false };
+  }
+
+  const auth = new google.auth.JWT({
+    email: getClientEmail(),
+    key: getPrivateKey(),
+    scopes: ["https://www.googleapis.com/auth/spreadsheets"]
+  });
+
+  const sheets = google.sheets({ version: "v4", auth });
+
+  await sheets.spreadsheets.values.update({
+    spreadsheetId: process.env.GOOGLE_SHEETS_SPREADSHEET_ID,
+    range: `Leads!AC${rowNumber}`,
+    valueInputOption: "USER_ENTERED",
+    requestBody: {
+      values: [[`Sim - ${new Date().toISOString()}`]]
     }
   });
 

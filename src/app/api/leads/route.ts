@@ -1,5 +1,9 @@
 import { NextResponse } from "next/server";
-import { appendLeadToSheet, type LeadPayload } from "@/lib/sheets";
+import {
+  appendLeadToSheet,
+  markWhatsappConfirmedOnRow,
+  type LeadPayload
+} from "@/lib/sheets";
 
 type LeadRequestBody = Partial<LeadPayload>;
 
@@ -133,6 +137,41 @@ export async function POST(request: Request) {
 
     return NextResponse.json(
       { ok: false, error: "lead_submission_failed", reason },
+      { status: 500 }
+    );
+  }
+}
+
+export async function PATCH(request: Request) {
+  let body: { rowNumber?: unknown };
+
+  try {
+    body = (await request.json()) as { rowNumber?: unknown };
+  } catch {
+    return NextResponse.json(
+      { ok: false, error: "invalid_json" },
+      { status: 400 }
+    );
+  }
+
+  const rowNumber = Number(body.rowNumber);
+
+  if (!Number.isInteger(rowNumber) || rowNumber < 1) {
+    return NextResponse.json(
+      { ok: false, error: "missing_required_fields" },
+      { status: 400 }
+    );
+  }
+
+  try {
+    const result = await markWhatsappConfirmedOnRow(rowNumber);
+    return NextResponse.json(result);
+  } catch (error) {
+    const reason = getGoogleErrorReason(error);
+    console.error("lead_whatsapp_confirm_failed", { reason, error });
+
+    return NextResponse.json(
+      { ok: false, error: "lead_whatsapp_confirm_failed", reason },
       { status: 500 }
     );
   }

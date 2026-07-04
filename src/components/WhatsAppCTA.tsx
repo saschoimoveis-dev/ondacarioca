@@ -9,13 +9,20 @@ type WhatsAppCTAProps = {
   label?: string;
   className?: string;
   source: string;
+  /**
+   * Row number of the lead already saved on the sheet (returned by the
+   * form submit). When present, the click just flags that row as
+   * "confirmou WhatsApp" instead of creating a new lead row.
+   */
+  leadRowNumber?: number;
 };
 
 export function WhatsAppCTA({
   imovel,
   label = "Falar no WhatsApp",
   className,
-  source
+  source,
+  leadRowNumber
 }: WhatsAppCTAProps) {
   const phone = imovel.whatsapp.numero.replace(/\D/g, "");
   const href = `https://wa.me/${phone}?text=${encodeURIComponent(
@@ -33,6 +40,15 @@ export function WhatsAppCTA({
 
     pushTrackingEvent("whatsapp_click", params);
     pushTrackingEvent(imovel.tracking.whatsappEventName, params);
+
+    if (leadRowNumber) {
+      fetch("/api/leads", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ rowNumber: leadRowNumber })
+      }).catch(() => {});
+      return;
+    }
 
     const attribution = getAttributionParams();
     fetch("/api/leads", {

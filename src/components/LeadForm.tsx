@@ -92,6 +92,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
   const [hasStarted, setHasStarted] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
   const [subStep, setSubStep] = useState(0);
+  const [leadRowNumber, setLeadRowNumber] = useState<number | undefined>(undefined);
 
   function updateField(field: keyof FormState, value: string) {
     setForm((current) => ({ ...current, [field]: value }));
@@ -175,6 +176,9 @@ export function LeadForm({ imovel }: LeadFormProps) {
       if (!response.ok) {
         throw new Error("Lead request failed");
       }
+
+      const result = (await response.json()) as { rowNumber?: number };
+      setLeadRowNumber(result.rowNumber);
 
       pushTrackingEvent("form_submit", {
         imovel_nome: imovel.nome,
@@ -477,6 +481,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               source="form_success"
               label="Falar no WhatsApp"
               className="btn-secondary-premium inline-flex items-center justify-center gap-2 rounded-md border px-4 py-3 text-sm font-bold transition hover:scale-[1.02]"
+              leadRowNumber={leadRowNumber}
             />
           </div>
         </div>

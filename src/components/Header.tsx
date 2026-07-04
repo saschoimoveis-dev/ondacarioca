@@ -5,6 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { siteConfig } from "@/lib/site";
+import { imoveis } from "@/data/imoveis";
 
 const navItems = [
   { href: "#plantas", label: "Plantas" },
@@ -18,8 +19,9 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isImovelDetail = /^\/lancamentos\/[^/]+$/.test(pathname || "");
-  const whatsappHref = `https://wa.me/${siteConfig.whatsapp}`;
-  const contactHref = isImovelDetail ? "#lead-form" : whatsappHref;
+  const contactHref = isImovelDetail
+    ? "#lead-form"
+    : `/lancamentos/${imoveis[0].slug}#lead-form`;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -70,7 +72,6 @@ export function Header() {
 
         <a
           href={contactHref}
-          {...(isImovelDetail ? {} : { target: "_blank", rel: "noreferrer" })}
           className="inline-flex items-center gap-2 rounded-full bg-[var(--brand)] px-4 py-2.5 text-sm font-bold text-white shadow-md transition-all hover:bg-[var(--brand-dark)] hover:scale-[1.02] active:scale-[0.98] min-h-[44px]"
         >
           <MessageCircle className="size-4 shrink-0" aria-hidden="true" />
