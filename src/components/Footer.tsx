@@ -89,7 +89,13 @@ export function Footer() {
       </div>
       <div className="border-t border-white/10 px-4 py-4 text-center text-xs text-white/50">
         © {new Date().getFullYear()} Onda Carioca Imoveis. Todos os direitos
-        reservados.
+        reservados.{" "}
+        <Link
+          href="/politica-de-privacidade"
+          className="underline transition hover:text-[var(--champagne)]"
+        >
+          Política de Privacidade
+        </Link>
       </div>
     </footer>
   );
