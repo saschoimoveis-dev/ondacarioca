@@ -172,7 +172,7 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                 {/* Badge da tipologia */}
                 <div className="absolute bottom-4 left-4">
                   <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold border ${tagColorByIndex[activeIndex % tagColorByIndex.length]}`}>
-                    {decisaoPorPlanta[activeIndex] || activePlanta.titulo}
+                    {activePlanta.decisao ?? decisaoPorPlanta[activeIndex] ?? activePlanta.titulo}
                   </span>
                 </div>
 
@@ -223,13 +223,13 @@ export function BlocoTipologias({ imovel }: BlocoTipologiasProps) {
                 <div>
                   <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Melhor para</p>
                   <p className="text-slate-700 leading-relaxed font-medium">
-                    {perfilPorPlanta[activeIndex] || activePlanta.descricao}
+                    {activePlanta.perfil ?? perfilPorPlanta[activeIndex] ?? activePlanta.descricao}
                   </p>
                 </div>
                 <div className="hidden sm:block">
                   <p className="text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-2">Atenção ao simular</p>
                   <p className="text-slate-600 leading-relaxed">
-                    {cuidadoPorPlanta[activeIndex] || activePlanta.descricao}
+                    {activePlanta.cuidado ?? cuidadoPorPlanta[activeIndex] ?? activePlanta.descricao}
                   </p>
                 </div>
               </div>

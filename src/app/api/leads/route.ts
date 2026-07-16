@@ -93,10 +93,24 @@ export async function POST(request: Request) {
         { status: 400 }
       );
     }
+
+    if (whatsapp.replace(/\D/g, "").length < 10) {
+      return NextResponse.json(
+        { ok: false, error: "invalid_whatsapp" },
+        { status: 400 }
+      );
+    }
   }
 
+  const normalizedTipo: LeadPayload["tipo"] =
+    tipo === "whatsapp_clique"
+      ? "whatsapp_clique"
+      : tipo === "busca_alternativas"
+        ? "busca_alternativas"
+        : "formulario";
+
   const lead: LeadPayload = {
-    tipo: tipo === "whatsapp_clique" ? "whatsapp_clique" : "formulario",
+    tipo: normalizedTipo,
     nome: body.nome?.trim() || "(clique direto WhatsApp)",
     whatsapp: body.whatsapp?.trim() || "",
     email: body.email?.trim(),

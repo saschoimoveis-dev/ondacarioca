@@ -80,7 +80,7 @@ export function StickyMobileCTA({ imovel }: StickyMobileCTAProps) {
         className="btn-whatsapp-specialist flex w-full items-center justify-center gap-2 rounded-full px-6 py-4 text-sm font-bold text-white transition-transform active:scale-95 min-h-[52px]"
       >
         <MessageCircle className="size-5" aria-hidden="true" />
-        Conversar com o especialista Cyrela
+        Conversar com o especialista{imovel.marca ? ` ${imovel.marca}` : ""}
       </a>
     </div>
   );

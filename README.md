@@ -47,9 +47,24 @@ Se usar `NEXT_PUBLIC_GA4_ID` ou `NEXT_PUBLIC_META_PIXEL_ID`, o site carrega GA4/
 
 ## Google Sheets
 
-Crie uma aba chamada `Leads` com as colunas:
+Todos os contatos ficam na mesma aba `Leads`. A coluna `Tipo` diferencia:
 
-Data, Nome, WhatsApp, E-mail, Imovel, Slug, Objetivo, Tipologia, Entrada disponivel, Prazo de compra, Mensagem, UTM Source, UTM Medium, UTM Campaign, UTM Term, UTM Content, GCLID, FBCLID, Pagina, User Agent, Status do atendimento, Qualidade do lead, Visita marcada?, Venda gerada?, Observacoes
+- `Interesse no imóvel`: formulário principal da página;
+- `Busca alternativas`: modal "Quero conhecer outras opções";
+- `Clique no WhatsApp`: clique direto ainda sem identificação do contato.
+
+O modal de alternativas solicita apenas nome e WhatsApp. Imóvel de origem,
+objetivo, página, CTA e atribuição de campanha são preenchidos automaticamente.
+Quando o WhatsApp já existe, a linha é atualizada e a nova interação é registrada
+em `Anotações`, preservando leads de interesse direto como prioridade mais alta.
+
+Crie uma aba chamada `Leads` com as colunas, nesta ordem:
+
+Data, Tipo, Nome, WhatsApp, E-mail, Imóvel, Slug, Objetivo, Tipologia,
+Entrada disponível, Prazo de compra, Situação de crédito, Situação atual,
+Origem do CTA, UTM Source, UTM Medium, UTM Campaign, UTM Term, UTM Content,
+GCLID, FBCLID, Página, User Agent, Status, Anotações, Próxima ação,
+Data próximo contato, Resultado final, Confirmou WhatsApp
 
 Compartilhe a planilha com o `GOOGLE_SHEETS_CLIENT_EMAIL` da service account.
 

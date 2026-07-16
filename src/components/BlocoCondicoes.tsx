@@ -5,14 +5,26 @@ type BlocoCondicoesProps = {
   imovel: Imovel;
 };
 
+const resumoIconMap: Record<string, typeof LayoutGrid> = {
+  layout: LayoutGrid,
+  chart: BarChart3,
+  check: CheckCircle,
+  clock: Clock
+};
+
 export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
-  const resumo = [
-    { label: "Unidades", value: "605", icon: LayoutGrid },
-    { label: "Tipologias", value: "Aptos, Gardens e Coberturas", subtitle: "2, 3 e 4 quartos", icon: BarChart3 },
-    { label: "Destaque", value: "Gardens e Coberturas", icon: CheckCircle },
-    { label: "Entrega", value: "Maio/2029", icon: Clock },
-  ];
-  
+  const resumo = (
+    imovel.condicoesResumo ?? [
+      { label: "Unidades", value: "605", icon: "layout" },
+      { label: "Tipologias", value: "Aptos, Gardens e Coberturas", subtitle: "2, 3 e 4 quartos", icon: "chart" },
+      { label: "Destaque", value: "Gardens e Coberturas", icon: "check" },
+      { label: "Entrega", value: "Maio/2029", icon: "clock" }
+    ]
+  ).map((item) => ({
+    ...item,
+    Icon: resumoIconMap[item.icon] ?? LayoutGrid
+  }));
+
   const ficha = imovel.fichaTecnica || [];
 
   return (
@@ -37,7 +49,7 @@ export function BlocoCondicoes({ imovel }: BlocoCondicoesProps) {
             
             <div className="mt-8 grid grid-cols-2 gap-4">
                {resumo.map((item) => {
-                 const Icon = item.icon;
+                 const Icon = item.Icon;
                  return (
                    <div key={item.label} className="bg-white p-4 rounded-xl border border-[var(--border-warm)] shadow-sm">
                      <Icon className="size-5 text-[var(--brand)] mb-3" />

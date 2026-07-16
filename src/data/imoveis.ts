@@ -5,6 +5,12 @@ export type Imovel = {
   slug: string;
   nome: string;
   incorporadora?: string;
+  /** Marca curta usada em selos/CTAs (ex.: "Cyrela", "Tegra"). Cai para incorporadora. */
+  marca?: string;
+  /** Linha "Realização ..." exibida no hero (ex.: "Cyrela · Living · Leblon Realty"). */
+  realizacaoLabel?: string;
+  /** Imagem de fundo do hero mobile. */
+  heroImageMobile?: string;
   bairro: string;
   cidade: string;
   estado: string;
@@ -25,6 +31,10 @@ export type Imovel = {
     metragem: string;
     descricao: string;
     imagem?: string;
+    /** Sobrescrevem os textos padrão por índice do BlocoTipologias. */
+    decisao?: string;
+    perfil?: string;
+    cuidado?: string;
   }[];
   diferenciais: string[];
   conceito?: {
@@ -33,13 +43,27 @@ export type Imovel = {
     titulo: string;
     texto: string;
     textoInvestidor?: string;
+    imagem?: string;
+    imagemAlt?: string;
     pilares: { titulo: string; texto: string }[];
   };
+  condicoesResumo?: {
+    label: string;
+    value: string;
+    subtitle?: string;
+    icon: string;
+  }[];
   torres?: {
     destaque: string;
     nome: string;
     tipologia: string;
   }[];
+  /** Cabeçalho e métricas do BlocoLazer. Cai no texto padrão quando ausente. */
+  lazerHeader?: {
+    titulo: string;
+    texto?: string;
+    metricas?: { valor: string; label: string }[];
+  };
   lazerCategorias?: {
     titulo: string;
     resumo: string;
@@ -47,6 +71,11 @@ export type Imovel = {
     imagem?: string;
     alt?: string;
   }[];
+  /** Cabeçalho do BlocoServicos. Cai no texto padrão quando ausente. */
+  servicosHeader?: {
+    titulo: string;
+    texto?: string;
+  };
   servicos?: {
     titulo: string;
     descricao: string;
@@ -99,6 +128,8 @@ export type Imovel = {
   localizacao: {
     titulo: string;
     descricao: string;
+    imagem?: string;
+    imagemAlt?: string;
     pontos: string[];
     categorias?: {
       titulo: string;
@@ -116,6 +147,8 @@ export const imoveis: Imovel[] = [
     slug: "we-barra-by-living-barra-da-tijuca",
     nome: "WE Barra by Living / Cyrela",
     incorporadora: "Living",
+    marca: "Cyrela",
+    realizacaoLabel: "Cyrela · Living · Leblon Realty",
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
     estado: "RJ",
@@ -655,11 +688,872 @@ export const imoveis: Imovel[] = [
     },
     condicoesAviso:
       "Imagens, plantas, valores e disponibilidade estão sujeitos a confirmação."
+  },
+  {
+    id: "tegra-barra",
+    slug: "tegra-barra-da-tijuca",
+    nome: "Tegra Barra da Tijuca",
+    incorporadora: "Tegra",
+    marca: "Tegra",
+    realizacaoLabel: "Tegra Incorporadora · grupo Brookfield",
+    heroImageMobile: "/images/tegra-terraco-vista.jpg",
+    bairro: "Barra da Tijuca",
+    cidade: "Rio de Janeiro",
+    estado: "RJ",
+    enderecoResumo: "Barra da Tijuca, ao lado da ABM — a poucos passos do Posto 5",
+    precoInicial: "Sob consulta",
+    tipologias: [
+      "Apartamentos de 2 quartos (1 suíte)",
+      "Apartamentos de 3 suítes",
+      "Apartamentos de 4 suítes",
+      "Coberturas lineares",
+      "Coberturas duplex"
+    ],
+    fichaTecnica: [
+      {
+        label: "Endereço",
+        value:
+          "Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi), próximo à Av. Afonso Arinos de Melo Franco"
+      },
+      {
+        label: "Localização",
+        value: "A poucos passos da Praia da Barra da Tijuca, Posto 5"
+      },
+      {
+        label: "Tipologias",
+        value: "2 quartos (1 suíte), 3 e 4 suítes, coberturas lineares e duplex"
+      },
+      {
+        label: "2 quartos",
+        value: "77 a 81 m² (1 suíte)"
+      },
+      {
+        label: "3 e 4 suítes",
+        value: "120 a 147 m²"
+      },
+      {
+        label: "Coberturas lineares",
+        value: "174 m²"
+      },
+      {
+        label: "Coberturas duplex",
+        value: "247 a 301 m²"
+      },
+      {
+        label: "Lazer & esporte",
+        value: "Clube, áreas verdes e infraestrutura completa de lazer e esportes"
+      },
+      {
+        label: "Incorporação",
+        value: "Tegra Incorporadora (grupo Brookfield)"
+      },
+      {
+        label: "Situação",
+        value: "Breve lançamento — valores e disponibilidade sob consulta"
+      }
+    ],
+    plantas: [
+      {
+        titulo: "2 quartos",
+        metragem: "77 a 81 m² (1 suíte)",
+        descricao:
+          "Ticket de entrada do empreendimento, com boa liquidez e apelo para morar ou investir a poucos passos da praia.",
+        imagem: "/images/tegra-suite-master.jpg"
+      },
+      {
+        titulo: "3 suítes",
+        metragem: "a partir de 120 m²",
+        descricao:
+          "Planta familiar com suítes, equilíbrio entre metragem, conforto e potencial de valorização na Barra.",
+        imagem: "/images/tegra-living-vista.jpg"
+      },
+      {
+        titulo: "4 suítes",
+        metragem: "até 147 m²",
+        descricao:
+          "Mais espaço e privacidade para famílias, com acabamento de alto padrão e vista para a região verde da ABM.",
+        imagem: "/images/tegra-jantar-marmore.jpg"
+      },
+      {
+        titulo: "Cob. Linear",
+        metragem: "174 m²",
+        descricao:
+          "Cobertura em um pavimento com amplitude, área externa e vista privilegiada — produto de alta escassez.",
+        imagem: "/images/tegra-terraco-vista.jpg"
+      },
+      {
+        titulo: "Cob. Duplex",
+        metragem: "247 a 301 m²",
+        descricao:
+          "Cobertura em dois pavimentos, o topo do empreendimento, com terraço, privacidade e altíssima exclusividade.",
+        imagem: "/images/tegra-fachada-verde.jpg"
+      }
+    ],
+    diferenciais: [
+      "A poucos passos da Praia da Barra da Tijuca, Posto 5",
+      "Ao lado da ABM, com clube e amplas áreas verdes",
+      "Infraestrutura completa de lazer e esportes",
+      "2 a 4 suítes, coberturas lineares e duplex",
+      "Assinatura Tegra, do grupo Brookfield"
+    ],
+    conceito: {
+      tagline: "Onde o tempo não tem pressa",
+      frase: "A poucos passos da praia da Barra, no Posto 5",
+      titulo: "Um breve lançamento Tegra ao lado da ABM",
+      texto:
+        "Na Barra da Tijuca, ao lado da ABM e a poucos passos da praia do Posto 5, a Tegra prepara um breve lançamento onde o tempo não tem pressa. São apartamentos de 2 quartos com suíte, 3 e 4 suítes, além de coberturas lineares e duplex, cercados por clube, áreas verdes e uma infraestrutura completa de lazer e esportes — o equilíbrio entre a natureza da orla e a conveniência de um dos endereços mais desejados do Rio.",
+      textoInvestidor:
+        "Para quem investe: um endereço de escassez ao lado da ABM, com a assinatura Tegra (grupo Brookfield) e tipologias de 2 a 4 suítes que combinam liquidez, demanda e valorização na Barra da Tijuca.",
+      imagem: "/images/tegra-fachada.jpg",
+      imagemAlt:
+        "Fachada do lançamento Tegra na Barra da Tijuca ao entardecer, cercada por áreas verdes",
+      pilares: [
+        {
+          titulo: "Praia e natureza",
+          texto:
+            "A poucos passos do Posto 5 e ao lado das áreas verdes da ABM, para viver a Barra com o mar por perto."
+        },
+        {
+          titulo: "Clube e bem-estar",
+          texto:
+            "Clube, áreas verdes e infraestrutura completa de lazer e esportes para toda a família."
+        },
+        {
+          titulo: "Assinatura Tegra",
+          texto:
+            "Alto padrão do grupo Brookfield, uma das maiores gestoras de ativos do mundo."
+        }
+      ]
+    },
+    condicoesResumo: [
+      { label: "Tipologias", value: "2 a 4 suítes + coberturas", icon: "chart" },
+      { label: "Metragens", value: "77 a 301 m²", subtitle: "2 quartos a coberturas duplex", icon: "layout" },
+      { label: "Lazer & esporte", value: "Clube ao lado da ABM", icon: "check" },
+      { label: "Situação", value: "Breve lançamento", icon: "clock" }
+    ],
+    incorporadores: [
+      {
+        nome: "Tegra",
+        descricao:
+          "Incorporadora de alto padrão com atuação em São Paulo e Rio de Janeiro, do grupo Brookfield, uma das maiores gestoras de ativos do mundo.",
+        selo: "Grupo Brookfield"
+      }
+    ],
+    descricaoCurta:
+      "Breve lançamento Tegra na Barra da Tijuca, ao lado da ABM e a poucos passos do Posto 5: apartamentos de 2 a 4 suítes, coberturas lineares e duplex, com clube, áreas verdes e lazer completo.",
+    heroResumo:
+      "Breve lançamento na Barra: 2 a 4 suítes, coberturas lineares e duplex, ao lado da ABM e a poucos passos da praia do Posto 5.",
+    descricaoLonga:
+      "A Tegra, do grupo Brookfield, prepara um breve lançamento na Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. O projeto reúne apartamentos de 2 quartos com suíte (77 a 81 m²), 3 e 4 suítes (120 a 147 m²), coberturas lineares (174 m²) e coberturas duplex (247 a 301 m²), com clube, áreas verdes e infraestrutura completa de lazer e esportes. Cadastre-se para receber, em primeira mão, tabela de valores, plantas, disponibilidade e condições de lançamento.",
+    publicoIdeal: [
+      "Famílias que querem morar na Barra da Tijuca, perto da praia e de áreas verdes",
+      "Compradores de apartamentos de 3 e 4 suítes de alto padrão",
+      "Investidores buscando lançamento de escassez ao lado da ABM",
+      "Clientes que querem entrar em primeira mão, ainda no pré-lançamento"
+    ],
+    argumentosComerciais: [
+      "Breve lançamento — cadastro para condições em primeira mão",
+      "Localização ao lado da ABM, a poucos passos do Posto 5",
+      "Tipologias de 2 a 4 suítes, coberturas lineares e duplex",
+      "Clube, áreas verdes e lazer completo dentro do condomínio",
+      "Assinatura Tegra, do grupo Brookfield",
+      "Maior poder de escolha de unidade na janela de lançamento"
+    ],
+    objecoes: [
+      "Por ser um breve lançamento, valores e disponibilidade ainda serão divulgados e estão sujeitos a confirmação.",
+      "Metragens, plantas e itens de lazer são preliminares e podem ser alterados a critério da incorporadora.",
+      "Imagens são referenciais do padrão Tegra na região e não representam o projeto final."
+    ],
+    imagens: [
+      {
+        src: "/images/tegra-terraco-vista.jpg",
+        alt: "Terraço com vista para a Barra da Tijuca em lançamento Tegra",
+        destaque: true
+      },
+      {
+        src: "/images/tegra-living-vista.jpg",
+        alt: "Living integrado com vista para áreas verdes em lançamento Tegra na Barra"
+      },
+      {
+        src: "/images/tegra-gourmet-jardim.jpg",
+        alt: "Espaço gourmet com jardim em lançamento Tegra na Barra da Tijuca"
+      },
+      {
+        src: "/images/tegra-fachada-verde.jpg",
+        alt: "Fachada com varandas verdes do lançamento Tegra na Barra da Tijuca"
+      },
+      {
+        src: "/images/tegra-fitness.jpg",
+        alt: "Academia com vista para área verde em lançamento Tegra na Barra"
+      },
+      {
+        src: "/images/tegra-praia-posto5.jpg",
+        alt: "Praia da Barra da Tijuca no Posto 5, ao entardecer"
+      }
+    ],
+    seo: {
+      title:
+        "Tegra Barra da Tijuca | Breve lançamento ao lado da ABM, Posto 5",
+      description:
+        "Breve lançamento Tegra na Barra da Tijuca, ao lado da ABM e a poucos passos do Posto 5: apartamentos de 2 a 4 suítes, coberturas lineares e duplex, com clube, áreas verdes e lazer completo. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
+      keywords: [
+        "Tegra Barra",
+        "Tegra Barra da Tijuca",
+        "Tegra lançamento",
+        "Tegra ABM",
+        "Tegra Posto 5",
+        "lançamento Tegra Barra da Tijuca",
+        "Tegra Incorporadora Barra",
+        "breve lançamento Barra da Tijuca",
+        "apartamento ao lado da ABM",
+        "apartamento Posto 5 Barra da Tijuca",
+        "apartamento 3 suítes Barra da Tijuca",
+        "apartamento 4 suítes Barra da Tijuca",
+        "cobertura Barra da Tijuca",
+        "cobertura duplex Barra da Tijuca",
+        "lançamento Barra da Tijuca",
+        "apartamento novo Barra da Tijuca",
+        "apartamento na planta Barra da Tijuca",
+        "apartamento perto da praia Barra da Tijuca",
+        "apartamento alto padrão Barra da Tijuca"
+      ],
+      canonicalPath: "/lancamentos/tegra-barra-da-tijuca",
+      ogTitle: "Tegra Barra da Tijuca: breve lançamento ao lado da ABM",
+      ogDescription:
+        "2 a 4 suítes, coberturas lineares e duplex, ao lado da ABM e a poucos passos do Posto 5. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
+      ogImage: "/images/tegra-terraco-vista.jpg"
+    },
+    faq: [
+      {
+        pergunta: "Onde fica o lançamento Tegra na Barra da Tijuca?",
+        resposta:
+          "Na Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5."
+      },
+      {
+        pergunta: "Quais tipologias estão previstas?",
+        resposta:
+          "O projeto comunica apartamentos de 2 quartos com suíte (77 a 81 m²), 3 e 4 suítes (120 a 147 m²), coberturas lineares (174 m²) e coberturas duplex (247 a 301 m²). Metragens e disponibilidade serão confirmadas no lançamento."
+      },
+      {
+        pergunta: "Já tem preço e tabela?",
+        resposta:
+          "Por ser um breve lançamento, os valores ainda serão divulgados. Cadastre-se para receber tabela, plantas e condições em primeira mão, assim que liberadas."
+      },
+      {
+        pergunta: "Quem é a incorporadora?",
+        resposta:
+          "A Tegra Incorporadora, do grupo Brookfield, uma das maiores gestoras de ativos do mundo, com atuação de alto padrão em São Paulo e Rio de Janeiro."
+      },
+      {
+        pergunta: "Como funciona o lazer?",
+        resposta:
+          "O empreendimento comunica clube, áreas verdes e infraestrutura completa de lazer e esportes. Os itens finais serão detalhados no material de lançamento."
+      },
+      {
+        pergunta: "Como recebo as informações em primeira mão?",
+        resposta:
+          "Preencha o formulário para entrar na lista de pré-lançamento e receber material, tabela e simulação pelo WhatsApp assim que forem liberados."
+      }
+    ],
+    whatsapp: {
+      numero: siteConfig.whatsapp,
+      mensagem:
+        "Olá, vi a página do breve lançamento Tegra na Barra da Tijuca (ao lado da ABM, Posto 5) e gostaria de receber tabela, plantas e condições em primeira mão."
+    },
+    tracking: {
+      formEventName: "form_submit_tegra_barra",
+      whatsappEventName: "whatsapp_click_tegra_barra",
+      pageViewEventName: "page_view_tegra_barra"
+    },
+    localizacao: {
+      titulo: "Ao lado da ABM, a poucos passos do Posto 5",
+      descricao:
+        "O breve lançamento Tegra fica em uma das porções mais verdes e desejadas da Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. Um endereço que reúne natureza, orla e a conveniência de shoppings, escolas e serviços da região.",
+      imagem: "/images/tegra-praia-posto5.jpg",
+      imagemAlt: "Praia da Barra da Tijuca no Posto 5, próximo ao lançamento Tegra",
+      pontos: [
+        "Ao lado da ABM, com amplas áreas verdes",
+        "A poucos passos da Praia da Barra, Posto 5",
+        "Entorno com shoppings, escolas e serviços da Barra"
+      ],
+      categorias: [
+        {
+          titulo: "Praias & Lazer",
+          icon: "waves",
+          itens: [
+            { nome: "Praia da Barra (Posto 5)", tempo: "poucos passos" },
+            { nome: "ABM - Bosque Marapendi", tempo: "ao lado" },
+            { nome: "Orla da Barra", tempo: "5 min" }
+          ]
+        },
+        {
+          titulo: "Mobilidade",
+          icon: "navigation",
+          itens: [
+            { nome: "Av. das Américas", tempo: "5 min" },
+            { nome: "Av. Lúcio Costa", tempo: "5 min" },
+            { nome: "Metrô Jardim Oceânico", tempo: "12 min" }
+          ]
+        },
+        {
+          titulo: "Compras",
+          icon: "shopping",
+          itens: [
+            { nome: "Downtown", tempo: "6 min" },
+            { nome: "Rio Design Barra", tempo: "8 min" },
+            { nome: "BarraShopping", tempo: "12 min" }
+          ]
+        },
+        {
+          titulo: "Educação",
+          icon: "school",
+          itens: [
+            { nome: "Escolas de referência da Barra", tempo: "5 a 10 min" },
+            { nome: "Universidades", tempo: "10 min" }
+          ]
+        }
+      ],
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Associacao+Bosque+Marapendi+Barra+da+Tijuca+Rio+de+Janeiro"
+    },
+    condicoesAviso:
+      "Breve lançamento. Imagens são referenciais do padrão Tegra na região; plantas, metragens, valores, itens de lazer e disponibilidade serão divulgados no lançamento e estão sujeitos a confirmação."
+  },
+  {
+    id: "astra-ilha-pura",
+    slug: "astra-ilha-pura-barra-da-tijuca",
+    nome: "Astra Smart Facilities",
+    incorporadora: "BTG Pactual",
+    marca: "Ilha Pura",
+    realizacaoLabel: "BTG Pactual · bairro planejado Ilha Pura",
+    heroImageMobile: "/images/astra-aerial-ilha-pura.jpg",
+    bairro: "Barra da Tijuca",
+    cidade: "Rio de Janeiro",
+    estado: "RJ",
+    enderecoResumo: "Av. Salvador Allende, 3200 — Ilha Pura, Barra Olímpica",
+    precoInicial: "2 quartos a partir de R$ 710 mil",
+    precoInicialNumerico: 710000,
+    sinalInicial: "a partir de R$ 70 mil",
+    tipologias: [
+      "Apartamentos de 2 quartos com suíte",
+      "Apartamentos 2 quartos Double Suites"
+    ],
+    fichaTecnica: [
+      {
+        label: "Endereço",
+        value: "Av. Salvador Allende, 3200 — Ilha Pura, Barra da Tijuca (Barra Olímpica)"
+      },
+      {
+        label: "Bairro planejado",
+        value: "Ilha Pura, antiga Vila dos Atletas dos Jogos Rio 2016"
+      },
+      {
+        label: "Torres",
+        value: "Edifícios Luna, Lyra, Selene e Gaia, com 17 pavimentos"
+      },
+      {
+        label: "Unidades",
+        value: "544 apartamentos na fase atual"
+      },
+      {
+        label: "Tipologias",
+        value: "2 quartos com suíte e 2 quartos Double Suites"
+      },
+      {
+        label: "Metragens",
+        value: "86,78 m² a 93,80 m² de área privativa"
+      },
+      {
+        label: "Vagas",
+        value: "1 vaga por unidade"
+      },
+      {
+        label: "Parque Ilha Pura",
+        value: "72.000 m² de parque com paisagismo assinado"
+      },
+      {
+        label: "Lazer",
+        value: "Parque aquático, academia by Cia Athletica, spa, coworking e pet place"
+      },
+      {
+        label: "Incorporação",
+        value: "BTG Pactual (complexo Ilha Pura, originalmente Carvalho Hosken)"
+      },
+      {
+        label: "Novidade",
+        value: "Nova torre em lançamento — convenção em 22 de julho"
+      }
+    ],
+    plantas: [
+      {
+        titulo: "2 quartos",
+        metragem: "86,78 m²",
+        descricao:
+          "Apartamentos 105 a 1705 e 108 a 1708, com varanda gourmet e cozinha americana integrada.",
+        imagem: "/images/astra-planta-2q-86m.jpg",
+        decisao: "Menor ticket",
+        perfil:
+          "O menor ticket do Astra, com a melhor relação entre entrada e metragem — forte apelo de liquidez e locação no Ilha Pura.",
+        cuidado: "Comparar coluna, andar, vista e fluxo final de pagamento."
+      },
+      {
+        titulo: "2 quartos",
+        metragem: "87,09 m² e 93,80 m²",
+        descricao:
+          "Apartamentos 106 a 1606 e 107 a 1607 com 87,09 m². As unidades 1706 e 1707, no 17º pavimento, têm 93,80 m² — a maior metragem do Astra.",
+        imagem: "/images/astra-planta-2q-87m.jpg",
+        decisao: "Equilíbrio",
+        perfil:
+          "Equilíbrio entre metragem, posição no bloco e ticket — a planta de maior procura para morar no bairro planejado.",
+        cuidado:
+          "Validar orientação solar, vista para o parque e valor por m². As unidades de 93,80 m² ficam no 17º pavimento e são as maiores do empreendimento."
+      },
+      {
+        titulo: "2 quartos",
+        metragem: "90,32 m²",
+        descricao:
+          "Apartamentos 101 a 1701 e 104 a 1704, com suíte e ampla varanda gourmet.",
+        imagem: "/images/astra-planta-2q-90m.jpg",
+        decisao: "Mais espaço",
+        perfil:
+          "Mais área social e varanda para quem quer permanecer, receber e ainda manter o ticket de um 2 quartos.",
+        cuidado: "Observar posição, vista e ticket total frente às demais colunas."
+      },
+      {
+        titulo: "Double Suites",
+        metragem: "86,89 m² e 93,61 m²",
+        descricao:
+          "Apartamentos 102 a 1602, 103 a 1603 e as unidades 1702 e 1703, no último pavimento, com as duas suítes.",
+        imagem: "/images/astra-planta-double-suite.jpg",
+        decisao: "Double Suites",
+        perfil:
+          "Os dois quartos em suíte: produto de maior escassez do Astra, ideal para casal com home office, sócios ou locação por quarto.",
+        cuidado:
+          "Confirmar disponibilidade: é a tipologia que costuma esgotar primeiro. As unidades de 93,61 m² ficam no 17º pavimento."
+      }
+    ],
+    diferenciais: [
+      "O 2 quartos mais desejado da Barra, de volta com uma nova torre",
+      "Bairro planejado Ilha Pura, antiga Vila dos Atletas Rio 2016",
+      "Parque Ilha Pura com 72.000 m² e paisagismo assinado",
+      "Parque aquático com piscina aquecida e raia semiolímpica",
+      "Academia by Cia Athletica, spa, coworking e pet place",
+      "Opções de 2 quartos com suíte e Double Suites, de 86 a 93 m²"
+    ],
+    conceito: {
+      tagline: "A vida acontece ao seu redor",
+      frase: "O 2 quartos mais desejado da Barra voltou",
+      titulo: "Nova torre no bairro planejado Ilha Pura",
+      texto:
+        "O Astra Smart Facilities está de volta com uma nova torre, atendendo a um dos maiores pedidos do mercado. Com a escassez de apartamentos de 2 quartos no Ilha Pura, essa é a oportunidade que muitos clientes esperavam. Aqui, você mora dentro de um bairro planejado — a antiga Vila dos Atletas dos Jogos Rio 2016 — cercado por 72.000 m² de parque, com quadras, ciclovia, lago e segurança 24h, a poucos minutos da Av. das Américas.",
+      textoInvestidor:
+        "Para quem investe: 2 quartos é a tipologia de maior liquidez da Barra e a de maior escassez dentro do Ilha Pura. Ticket de entrada acessível, demanda consolidada por locação e a assinatura BTG Pactual à frente do complexo.",
+      imagem: "/images/astra-fachada.jpg",
+      imagemAlt:
+        "Fachada das torres do Astra Smart Facilities no Ilha Pura, com as montanhas da Barra da Tijuca ao fundo",
+      pilares: [
+        {
+          titulo: "Bairro planejado",
+          texto:
+            "72.000 m² de parque, quadras, ciclovia e lago, com segurança 24h — o legado da Vila dos Atletas Rio 2016."
+        },
+        {
+          titulo: "Smart Facilities",
+          texto:
+            "Parque aquático, academia by Cia Athletica, spa, coworking e concierge com serviços pay-per-use."
+        },
+        {
+          titulo: "Escassez de 2 quartos",
+          texto:
+            "A tipologia mais procurada e mais rara do Ilha Pura, agora com uma nova torre."
+        }
+      ]
+    },
+    condicoesResumo: [
+      { label: "Unidades", value: "544", subtitle: "fase atual, 4 torres", icon: "layout" },
+      { label: "Tipologias", value: "2 quartos e Double Suites", icon: "chart" },
+      { label: "Metragens", value: "86 a 93 m²", icon: "check" },
+      { label: "Novidade", value: "Nova torre", subtitle: "convenção em 22/julho", icon: "clock" }
+    ],
+    lazerHeader: {
+      titulo: "Smart Facilities: a vida acontece ao seu redor",
+      texto:
+        "Parque aquático, academia by Cia Athletica, spa, coworking e pet place dentro do condomínio — tudo cercado pelos 72.000 m² do Parque Ilha Pura, com quadras, ciclovia e lago.",
+      metricas: [
+        { valor: "72.000 m²", label: "de parque" },
+        { valor: "24h", label: "de segurança" },
+        { valor: "4", label: "torres" }
+      ]
+    },
+    lazerCategorias: [
+      {
+        titulo: "Parque Aquático",
+        resumo: "O coração do lazer do Astra, do nado sério ao banho de sol.",
+        itens: [
+          "Piscina aquecida com borda infinita",
+          "Raia semiolímpica",
+          "Solário e deck",
+          "Piscina infantil"
+        ],
+        imagem: "/images/astra-piscina.jpg",
+        alt: "Parque aquático com piscina e palmeiras do Astra no Ilha Pura"
+      },
+      {
+        titulo: "Social & Gourmet",
+        resumo: "Espaços para receber sem sair de casa.",
+        itens: [
+          "Espaço gourmet",
+          "Wine bar",
+          "Salão de festas",
+          "Lounge"
+        ],
+        imagem: "/images/astra-gourmet.jpg",
+        alt: "Espaço gourmet e wine bar do Astra no Ilha Pura"
+      },
+      {
+        titulo: "Trabalho & Criação",
+        resumo: "Home office com estrutura profissional no próprio condomínio.",
+        itens: ["Coworking", "Multi-office", "Salas de reunião"],
+        imagem: "/images/astra-coworking.jpg",
+        alt: "Coworking do Astra no Ilha Pura"
+      },
+      {
+        titulo: "Kids",
+        resumo: "Para a garotada brincar com segurança.",
+        itens: ["Brinquedoteca", "Espaço kids", "Playground no parque"],
+        imagem: "/images/astra-brinquedoteca.jpg",
+        alt: "Brinquedoteca do Astra no Ilha Pura"
+      }
+    ],
+    servicosHeader: {
+      titulo: "Serviços que resolvem o seu dia a dia",
+      texto:
+        "Academia operada pela Cia Athletica, spa com hidroterapia e um concierge pay-per-use: você contrata e paga apenas os serviços que usar."
+    },
+    servicos: [
+      {
+        titulo: "Academia by Cia Athletica",
+        descricao:
+          "Academia operada pela Cia Athletica dentro do condomínio, com equipamentos de alto padrão.",
+        icon: "concierge"
+      },
+      {
+        titulo: "Spa com hidroterapia",
+        descricao:
+          "Spa com hidroterapia, sauna seca e sauna úmida para o bem-estar no dia a dia.",
+        icon: "waves"
+      },
+      {
+        titulo: "Concierge pay-per-use",
+        descricao:
+          "Concierge com serviços sob demanda, você contrata e paga apenas o que usar.",
+        icon: "package"
+      },
+      {
+        titulo: "Pet Place",
+        descricao:
+          "Espaço dedicado aos pets dentro do condomínio, sem precisar sair para passear.",
+        icon: "store"
+      }
+    ],
+    incorporadores: [
+      {
+        nome: "BTG Pactual",
+        descricao:
+          "O maior banco de investimentos da América Latina, responsável pela incorporação do complexo Ilha Pura e por conduzir as novas fases do bairro planejado.",
+        selo: "Incorporação"
+      },
+      {
+        nome: "Ilha Pura",
+        descricao:
+          "Bairro planejado na Barra Olímpica, legado da Vila dos Atletas dos Jogos Rio 2016, com 72.000 m² de parque, segurança 24h e infraestrutura completa.",
+        selo: "Legado Rio 2016"
+      },
+      {
+        nome: "Cia Athletica",
+        descricao:
+          "Uma das maiores redes de academias de alto padrão do país, responsável pela operação do fitness do Astra.",
+        selo: "Fitness"
+      }
+    ],
+    descricaoCurta:
+      "Nova torre do Astra Smart Facilities no bairro planejado Ilha Pura, Barra Olímpica: 2 quartos com suíte e Double Suites de 86 a 93 m², com parque de 72.000 m², parque aquático e academia by Cia Athletica.",
+    heroResumo:
+      "O 2 quartos mais desejado da Barra voltou: nova torre no Ilha Pura, com suíte ou Double Suites de 86 a 93 m², dentro de um bairro planejado com 72.000 m² de parque.",
+    descricaoLonga:
+      "O Astra Smart Facilities fica no Ilha Pura, bairro planejado na Barra Olímpica que é o legado da Vila dos Atletas dos Jogos Rio 2016, na Av. Salvador Allende. São apartamentos de 2 quartos com suíte e Double Suites, de 86,78 m² a 93,80 m² de área privativa, distribuídos nos edifícios Luna, Lyra, Selene e Gaia, com varanda gourmet e cozinha americana integrada. O condomínio reúne parque aquático com piscina aquecida e raia semiolímpica, academia by Cia Athletica, spa com hidroterapia, coworking, pet place e concierge pay-per-use, tudo cercado pelos 72.000 m² do Parque Ilha Pura, com quadras, ciclovia e lago. Diante da escassez de 2 quartos no bairro, o Astra volta com uma nova torre, com convenção marcada para 22 de julho. Fale com a especialista para receber tabela, plantas e disponibilidade em primeira mão.",
+    publicoIdeal: [
+      "Compradores de primeiro imóvel na Barra da Tijuca",
+      "Casais e famílias pequenas buscando 2 quartos com suíte",
+      "Quem precisa de home office e valoriza Double Suites",
+      "Investidores buscando a tipologia de maior liquidez da Barra",
+      "Famílias que querem morar em bairro planejado com parque e segurança 24h"
+    ],
+    argumentosComerciais: [
+      "Nova torre: convenção em 22 de julho, com escolha de unidade em primeira mão",
+      "2 quartos é a tipologia de maior escassez dentro do Ilha Pura",
+      "Referência de 2 quartos a partir de R$ 710 mil, sujeito a confirmação",
+      "Sinal comunicado a partir de R$ 70 mil",
+      "Opção Double Suites: os dois quartos em suíte, produto raro na faixa",
+      "Bairro planejado com 72.000 m² de parque e segurança 24h",
+      "Academia by Cia Athletica, spa e coworking dentro do condomínio",
+      "6 minutos da Av. das Américas e acesso a Transolímpica e Transoeste"
+    ],
+    objecoes: [
+      "Valores, disponibilidade e condições da nova torre são divulgados no lançamento e estão sujeitos a confirmação.",
+      "A referência de preço e sinal vem das fases já comercializadas e pode mudar na tabela da nova torre.",
+      "Imagens e plantas são do material do empreendimento e podem ser alteradas a critério da incorporadora."
+    ],
+    imagens: [
+      {
+        src: "/images/astra-aerial-ilha-pura.jpg",
+        alt: "Vista aérea do Ilha Pura com as torres, quadras e o parque, na Barra da Tijuca",
+        destaque: true
+      },
+      {
+        src: "/images/astra-piscina.jpg",
+        alt: "Parque aquático com piscina e palmeiras do Astra no Ilha Pura"
+      },
+      {
+        src: "/images/astra-varanda-gourmet.jpg",
+        alt: "Varanda gourmet com vista para o parque do Astra no Ilha Pura"
+      },
+      {
+        src: "/images/astra-living-cozinha.jpg",
+        alt: "Living com cozinha americana integrada do Astra no Ilha Pura"
+      },
+      {
+        src: "/images/astra-suite.jpg",
+        alt: "Suíte do Astra Smart Facilities no Ilha Pura"
+      },
+      {
+        src: "/images/astra-gourmet.jpg",
+        alt: "Espaço gourmet e wine bar do Astra no Ilha Pura"
+      },
+      {
+        src: "/images/astra-coworking.jpg",
+        alt: "Coworking do Astra no Ilha Pura"
+      },
+      {
+        src: "/images/astra-lobby.jpg",
+        alt: "Lobby do Astra Smart Facilities no Ilha Pura"
+      }
+    ],
+    seo: {
+      title:
+        "Astra Ilha Pura | Nova torre com 2 quartos e Double Suites na Barra",
+      description:
+        "Astra Smart Facilities no bairro planejado Ilha Pura, Barra Olímpica: nova torre com 2 quartos com suíte e Double Suites de 86 a 93 m², a partir de R$ 710 mil. Parque de 72.000 m², parque aquático e academia by Cia Athletica. Receba tabela, plantas e disponibilidade.",
+      keywords: [
+        "Astra Ilha Pura",
+        "Astra Smart Facilities",
+        "Astra Barra da Tijuca",
+        "Astra Ilha Pura preco",
+        "Astra Ilha Pura tabela",
+        "Astra Ilha Pura plantas",
+        "Astra Ilha Pura nova torre",
+        "Astra Double Suites",
+        "Ilha Pura",
+        "Ilha Pura Barra da Tijuca",
+        "Ilha Pura apartamentos",
+        "Ilha Pura 2 quartos",
+        "apartamento 2 quartos Ilha Pura",
+        "apartamento 2 quartos Barra Olimpica",
+        "apartamento 2 quartos Barra da Tijuca",
+        "double suite Barra da Tijuca",
+        "apartamento Barra Olimpica",
+        "lancamento Barra Olimpica",
+        "lancamento Barra da Tijuca",
+        "apartamento Av. Salvador Allende",
+        "Vila dos Atletas apartamento",
+        "apartamento bairro planejado Rio de Janeiro",
+        "apartamento Barra a partir de 700 mil"
+      ],
+      canonicalPath: "/lancamentos/astra-ilha-pura-barra-da-tijuca",
+      ogTitle: "Astra Ilha Pura: nova torre com 2 quartos e Double Suites",
+      ogDescription:
+        "O 2 quartos mais desejado da Barra voltou. Nova torre no Ilha Pura, de 86 a 93 m², a partir de R$ 710 mil. Receba tabela, plantas e disponibilidade.",
+      ogImage: "/images/astra-aerial-ilha-pura.jpg"
+    },
+    faq: [
+      {
+        pergunta: "Onde fica o Astra Ilha Pura?",
+        resposta:
+          "Na Av. Salvador Allende, 3200, dentro do bairro planejado Ilha Pura, na Barra Olímpica (Barra da Tijuca). O Ilha Pura é o legado da Vila dos Atletas dos Jogos Rio 2016."
+      },
+      {
+        pergunta: "O que é a nova torre do Astra?",
+        resposta:
+          "Diante da escassez de apartamentos de 2 quartos no Ilha Pura, o Astra foi relançado com uma nova torre. A convenção está marcada para 22 de julho, quando a tabela e a disponibilidade são apresentadas. Cadastre-se para receber em primeira mão."
+      },
+      {
+        pergunta: "Quais tipologias e metragens estão disponíveis?",
+        resposta:
+          "Apartamentos de 2 quartos com suíte e a opção Double Suites, com os dois quartos em suíte. As áreas privativas vão de 86,78 m² a 93,80 m², nos edifícios Luna, Lyra, Selene e Gaia."
+      },
+      {
+        pergunta: "Qual a diferença do Double Suites?",
+        resposta:
+          "No Double Suites os dois quartos são suítes, cada um com banheiro próprio. É a tipologia de maior escassez, procurada por casais com home office, por quem recebe hóspedes e para locação por quarto."
+      },
+      {
+        pergunta: "Qual o preço e o sinal?",
+        resposta:
+          "A referência comunicada é de 2 quartos a partir de R$ 710 mil, com sinal a partir de R$ 70 mil. Esses valores vêm das fases já comercializadas: a tabela da nova torre é divulgada no lançamento e precisa ser confirmada."
+      },
+      {
+        pergunta: "Como é o lazer do condomínio?",
+        resposta:
+          "Parque aquático com piscina aquecida e raia semiolímpica, academia by Cia Athletica, spa com hidroterapia, sauna seca e úmida, espaço gourmet, wine bar, salão de festas, coworking, multi-office e pet place. Além disso, o Parque Ilha Pura tem 72.000 m² com quadras, ciclovia e lago."
+      },
+      {
+        pergunta: "Quem é a incorporadora?",
+        resposta:
+          "O complexo Ilha Pura é incorporado pelo BTG Pactual, que adquiriu o empreendimento e conduz as novas fases do bairro planejado, originalmente desenvolvido pela Carvalho Hosken."
+      },
+      {
+        pergunta: "Como recebo tabela, plantas e disponibilidade?",
+        resposta:
+          "Preencha o formulário para receber o material do Astra e uma simulação de fluxo pelo WhatsApp, com as condições da nova torre assim que liberadas."
+      }
+    ],
+    whatsapp: {
+      numero: siteConfig.whatsapp,
+      mensagem:
+        "Olá, vi a página do Astra no Ilha Pura e gostaria de receber tabela, plantas e disponibilidade da nova torre (2 quartos e Double Suites)."
+    },
+    tracking: {
+      formEventName: "form_submit_astra_ilha_pura",
+      whatsappEventName: "whatsapp_click_astra_ilha_pura",
+      pageViewEventName: "page_view_astra_ilha_pura"
+    },
+    localizacao: {
+      titulo: "Um bairro planejado dentro da Barra Olímpica",
+      descricao:
+        "O Astra fica no Ilha Pura, na Av. Salvador Allende, um bairro planejado com 72.000 m² de parque, quadras, ciclovia, lago e segurança 24h — o legado da Vila dos Atletas dos Jogos Rio 2016. Dali são cerca de 6 minutos até a Av. das Américas e 10 até o Recreio, com acesso direto a Transolímpica, Transoeste e Transcarioca e proximidade do Parque Olímpico.",
+      imagem: "/images/astra-aerial-entardecer.jpg",
+      imagemAlt:
+        "Vista aérea do Ilha Pura ao entardecer, com as torres e o parque na Barra da Tijuca",
+      pontos: [
+        "Bairro planejado com 72.000 m² de parque e segurança 24h",
+        "Acesso direto a Transolímpica, Transoeste e Transcarioca",
+        "Vizinho ao Parque Olímpico e à Lagoa de Jacarepaguá"
+      ],
+      categorias: [
+        {
+          titulo: "Mobilidade",
+          icon: "navigation",
+          itens: [
+            { nome: "Av. Salvador Allende", tempo: "1 min" },
+            { nome: "Transolímpica / Transoeste", tempo: "3 min" },
+            { nome: "Av. das Américas", tempo: "6 min" },
+            { nome: "Recreio dos Bandeirantes", tempo: "10 min" }
+          ]
+        },
+        {
+          titulo: "Parques & Lazer",
+          icon: "waves",
+          itens: [
+            { nome: "Parque Ilha Pura", tempo: "no bairro" },
+            { nome: "Parque Olímpico", tempo: "5 min" },
+            { nome: "Lagoa de Jacarepaguá", tempo: "5 min" },
+            { nome: "Praia da Barra", tempo: "15 min" }
+          ]
+        },
+        {
+          titulo: "Compras",
+          icon: "shopping",
+          itens: [
+            { nome: "Parque Shopping Barra", tempo: "8 min" },
+            { nome: "Américas Shopping", tempo: "10 min" },
+            { nome: "BarraShopping", tempo: "15 min" }
+          ]
+        },
+        {
+          titulo: "Educação",
+          icon: "school",
+          itens: [
+            { nome: "Escolas da Barra Olímpica", tempo: "5 a 10 min" },
+            { nome: "Colégios de referência da Barra", tempo: "12 min" }
+          ]
+        }
+      ],
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Ilha+Pura+Avenida+Salvador+Allende+3200+Barra+da+Tijuca+Rio+de+Janeiro"
+    },
+    condicoesAviso:
+      "Nova torre em lançamento, com convenção em 22 de julho. Imagens e plantas são do material do empreendimento; valores, sinal, metragens e disponibilidade estão sujeitos a confirmação na tabela vigente."
   }
 ];
 
 export function getImovelBySlug(slug: string) {
   return imoveis.find((imovel) => imovel.slug === slug);
+}
+
+/** Categorias canônicas de tipologia usadas nos filtros do portal. */
+export const filtroTipologias = [
+  "2 quartos",
+  "3 quartos",
+  "4 quartos",
+  "Garden",
+  "Cobertura"
+] as const;
+
+export type FiltroTipologia = (typeof filtroTipologias)[number];
+
+const tipologiaMatchers: { tag: FiltroTipologia; regex: RegExp }[] = [
+  { tag: "2 quartos", regex: /\b2\s*(quartos?|su[ií]tes?|dorm)/i },
+  { tag: "3 quartos", regex: /\b3\s*(quartos?|su[ií]tes?|dorm)/i },
+  { tag: "4 quartos", regex: /\b4\s*(quartos?|su[ií]tes?|dorm)/i },
+  { tag: "Garden", regex: /garden/i },
+  { tag: "Cobertura", regex: /cobertura/i }
+];
+
+/** Deriva as tags de tipologia de um imóvel a partir da lista `tipologias`. */
+export function getTipologiaTags(imovel: Imovel): FiltroTipologia[] {
+  const texto = imovel.tipologias.join(" | ");
+  return tipologiaMatchers
+    .filter(({ regex }) => regex.test(texto))
+    .map(({ tag }) => tag);
+}
+
+/** Rótulo compacto de quartos (ex.: "2 a 4 quartos") para o card de catálogo. */
+export function getQuartosLabel(imovel: Imovel): string | null {
+  const numeros = getTipologiaTags(imovel)
+    .map((tag) => parseInt(tag, 10))
+    .filter((n) => !Number.isNaN(n));
+
+  if (!numeros.length) {
+    return null;
+  }
+
+  const min = Math.min(...numeros);
+  const max = Math.max(...numeros);
+
+  return min === max ? `${min} quartos` : `${min} a ${max} quartos`;
+}
+
+/** Faixa de metragem (ex.: "77 a 301 m²") derivada das plantas cadastradas. */
+export function getMetragemRange(imovel: Imovel): string | null {
+  const numeros = (imovel.plantas ?? [])
+    .flatMap((planta) => {
+      // Remove anotações entre parênteses (ex.: "(1 suíte)") para não confundir com metragem.
+      const semAnotacoes = planta.metragem.replace(/\([^)]*\)/g, "");
+      return semAnotacoes.match(/\d+(?:[.,]\d+)?/g) ?? [];
+    })
+    .map((n) => parseFloat(n.replace(",", ".")))
+    .filter((n) => !Number.isNaN(n));
+
+  if (!numeros.length) {
+    return null;
+  }
+
+  const min = Math.min(...numeros);
+  const max = Math.max(...numeros);
+  const fmt = (n: number) =>
+    Number.isInteger(n) ? `${n}` : n.toFixed(2).replace(".", ",");
+
+  return min === max ? `${fmt(min)} m²` : `${fmt(min)} a ${fmt(max)} m²`;
 }
 
 export function getImovelDestaque(imovel: Imovel) {

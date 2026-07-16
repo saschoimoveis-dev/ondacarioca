@@ -62,8 +62,8 @@ export function BlocoConceito({ imovel }: BlocoConceitoProps) {
           {/* Imagem */}
           <div className="relative h-[340px] w-full overflow-hidden rounded-2xl border border-[var(--border-warm)] shadow-[0_24px_48px_rgba(15,47,39,0.12)] sm:h-[460px] animate-fade-in-up delay-100">
             <Image
-              src="/images/we-barra-piscina-resort.jpg"
-              alt="Fachada do WE Barra by Living ao entardecer"
+              src={conceito.imagem ?? "/images/we-barra-piscina-resort.jpg"}
+              alt={conceito.imagemAlt ?? `Imagem conceitual do ${imovel.nome}`}
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"

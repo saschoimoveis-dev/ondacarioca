@@ -42,7 +42,7 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
               Localização
             </p>
             <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
-              Na Av. das Américas, com a Barra inteira ao alcance
+              {imovel.localizacao.titulo}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-slate-600">
               {imovel.localizacao.descricao}
@@ -50,8 +50,11 @@ export function BlocoLocalizacao({ imovel }: BlocoLocalizacaoProps) {
 
             <div className="relative mt-6 h-[200px] w-full overflow-hidden rounded-2xl border border-[var(--border-warm)] shadow-md sm:h-[260px]">
               <Image
-                src="/images/we-barra-aerial-barra.jpg"
-                alt="Vista aérea da Barra da Tijuca, entorno do WE Barra by Living"
+                src={imovel.localizacao.imagem ?? "/images/we-barra-aerial-barra.jpg"}
+                alt={
+                  imovel.localizacao.imagemAlt ??
+                  `Vista da ${imovel.bairro}, entorno do ${imovel.nome}`
+                }
                 fill
                 sizes="(min-width: 1024px) 40vw, 100vw"
                 className="object-cover"

@@ -22,6 +22,12 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
     return null;
   }
 
+  const header = imovel.servicosHeader ?? {
+    titulo: "Conveniências que só o WE oferece",
+    texto:
+      "Do shuttle até o metrô à balsa que cruza a lagoa rumo à praia, a rotina aqui foi pensada para resolver o dia a dia sem você sair de casa."
+  };
+
   return (
     <section className="bg-[var(--brand)] py-12 sm:py-24 overflow-hidden" id="servicos">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -31,12 +37,13 @@ export function BlocoServicos({ imovel }: BlocoServicosProps) {
             Serviços exclusivos
           </p>
           <h2 className="mt-4 text-2xl font-bold text-white sm:text-3xl lg:text-4xl leading-tight">
-            Conveniências que só o WE oferece
+            {header.titulo}
           </h2>
-          <p className="mt-5 hidden sm:block text-lg leading-relaxed text-white/80">
-            Do shuttle até o metrô à balsa que cruza a lagoa rumo à praia, a rotina aqui
-            foi pensada para resolver o dia a dia sem você sair de casa.
-          </p>
+          {header.texto ? (
+            <p className="mt-5 hidden sm:block text-lg leading-relaxed text-white/80">
+              {header.texto}
+            </p>
+          ) : null}
         </div>
 
         <div className="mt-8 sm:mt-10 animate-fade-in-up delay-100">

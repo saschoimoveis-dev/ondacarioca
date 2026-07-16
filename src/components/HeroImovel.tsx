@@ -7,6 +7,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import type { Imovel } from "@/data/imoveis";
+import { AlternativeLeadModal } from "@/components/AlternativeLeadModal";
 import { CtaLink } from "@/components/CtaLink";
 
 type HeroImovelProps = {
@@ -21,8 +22,11 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
     mapQuery
   )}&output=embed`;
 
+  const marca = imovel.marca ?? imovel.incorporadora;
+  const heroImageMobile =
+    imovel.heroImageMobile ?? "/images/we-barra-piscina-resort.jpg";
   const badgeLabel = imovel.conceito?.tagline
-    ? `Cyrela · ${imovel.conceito.tagline}`
+    ? `${marca ? `${marca} · ` : ""}${imovel.conceito.tagline}`
     : imovel.incorporadora
       ? `Lançamento ${imovel.incorporadora}`
       : "Lançamento Exclusivo";
@@ -61,8 +65,8 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
       <div className="sm:hidden">
         <div className="relative h-[72vh] min-h-[520px] w-full">
           <Image
-            src="/images/we-barra-piscina-resort.jpg"
-            alt={`Lazer de resort do ${imovel.nome} ao entardecer`}
+            src={heroImageMobile}
+            alt={`${imovel.nome} — ${imovel.bairro}`}
             fill
             priority
             sizes="100vw"
@@ -135,9 +139,18 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               />
             </div>
 
-            <p className="mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
-              Realização Cyrela · Living · Leblon Realty
-            </p>
+            <div className="mt-3 border-t border-slate-100 pt-3">
+              <AlternativeLeadModal
+                imovel={imovel}
+                source="hero_alternative_mobile"
+              />
+            </div>
+
+            {imovel.realizacaoLabel ? (
+              <p className="mt-3 text-center text-[10px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+                Realização {imovel.realizacaoLabel}
+              </p>
+            ) : null}
           </div>
         </div>
       </div>
@@ -220,9 +233,17 @@ export function HeroImovel({ imovel }: HeroImovelProps) {
               className="btn-whatsapp-specialist group inline-flex items-center justify-center gap-2 rounded-full px-7 py-4 text-[15px] font-bold transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
             />
           </div>
-          <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
-            Realização Cyrela · Living · Leblon Realty
-          </p>
+          <div className="mt-4 max-w-xl">
+            <AlternativeLeadModal
+              imovel={imovel}
+              source="hero_alternative_desktop"
+            />
+          </div>
+          {imovel.realizacaoLabel ? (
+            <p className="mt-4 text-[11px] font-semibold uppercase tracking-[0.15em] text-slate-400">
+              Realização {imovel.realizacaoLabel}
+            </p>
+          ) : null}
         </div>
 
         {/* Tablet+: mapa completo com iframe */}

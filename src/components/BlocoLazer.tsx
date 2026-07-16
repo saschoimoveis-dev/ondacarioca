@@ -17,6 +17,18 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
     return null;
   }
 
+  const header = imovel.lazerHeader ?? {
+    titulo: "5.254 m² de lazer inspirado nos hotéis do mundo",
+    texto:
+      "Mais de 35 itens de lazer, wellness e serviços distribuídos por todo o empreendimento — do nado sério na raia de 25m ao pôr do sol no rooftop.",
+    metricas: [
+      { valor: "5.254 m²", label: "de lazer" },
+      { valor: "35+", label: "itens de lazer" },
+      { valor: "11º", label: "andar rooftop" }
+    ]
+  };
+  const metricas = header.metricas ?? [];
+
   return (
     <section
       className="border-y border-[var(--border-warm)] bg-[var(--surface-warm)] py-12 sm:py-24 overflow-hidden"
@@ -30,32 +42,31 @@ export function BlocoLazer({ imovel }: BlocoLazerProps) {
             Lazer de resort
           </p>
           <h2 className="mt-4 text-2xl font-bold text-slate-900 sm:text-3xl lg:text-4xl leading-tight">
-            5.254 m² de lazer inspirado nos hotéis do mundo
+            {header.titulo}
           </h2>
-          <p className="mt-5 hidden sm:block text-lg leading-relaxed text-slate-600">
-            Mais de 35 itens de lazer, wellness e serviços distribuídos por todo o
-            empreendimento — do nado sério na raia de 25m ao pôr do sol no rooftop.
-          </p>
+          {header.texto ? (
+            <p className="mt-5 hidden sm:block text-lg leading-relaxed text-slate-600">
+              {header.texto}
+            </p>
+          ) : null}
         </div>
 
         {/* Métricas */}
-        <div className="mt-8 grid grid-cols-3 gap-3 sm:max-w-2xl sm:gap-4">
-          {[
-            { valor: "5.254 m²", label: "de lazer" },
-            { valor: "35+", label: "itens de lazer" },
-            { valor: "11º", label: "andar rooftop" }
-          ].map((m) => (
-            <div
-              key={m.label}
-              className="rounded-xl border border-[var(--border-warm)] bg-white p-3 text-center sm:p-4"
-            >
-              <p className="text-lg font-black text-[var(--brand)] sm:text-2xl">{m.valor}</p>
-              <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 sm:text-xs">
-                {m.label}
-              </p>
-            </div>
-          ))}
-        </div>
+        {metricas.length > 0 && (
+          <div className="mt-8 grid grid-cols-3 gap-3 sm:max-w-2xl sm:gap-4">
+            {metricas.map((m) => (
+              <div
+                key={m.label}
+                className="rounded-xl border border-[var(--border-warm)] bg-white p-3 text-center sm:p-4"
+              >
+                <p className="text-lg font-black text-[var(--brand)] sm:text-2xl">{m.valor}</p>
+                <p className="text-[11px] font-semibold uppercase tracking-wider text-slate-500 sm:text-xs">
+                  {m.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        )}
 
         {/* Grid de categorias — rail no mobile, grid no desktop */}
         <div className="mt-8 sm:mt-10 animate-fade-in-up delay-100">

@@ -19,6 +19,7 @@ export function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const isImovelDetail = /^\/lancamentos\/[^/]+$/.test(pathname || "");
+  const isPortalHome = pathname === "/lancamentos";
   const contactHref = isImovelDetail
     ? "#lead-form"
     : `/lancamentos/${imoveis[0].slug}#lead-form`;
@@ -58,17 +59,19 @@ export function Header() {
           </span>
         </Link>
 
-        <nav className="hidden items-center gap-7 text-[13px] font-bold uppercase tracking-wider md:flex">
-          {navItems.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="text-slate-600 transition-colors hover:text-[var(--accent)]"
-            >
-              {label}
-            </a>
-          ))}
-        </nav>
+        {!isPortalHome && (
+          <nav className="hidden items-center gap-7 text-[13px] font-bold uppercase tracking-wider md:flex">
+            {navItems.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="text-slate-600 transition-colors hover:text-[var(--accent)]"
+              >
+                {label}
+              </a>
+            ))}
+          </nav>
+        )}
 
         <a
           href={contactHref}
@@ -83,19 +86,21 @@ export function Header() {
       </div>
 
       {/* Mobile: navegação rápida por seções */}
-      <nav className="md:hidden overflow-x-auto border-t border-slate-100/80 hide-scrollbar" aria-label="Seções da página">
-        <div className="flex gap-1 px-3 py-1">
-          {navItems.map(({ href, label }) => (
-            <a
-              key={href}
-              href={href}
-              className="shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-500 transition hover:bg-[var(--surface-green)] hover:text-[var(--brand)] min-h-[36px] flex items-center whitespace-nowrap"
-            >
-              {label}
-            </a>
-          ))}
-        </div>
-      </nav>
+      {!isPortalHome && (
+        <nav className="md:hidden overflow-x-auto border-t border-slate-100/80 hide-scrollbar" aria-label="Seções da página">
+          <div className="flex gap-1 px-3 py-1">
+            {navItems.map(({ href, label }) => (
+              <a
+                key={href}
+                href={href}
+                className="shrink-0 rounded-full px-4 py-1.5 text-xs font-semibold text-slate-500 transition hover:bg-[var(--surface-green)] hover:text-[var(--brand)] min-h-[36px] flex items-center whitespace-nowrap"
+              >
+                {label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
