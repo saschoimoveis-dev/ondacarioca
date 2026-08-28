@@ -8,8 +8,8 @@ export const siteConfig = {
     process.env.NEXT_PUBLIC_SITE_URL?.replace(/\/$/, "") ||
     "https://ondacariocaimoveis.com.br",
   whatsapp:
-    process.env.NEXT_PUBLIC_DEFAULT_WHATSAPP_NUMBER || "5521981614006",
-  phoneDisplay: "21 98161-4006",
+    process.env.NEXT_PUBLIC_DEFAULT_WHATSAPP_NUMBER || "5521987715816",
+  phoneDisplay: "21 98771-5816",
   email: "contato@ondacariocaimoveis.com.br",
   address: "Barra da Tijuca, Rio de Janeiro - RJ"
 };

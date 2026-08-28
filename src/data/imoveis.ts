@@ -1,5 +1,3 @@
-import { siteConfig } from "@/lib/site";
-
 export type Imovel = {
   id: string;
   slug: string;
@@ -605,7 +603,7 @@ export const imoveis: Imovel[] = [
       }
     ],
     whatsapp: {
-      numero: siteConfig.whatsapp,
+      numero: "5521987715816",
       mensagem:
         "Olá, vi a página do WE Barra by Living e gostaria de receber tabela, plantas e simulação para entender sinal, mensais e unidades disponíveis."
     },
