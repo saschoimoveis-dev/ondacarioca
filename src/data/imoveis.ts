@@ -692,121 +692,197 @@ export const imoveis: Imovel[] = [
   {
     id: "tegra-barra",
     slug: "tegra-barra-da-tijuca",
-    nome: "Tegra Barra da Tijuca",
+    nome: "KRONOS by Tegra",
     incorporadora: "Tegra",
-    marca: "Tegra",
-    realizacaoLabel: "Tegra Incorporadora · grupo Brookfield",
-    heroImageMobile: "/images/tegra-terraco-vista.jpg",
+    marca: "Kronos",
+    realizacaoLabel: "Tegra Incorporadora + Ager",
+    heroImageMobile: "/images/tegra-kronos-hero-praia.jpg",
     bairro: "Barra da Tijuca",
     cidade: "Rio de Janeiro",
     estado: "RJ",
-    enderecoResumo: "Barra da Tijuca, ao lado da ABM — a poucos passos do Posto 5",
+    enderecoResumo: "Av. Afonso Arinos de Melo Franco, 425 — Barra da Tijuca, ao lado da ABM",
     precoInicial: "Sob consulta",
     tipologias: [
-      "Apartamentos de 2 quartos (1 suíte)",
-      "Apartamentos de 3 suítes",
-      "Apartamentos de 4 suítes",
-      "Coberturas lineares",
-      "Coberturas duplex"
+      "Apartamentos de 2 quartos",
+      "Apartamentos de 3 quartos",
+      "Apartamentos de 4 quartos",
+      "Up Garden com piscina privativa",
+      "Coberturas"
     ],
     fichaTecnica: [
       {
         label: "Endereço",
-        value:
-          "Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi), próximo à Av. Afonso Arinos de Melo Franco"
+        value: "Av. Afonso Arinos de Melo Franco, 425 — Barra da Tijuca, ao lado da ABM"
       },
       {
         label: "Localização",
         value: "A poucos passos da Praia da Barra da Tijuca, Posto 5"
       },
       {
+        label: "Unidades",
+        value: "194 unidades em edifício único de 26 pavimentos"
+      },
+      {
         label: "Tipologias",
-        value: "2 quartos (1 suíte), 3 e 4 suítes, coberturas lineares e duplex"
+        value: "2, 3 e 4 quartos, Up Garden com piscina privativa e coberturas"
       },
       {
-        label: "2 quartos",
-        value: "77 a 81 m² (1 suíte)"
+        label: "2 quartos (pavimento tipo)",
+        value: "77 m² (colunas 06/07) e 81 m² (colunas 05/08)"
       },
       {
-        label: "3 e 4 suítes",
-        value: "120 a 147 m²"
+        label: "3 suítes (pavimento tipo)",
+        value: "120 m² (colunas 03/04)"
       },
       {
-        label: "Coberturas lineares",
+        label: "4 suítes (pavimento tipo)",
+        value: "147 m² (colunas 01/02)"
+      },
+      {
+        label: "Up Garden 2 quartos",
+        value: "91 m² (colunas 05/08) e 107 m² (colunas 06/07), com piscina privativa"
+      },
+      {
+        label: "Up Garden 3 suítes",
+        value: "132 m² (colunas 03/04), com piscina privativa"
+      },
+      {
+        label: "Up Garden 4 suítes",
+        value: "167 m² (colunas 01/02), com piscina privativa"
+      },
+      {
+        label: "Cobertura linear (3 suítes)",
         value: "174 m²"
       },
       {
-        label: "Coberturas duplex",
-        value: "247 a 301 m²"
+        label: "Coberturas duplex (4 suítes)",
+        value: "247 m² e 301 m²"
+      },
+      {
+        label: "Acabamentos entregues",
+        value:
+          "Piso porcelanato 80x80cm na sala, cozinha e varanda, piso vinílico nos quartos, água quente nas pias e chuveiros, infra de ar condicionado na sala e quartos, fechadura eletrônica e bancada gourmet com churrasqueira elétrica na varanda de cada apartamento"
       },
       {
         label: "Lazer & esporte",
-        value: "Clube, áreas verdes e infraestrutura completa de lazer e esportes"
+        value:
+          "Spa wellness com piscina interna, sauna e sala de massagem, piscina externa com bar molhado, academia com varanda fitness, yoga, brinquedoteca, pet place, praça com fonte, quadra de areia, bosque privativo com redário e pomar, salão de festas e salão de jogos, espaço gourmet com churrasqueira, mercadinho de conveniência, sala de reunião e rooftop exclusivo com telão para eventos esportivos e serviços pay-per-use"
       },
       {
         label: "Incorporação",
-        value: "Tegra Incorporadora (grupo Brookfield)"
+        value: "Tegra Incorporadora + Ager"
       },
       {
         label: "Situação",
-        value: "Breve lançamento — valores e disponibilidade sob consulta"
+        value:
+          "Breve lançamento — convenção em 06/08 e previsão de lançamento em agosto/2026, valores e disponibilidade sob consulta"
       }
     ],
     plantas: [
       {
-        titulo: "2 quartos",
-        metragem: "77 a 81 m² (1 suíte)",
+        titulo: "2 quartos | 77 m²",
+        metragem: "77 m² (colunas 06/07)",
         descricao:
-          "Ticket de entrada do empreendimento, com boa liquidez e apelo para morar ou investir a poucos passos da praia.",
-        imagem: "/images/tegra-suite-master.jpg"
+          "Menor ticket do empreendimento, com boa liquidez e apelo para morar ou investir a poucos passos da praia.",
+        imagem: "/images/tegra-kronos-planta-2q-77.jpg"
+      },
+      {
+        titulo: "2 quartos | 81 m²",
+        metragem: "81 m² (colunas 05/08)",
+        descricao:
+          "Duas suítes com metragem generosa, sala integrada à cozinha e varanda com bancada gourmet.",
+        imagem: "/images/tegra-kronos-planta-2q-81.jpg"
       },
       {
         titulo: "3 suítes",
-        metragem: "a partir de 120 m²",
+        metragem: "120 m² (colunas 03/04)",
         descricao:
-          "Planta familiar com suítes, equilíbrio entre metragem, conforto e potencial de valorização na Barra.",
-        imagem: "/images/tegra-living-vista.jpg"
+          "Planta familiar com 3 suítes, sendo 2 canadenses, lavabo e equilíbrio entre metragem, conforto e potencial de valorização na Barra.",
+        imagem: "/images/tegra-kronos-planta-3suites-120.jpg"
       },
       {
         titulo: "4 suítes",
-        metragem: "até 147 m²",
+        metragem: "147 m² (colunas 01/02)",
         descricao:
-          "Mais espaço e privacidade para famílias, com acabamento de alto padrão e vista para a região verde da ABM.",
-        imagem: "/images/tegra-jantar-marmore.jpg"
+          "Mais espaço e privacidade para famílias, com 4 suítes (2 canadenses) e varanda exclusiva para a suíte master.",
+        imagem: "/images/tegra-kronos-planta-4suites-147.jpg"
       },
       {
-        titulo: "Cob. Linear",
-        metragem: "174 m²",
+        titulo: "Up Garden 2 quartos | 91 m²",
+        metragem: "91 m² (colunas 05/08)",
         descricao:
-          "Cobertura em um pavimento com amplitude, área externa e vista privilegiada — produto de alta escassez.",
-        imagem: "/images/tegra-terraco-vista.jpg"
+          "Garden com piscina privativa em fibra, bancada gourmet e área externa só sua no térreo do KRONOS.",
+        imagem: "/images/tegra-kronos-planta-upgarden-2q-91.jpg"
       },
       {
-        titulo: "Cob. Duplex",
-        metragem: "247 a 301 m²",
+        titulo: "Up Garden 2 quartos | 107 m²",
+        metragem: "107 m² (colunas 06/07)",
         descricao:
-          "Cobertura em dois pavimentos, o topo do empreendimento, com terraço, privacidade e altíssima exclusividade.",
-        imagem: "/images/tegra-fachada-verde.jpg"
+          "Garden com piscina privativa em fibra, mais metragem e varanda ampla com bancada gourmet.",
+        imagem: "/images/tegra-kronos-planta-upgarden-2q-107.jpg"
+      },
+      {
+        titulo: "Up Garden 3 suítes",
+        metragem: "132 m² (colunas 03/04)",
+        descricao:
+          "3 suítes com piscina privativa em fibra, terraço gourmet e opção de sala ampliada.",
+        imagem: "/images/tegra-kronos-planta-upgarden-3suites-132.jpg"
+      },
+      {
+        titulo: "Up Garden 4 suítes",
+        metragem: "167 m² (colunas 01/02)",
+        descricao:
+          "4 suítes (2 canadenses) com piscina privativa em fibra e varanda exclusiva para a suíte master.",
+        imagem: "/images/tegra-kronos-planta-upgarden-4suites-167.jpg"
+      },
+      {
+        titulo: "Cobertura linear",
+        metragem: "174 m² (3 suítes)",
+        descricao:
+          "Cobertura em um pavimento, com piscina privativa em fibra, terraço gourmet e vista para a Barra da Tijuca.",
+        imagem: "/images/tegra-kronos-planta-cobertura-linear-174.jpg"
+      },
+      {
+        titulo: "Cobertura duplex | 247 m²",
+        metragem: "247 m² (4 suítes, sendo 2 canadenses)",
+        descricao:
+          "Duplex com piscina privativa, sala íntima com possibilidade de copa e acesso aos elevadores pelos dois pavimentos.",
+        imagem: "/images/tegra-kronos-planta-cobertura-duplex-247.jpg"
+      },
+      {
+        titulo: "Cobertura duplex | 301 m²",
+        metragem: "301 m² (4 suítes completas)",
+        descricao:
+          "A maior planta do KRONOS: duplex com piscina privativa, terraço gourmet, acesso aos elevadores pelos dois pavimentos e altíssima exclusividade.",
+        imagem: "/images/tegra-kronos-planta-cobertura-duplex-301.jpg"
       }
     ],
     diferenciais: [
       "A poucos passos da Praia da Barra da Tijuca, Posto 5",
-      "Ao lado da ABM, com clube e amplas áreas verdes",
-      "Infraestrutura completa de lazer e esportes",
-      "2 a 4 suítes, coberturas lineares e duplex",
-      "Assinatura Tegra, do grupo Brookfield"
+      "Av. Afonso Arinos de Melo Franco, 425, ao lado da ABM",
+      "Unidades Up Garden com piscina privativa no térreo",
+      "Cada apartamento já entregue com bancada gourmet e churrasqueira elétrica na varanda",
+      "Fechadura eletrônica, piso porcelanato 80x80cm e piso vinílico nos quartos já entregues",
+      "Rooftop exclusivo com vista para a Barra da Tijuca",
+      "Spa wellness com piscina interna, sauna e sala de massagem, inspirado nas Blue Zones da Grécia",
+      "Piscina externa, quadra de areia, praça com fonte e bosque privativo com redário e pomar",
+      "Mercadinho de conveniência, pet place e sala de reunião no próprio condomínio",
+      "Salão de festas, salão de jogos e rooftop com telão para eventos esportivos",
+      "Edifício único de 26 pavimentos, 194 unidades",
+      "2 a 4 quartos, Up Garden com piscina privativa e coberturas",
+      "Assinatura Tegra Incorporadora + Ager"
     ],
     conceito: {
-      tagline: "Onde o tempo não tem pressa",
+      tagline: "Inspirado nas Blue Zones da Grécia",
       frase: "A poucos passos da praia da Barra, no Posto 5",
-      titulo: "Um breve lançamento Tegra ao lado da ABM",
+      titulo: "KRONOS by Tegra: bem-estar e conexão com a natureza",
       texto:
-        "Na Barra da Tijuca, ao lado da ABM e a poucos passos da praia do Posto 5, a Tegra prepara um breve lançamento onde o tempo não tem pressa. São apartamentos de 2 quartos com suíte, 3 e 4 suítes, além de coberturas lineares e duplex, cercados por clube, áreas verdes e uma infraestrutura completa de lazer e esportes — o equilíbrio entre a natureza da orla e a conveniência de um dos endereços mais desejados do Rio.",
+        "Na esquina da Av. Dulcídio Cardoso com Afonso Arinos, ao lado da ABM e a poucos passos da praia do Posto 5, o KRONOS by Tegra chega inspirado nas Blue Zones da Grécia — pensado para proporcionar bem-estar, qualidade de vida e conexão com a natureza em um dos endereços mais desejados da Barra. São 194 unidades em um edifício único de 26 pavimentos, com apartamentos de 2 a 4 quartos, gardens e coberturas, e lazer completo no térreo e no rooftop.",
       textoInvestidor:
-        "Para quem investe: um endereço de escassez ao lado da ABM, com a assinatura Tegra (grupo Brookfield) e tipologias de 2 a 4 suítes que combinam liquidez, demanda e valorização na Barra da Tijuca.",
-      imagem: "/images/tegra-fachada.jpg",
+        "Para quem investe: um endereço de escassez ao lado da ABM, com a assinatura Tegra Incorporadora + Ager e tipologias de 2 a 4 quartos que combinam liquidez, demanda e valorização na Barra da Tijuca.",
+      imagem: "/images/tegra-kronos-fachada.jpg",
       imagemAlt:
-        "Fachada do lançamento Tegra na Barra da Tijuca ao entardecer, cercada por áreas verdes",
+        "Fachada iluminada do KRONOS by Tegra ao entardecer, edifício único de 26 pavimentos na Barra da Tijuca",
       pilares: [
         {
           titulo: "Praia e natureza",
@@ -814,22 +890,118 @@ export const imoveis: Imovel[] = [
             "A poucos passos do Posto 5 e ao lado das áreas verdes da ABM, para viver a Barra com o mar por perto."
         },
         {
-          titulo: "Clube e bem-estar",
+          titulo: "Inspirado nas Blue Zones",
           texto:
-            "Clube, áreas verdes e infraestrutura completa de lazer e esportes para toda a família."
+            "Spa wellness com piscina interna e sauna, piscina externa, praça com fonte e rooftop exclusivo, pensados para bem-estar e longevidade."
         },
         {
-          titulo: "Assinatura Tegra",
+          titulo: "Assinatura Tegra + Ager",
           texto:
-            "Alto padrão do grupo Brookfield, uma das maiores gestoras de ativos do mundo."
+            "Edifício único de 26 pavimentos, 194 unidades, com a solidez da Tegra Incorporadora e da Ager."
         }
       ]
     },
     condicoesResumo: [
-      { label: "Tipologias", value: "2 a 4 suítes + coberturas", icon: "chart" },
-      { label: "Metragens", value: "77 a 301 m²", subtitle: "2 quartos a coberturas duplex", icon: "layout" },
-      { label: "Lazer & esporte", value: "Clube ao lado da ABM", icon: "check" },
-      { label: "Situação", value: "Breve lançamento", icon: "clock" }
+      { label: "Tipologias", value: "2 a 4 quartos, Up Garden + coberturas", icon: "chart" },
+      { label: "Metragens", value: "77 a 301 m²", subtitle: "2 quartos a coberturas", icon: "layout" },
+      { label: "Lazer & esporte", value: "Térreo e rooftop, estilo Blue Zones", icon: "check" },
+      { label: "Situação", value: "Breve lançamento — agosto/2026", icon: "clock" }
+    ],
+    lazerHeader: {
+      titulo: "Lazer completo, inspirado nas Blue Zones da Grécia",
+      texto:
+        "Do spa wellness ao rooftop, passando pela praça com fonte e o bosque privativo: o KRONOS reúne bem-estar, esporte e convivência no térreo e no topo do edifício.",
+      metricas: [
+        { valor: "26", label: "pavimentos" },
+        { valor: "194", label: "unidades" },
+        { valor: "2", label: "andares de lazer" }
+      ]
+    },
+    lazerCategorias: [
+      {
+        titulo: "Spa Wellness",
+        resumo: "Inspirado nas Blue Zones da Grécia, para bem-estar e longevidade.",
+        itens: [
+          "Piscina interna aquecida",
+          "Sauna seca e úmida",
+          "Sala de massagem",
+          "Ambientação em pedra, estilo grego"
+        ],
+        imagem: "/images/tegra-kronos-massagem.jpg",
+        alt: "Sala de massagem do spa wellness do KRONOS by Tegra"
+      },
+      {
+        titulo: "Piscina & Solário",
+        resumo: "Piscina externa cercada por vegetação, com bar molhado e deck.",
+        itens: ["Piscina externa", "Bar molhado", "Deck e solário", "Espreguiçadeiras"],
+        imagem: "/images/tegra-kronos-bar-piscina.jpg",
+        alt: "Bar molhado na piscina externa do KRONOS by Tegra"
+      },
+      {
+        titulo: "Praça, Esporte & Bosque",
+        resumo: "Áreas verdes e de esporte que cercam o edifício.",
+        itens: ["Praça com fonte", "Quadra de areia", "Bosque privativo com redário", "Pomar"],
+        imagem: "/images/tegra-kronos-praca-fonte.jpg",
+        alt: "Praça com fonte e lounge do KRONOS by Tegra"
+      },
+      {
+        titulo: "Kids & Pet",
+        resumo: "Espaços pensados para crianças e para os pets da família.",
+        itens: ["Brinquedoteca", "Playground", "Pet place"],
+        imagem: "/images/tegra-kronos-petplace.jpg",
+        alt: "Pet place do KRONOS by Tegra"
+      },
+      {
+        titulo: "Salão de Festas & Jogos",
+        resumo: "Espaços cobertos para reunir família e amigos, em qualquer estação.",
+        itens: [
+          "Salão de festas com espaço gourmet",
+          "Salão de jogos com sinuca e telão",
+          "Varanda de festas com vista para a Barra"
+        ],
+        imagem: "/images/tegra-kronos-salao-festas.jpg",
+        alt: "Salão de festas do KRONOS by Tegra"
+      },
+      {
+        titulo: "Gourmet & Convivência",
+        resumo: "Espaços para receber, comprar o essencial e curtir o rooftop.",
+        itens: [
+          "Lounge e espaço gourmet com churrasqueira",
+          "Mercadinho de conveniência",
+          "Rooftop exclusivo com telão para eventos esportivos e serviços pay-per-use"
+        ],
+        imagem: "/images/tegra-kronos-rooftop-telao.jpg",
+        alt: "Rooftop com telão e piscina do KRONOS by Tegra ao entardecer"
+      },
+      {
+        titulo: "Fitness & Trabalho",
+        resumo: "Estrutura para treinar e trabalhar sem sair do condomínio.",
+        itens: ["Academia completa com varanda fitness", "Espaço de yoga", "Sala de reunião"],
+        imagem: "/images/tegra-kronos-varanda-academia.jpg",
+        alt: "Varanda fitness da academia do KRONOS by Tegra"
+      }
+    ],
+    servicosHeader: {
+      titulo: "Conveniência no dia a dia",
+      texto:
+        "Mercadinho, sala de reunião e rooftop com serviços pay-per-use: o essencial do dia a dia, sem sair do condomínio."
+    },
+    servicos: [
+      {
+        titulo: "Mercadinho de conveniência",
+        descricao: "Mercadinho dentro do condomínio para resolver o básico sem sair de casa.",
+        icon: "package"
+      },
+      {
+        titulo: "Sala de reunião",
+        descricao: "Espaço equipado para reuniões e home office, dentro do próprio condomínio.",
+        icon: "concierge"
+      },
+      {
+        titulo: "Rooftop pay-per-use",
+        descricao: "Serviços do rooftop contratados sob demanda, você paga apenas o que usar.",
+        icon: "waves"
+      }
     ],
     incorporadores: [
       {
@@ -837,26 +1009,34 @@ export const imoveis: Imovel[] = [
         descricao:
           "Incorporadora de alto padrão com atuação em São Paulo e Rio de Janeiro, do grupo Brookfield, uma das maiores gestoras de ativos do mundo.",
         selo: "Grupo Brookfield"
+      },
+      {
+        nome: "Ager",
+        descricao:
+          "Parceira da Tegra no KRONOS, incorporadora com atuação na Barra da Tijuca.",
+        selo: "Co-incorporação"
       }
     ],
     descricaoCurta:
-      "Breve lançamento Tegra na Barra da Tijuca, ao lado da ABM e a poucos passos do Posto 5: apartamentos de 2 a 4 suítes, coberturas lineares e duplex, com clube, áreas verdes e lazer completo.",
+      "Breve lançamento KRONOS by Tegra na Av. Afonso Arinos de Melo Franco, 425, ao lado da ABM e a poucos passos do Posto 5: 194 unidades, apartamentos de 2 a 4 quartos (77 a 147 m²), Up Garden com piscina privativa (91 a 167 m²) e coberturas (174 a 301 m²), inspirado nas Blue Zones da Grécia, com spa, piscina externa e rooftop exclusivo.",
     heroResumo:
-      "Breve lançamento na Barra: 2 a 4 suítes, coberturas lineares e duplex, ao lado da ABM e a poucos passos da praia do Posto 5.",
+      "Breve lançamento na Barra: 2 a 4 quartos, Up Garden com piscina privativa e coberturas, ao lado da ABM e a poucos passos da praia do Posto 5.",
     descricaoLonga:
-      "A Tegra, do grupo Brookfield, prepara um breve lançamento na Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. O projeto reúne apartamentos de 2 quartos com suíte (77 a 81 m²), 3 e 4 suítes (120 a 147 m²), coberturas lineares (174 m²) e coberturas duplex (247 a 301 m²), com clube, áreas verdes e infraestrutura completa de lazer e esportes. Cadastre-se para receber, em primeira mão, tabela de valores, plantas, disponibilidade e condições de lançamento.",
+      "A Tegra Incorporadora, em parceria com a Ager, prepara o KRONOS na Av. Afonso Arinos de Melo Franco, 425, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. Inspirado na arquitetura contemporânea grega e nas Blue Zones da Grécia, o projeto é um edifício único de 26 pavimentos com 194 unidades: apartamentos de 2 quartos (77 a 81 m²), 3 suítes (120 m²) e 4 suítes (147 m²) no pavimento tipo; unidades Up Garden com piscina privativa em fibra de 2 quartos (91 a 107 m²), 3 suítes (132 m²) e 4 suítes (167 m²); além de cobertura linear (174 m²) e coberturas duplex (247 e 301 m², com acesso aos elevadores pelos dois pavimentos), todas com piscina privativa. Cada apartamento já é entregue com piso porcelanato 80x80cm na sala, cozinha e varanda, piso vinílico nos quartos, água quente, infra de ar condicionado, fechadura eletrônica e bancada gourmet com churrasqueira elétrica na varanda. O lazer reúne spa wellness com piscina interna, sauna e sala de massagem, piscina externa com bar molhado, academia com varanda fitness, yoga, brinquedoteca, pet place, praça com fonte, quadra de areia, bosque privativo com redário e pomar, salão de festas, salão de jogos, espaço gourmet com churrasqueira, mercadinho de conveniência, sala de reunião e um rooftop exclusivo com telão para eventos esportivos e serviços pay-per-use. Convenção de lançamento em 06/08, com previsão de lançamento comercial em agosto/2026. Cadastre-se para receber, em primeira mão, tabela de valores, plantas, disponibilidade e condições de lançamento.",
     publicoIdeal: [
       "Famílias que querem morar na Barra da Tijuca, perto da praia e de áreas verdes",
-      "Compradores de apartamentos de 3 e 4 suítes de alto padrão",
+      "Compradores de apartamentos de 3 e 4 quartos de alto padrão",
+      "Quem busca uma unidade Up Garden com piscina privativa no térreo",
       "Investidores buscando lançamento de escassez ao lado da ABM",
       "Clientes que querem entrar em primeira mão, ainda no pré-lançamento"
     ],
     argumentosComerciais: [
       "Breve lançamento — cadastro para condições em primeira mão",
       "Localização ao lado da ABM, a poucos passos do Posto 5",
-      "Tipologias de 2 a 4 suítes, coberturas lineares e duplex",
-      "Clube, áreas verdes e lazer completo dentro do condomínio",
-      "Assinatura Tegra, do grupo Brookfield",
+      "Edifício único de 26 pavimentos, 194 unidades",
+      "Tipologias de 2 a 4 quartos, Up Garden com piscina privativa e coberturas",
+      "Inspirado nas Blue Zones da Grécia, com lazer no térreo e no rooftop",
+      "Assinatura Tegra Incorporadora + Ager",
       "Maior poder de escolha de unidade na janela de lançamento"
     ],
     objecoes: [
@@ -866,37 +1046,172 @@ export const imoveis: Imovel[] = [
     ],
     imagens: [
       {
-        src: "/images/tegra-terraco-vista.jpg",
-        alt: "Terraço com vista para a Barra da Tijuca em lançamento Tegra",
+        src: "/images/tegra-kronos-fachada.jpg",
+        alt: "Fachada iluminada do KRONOS by Tegra ao entardecer",
         destaque: true
       },
       {
-        src: "/images/tegra-living-vista.jpg",
-        alt: "Living integrado com vista para áreas verdes em lançamento Tegra na Barra"
+        src: "/images/tegra-kronos-rooftop.jpg",
+        alt: "Rooftop exclusivo com piscina, lareira e vista para a Barra da Tijuca"
       },
       {
-        src: "/images/tegra-gourmet-jardim.jpg",
-        alt: "Espaço gourmet com jardim em lançamento Tegra na Barra da Tijuca"
+        src: "/images/tegra-kronos-spa-piscina.jpg",
+        alt: "Spa wellness com piscina interna inspirado nas Blue Zones da Grécia"
       },
       {
-        src: "/images/tegra-fachada-verde.jpg",
-        alt: "Fachada com varandas verdes do lançamento Tegra na Barra da Tijuca"
+        src: "/images/tegra-kronos-sauna.jpg",
+        alt: "Sauna com vista para a Barra da Tijuca"
       },
       {
-        src: "/images/tegra-fitness.jpg",
-        alt: "Academia com vista para área verde em lançamento Tegra na Barra"
+        src: "/images/tegra-kronos-piscina-externa.jpg",
+        alt: "Piscina externa cercada por vegetação, KRONOS by Tegra"
       },
       {
-        src: "/images/tegra-praia-posto5.jpg",
-        alt: "Praia da Barra da Tijuca no Posto 5, ao entardecer"
+        src: "/images/tegra-kronos-fitness.jpg",
+        alt: "Fitness completo com vista para área verde"
+      },
+      {
+        src: "/images/tegra-kronos-yoga.jpg",
+        alt: "Espaço de yoga com tela e vista para a Barra"
+      },
+      {
+        src: "/images/tegra-kronos-brinquedoteca1.jpg",
+        alt: "Brinquedoteca colorida do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-brinquedoteca2.jpg",
+        alt: "Brinquedoteca com escorregador e piscina de bolinhas"
+      },
+      {
+        src: "/images/tegra-kronos-lounge.jpg",
+        alt: "Lounge e espaço gourmet do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-terraco-bosque.jpg",
+        alt: "Terraço de treino e bosque privativo do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-praca-quadra.jpg",
+        alt: "Praça com fonte e quadra de areia do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-lobby2.jpg",
+        alt: "Lobby com espelho d'água do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-mercadinho.jpg",
+        alt: "Mercadinho de conveniência do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-petplace.jpg",
+        alt: "Pet place do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-praca-fonte.jpg",
+        alt: "Praça com fonte e lounge do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-quadra-areia.jpg",
+        alt: "Quadra de areia do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sala-reuniao.jpg",
+        alt: "Sala de reunião do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-massagem.jpg",
+        alt: "Sala de massagem do spa wellness do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-churrasqueira.jpg",
+        alt: "Espaço gourmet com churrasqueira do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-bar-piscina.jpg",
+        alt: "Bar molhado na piscina externa do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-academia.jpg",
+        alt: "Academia completa do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-redario.jpg",
+        alt: "Redário no bosque privativo do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-pomar.jpg",
+        alt: "Pomar do bosque privativo do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sala-4suites.jpg",
+        alt: "Sala decorada do apartamento de 4 suítes do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sala-3suites.jpg",
+        alt: "Sala decorada do apartamento de 3 suítes do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sala-cobertura.jpg",
+        alt: "Sala decorada da cobertura duplex do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sala-cobertura-linear.jpg",
+        alt: "Sala decorada da cobertura linear do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-living-santorini.jpg",
+        alt: "Sala de estar decorada com vista para o mar do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-suite-master.jpg",
+        alt: "Suíte master decorada do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-varanda-vista.jpg",
+        alt: "Varanda decorada com vista para o mar do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-terraco-duplex.jpg",
+        alt: "Varanda gourmet privativa com vista noturna do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-salao-gourmet.jpg",
+        alt: "Salão gourmet do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-salao-jogos.jpg",
+        alt: "Salão de jogos com sinuca do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-varanda-festas.jpg",
+        alt: "Varanda de festas com vista noturna do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-sauna2.jpg",
+        alt: "Sauna a vapor com vista para a Barra do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-piscina-interna2.jpg",
+        alt: "Piscina interna aquecida do spa wellness do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-varanda-brinquedoteca.jpg",
+        alt: "Área externa da brinquedoteca do KRONOS by Tegra"
+      },
+      {
+        src: "/images/tegra-kronos-rooftop-telao.jpg",
+        alt: "Rooftop com telão e piscina do KRONOS by Tegra ao entardecer"
       }
     ],
     seo: {
       title:
-        "Tegra Barra da Tijuca | Breve lançamento ao lado da ABM, Posto 5",
+        "KRONOS by Tegra | Breve lançamento ao lado da ABM, Posto 5",
       description:
-        "Breve lançamento Tegra na Barra da Tijuca, ao lado da ABM e a poucos passos do Posto 5: apartamentos de 2 a 4 suítes, coberturas lineares e duplex, com clube, áreas verdes e lazer completo. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
+        "KRONOS by Tegra + Ager na Barra da Tijuca, ao lado da ABM e a poucos passos do Posto 5: 194 unidades, apartamentos de 2 a 4 quartos (77 a 147 m²), Up Garden com piscina privativa (91 a 167 m²) e coberturas (174 a 301 m²), inspirado nas Blue Zones da Grécia. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
       keywords: [
+        "Kronos Tegra",
+        "Kronos by Tegra",
+        "Kronos Barra da Tijuca",
         "Tegra Barra",
         "Tegra Barra da Tijuca",
         "Tegra lançamento",
@@ -904,13 +1219,15 @@ export const imoveis: Imovel[] = [
         "Tegra Posto 5",
         "lançamento Tegra Barra da Tijuca",
         "Tegra Incorporadora Barra",
+        "Ager Barra da Tijuca",
         "breve lançamento Barra da Tijuca",
         "apartamento ao lado da ABM",
         "apartamento Posto 5 Barra da Tijuca",
-        "apartamento 3 suítes Barra da Tijuca",
-        "apartamento 4 suítes Barra da Tijuca",
+        "apartamento 3 quartos Barra da Tijuca",
+        "apartamento 4 quartos Barra da Tijuca",
+        "up garden Barra da Tijuca",
+        "apartamento com piscina privativa Barra da Tijuca",
         "cobertura Barra da Tijuca",
-        "cobertura duplex Barra da Tijuca",
         "lançamento Barra da Tijuca",
         "apartamento novo Barra da Tijuca",
         "apartamento na planta Barra da Tijuca",
@@ -918,21 +1235,26 @@ export const imoveis: Imovel[] = [
         "apartamento alto padrão Barra da Tijuca"
       ],
       canonicalPath: "/lancamentos/tegra-barra-da-tijuca",
-      ogTitle: "Tegra Barra da Tijuca: breve lançamento ao lado da ABM",
+      ogTitle: "KRONOS by Tegra: breve lançamento ao lado da ABM",
       ogDescription:
-        "2 a 4 suítes, coberturas lineares e duplex, ao lado da ABM e a poucos passos do Posto 5. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
-      ogImage: "/images/tegra-terraco-vista.jpg"
+        "194 unidades, 2 a 4 quartos (77 a 147 m²), Up Garden com piscina privativa (91 a 167 m²) e coberturas (174 a 301 m²), ao lado da ABM e a poucos passos do Posto 5. Cadastre-se e receba tabela, plantas e condições em primeira mão.",
+      ogImage: "/images/tegra-kronos-fachada.jpg"
     },
     faq: [
       {
-        pergunta: "Onde fica o lançamento Tegra na Barra da Tijuca?",
+        pergunta: "Onde fica o KRONOS by Tegra na Barra da Tijuca?",
         resposta:
-          "Na Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5."
+          "Na Av. Afonso Arinos de Melo Franco, 425, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5."
       },
       {
         pergunta: "Quais tipologias estão previstas?",
         resposta:
-          "O projeto comunica apartamentos de 2 quartos com suíte (77 a 81 m²), 3 e 4 suítes (120 a 147 m²), coberturas lineares (174 m²) e coberturas duplex (247 a 301 m²). Metragens e disponibilidade serão confirmadas no lançamento."
+          "Edifício único de 26 pavimentos com 194 unidades. No pavimento tipo: 2 quartos (77 e 81 m²), 3 suítes (120 m²) e 4 suítes (147 m²). Unidades Up Garden com piscina privativa em fibra: 2 quartos (91 e 107 m²), 3 suítes (132 m²) e 4 suítes (167 m²). Coberturas: linear de 3 suítes (174 m²) e duplex de 4 suítes (247 e 301 m²), todas com piscina privativa. Disponibilidade será confirmada no lançamento."
+      },
+      {
+        pergunta: "O que é a unidade Up Garden?",
+        resposta:
+          "É a unidade de térreo do KRONOS com piscina privativa em fibra e revestimento cerâmico (profundidade de 80cm), bancada gourmet com churrasqueira elétrica e área externa só sua. Disponível em 2 quartos (91 e 107 m²), 3 suítes (132 m²) e 4 suítes (167 m²)."
       },
       {
         pergunta: "Já tem preço e tabela?",
@@ -940,14 +1262,19 @@ export const imoveis: Imovel[] = [
           "Por ser um breve lançamento, os valores ainda serão divulgados. Cadastre-se para receber tabela, plantas e condições em primeira mão, assim que liberadas."
       },
       {
+        pergunta: "Quando é o lançamento?",
+        resposta:
+          "A convenção do KRONOS acontece em 06/08, com previsão de lançamento comercial em agosto/2026."
+      },
+      {
         pergunta: "Quem é a incorporadora?",
         resposta:
-          "A Tegra Incorporadora, do grupo Brookfield, uma das maiores gestoras de ativos do mundo, com atuação de alto padrão em São Paulo e Rio de Janeiro."
+          "A Tegra Incorporadora, do grupo Brookfield, uma das maiores gestoras de ativos do mundo, em parceria com a Ager."
       },
       {
         pergunta: "Como funciona o lazer?",
         resposta:
-          "O empreendimento comunica clube, áreas verdes e infraestrutura completa de lazer e esportes. Os itens finais serão detalhados no material de lançamento."
+          "O KRONOS é inspirado na arquitetura contemporânea grega e nas Blue Zones da Grécia: spa wellness com piscina interna, sauna e sala de massagem, piscina externa com bar molhado, academia com varanda fitness, yoga, brinquedoteca, pet place, praça com fonte, quadra de areia, bosque privativo com redário e pomar, salão de festas, salão de jogos, espaço gourmet com churrasqueira, mercadinho de conveniência, sala de reunião e um rooftop exclusivo com telão para eventos esportivos, vista para a Barra e serviços pay-per-use."
       },
       {
         pergunta: "Como recebo as informações em primeira mão?",
@@ -956,9 +1283,9 @@ export const imoveis: Imovel[] = [
       }
     ],
     whatsapp: {
-      numero: siteConfig.whatsapp,
+      numero: "5521987715816",
       mensagem:
-        "Olá, vi a página do breve lançamento Tegra na Barra da Tijuca (ao lado da ABM, Posto 5) e gostaria de receber tabela, plantas e condições em primeira mão."
+        "Olá, vi a página do KRONOS by Tegra na Barra da Tijuca (ao lado da ABM, Posto 5) e gostaria de receber tabela, plantas e condições em primeira mão."
     },
     tracking: {
       formEventName: "form_submit_tegra_barra",
@@ -968,9 +1295,9 @@ export const imoveis: Imovel[] = [
     localizacao: {
       titulo: "Ao lado da ABM, a poucos passos do Posto 5",
       descricao:
-        "O breve lançamento Tegra fica em uma das porções mais verdes e desejadas da Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. Um endereço que reúne natureza, orla e a conveniência de shoppings, escolas e serviços da região.",
-      imagem: "/images/tegra-praia-posto5.jpg",
-      imagemAlt: "Praia da Barra da Tijuca no Posto 5, próximo ao lançamento Tegra",
+        "O KRONOS by Tegra fica na Av. Afonso Arinos de Melo Franco, 425, em uma das porções mais verdes e desejadas da Barra da Tijuca, ao lado da ABM (Associação Bosque Marapendi) e a poucos passos da Praia da Barra, no Posto 5. Um endereço que reúne natureza, orla e a conveniência de shoppings, escolas e serviços da região.",
+      imagem: "/images/tegra-kronos-localizacao2.jpg",
+      imagemAlt: "Praia da Barra da Tijuca no Posto 5 ao entardecer, com a Pedra da Gávea ao fundo — KRONOS by Tegra",
       pontos: [
         "Ao lado da ABM, com amplas áreas verdes",
         "A poucos passos da Praia da Barra, Posto 5",
@@ -1014,10 +1341,10 @@ export const imoveis: Imovel[] = [
         }
       ],
       mapsUrl:
-        "https://www.google.com/maps/search/?api=1&query=Associacao+Bosque+Marapendi+Barra+da+Tijuca+Rio+de+Janeiro"
+        "https://www.google.com/maps/search/?api=1&query=Av.+Afonso+Arinos+de+Melo+Franco+425+Barra+da+Tijuca+Rio+de+Janeiro"
     },
     condicoesAviso:
-      "Breve lançamento. Imagens são referenciais do padrão Tegra na região; plantas, metragens, valores, itens de lazer e disponibilidade serão divulgados no lançamento e estão sujeitos a confirmação."
+      "Breve lançamento — convenção em 06/08, previsão de lançamento comercial em agosto/2026. Material preliminar sujeito à alteração sem aviso prévio; imagens e perspectivas são meramente ilustrativas. Plantas, metragens, valores, itens de lazer e disponibilidade serão confirmados no memorial de incorporação."
   },
   {
     id: "astra-ilha-pura",
@@ -1418,7 +1745,7 @@ export const imoveis: Imovel[] = [
       }
     ],
     whatsapp: {
-      numero: siteConfig.whatsapp,
+      numero: "5521987715816",
       mensagem:
         "Olá, vi a página do Astra no Ilha Pura e gostaria de receber tabela, plantas e disponibilidade da nova torre (2 quartos e Double Suites)."
     },
