@@ -141,6 +141,576 @@ export type Imovel = {
 
 export const imoveis: Imovel[] = [
   {
+    id: "on-resort-cidade-jardim",
+    slug: "on-resort-cidade-jardim-barra-olimpica",
+    nome: "ON Resort Cidade Jardim",
+    incorporadora: "RJZ Cyrela",
+    marca: "Cyrela",
+    realizacaoLabel: "RJZ Cyrela · Leblon Realty",
+    heroImageMobile: "/images/on-resort-hero-cidade-jardim.jpg",
+    bairro: "Barra Olímpica",
+    cidade: "Rio de Janeiro",
+    estado: "RJ",
+    enderecoResumo: "Av. Vice-Presidente José Alencar, 1305 — Cidade Jardim, Barra Olímpica",
+    precoInicial: "Studios a partir de R$ 370 mil",
+    precoInicialNumerico: 370000,
+    tipologias: [
+      "Studios",
+      "Studio ou sala e quarto (1 quarto)",
+      "Apartamentos de 2 quartos",
+      "Gardens studio, sala e quarto e 2 quartos"
+    ],
+    metragens: [
+      "Studios: 32 a 40 m²",
+      "Sala e quarto: 39 e 40 m²",
+      "2 quartos: 59 e 60 m²",
+      "Gardens: 52 a 92 m²"
+    ],
+    fichaTecnica: [
+      {
+        label: "Endereço",
+        value: "Av. Vice-Presidente José Alencar, 1.305 — Cidade Jardim, Barra Olímpica"
+      },
+      {
+        label: "Bairro",
+        value: "Cidade Jardim, bairro planejado com segurança 24h, Parque Linear e Empório Jardim"
+      },
+      {
+        label: "Terreno",
+        value: "14.576,63 m²"
+      },
+      {
+        label: "Unidades",
+        value: "1.306 unidades em 3 edifícios (térreo + 2º ao 15º pavimento)"
+      },
+      {
+        label: "Ed. Polinésia (Bloco 3)",
+        value: "729 unidades: 714 studios de 32 e 33 m² e 15 gardens studio de 52 a 55 m²"
+      },
+      {
+        label: "Ed. Caribe (Bloco 1)",
+        value:
+          "319 unidades: 306 studios ou sala e quarto de 39 e 40 m² e 13 gardens de 52 a 55 m²"
+      },
+      {
+        label: "Ed. Fiji (Bloco 2)",
+        value: "258 unidades: 252 apartamentos de 2 quartos de 59 e 60 m² e 6 gardens de 87 a 92 m²"
+      },
+      {
+        label: "Estacionamento",
+        value:
+          "2 quartos: 1 vaga por unidade. Studios e sala e quarto: direito de estacionar 1 veículo, mediante disponibilidade, com serviço de manobrista. Vagas de visitantes"
+      },
+      {
+        label: "Entregue na unidade",
+        value:
+          "Infra de ar condicionado split, banheiro com ducha higiênica, água quente na cozinha e no banheiro, ponto de TV na varanda e varanda com previsão para bancada e churrasqueira elétrica (Caribe e Fiji)"
+      },
+      {
+        label: "Lazer",
+        value:
+          "2 pool houses, piscina recreativa, piscina infantil, deck molhado, solarium, bar da piscina, academia, spa com sauna e repouso, espaço massagem, coworking, cokitchen, salão de festas com varanda, churrasqueira, brinquedoteca, playbaby, playground, jogos juvenis, quadra de areia e quadra recreativa"
+      },
+      {
+        label: "Incorporação",
+        value: "RJZ Cyrela e Leblon Realty"
+      },
+      {
+        label: "Situação",
+        value:
+          "Lançamento em 03/10/2026. Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil, conforme tabela vigente"
+      }
+    ],
+    plantas: [
+      {
+        titulo: "Studio | 32 e 33 m²",
+        metragem: "32 e 33 m² (Ed. Polinésia)",
+        descricao:
+          "Studio compacto com varanda, cozinha linear e banheiro com ducha higiênica. A porta de entrada do ON Resort, a partir de R$ 370 mil.",
+        imagem: "/images/on-resort-planta-studio-polinesia-32.jpg",
+        decisao: "Menor ticket",
+        perfil:
+          "O menor ticket do empreendimento, pensado para locação por temporada e para quem quer investir com entrada mais baixa.",
+        cuidado: "Comparar andar, posição no bloco e fluxo de pagamento."
+      },
+      {
+        titulo: "Studio | 39 e 40 m²",
+        metragem: "39 e 40 m² (Ed. Caribe)",
+        descricao:
+          "Studio amplo com cozinha separada, laje técnica para ar condicionado e varanda com previsão para bancada e churrasqueira elétrica.",
+        imagem: "/images/on-resort-planta-studio-caribe-39.jpg",
+        decisao: "Mais espaço",
+        perfil:
+          "Mais metragem e varanda gourmet, para hospedar melhor ou morar com conforto.",
+        cuidado: "Comparar com a opção sala e quarto na mesma metragem."
+      },
+      {
+        titulo: "Sala e quarto | 39 e 40 m²",
+        metragem: "39 e 40 m² (Ed. Caribe)",
+        descricao:
+          "Sala e quarto separados, cozinha com bancada e varanda com previsão para bancada e churrasqueira elétrica. A partir de R$ 450 mil.",
+        imagem: "/images/on-resort-planta-sala-quarto-caribe-39.jpg",
+        decisao: "1 quarto",
+        perfil:
+          "Quarto separado da sala: privacidade para quem mora e mais apelo para locações de estadia longa.",
+        cuidado: "Validar posição no bloco e uso pretendido, moradia ou locação."
+      },
+      {
+        titulo: "2 quartos | 59 e 60 m²",
+        metragem: "59 e 60 m² (Ed. Fiji)",
+        descricao:
+          "Suíte, quarto, banho social, sala integrada e cozinha aberta para a varanda, com 1 vaga por unidade.",
+        imagem: "/images/on-resort-planta-2q-fiji-59.jpg",
+        decisao: "Família",
+        perfil:
+          "Para morar no Cidade Jardim com família, ou investir em um produto com procura constante na região.",
+        cuidado: "Comparar andar, nascente ou poente e valor por m²."
+      },
+      {
+        titulo: "Garden studio",
+        metragem: "52 a 55 m² (Ed. Polinésia e Ed. Caribe)",
+        descricao:
+          "Unidades no térreo com área externa privativa. São só 28 gardens studio ou sala e quarto no empreendimento.",
+        decisao: "Área externa",
+        perfil: "Área externa privativa e poucas unidades disponíveis.",
+        cuidado: "Comparar área externa, posição no térreo e vista."
+      },
+      {
+        titulo: "Garden 2 quartos",
+        metragem: "87 a 92 m² (Ed. Fiji)",
+        descricao:
+          "As maiores unidades do ON Resort, com área externa privativa. Apenas 6 unidades.",
+        decisao: "Escassez",
+        perfil: "Maior metragem do empreendimento e apenas 6 unidades.",
+        cuidado: "Confirmar disponibilidade logo no lançamento."
+      }
+    ],
+    diferenciais: [
+      "Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil",
+      "Dentro do Cidade Jardim, bairro planejado com segurança 24h e mais de 30 câmeras",
+      "Projeto Airbnb-friendly, com apoio do Airbnb para anunciar sua unidade",
+      "Opção de gestão completa de locação com a Charlie",
+      "Operação de café da manhã, pool bar e personal concierge",
+      "Shuttle exclusivo do ON Resort",
+      "2 pool houses, piscina recreativa, deck molhado e solarium",
+      "Spa com sauna e repouso, espaço massagem e academia",
+      "Coworking e cokitchen (cozinha compartilhada)",
+      "Portão de acesso direto ao Parque Linear do Cidade Jardim",
+      "Tomadas para recarga de carros e bikes elétricas",
+      "Facilidades pay per use: daily cleaning, laundry, bike share e fast market",
+      "Assinatura RJZ Cyrela"
+    ],
+    conceito: {
+      tagline: "Seu modo resort",
+      frase: "A experiência de se hospedar. A exclusividade de investir.",
+      titulo: "ON Resort: viver como hóspede, investir como dono",
+      texto:
+        "O ON Resort Cidade Jardim traz para a Barra Olímpica a experiência de um resort no dia a dia: café da manhã, pool bar, concierge, shuttle e lazer completo, dentro de um bairro planejado com segurança 24h, Parque Linear e o Empório Jardim a poucos passos. São 1.306 unidades em 3 edifícios, entre studios, sala e quarto, 2 quartos e gardens, da RJZ Cyrela.",
+      textoInvestidor:
+        "Para quem investe: studios a partir de R$ 370 mil em um projeto Airbnb-friendly, com serviços de hotelaria e opção de gestão completa de locação. Uma região com novos investimentos em infraestrutura e potencial de valorização. Essa informação tem caráter meramente mercadológico e não garante desempenho futuro.",
+      imagem: "/images/on-resort-cidade-jardim-aerea.jpg",
+      imagemAlt:
+        "Vista aérea do Cidade Jardim, bairro planejado da Barra Olímpica, com praça, áreas verdes e montanhas ao fundo",
+      pilares: [
+        {
+          titulo: "Bairro planejado",
+          texto:
+            "Cidade Jardim: segurança 24h, Parque Linear com quadras e ciclovia, Empório Jardim e ônibus próprio do bairro."
+        },
+        {
+          titulo: "Serviços de resort",
+          texto:
+            "Café da manhã, pool bar, personal concierge, shuttle exclusivo e facilidades pay per use."
+        },
+        {
+          titulo: "Pensado para investir",
+          texto:
+            "Studios e sala e quarto com tickets de entrada, projeto Airbnb-friendly e gestão de locação com a Charlie."
+        }
+      ]
+    },
+    condicoesResumo: [
+      { label: "Studios", value: "A partir de R$ 370 mil", subtitle: "32 a 40 m²", icon: "chart" },
+      { label: "Sala e quarto", value: "A partir de R$ 450 mil", subtitle: "39 e 40 m²", icon: "chart" },
+      { label: "Unidades", value: "1.306 em 3 edifícios", subtitle: "Studios a 2 quartos + gardens", icon: "layout" },
+      { label: "Situação", value: "Lançamento em 03/10/2026", icon: "clock" }
+    ],
+    lazerHeader: {
+      titulo: "Lazer de resort, do deck molhado ao spa",
+      texto:
+        "Piscinas com pool bar, spa, academia, coworking e espaços kids, além de todo o Cidade Jardim ao redor: o ON Resort foi pensado para que morador e hóspede não precisem sair do bairro.",
+      metricas: [
+        { valor: "1.306", label: "unidades" },
+        { valor: "3", label: "edifícios" },
+        { valor: "2", label: "pool houses" }
+      ]
+    },
+    lazerCategorias: [
+      {
+        titulo: "Piscinas & Pool Bar",
+        resumo: "Área de piscinas com bar, deck molhado e solarium.",
+        itens: [
+          "Piscina recreativa",
+          "Piscina infantil",
+          "Deck molhado e solarium",
+          "Bar da piscina",
+          "2 pool houses"
+        ],
+        imagem: "/images/on-resort-lazer-piscina.jpg",
+        alt: "Piscina do ON Resort Cidade Jardim (imagem ilustrativa)"
+      },
+      {
+        titulo: "Bem-estar & Fitness",
+        resumo: "Treino, spa e descanso no próprio condomínio.",
+        itens: [
+          "Academia",
+          "Spa com sauna e repouso",
+          "Espaço massagem",
+          "Grade de atividades para exercícios e esportes"
+        ],
+        imagem: "/images/on-resort-lazer-academia.jpg",
+        alt: "Academia do ON Resort Cidade Jardim (imagem ilustrativa)"
+      },
+      {
+        titulo: "Kids & Família",
+        resumo: "Espaços para todas as idades, com recreação acompanhada.",
+        itens: [
+          "Brinquedoteca",
+          "Playbaby e playground",
+          "Jogos juvenis",
+          "Recreação infantil com acompanhamento profissional"
+        ],
+        imagem: "/images/on-resort-lazer-kids.jpg",
+        alt: "Brinquedoteca do ON Resort Cidade Jardim (imagem ilustrativa)"
+      },
+      {
+        titulo: "Trabalho & Convivência",
+        resumo: "Para trabalhar, cozinhar e receber sem sair de casa.",
+        itens: [
+          "Coworking",
+          "Cokitchen (cozinha compartilhada)",
+          "Salão de festas com varanda",
+          "Churrasqueira e Taste Lounge"
+        ],
+        imagem: "/images/on-resort-lazer-coworking.jpg",
+        alt: "Coworking do ON Resort Cidade Jardim (imagem ilustrativa)"
+      },
+      {
+        titulo: "Esporte ao ar livre",
+        resumo: "Quadras no condomínio e acesso direto ao Parque Linear.",
+        itens: [
+          "Quadra de areia e quadra recreativa",
+          "Portão de acesso ao Parque Linear",
+          "Ciclovia, pet places e academia ao ar livre no bairro",
+          "5 quadras de tênis, 3 poliesportivas e 2 campos society no Cidade Jardim"
+        ],
+        imagem: "/images/on-resort-parque-linear.jpg",
+        alt: "Caminhada com cachorro no Parque Linear do Cidade Jardim"
+      },
+      {
+        titulo: "Cidade Jardim",
+        resumo: "Gastronomia, serviços e segurança de bairro planejado.",
+        itens: [
+          "Empório Jardim com restaurantes, bares e conveniência",
+          "Consultórios, farmácia, pilates e pet shop",
+          "Guarita, rondas e mais de 30 câmeras 24h",
+          "Linhas de ônibus do Cidade Jardim"
+        ],
+        imagem: "/images/on-resort-emporio-jardim.jpg",
+        alt: "Empório Jardim, polo gastronômico do Cidade Jardim"
+      }
+    ],
+    servicosHeader: {
+      titulo: "Serviços de hotel no seu dia a dia",
+      texto:
+        "Facilidades que deixam o seu tempo mais livre e a sua unidade pronta para receber hóspedes."
+    },
+    servicos: [
+      {
+        titulo: "Café da manhã",
+        descricao:
+          "Operação de café da manhã no condomínio, com consumação mínima garantida na taxa de condomínio.",
+        icon: "store"
+      },
+      {
+        titulo: "Personal concierge",
+        descricao: "Atendimento para facilitar a rotina de moradores e hóspedes.",
+        icon: "concierge"
+      },
+      {
+        titulo: "Shuttle exclusivo",
+        descricao: "Transporte exclusivo para os moradores do ON Resort.",
+        icon: "bus"
+      },
+      {
+        titulo: "Central de encomendas",
+        descricao: "Recebimento e guarda das suas entregas com segurança.",
+        icon: "package"
+      },
+      {
+        titulo: "Pay per use",
+        descricao:
+          "Daily cleaning, laundry, bike share e fast market, pagos conforme o uso.",
+        icon: "waves"
+      },
+      {
+        titulo: "Gestão de locação Charlie",
+        descricao:
+          "Opção de gestão completa: decoração em até 90 dias, fotos, anúncio nas plataformas e cuidado com os hóspedes.",
+        icon: "concierge"
+      }
+    ],
+    incorporadores: [
+      {
+        nome: "RJZ Cyrela",
+        descricao:
+          "Operação carioca da Cyrela, uma das maiores incorporadoras do país, responsável pela incorporação e construção do ON Resort.",
+        selo: "Incorporação e construção"
+      },
+      {
+        nome: "Leblon Realty",
+        descricao: "Parceira da RJZ Cyrela na incorporação do ON Resort Cidade Jardim.",
+        selo: "Incorporação"
+      }
+    ],
+    descricaoCurta:
+      "Lançamento RJZ Cyrela no Cidade Jardim, Barra Olímpica: studios a partir de R$ 370 mil, sala e quarto a partir de R$ 450 mil, 2 quartos e gardens. Projeto Airbnb-friendly, com serviços de resort como café da manhã, pool bar, concierge e shuttle exclusivo.",
+    heroResumo:
+      "Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil no Cidade Jardim, com serviços de resort e projeto Airbnb-friendly.",
+    descricaoLonga:
+      "O ON Resort Cidade Jardim é o lançamento da RJZ Cyrela, com Leblon Realty, na Av. Vice-Presidente José Alencar, 1.305, dentro do Cidade Jardim, o bairro planejado da Barra Olímpica. São 1.306 unidades em 3 edifícios: o Ed. Polinésia, com studios de 32 e 33 m² e gardens studio de 52 a 55 m²; o Ed. Caribe, com studios ou sala e quarto de 39 e 40 m² e gardens de 52 a 55 m²; e o Ed. Fiji, com apartamentos de 2 quartos de 59 e 60 m² e gardens de 87 a 92 m². O lazer reúne 2 pool houses, piscina recreativa e infantil, deck molhado, solarium, bar da piscina, academia, spa com sauna e repouso, espaço massagem, coworking, cokitchen, salão de festas, churrasqueira, brinquedoteca, playbaby, playground, jogos juvenis, quadra de areia e quadra recreativa. Os serviços seguem o padrão de hotelaria, com operação de café da manhã, personal concierge, shuttle exclusivo, central de encomendas, recreação infantil, manobrista e facilidades pay per use como daily cleaning, laundry, bike share e fast market. O projeto é Airbnb-friendly e conta com opção de gestão completa de locação com a Charlie. Lançamento em 03/10/2026: cadastre-se para receber tabela, plantas e simulação.",
+    publicoIdeal: [
+      "Investidores que buscam studios com ticket de entrada a partir de R$ 370 mil",
+      "Quem quer renda com locação por temporada em um projeto Airbnb-friendly",
+      "Quem quer morar em um bairro planejado com segurança e serviços de resort",
+      "Jovens profissionais e casais procurando sala e quarto ou 2 quartos na Barra Olímpica",
+      "Clientes que querem escolher unidade logo no lançamento"
+    ],
+    argumentosComerciais: [
+      "Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil",
+      "Dentro do Cidade Jardim, bairro planejado com segurança 24h",
+      "Projeto Airbnb-friendly, com gestão de locação pela Charlie",
+      "Serviços de resort: café da manhã, pool bar, concierge e shuttle",
+      "Assinatura RJZ Cyrela",
+      "Maior poder de escolha de unidade no lançamento"
+    ],
+    objecoes: [
+      "Valores e disponibilidade seguem a tabela vigente e podem mudar sem aviso prévio.",
+      "Plantas preliminares, sujeitas a alteração. Imagens meramente ilustrativas.",
+      "Estacionamento de studios e sala e quarto depende de disponibilidade, com serviço de manobrista.",
+      "Rentabilidade e valorização não são garantidas: são informações de caráter mercadológico."
+    ],
+    imagens: [
+      {
+        src: "/images/on-resort-piscina.jpg",
+        alt: "ON Resort Cidade Jardim: seu modo resort na Barra Olímpica (imagem ilustrativa)",
+        destaque: true
+      },
+      {
+        src: "/images/on-resort-cidade-jardim-aerea.jpg",
+        alt: "Vista aérea do Cidade Jardim, bairro planejado da Barra Olímpica"
+      },
+      {
+        src: "/images/on-resort-cidade-jardim-por-do-sol.jpg",
+        alt: "Entrada do Cidade Jardim ao pôr do sol"
+      },
+      {
+        src: "/images/on-resort-localizacao-mapa.jpg",
+        alt: "Mapa aéreo com a localização do ON Resort no Cidade Jardim"
+      },
+      {
+        src: "/images/on-resort-portaria-cidade-jardim.jpg",
+        alt: "Portaria com guarita do Cidade Jardim"
+      },
+      {
+        src: "/images/on-resort-emporio-jardim.jpg",
+        alt: "Empório Jardim, polo gastronômico do Cidade Jardim"
+      },
+      {
+        src: "/images/on-resort-parque-linear.jpg",
+        alt: "Parque Linear do Cidade Jardim"
+      },
+      {
+        src: "/images/on-resort-lazer-piscina.jpg",
+        alt: "Piscina do ON Resort (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-lazer-academia.jpg",
+        alt: "Academia do ON Resort (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-lazer-coworking.jpg",
+        alt: "Coworking do ON Resort (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-lazer-kids.jpg",
+        alt: "Brinquedoteca do ON Resort (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-cafe-da-manha.jpg",
+        alt: "Café da manhã no ON Resort (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-carregador-eletrico.jpg",
+        alt: "Tomada para recarga de carro elétrico (imagem ilustrativa)"
+      },
+      {
+        src: "/images/on-resort-planta-studio-polinesia-32.jpg",
+        alt: "Planta do studio de 32 e 33 m² do Ed. Polinésia"
+      },
+      {
+        src: "/images/on-resort-planta-studio-caribe-39.jpg",
+        alt: "Planta do studio de 39 e 40 m² do Ed. Caribe"
+      },
+      {
+        src: "/images/on-resort-planta-sala-quarto-caribe-39.jpg",
+        alt: "Planta do sala e quarto de 39 e 40 m² do Ed. Caribe"
+      },
+      {
+        src: "/images/on-resort-planta-2q-fiji-59.jpg",
+        alt: "Planta do 2 quartos de 59 e 60 m² do Ed. Fiji"
+      }
+    ],
+    seo: {
+      title: "ON Resort Cidade Jardim | Studios a partir de R$ 370 mil",
+      description:
+        "ON Resort Cidade Jardim, lançamento RJZ Cyrela na Barra Olímpica: studios a partir de R$ 370 mil, sala e quarto a partir de R$ 450 mil, 2 quartos e gardens. Projeto Airbnb-friendly com serviços de resort. Receba tabela, plantas e simulação.",
+      keywords: [
+        "ON Resort",
+        "ON Resort Cyrela",
+        "ON Resort Cidade Jardim",
+        "ON Resort Barra Olímpica",
+        "Cyrela Cidade Jardim",
+        "RJZ Cyrela lançamento",
+        "lançamento Cyrela Barra Olímpica",
+        "lançamento Cidade Jardim",
+        "lançamento Barra Olímpica",
+        "studio Barra Olímpica",
+        "studio Cidade Jardim",
+        "studio para investir Rio de Janeiro",
+        "studio Airbnb Rio de Janeiro",
+        "sala e quarto Barra Olímpica",
+        "apartamento 2 quartos Barra Olímpica",
+        "apartamento Cidade Jardim Barra",
+        "apartamento na planta Barra Olímpica",
+        "imóvel para investir Rio de Janeiro"
+      ],
+      canonicalPath: "/lancamentos/on-resort-cidade-jardim-barra-olimpica",
+      ogTitle: "ON Resort Cidade Jardim: studios a partir de R$ 370 mil",
+      ogDescription:
+        "Lançamento RJZ Cyrela no Cidade Jardim, Barra Olímpica: studios, sala e quarto, 2 quartos e gardens, com serviços de resort e projeto Airbnb-friendly. Receba tabela, plantas e simulação.",
+      ogImage: "/images/on-resort-piscina.jpg"
+    },
+    faq: [
+      {
+        pergunta: "Onde fica o ON Resort Cidade Jardim?",
+        resposta:
+          "Na Av. Vice-Presidente José Alencar, 1.305, dentro do Cidade Jardim, bairro planejado da Barra Olímpica, perto do Parque Olímpico, da Av. Embaixador Abelardo Bueno e do Empório Jardim."
+      },
+      {
+        pergunta: "Qual o valor dos apartamentos?",
+        resposta:
+          "Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil. Os valores dos 2 quartos e dos gardens são informados pelo especialista. Todos seguem a tabela vigente e a disponibilidade no momento da compra."
+      },
+      {
+        pergunta: "Quais tipologias estão disponíveis?",
+        resposta:
+          "São 1.306 unidades em 3 edifícios: studios de 32 e 33 m² (Ed. Polinésia), studios ou sala e quarto de 39 e 40 m² (Ed. Caribe), 2 quartos de 59 e 60 m² (Ed. Fiji) e gardens de 52 a 92 m²."
+      },
+      {
+        pergunta: "Posso alugar pelo Airbnb?",
+        resposta:
+          "Sim. O ON Resort é um projeto Airbnb-friendly e conta com o apoio do Airbnb para anunciar sua unidade. As atividades dos anfitriões estão sujeitas às leis e restrições locais, e o Airbnb apenas licencia o uso da marca."
+      },
+      {
+        pergunta: "Quem cuida da locação se eu não quiser me envolver?",
+        resposta:
+          "Há a opção de gestão completa com a Charlie, que cuida da decoração em até 90 dias, das fotos, do anúncio nas plataformas e do atendimento aos hóspedes."
+      },
+      {
+        pergunta: "Tem vaga de garagem?",
+        resposta:
+          "Os apartamentos de 2 quartos têm 1 vaga por unidade. Studios e sala e quarto têm direito de estacionar 1 veículo, mediante disponibilidade, com serviço de manobrista. Há também vagas para visitantes."
+      },
+      {
+        pergunta: "Quem é a incorporadora?",
+        resposta:
+          "A RJZ Cyrela, responsável pela incorporação e construção, em parceria com a Leblon Realty na incorporação."
+      },
+      {
+        pergunta: "Quando é o lançamento?",
+        resposta:
+          "O lançamento é em 03/10/2026. Preencha o formulário para receber tabela, plantas e simulação pelo WhatsApp e escolher sua unidade com prioridade."
+      }
+    ],
+    whatsapp: {
+      numero: "5521987715816",
+      mensagem:
+        "Olá, vi a página do ON Resort Cidade Jardim (RJZ Cyrela) e gostaria de receber tabela, plantas e simulação."
+    },
+    tracking: {
+      formEventName: "form_submit_on_resort",
+      whatsappEventName: "whatsapp_click_on_resort",
+      pageViewEventName: "page_view_on_resort"
+    },
+    localizacao: {
+      titulo: "No Cidade Jardim, bairro planejado da Barra Olímpica",
+      descricao:
+        "O ON Resort fica na Av. Vice-Presidente José Alencar, 1.305, dentro do Cidade Jardim: um bairro planejado cercado de áreas verdes, com segurança 24h, Parque Linear, Eixo Metropolitano e o Empório Jardim. Uma região que recebe novos investimentos em infraestrutura, perto do Parque Olímpico e dos principais acessos da Barra.",
+      imagem: "/images/on-resort-localizacao-mapa.jpg",
+      imagemAlt:
+        "Mapa aéreo com a localização do ON Resort no Cidade Jardim, entre o Empório Jardim e a Estrada dos Bandeirantes",
+      pontos: [
+        "Dentro do Cidade Jardim, com segurança 24h e mais de 30 câmeras",
+        "Portão de acesso direto ao Parque Linear",
+        "Empório Jardim com gastronomia e serviços no bairro",
+        "Perto do Parque Olímpico e da Av. Embaixador Abelardo Bueno"
+      ],
+      categorias: [
+        {
+          titulo: "Lazer & Natureza",
+          icon: "waves",
+          itens: [
+            { nome: "Parque Linear do Cidade Jardim", tempo: "acesso direto" },
+            { nome: "Eixo Metropolitano", tempo: "no bairro" },
+            { nome: "Parque Olímpico", tempo: "na região" }
+          ]
+        },
+        {
+          titulo: "Mobilidade",
+          icon: "navigation",
+          itens: [
+            { nome: "Ônibus do Cidade Jardim", tempo: "no bairro" },
+            { nome: "Av. Embaixador Abelardo Bueno", tempo: "na região" },
+            { nome: "Terminal Centro Olímpico (BRT)", tempo: "na região" }
+          ]
+        },
+        {
+          titulo: "Compras & Serviços",
+          icon: "shopping",
+          itens: [
+            { nome: "Empório Jardim", tempo: "no bairro" },
+            { nome: "Supermercado Mundial", tempo: "na região" },
+            { nome: "Shopping Rio 2", tempo: "na região" },
+            { nome: "Shopping Metropolitano", tempo: "na região" }
+          ]
+        },
+        {
+          titulo: "Educação & Saúde",
+          icon: "school",
+          itens: [
+            { nome: "Colégio Marista São José", tempo: "na região" },
+            { nome: "Hospital Rede Sarah", tempo: "na região" }
+          ]
+        }
+      ],
+      mapsUrl:
+        "https://www.google.com/maps/search/?api=1&query=Av.+Vice-Presidente+Jos%C3%A9+Alencar+1305+Barra+Ol%C3%ADmpica+Rio+de+Janeiro"
+    },
+    condicoesAviso:
+      "Lançamento em 03/10/2026. Studios a partir de R$ 370 mil e sala e quarto a partir de R$ 450 mil, sujeitos à tabela vigente e à disponibilidade. Plantas preliminares, sujeitas a alteração; imagens meramente ilustrativas. Memorial de Incorporação prenotado sob nº 2357388, em 12/08/2025, no 9º Ofício de Registro de Imóveis do Rio de Janeiro. Informações sobre valorização e retorno têm caráter meramente mercadológico e não garantem desempenho futuro. As atividades dos anfitriões estão sujeitas às leis e restrições locais; o Airbnb apenas licencia o uso da marca."
+  },
+  {
     id: "we-barra",
     slug: "we-barra-by-living-barra-da-tijuca",
     nome: "WE Barra by Living / Cyrela",
@@ -1817,6 +2387,8 @@ export function getImovelBySlug(slug: string) {
 
 /** Categorias canônicas de tipologia usadas nos filtros do portal. */
 export const filtroTipologias = [
+  "Studio",
+  "1 quarto",
   "2 quartos",
   "3 quartos",
   "4 quartos",
@@ -1827,6 +2399,8 @@ export const filtroTipologias = [
 export type FiltroTipologia = (typeof filtroTipologias)[number];
 
 const tipologiaMatchers: { tag: FiltroTipologia; regex: RegExp }[] = [
+  { tag: "Studio", regex: /\bstudios?\b/i },
+  { tag: "1 quarto", regex: /\b1\s*quarto\b|sala e quarto/i },
   { tag: "2 quartos", regex: /\b2\s*(quartos?|su[ií]tes?|dorm)/i },
   { tag: "3 quartos", regex: /\b3\s*(quartos?|su[ií]tes?|dorm)/i },
   { tag: "4 quartos", regex: /\b4\s*(quartos?|su[ií]tes?|dorm)/i },
@@ -1842,20 +2416,27 @@ export function getTipologiaTags(imovel: Imovel): FiltroTipologia[] {
     .map(({ tag }) => tag);
 }
 
-/** Rótulo compacto de quartos (ex.: "2 a 4 quartos") para o card de catálogo. */
+/** Rótulo compacto de quartos (ex.: "2 a 4 quartos", "Studio a 2 quartos") para o card de catálogo. */
 export function getQuartosLabel(imovel: Imovel): string | null {
-  const numeros = getTipologiaTags(imovel)
+  const tags = getTipologiaTags(imovel);
+  const temStudio = tags.includes("Studio");
+  const numeros = tags
     .map((tag) => parseInt(tag, 10))
     .filter((n) => !Number.isNaN(n));
 
   if (!numeros.length) {
-    return null;
+    return temStudio ? "Studio" : null;
   }
 
   const min = Math.min(...numeros);
   const max = Math.max(...numeros);
+  const plural = (n: number) => (n === 1 ? "quarto" : "quartos");
 
-  return min === max ? `${min} quartos` : `${min} a ${max} quartos`;
+  if (temStudio) {
+    return `Studio a ${max} ${plural(max)}`;
+  }
+
+  return min === max ? `${min} ${plural(min)}` : `${min} a ${max} ${plural(max)}`;
 }
 
 /** Faixa de metragem (ex.: "77 a 301 m²") derivada das plantas cadastradas. */
