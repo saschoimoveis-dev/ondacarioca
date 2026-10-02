@@ -19,6 +19,8 @@ export type Imovel = {
   parcelasIniciais?: string;
   materialPdfPath?: string;
   tipologias: string[];
+  /** Opções de tipologia do formulário de lead. Cai na lista padrão (2 a 4 quartos, coberturas) quando ausente. */
+  formTipologias?: string[];
   metragens?: string[];
   fichaTecnica?: {
     label: string;
@@ -160,6 +162,7 @@ export const imoveis: Imovel[] = [
       "Apartamentos de 2 quartos",
       "Gardens studio, sala e quarto e 2 quartos"
     ],
+    formTipologias: ["Studio", "Sala e quarto", "2 quartos", "Garden", "A definir"],
     metragens: [
       "Studios: 32 a 40 m²",
       "Sala e quarto: 39 e 40 m²",

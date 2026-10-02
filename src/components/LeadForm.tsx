@@ -87,7 +87,12 @@ const questions: QuestionConfig[] = [
 ];
 
 export function LeadForm({ imovel }: LeadFormProps) {
-  const [form, setForm] = useState<FormState>(initialState);
+  const tipologiaOptions = imovel.formTipologias ?? tipologias;
+  const formQuestions = questions.map((q) =>
+    q.field === "tipologia" ? { ...q, options: tipologiaOptions } : q
+  );
+  const formInitialState: FormState = { ...initialState, tipologia: tipologiaOptions[0] };
+  const [form, setForm] = useState<FormState>(formInitialState);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [hasStarted, setHasStarted] = useState(false);
   const [step, setStep] = useState<1 | 2>(1);
@@ -226,7 +231,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
       });
 
       setStatus("success");
-      setForm(initialState);
+      setForm(formInitialState);
       setStep(1);
       setSubStep(0);
     } catch {
@@ -359,7 +364,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
             <div className="animate-fade-in-up">
               {/* Desktop: todas as perguntas de uma vez */}
               <div className="hidden sm:grid gap-6">
-                {questions.map((q) => (
+                {formQuestions.map((q) => (
                   <label key={q.field} className={labelClassName}>
                     {q.label}
                     <RadioChips
@@ -375,7 +380,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
               {/* Mobile: uma pergunta por vez */}
               <div className="sm:hidden">
                 <div className="flex gap-1.5 mb-5">
-                  {questions.map((_, i) => (
+                  {formQuestions.map((_, i) => (
                     <div
                       key={i}
                       className={`h-1 flex-1 rounded-full transition-colors duration-300 ${
@@ -386,12 +391,12 @@ export function LeadForm({ imovel }: LeadFormProps) {
                 </div>
 
                 <label className={labelClassName}>
-                  {questions[subStep].label}
+                  {formQuestions[subStep].label}
                   <RadioChips
-                    name={questions[subStep].field}
-                    value={form[questions[subStep].field]}
-                    onChange={(val) => updateField(questions[subStep].field, val)}
-                    options={questions[subStep].options}
+                    name={formQuestions[subStep].field}
+                    value={form[formQuestions[subStep].field]}
+                    onChange={(val) => updateField(formQuestions[subStep].field, val)}
+                    options={formQuestions[subStep].options}
                   />
                 </label>
 
@@ -411,7 +416,7 @@ export function LeadForm({ imovel }: LeadFormProps) {
                     <ArrowLeft className="size-5" aria-hidden="true" />
                     Voltar
                   </button>
-                  {subStep < questions.length - 1 ? (
+                  {subStep < formQuestions.length - 1 ? (
                     <button
                       type="button"
                       onClick={() => setSubStep((s) => s + 1)}
