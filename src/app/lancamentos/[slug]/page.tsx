@@ -4,6 +4,7 @@ import { BlocoCondicoes } from "@/components/BlocoCondicoes";
 import { BlocoConceito } from "@/components/BlocoConceito";
 import { BlocoCredibilidade } from "@/components/BlocoCredibilidade";
 import { BlocoFluxoPagamento } from "@/components/BlocoFluxoPagamento";
+import { BlocoGaleria } from "@/components/BlocoGaleria";
 import { BlocoLazer } from "@/components/BlocoLazer";
 import { BlocoLocalizacao } from "@/components/BlocoLocalizacao";
 import { BlocoPreference } from "@/components/BlocoPreference";
@@ -84,6 +85,7 @@ export default async function ImovelPage({ params }: PageProps) {
       <BlocoTipologias imovel={imovel} />
       <BlocoLazer imovel={imovel} />
       <BlocoServicos imovel={imovel} />
+      <BlocoGaleria imovel={imovel} />
       <BlocoPreference imovel={imovel} />
       <BlocoLocalizacao imovel={imovel} />
       <BlocoCondicoes imovel={imovel} />
